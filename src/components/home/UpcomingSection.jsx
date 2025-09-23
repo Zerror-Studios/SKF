@@ -10,27 +10,27 @@ gsap.registerPlugin(ScrollTrigger);
 const UpcomingSection = () => {
   const sectionRef = useRef(null);
 
-  // useGSAP(() => {
-  //   if (!sectionRef.current) return;
+  useGSAP(() => {
+    if (!sectionRef.current) return;
 
-  //   const container = sectionRef.current;
-  //   const img = container.querySelector("img");
+    const container = sectionRef.current;
+    const img = container.querySelector("img");
 
-  //   gsap.fromTo(
-  //     img,
-  //     { yPercent: -20, ease: "none" },
-  //     {
-  //       yPercent: 20,
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         trigger: container,
-  //         scrub: true,
-  //         start: "top bottom",
-  //         end: "bottom top",
-  //       },
-  //     }
-  //   );
-  // }, []);
+    gsap.fromTo(
+      img,
+      { yPercent: -3, ease: "none" },
+      {
+        yPercent: 3,
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          scrub: true,
+          start: "top bottom",
+          end: "bottom top",
+        },
+      }
+    );
+  }, []);
 
   return (
     <div id="upcoming_section" ref={sectionRef}>
