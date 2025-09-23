@@ -304,18 +304,19 @@
     font-size: 2.5rem;
   }
   .movie_details_info {
-    padding: 3.5rem 1rem;
+    padding: 3.5rem 1rem; 
     flex-wrap: wrap;
     gap: 2rem;
   }
   .movie_details_info > div {
     width: 45%;
+    margin-bottom: .5rem;
   }
   .movie_details_info p {
     font-size: .9rem;
   }
   .movie_details_info h4 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     white-space: nowrap;
   }
   .movie_details_info .netflix {
@@ -326,7 +327,7 @@
     padding: 2rem 1rem;
   }
   .synopsis_info p {
-    width: 85%;
+    width: 95%;
   }
   #cast_section {
     padding: 3.5rem 1rem;
