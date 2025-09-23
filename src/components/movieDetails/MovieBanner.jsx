@@ -14,6 +14,7 @@ const MovieBanner = ({bannerRef,setShowVideo}) => {
         height={1000}
         src="/images/moviedetails/movie_banner.png"
         alt="image"
+        priority
       />
       <div className="movie_banner_overlay">
         <h2 className="heading">sikandar</h2>
