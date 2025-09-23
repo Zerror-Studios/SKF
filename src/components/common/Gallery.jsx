@@ -81,7 +81,7 @@ const Gallery = () => {
   return (
     <section id="gallery" className="gallery">
       <h2 className="heading">
-        Raw, real, & BTS from <br /> Salman Khan Films
+        Raw, Real & BTS from <br /> Salman Khan Films
       </h2>
 
       <div ref={galleryRef} className="gallery_container">

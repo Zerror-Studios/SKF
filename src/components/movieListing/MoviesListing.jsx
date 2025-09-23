@@ -6,7 +6,7 @@ import Cursor from "../common/Cursor";
 
 const MoviesListing = ({ data }) => {
   const filters = ["all", "released", "upcoming movies"];
-  const [filter, setFilter] = useState("released");
+  const [filter, setFilter] = useState("all");
   const titleRef = useRef(null);
   const sectionRef = useRef(null);
   useSplitTextMaskAnimation([titleRef]);
@@ -41,7 +41,7 @@ const MoviesListing = ({ data }) => {
       <div className="btn_container">
         <Button color={"black"} title={"show more"} />
       </div>
-      <Cursor sectionRef={sectionRef} text="View more" />
+      <Cursor sectionRef={sectionRef} text="know more" />
     </section>
   );
 };

@@ -13,7 +13,7 @@ const Cursor = ({ sectionRef, text = "View more" }) => {
       gsap.to(cursor, {
         left: e.clientX,
         top: e.clientY,
-        duration: 0.1,
+        duration: 0.6,
       });
     };
 
