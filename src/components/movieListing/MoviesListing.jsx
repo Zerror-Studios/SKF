@@ -3,10 +3,9 @@ import MovieCard from "./MovieCard";
 import Button from "../common/Button";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 import Cursor from "../common/Cursor";
+import Filters from "../common/Filters";
 
 const MoviesListing = ({ data }) => {
-  const filters = ["all", "released", "upcoming movies"];
-  const [filter, setFilter] = useState("all");
   const titleRef = useRef(null);
   const sectionRef = useRef(null);
   useSplitTextMaskAnimation([titleRef]);
@@ -19,17 +18,11 @@ const MoviesListing = ({ data }) => {
           Explore our top <span className="letter-u">films</span> loved by{" "}
           <br /> <span className="letter-u">audiences</span> worldwide.
         </h3>
-        <div className="filter_movie">
-          {filters.map((f, idx) => (
-            <span
-              key={idx}
-              onClick={() => setFilter(f)}
-              className={`${f === filter ? "active" : ""} `}
-            >
-              {f}
-            </span>
-          ))}
-        </div>
+        <Filters
+          filters={["all", "released", "upcoming movies"]}
+          defaultFilter="all"
+          onChange={(value) => console.log("Selected filter:", value)}
+        />
       </div>
 
       {/* Movie Container */}

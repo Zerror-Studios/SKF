@@ -5,6 +5,9 @@
   min-height: 100vh;
 }
 
+#gallery .btn_container{
+  display: flex;
+}
 /* Grid for 3 columns */
 .gallery_container {
   display: grid;

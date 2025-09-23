@@ -66,7 +66,7 @@ const HighlightCard = ({ data, isLast }) => {
         <Button title="Read More" color={"black"} />
       </div>
       <div className="highlight_img" >
-        <Image ref={imageRef} width={1000} height={1000} src={data?.image} alt={data?.title} />
+        <Image priority ref={imageRef} width={1000} height={1000} src={data?.image} alt={data?.title} />
       </div>
       {!isLast && <div ref={lineRef} className="highlight_line"></div>}
     </div>

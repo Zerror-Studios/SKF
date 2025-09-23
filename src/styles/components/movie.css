@@ -22,32 +22,25 @@
 .filter_movie span {
   position: relative;
   display: inline-block;
-  line-height: 1.5;
+  line-height: 1.6;
   cursor: pointer;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 0% 2px; /* width = 0, height = 2px */
+  background-position: 0 100%; /* bottom line */
+  transition: background-size 0.3s ease;
 }
-.filter_movie span::before {
-  content: "";
-  position: absolute;
-  bottom: 1.5px;
-  left: 0;
-  width: 100%;
-  height: 1.5px;
-  background-color: #1d1d1d;
-  transition: transform ease 0.3s;
-  transform-origin: right;
-  transform: scaleX(0);
-}
+
 .filter_movie span.active {
   color: #a5a08c;
+  background-image: linear-gradient(#a5a08c, #a5a08c);
+  background-size: 100% 2px; /* full underline */
 }
-.filter_movie span.active::before {
-  background-color: #a5a08c;
-  transform: scaleX(1);
+
+.filter_movie span:hover {
+  background-size: 100% 2px; /* expand underline on hover */
 }
-.filter_movie span:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
+
 /* movie container */
 #movie_container {
   width: 100%;
@@ -64,9 +57,12 @@
   text-decoration: none;
   color: #1d1d1d;
   width: 100%;
-  cursor: none;
+  cursor: pointer;
 }
 
+#movie_container.hero .movie_card{
+  cursor: none;
+}
 #movie_container.hero .movie_img {
   height: 420px;
 }

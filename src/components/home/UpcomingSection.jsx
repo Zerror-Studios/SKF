@@ -36,7 +36,7 @@ const UpcomingSection = () => {
     <div id="upcoming_section" ref={sectionRef}>
       <h5 className="tag">Upcoming Release</h5>
       <div id="upcoming_poster">
-        <Image width={1000} height={1000} src="/images/home/upcoming-rel.png" alt="upcoming release" />
+        <Image priority width={1000} height={1000} src="/images/home/upcoming-rel.png" alt="upcoming release" />
       </div>
     </div>
   );

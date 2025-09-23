@@ -108,9 +108,11 @@ const HeroLoader = () => {
 
     // Move play button with cursor
     const moveBtn = (e) => {
-      playBtn.style.left = `${e.clientX}px`;
-      playBtn.style.top = `${e.clientY}px`;
-      playBtn.style.transform = "translate(-50%, -50%)";
+      gsap.to(playBtn, {
+        left: e.clientX,
+        top: e.clientY,
+        duration: 0.6,
+      });
     };
     window.addEventListener("mousemove", moveBtn);
 

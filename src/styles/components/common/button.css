@@ -15,6 +15,7 @@
   font-family: var(--tag-font);
   font-weight: 400;
   background-color: #fff;
+  position: relative;
 }
 .btn_text {
   width: fit-content;

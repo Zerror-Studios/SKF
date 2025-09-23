@@ -34,16 +34,13 @@ const highlightData = [
 
 const Highlights = () => {
   const titleRef = useRef(null);
-  const cursorRef = useRef(null);
-  const sectionRef = useRef(null);
-
   useSplitTextMaskAnimation([titleRef]);
 
   return (
     <section id="highlight_section">
       <h5 className="tag">highlight</h5>
       <h2 ref={titleRef}>News and Updates</h2>
-      <div id="highlights_container" ref={sectionRef}>
+      <div id="highlights_container">
         {highlightData.map((item, index) => (
           <HighlightCard
             key={item.id}
@@ -55,7 +52,6 @@ const Highlights = () => {
       <div className="btn_container">
         <Button color={"black"} title={"read more"} />
       </div>
-      <Cursor sectionRef={sectionRef} text="View more" />
     </section>
   );
 };
