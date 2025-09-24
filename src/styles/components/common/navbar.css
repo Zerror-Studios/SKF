@@ -132,6 +132,7 @@
 .meun_social a{
   text-decoration: none;
   color: #1D1D1D;
+  display: inline-block;
 }
 .menu_contact p{
   opacity: .7;
