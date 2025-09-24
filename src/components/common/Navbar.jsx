@@ -1,10 +1,11 @@
-"use client";
 import Link from "next/link";
 import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { navLinks } from "@/helper/menuData";
 import { usePathname } from "next/navigation";
+import { useGSAP } from "@gsap/react";
+import NavigationMenu from "./NavigationMenu";
 
 const Navbar = () => {
   const navRef = useRef(null);
@@ -53,12 +54,27 @@ const Navbar = () => {
   }, [isDarkRoute]);
 
   // ✅ Navbar styles
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 480);
+
+    checkMobile(); // run once on mount
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const navStyle = isDarkRoute
     ? {
-        transform: pathname === "/" ? "translateY(-100%)" : "",
-        background: scrolled ? "white" : "transparent",
+        transform: pathname === "/" ? "translateY(-110%)" : "none",
+        background: isMobile ? "white" : scrolled ? "white" : "transparent",
         borderBottom: "1px solid",
-        borderColor: scrolled ? "#d8d8d8" : "transparent",
+        borderColor: isMobile
+          ? "#d8d8d8"
+          : scrolled
+          ? "#d8d8d8"
+          : "transparent",
         transition: "background 0.3s ease, border-color 0.3s ease",
       }
     : {
@@ -67,6 +83,81 @@ const Navbar = () => {
         borderBottom: "1px solid #d8d8d8",
         transition: "none",
       };
+
+  const [menu, setMenu] = useState(false);
+  const menuTL = useRef();
+  useGSAP(() => {
+    menuTL.current = gsap
+      .timeline({ paused: true })
+      .to(
+        ".line1m",
+        {
+          top: "50%",
+          transform: "translateY(-50%)",
+          duration: 0.2,
+        },
+        "a"
+      )
+      .to(
+        ".line2m",
+        {
+          top: "50%",
+          transform: "translateY(-50%)",
+          duration: 0.2,
+        },
+        "a"
+      )
+      .to(
+        ".line1m",
+        {
+          rotate: 45,
+          duration: 0.2,
+        },
+        "b"
+      )
+      .to(
+        ".line2m",
+        {
+          rotate: -45,
+          duration: 0.2,
+        },
+        "b"
+      )
+      .to(
+        ".line3m",
+        {
+          scaleX: 0,
+          duration: 0.2,
+          delay: -0.1,
+        },
+        "b"
+      )
+      .to(
+        "#navigation",
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        "a"
+      );
+  }, []);
+
+  // ✅ This watches state and runs animation properly
+  useEffect(() => {
+    if (menuTL.current) {
+      if (menu) {
+        menuTL.current.play();
+      } else {
+        menuTL.current.reverse();
+      }
+    }
+  }, [menu]);
+
+  // ✅ Toggle function remains clean
+  const toggleMenu = () => {
+    setMenu((prev) => !prev);
+  };
 
   return (
     <nav ref={navRef} id="navbar" style={navStyle}>
@@ -77,7 +168,11 @@ const Navbar = () => {
           src="/images/skf_logo.png"
           alt="skf_logo"
           style={{
-            filter: isDarkRoute && !scrolled ? "invert(1)" : "invert(0)",
+            filter: isMobile
+              ? "invert(0)" // always normal on mobile
+              : isDarkRoute && !scrolled
+              ? "invert(1)"
+              : "invert(0)",
             transition: "filter 0.6s ease",
           }}
         />
@@ -100,6 +195,13 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
+
+      <div id="menu-btn" onClick={toggleMenu}>
+        <span className="line1m linem"></span>
+        <span className="line3m linem"></span>
+        <span className="line2m linem"></span>
+      </div>
+      <NavigationMenu setMenu={setMenu} />
     </nav>
   );
 };
