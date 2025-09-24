@@ -5,7 +5,7 @@ const TrailerCard = ({ trailer, index, panelsRef }) => {
   return (
     <div
       className={`trailer_panel trailer_panel${index + 1}`}
-      ref={(el) => (panelsRef.current[index] = el)}
+      ref={panelsRef ? (el) => (panelsRef.current[index] = el) : null}
     >
       <div className="trailer_panel_poster">
         <Image

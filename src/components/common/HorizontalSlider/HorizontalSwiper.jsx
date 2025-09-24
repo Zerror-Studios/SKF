@@ -5,17 +5,12 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
+import { trailers } from "@/helper/trailerData";
+import TrailerCard from "./TrailerCard";
 
 const HorizontalSwiper = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
-
-  const trailers = [
-    "/images/moviedetails/trailer1.png",
-    "/images/moviedetails/trailer2.png",
-    "/images/moviedetails/trailer3.png",
-  ];
-
   return (
     <div id="trailer_section">
       <h2 className="heading">Trailer and Teasers</h2>
@@ -38,30 +33,27 @@ const HorizontalSwiper = () => {
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
         >
-          {trailers.map((src, i) => (
-            <SwiperSlide key={i}>
-              <Image
-                width={1000}
-                height={1000}
-                src={src}
-                alt={`trailer-${i}`}
-              />
+          {trailers.map((trailer, index) => (
+            <SwiperSlide key={index}>
+              <TrailerCard key={trailer.id} trailer={trailer} index={index} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
       <div id="trailer_swiper_indicator">
-        {trailers.map((src, i) => (
+        {trailers.map((trailer, index) => (
           <div
-            key={i}
-            className={`indicator_card ${activeIndex === i ? "active" : ""}`}
-            onClick={() => swiperRef.current?.slideTo(i)}
+            key={index}
+            className={`indicator_card ${
+              activeIndex === index ? "active" : ""
+            }`}
+            onClick={() => swiperRef.current?.slideTo(index)}
           >
             <Image
               width={1000}
               height={1000}
-              src={src}
-              alt={`indicator-${i}`}
+              src={trailer.poster}
+              alt={`trailer-${index + 1}`}
             />
           </div>
         ))}
