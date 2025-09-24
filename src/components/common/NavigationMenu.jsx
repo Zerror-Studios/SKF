@@ -1,8 +1,7 @@
 import { navLinks } from "@/helper/menuData";
 import Link from "next/link";
 import React from "react";
-import { FaInstagram } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const NavigationMenu = ({ setMenu }) => {
   return (
@@ -20,11 +19,14 @@ const NavigationMenu = ({ setMenu }) => {
         ))}
       </div>
       <div className="meun_social">
-        <div className="menu_social_icon">
-          <FaInstagram />
-          <FaYoutube />
+        <div className="menu_contact">
+          <p>contact us</p>
+          <Link href="/">salmankhanflims@gmail.com</Link>
         </div>
-        <Link href="/">salmankhanflims@gmail.com</Link>
+          <div className="menu_social_icon">
+          <FaInstagram />
+          <FaFacebookF />
+        </div>
       </div>
     </div>
   );

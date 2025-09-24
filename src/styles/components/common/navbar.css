@@ -112,19 +112,30 @@
 
 .meun_social{
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 }
 .menu_social_icon{
   display: flex;
-  align-items: flex-end;
-  gap: 1rem;
-  font-size: 2rem;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 1rem;
+}
+.menu_social_icon svg{
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: .5rem;
+  border-radius: 50px;
+  border: 1px solid #1D1D1D;
 }
 
 .meun_social a{
   text-decoration: none;
   color: #1D1D1D;
+}
+.menu_contact p{
+  opacity: .7;
+  margin-bottom: .3rem;
 }
 
 /* Extra small (Phones) */
