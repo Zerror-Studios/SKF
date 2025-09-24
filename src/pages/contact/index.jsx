@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-   <div
+    <div
       className="heading"
       style={{
         width: "100%",
@@ -10,8 +10,9 @@ const Contact = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: "2rem",
-        textAlign:"center"
+        fontSize: "1.5rem",
+        textAlign: "center",
+        padding: "1rem",
       }}
     >
       🚧 We’re working on this page — coming your way soon!
