@@ -80,8 +80,8 @@ useEffect(() => {
     const tlReset = gsap.timeline({
       scrollTrigger: {
         trigger: cardRef.current,
-        start: "bottom 65%",
-        end: "bottom 60%",
+        start: "bottom 55%",
+        end: "bottom 50%",
         scrub: true,
       },
     });
