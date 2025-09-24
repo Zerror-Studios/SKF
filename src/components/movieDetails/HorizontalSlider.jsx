@@ -72,28 +72,46 @@ const HorizontalSlider = () => {
   return (
     <div className="trailer_slider" ref={containerRef}>
       <div className="trailer_panel trailer_panel1" ref={panel1Ref}>
-        <Image
+        <div className="trailer_panel_poster">
+          <Image
           width={1000}
           height={1000}
           src="/images/moviedetails/trailer1.png"
           alt={`traile-img`}
         />
+        </div>
+        <div className="trailer_panel_info">
+          <p>SIKANDAR Official Trailer - Salman Khan, Rashmika | Sajid Nadiadwala | A.R. Murugadoss</p>
+          <p>30th March</p>
+        </div>
       </div>
       <div className="trailer_panel trailer_panel2" ref={panel2Ref}>
-        <Image
+        <div className="trailer_panel_poster">
+          <Image
           width={1000}
           height={1000}
           src="/images/moviedetails/trailer2.png"
           alt={`traile-img`}
         />
+        </div>
+        <div className="trailer_panel_info">
+          <p>FARREY Official Trailer | Salman Khan | Alizeh | Soumendra Padhi </p>
+          <p>24th November</p>
+        </div>
       </div>
       <div className="trailer_panel trailer_panel3" ref={panel3Ref}>
-        <Image
+         <div className="trailer_panel_poster">
+          <Image
           width={1000}
           height={1000}
           src="/images/moviedetails/trailer3.png"
           alt={`traile-img`}
         />
+        </div>
+        <div className="trailer_panel_info">
+          <p>SIKANDAR Official Trailer - Salman Khan, Rashmika | Sajid Nadiadwala | A.R. Murugadoss</p>
+          <p>30th March</p>
+        </div>
       </div>
     </div>
   );
