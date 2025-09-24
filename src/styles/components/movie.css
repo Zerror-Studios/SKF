@@ -184,7 +184,7 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
   }
-  #movie_container.hero .movie_img {
+  .movie_img {
     height: 250px;
   }
   .filter_movie span {
