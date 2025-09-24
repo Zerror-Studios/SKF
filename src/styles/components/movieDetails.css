@@ -3,7 +3,7 @@
   height: 100vh;
   background-color: #1d1d1d;
 }
-#movie_details_wrapper{
+#movie_details_wrapper {
   width: 100%;
   height: 100%;
   display: flex;
@@ -163,132 +163,6 @@
 }
 /* cast section  */
 
-/* trailer  start */
-#trailer_heading{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-.trailer_slider {
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  perspective: 800px; /* 3D effect */
-  overflow: hidden;
-}
-
-.trailer_panel {
-  width: calc(100% - 7rem);
-  height: calc(100% - 6rem);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  font-weight: bold;
-  color: white;
-  backface-visibility: hidden;
-  background-color: rgba(211, 211, 211, 0.367);
-  overflow: hidden;
-}
-.trailer_panel img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all ease-in-out .6s;
-}
-.trailer_panel:hover img{
-  transform: scale(1.05);
-}
-
-.trailer_panel1 {
-  z-index: 2;
-}
-
-.trailer_panel2 {
-  z-index: 1;
-}
-
-.trailer_panel3 {
-  z-index: 1;
-}
-
-/* trailer  end */
-
-
-/* trailer section  start */
-#trailer_section {
-  width: 100%;
-  padding: 3.5rem;
-  flex-direction: column;
-  align-items: center;
-  display: none;
-}
-
-#trailer_swiper_container {
-  height: 38vw;
-  width: 100%;
-  overflow: hidden;
-  margin: 2rem 0;
-  cursor: none;
-}
-
-#trailer_swiper_container .swiper {
-  width: 100%;
-  height: 100%;
-  cursor: none;
-}
-#trailer_swiper_container .swiper:active,
-#trailer_swiper_container .swiper-slide:active {
-  cursor: none;
-}
-
-#trailer_swiper_container .swiper-slide {
-  width: 100%;
-  height: 100%;
-  cursor: none;
-}
-
-#trailer_swiper_container .swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-#trailer_swiper_indicator {
-  width: 100%;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-.indicator_card {
-  width: 250px;
-  height: 100px;
-  overflow: hidden;
-  transition: all ease 0.3s;
-  cursor: pointer;
-}
-
-.indicator_card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.indicator_card.active {
-  width: 260px;
-  height: 120px;
-}
-/* trailer section end */
-
 /* Extra small (Phones) */
 @media (max-width: 480px) {
   #movie_details_hero {
@@ -304,16 +178,16 @@
     font-size: 2.5rem;
   }
   .movie_details_info {
-    padding: 3.5rem 1rem; 
+    padding: 3.5rem 1rem;
     flex-wrap: wrap;
     gap: 2rem;
   }
   .movie_details_info > div {
     width: 45%;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
   .movie_details_info p {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
   .movie_details_info h4 {
     font-size: 1.2rem;
@@ -332,27 +206,7 @@
   #cast_section {
     padding: 3.5rem 1rem;
   }
-  #trailer_heading,.trailer_slider{
-    display: none;
-  }
-  #trailer_section {
-    padding: 3.5rem 1rem;
-    display: flex;
-  }
-  #trailer_swiper_container {
-    height: 50vw;
-  }
-  #trailer_swiper_indicator {
-    height: 100px;
-  }
-  .indicator_card {
-    width: 90px;
-    height: 50px;
-  }
-  .indicator_card.active {
-    width: 100px;
-    height: 60px;
-  }
+ 
 }
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {

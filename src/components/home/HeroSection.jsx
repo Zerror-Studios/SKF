@@ -72,7 +72,7 @@ const HeroSection = ({ movies }) => {
             card2.querySelectorAll("span"),
             card3.querySelectorAll("span"),
           ],
-          { opacity: 0, duration: 0.4, stagger: 0.1, force3D: true },
+          { opacity: 0, duration: 0.2,force3D: true },
           "cards"
         )
           .to(card1, { x: moveX1, zIndex: 1, force3D: true, duration: 1.2 })

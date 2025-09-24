@@ -1,16 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
+import { trailers } from "@/helper/trailerData";
+import TrailerCard from "./TrailerCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HorizontalSlider = () => {
   const containerRef = useRef(null);
-  const panel1Ref = useRef(null);
-  const panel2Ref = useRef(null);
-  const panel3Ref = useRef(null);
+  const panelsRef = useRef([]);
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
@@ -30,36 +30,36 @@ const HorizontalSlider = () => {
       });
 
       // Panel 1 → slides out a bit, panel2 comes into mid-right
-      tl.to(panel1Ref.current, { x: "-50%", rotateY: 40, ease: "linear" });
+      tl.to(panelsRef.current[0], { x: "-50%", rotateY: 40, ease: "linear" });
       tl.fromTo(
-        panel2Ref.current,
+        panelsRef.current[1],
         { x: "110%", y: "150%", rotateY: -80 },
         { x: "35%", y: "0%", rotateY: -40, ease: "linear" },
         "<"
       );
 
       // Panel 1 exits fully, panel2 centers and straightens
-      tl.to(panel1Ref.current, { x: "-120%", rotateY: 70, ease: "linear" });
+      tl.to(panelsRef.current[0], { x: "-120%", rotateY: 70, ease: "linear" });
       tl.to(
-        panel2Ref.current,
+        panelsRef.current[1],
         { x: "0%", y: "0%", rotateY: 0, ease: "linear" },
         "<"
       );
       tl.to({}, { duration: 0.08 });
 
       // Panel 2 → slides out a bit, panel3 comes into mid-right
-      tl.to(panel2Ref.current, { x: "-50%", rotateY: 40, ease: "linear" });
+      tl.to(panelsRef.current[1], { x: "-50%", rotateY: 40, ease: "linear" });
       tl.fromTo(
-        panel3Ref.current,
+        panelsRef.current[2],
         { x: "110%", y: "150%", rotateY: -80 },
         { x: "35%", y: "0%", rotateY: -40, ease: "linear" },
         "<"
       );
 
       // Panel 2 exits fully, panel3 centers and straightens
-      tl.to(panel2Ref.current, { x: "-120%", rotateY: 70, ease: "linear" });
+      tl.to(panelsRef.current[1], { x: "-120%", rotateY: 70, ease: "linear" });
       tl.to(
-        panel3Ref.current,
+        panelsRef.current[2],
         { x: "0%", y: "0%", rotateY: 0, ease: "linear" },
         "<"
       );
@@ -70,32 +70,21 @@ const HorizontalSlider = () => {
   }, []);
 
   return (
-    <div className="trailer_slider" ref={containerRef}>
-      <div className="trailer_panel trailer_panel1" ref={panel1Ref}>
-        <Image
-          width={1000}
-          height={1000}
-          src="/images/moviedetails/trailer1.png"
-          alt={`traile-img`}
-        />
+    <>
+      <h2 className="heading" id="trailer_heading">
+        Trailer and Teasers
+      </h2>
+      <div className="trailer_slider" ref={containerRef}>
+        {trailers.map((trailer, index) => (
+          <TrailerCard
+            key={trailer.id}
+            trailer={trailer}
+            index={index}
+            panelsRef={panelsRef}
+          />
+        ))}
       </div>
-      <div className="trailer_panel trailer_panel2" ref={panel2Ref}>
-        <Image
-          width={1000}
-          height={1000}
-          src="/images/moviedetails/trailer2.png"
-          alt={`traile-img`}
-        />
-      </div>
-      <div className="trailer_panel trailer_panel3" ref={panel3Ref}>
-        <Image
-          width={1000}
-          height={1000}
-          src="/images/moviedetails/trailer3.png"
-          alt={`traile-img`}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
