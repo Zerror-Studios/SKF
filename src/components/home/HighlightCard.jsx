@@ -23,7 +23,7 @@ const HighlightCard = ({ data, isLast }) => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: cardRef.current, // trigger on card
-        start: "top 70%",         // adjust for when animation should start
+        start: "top 70%", // adjust for when animation should start
         toggleActions: "play none none none",
       },
     });
@@ -42,7 +42,7 @@ const HighlightCard = ({ data, isLast }) => {
       tl.fromTo(
         lineRef.current,
         { width: 0 },
-        { width: "100%", duration: 1, ease: "power3.out" ,delay:.5},
+        { width: "100%", duration: 1, ease: "power3.out", delay: 0.5 },
         "<" // start at the same time as image animation
       );
     }
@@ -52,6 +52,60 @@ const HighlightCard = ({ data, isLast }) => {
       tl.scrollTrigger?.kill();
     };
   }, []);
+
+useEffect(() => {
+  if (!cardRef.current) return;
+
+  // Create a GSAP MatchMedia instance
+  const mm = gsap.matchMedia();
+
+  mm.add("(max-width: 480px)", () => {
+    // Highlight card when scrolled into view
+    const tlHighlight = gsap.timeline({
+      scrollTrigger: {
+        trigger: cardRef.current,
+        start: "top 70%",
+        end: "bottom 65%",
+        scrub: true,
+      },
+    });
+
+    tlHighlight.to(cardRef.current, {
+      backgroundColor: "#a5a08c",
+      ease: "linear",
+      duration: 0.3,
+    });
+
+    // Reset card when it leaves
+    const tlReset = gsap.timeline({
+      scrollTrigger: {
+        trigger: cardRef.current,
+        start: "bottom 65%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+    });
+
+    tlReset.to(cardRef.current, {
+      backgroundColor: "#fffef1",
+      ease: "linear",
+      duration: 0.3,
+    });
+
+    // Cleanup function for this media query
+    return () => {
+      tlHighlight.kill();
+      tlHighlight.scrollTrigger?.kill();
+      tlReset.kill();
+      tlReset.scrollTrigger?.kill();
+    };
+  });
+
+  // Cleanup all matchMedia triggers on unmount
+  return () => {
+    mm.revert();
+  };
+}, []);
 
   return (
     <div className="highlight_card" ref={cardRef}>
@@ -65,8 +119,15 @@ const HighlightCard = ({ data, isLast }) => {
         </div>
         <Button title="Read More" color={"black"} />
       </div>
-      <div className="highlight_img" >
-        <Image priority ref={imageRef} width={1000} height={1000} src={data?.image} alt={data?.title} />
+      <div className="highlight_img">
+        <Image
+          priority
+          ref={imageRef}
+          width={1000}
+          height={1000}
+          src={data?.image}
+          alt={data?.title}
+        />
       </div>
       {!isLast && <div ref={lineRef} className="highlight_line"></div>}
     </div>
