@@ -2,13 +2,15 @@ import React, { useRef } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import gsap from "gsap";
 
-const Button = ({ title, color }) => {
+const Button = ({ title, color, onClick }) => {
   const btnRef = useRef(null);
 
-const splitLetters = (text) =>
-  text.split("").map((letter, i) => (
-    <span key={i}>{letter === " " ? "\u00A0" : letter}</span>
-  ));
+  const splitLetters = (text) =>
+    text
+      .split("")
+      .map((letter, i) => (
+        <span key={i}>{letter === " " ? "\u00A0" : letter}</span>
+      ));
 
   const animateLetters = (selector) => {
     const letters = btnRef.current.querySelectorAll(selector);
@@ -29,11 +31,16 @@ const splitLetters = (text) =>
     animateLetters(".btn_text .btn_title2 span");
   };
 
+  const handleClick = () => {
+    if (onClick) onClick();
+  };
+
   return (
     <button
       ref={btnRef}
       onMouseEnter={handleHover}
       className={`common_btn ${color}`}
+      onClick={handleClick}
     >
       <div className="btn_text">
         <span className="btn_title1">{splitLetters(title)}</span>
