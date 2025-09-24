@@ -10,8 +10,9 @@ const About = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: "2rem",
-        textAlign:"center"
+        fontSize: "1.5rem",
+        textAlign: "center",
+        padding: "1rem",
       }}
     >
       🚧 We’re working on this page — coming your way soon!
