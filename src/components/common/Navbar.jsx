@@ -136,11 +136,38 @@ const Navbar = () => {
         "#navigation",
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 0.3,
+          duration: 0.4,
           ease: "power2.out",
         },
         "a"
-      );
+      )
+      .fromTo(".menu-links a",{
+        opacity:0,
+        y:20
+      },{
+        opacity:1,
+        stagger:0.1,
+        delay:-.3,
+        y:0
+      },"s")
+       .fromTo(".menu_social_icon svg",{
+        opacity:0,
+        y:20
+      },{
+        opacity:1,
+        stagger:0.1,
+        delay:-.3,
+        y:0
+      },"s")
+       .fromTo([".menu_contact p" ,".menu_contact a"],{
+        opacity:0,
+        y:20
+      },{
+        opacity:1,
+        stagger:0.1,
+        delay:-.3,
+        y:0
+      },"s")
   }, []);
 
   // ✅ This watches state and runs animation properly
