@@ -159,12 +159,19 @@ const Navbar = () => {
         delay:-.3,
         y:0
       },"s")
-       .fromTo([".menu_contact p" ,".menu_contact a"],{
+       .fromTo(".menu_contact p",{
+        opacity:0,
+        y:20
+      },{
+        opacity:.5,
+        delay:-.3,
+        y:0
+      },"s")
+       .fromTo(".menu_contact a",{
         opacity:0,
         y:20
       },{
         opacity:1,
-        stagger:0.1,
         delay:-.3,
         y:0
       },"s")
