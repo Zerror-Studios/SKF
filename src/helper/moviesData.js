@@ -1,5 +1,6 @@
 export const movies = [
     {
+        slug:"sikandar",
         year: 2025,
         title: "Sikandar",
         cast: ["Salman Khan", "Rashmika Mandanna", "Sathyaraj", "Kajal Aggarwal", "Sharman Joshi"],
@@ -9,6 +10,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"farrey",
         year: 2023,
         title: "Farrey",
         cast: ["Alizeh", "Ronit Roy", "Sahil Mehta", "Zeyn Shaw", "Prasanna Bisht"],
@@ -18,6 +20,7 @@ export const movies = [
         trailer: "/images/home/farrey.mp4"
     },
     {
+        slug:"kisi-ka-bhai-kisi-ki-jaan",
         year: 2023,
         title: "Kisi Ka Bhai Kisi Ki Jaan",
         cast: ["Salman Khan", "Pooja Hegde", "Venkatesh", "Jagapathi Babu"],
@@ -27,6 +30,7 @@ export const movies = [
         trailer: "/images/home/kiss-ka-bhai.mp4"
     },
     {
+        slug:"antim-the-final-truth",
         year: 2021,
         title: "Antim: The Final Truth",
         cast: ["Salman Khan", "Aayush Sharma", "Mahima Makwana", "Jisshu Sengupta"],
@@ -36,6 +40,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"radhe",
         year: 2021,
         title: "Radhe",
         cast: ["Salman Khan", "Disha Patani", "Randeep Hooda", "Jackie Shroff"],
@@ -45,6 +50,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"kaagaz",
         year: 2021,
         title: "Kaagaz",
         cast: ["Pankaj Tripathi", "Monal Gajjar", "Amar Upadhyay", "Tina Ahuja", "Lankesh"],
@@ -54,6 +60,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"dabangg-3",
         year: 2019,
         title: "Dabangg 3",
         cast: ["Salman Khan", "Sonakshi Sinha", "Saiee Manjrekar", "Sudeepa", "Arbaaz Khan"],
@@ -63,6 +70,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"bharat",
         year: 2019,
         title: "Bharat",
         cast: ["Salman Khan", "Katrina Kaif", "Disha Patani", "Sunil Grover", "Jackie Shroff"],
@@ -72,6 +80,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"notebook",
         year: 2019,
         title: "Notebook",
         cast: ["Zaheer Iqbal", "Pranutan Bahl"],
@@ -81,6 +90,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"loveyatri",
         year: 2018,
         title: "Loveyatri",
         cast: ["Aayush Sharma", "Warina Hussain"],
@@ -90,6 +100,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"race-3",
         year: 2018,
         title: "Race 3",
         cast: ["Anil Kapoor", "Salman Khan", "Bobby Deol", "Jacqueline Fernandez", "Daisy Shah", "Saqib Saleem"],
@@ -99,6 +110,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"tubelight",
         year: 2017,
         title: "Tubelight",
         cast: ["Salman Khan", "Sohail Khan", "Om Puri", "Matin Rey Tangu", "Zhu Zhu"],
@@ -108,6 +120,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"hero",
         year: 2015,
         title: "Hero",
         cast: ["Sooraj Pancholi", "Athiya Shetty", "Aditya Pancholi"],
@@ -117,6 +130,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"bajrangi-bhaijaan",
         year: 2015,
         title: "Bajrangi Bhaijaan",
         cast: ["Salman Khan", "Harshaali Malhotra", "Kareena Kapoor Khan", "Nawazuddin Siddiqui"],
@@ -126,6 +140,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"dr-cabbie",
         year: 2014,
         title: "Dr. Cabbie",
         cast: ["Vinay Virmani", "Kunal Nayyar", "Adrianne Palicki"],
@@ -135,6 +150,7 @@ export const movies = [
         trailer: "/images/home/hero.mp4"
     },
     {
+        slug:"chillar-party",
         year: 2011,
         title: "Chillar Party",
         cast: ["Shriya Sharma", "Sanath Menon", "Rohan Grover", "Naman Jain", "Aarav Khanna", "Vishesh Tiwari", "Shashank Shende"],

@@ -18,7 +18,7 @@ const MovieInfo = ({detailsRef}) => {
       </div>
       <div>
         <p>Genre</p>
-        <h4>Action/Thriller</h4>
+        <h4>Action | Thriller</h4>
       </div>
       <div>
         <p>Duration</p>
