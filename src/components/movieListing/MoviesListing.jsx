@@ -10,6 +10,23 @@ const MoviesListing = ({ data }) => {
   const sectionRef = useRef(null);
   useSplitTextMaskAnimation([titleRef]);
 
+  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(6); // Show 6 movies initially
+
+  // Filtered movies based on category
+  const filteredData =
+    selectedFilter === "all"
+      ? data
+      : data.filter((movie) => movie.category === selectedFilter);
+
+  const handleShowMore = () => {
+    if (visibleCount < filteredData.length) {
+      setVisibleCount(filteredData.length); // Show all movies
+    } else {
+      setVisibleCount(6); // Reset back to 6 movies
+    }
+  };
+
   return (
     <section id="movie_listing" className="hero">
       <div className="movie_listing_header">
@@ -21,19 +38,32 @@ const MoviesListing = ({ data }) => {
         <Filters
           filters={["all", "released", "upcoming movies"]}
           defaultFilter="all"
-          onChange={(value) => console.log("Selected filter:", value)}
+          onChange={(value) => {
+            setSelectedFilter(value);
+            setVisibleCount(6); // Reset visible count on filter change
+          }}
         />
       </div>
 
       {/* Movie Container */}
       <div id="movie_container" className="hero" ref={sectionRef}>
-        {data.map((movie, index) => (
+        {filteredData.slice(0, visibleCount).map((movie, index) => (
           <MovieCard key={index} id={index + 1} data={movie} />
         ))}
       </div>
-      <div className="btn_container">
-        <Button color={"black"} title={"show more"} />
-      </div>
+
+      {filteredData.length > 6 && (
+        <div className="btn_container">
+          <Button
+            color={"black"}
+            title={
+              visibleCount < filteredData.length ? "show more" : "show less"
+            }
+            onClick={handleShowMore}
+          />
+        </div>
+      )}
+
       <Cursor sectionRef={sectionRef} text="know more" />
     </section>
   );

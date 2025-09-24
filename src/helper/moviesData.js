@@ -5,6 +5,7 @@ export const movies = [
         cast: ["Salman Khan", "Rashmika Mandanna", "Sathyaraj", "Kajal Aggarwal", "Sharman Joshi"],
         director: "AR Murugadoss",
         poster: "/images/movie/sikandar.png",
+        category:"upcoming movies",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -13,6 +14,7 @@ export const movies = [
         cast: ["Alizeh", "Ronit Roy", "Sahil Mehta", "Zeyn Shaw", "Prasanna Bisht"],
         director: "Soumendra Padhi",
         poster: "/images/movie/farrey.png",
+        category:"upcoming movies",
         trailer: "/images/home/farrey.mp4"
     },
     {
@@ -21,6 +23,7 @@ export const movies = [
         cast: ["Salman Khan", "Pooja Hegde", "Venkatesh", "Jagapathi Babu"],
         director: "Farhad Samji",
         poster: "/images/movie/kiss-ka-bhai.png",
+        category:"released",
         trailer: "/images/home/kiss-ka-bhai.mp4"
     },
     {
@@ -29,6 +32,7 @@ export const movies = [
         cast: ["Salman Khan", "Aayush Sharma", "Mahima Makwana", "Jisshu Sengupta"],
         director: "Mahesh Manjrekar",
         poster: "/images/movie/antim.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -37,6 +41,7 @@ export const movies = [
         cast: ["Salman Khan", "Disha Patani", "Randeep Hooda", "Jackie Shroff"],
         director: "Prabhu Deva",
         poster: "/images/movie/radhe.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -45,6 +50,7 @@ export const movies = [
         cast: ["Pankaj Tripathi", "Monal Gajjar", "Amar Upadhyay", "Tina Ahuja", "Lankesh"],
         director: "Satish Kaushik",
         poster: "/images/movie/kaagaz.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -53,6 +59,7 @@ export const movies = [
         cast: ["Salman Khan", "Sonakshi Sinha", "Saiee Manjrekar", "Sudeepa", "Arbaaz Khan"],
         director: "Prabhu Deva",
         poster: "/images/movie/kaagaz.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -61,6 +68,7 @@ export const movies = [
         cast: ["Salman Khan", "Katrina Kaif", "Disha Patani", "Sunil Grover", "Jackie Shroff"],
         director: "Ali Abbas Zafar",
         poster: "/images/movie/bharat.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -69,6 +77,7 @@ export const movies = [
         cast: ["Zaheer Iqbal", "Pranutan Bahl"],
         director: "Nitin Kakkar",
         poster: "/images/movie/notebook.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -77,6 +86,7 @@ export const movies = [
         cast: ["Aayush Sharma", "Warina Hussain"],
         director: "Abhiraj Minawala",
         poster: "/images/movie/loveyatri.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -85,6 +95,7 @@ export const movies = [
         cast: ["Anil Kapoor", "Salman Khan", "Bobby Deol", "Jacqueline Fernandez", "Daisy Shah", "Saqib Saleem"],
         director: "Remo D'Souza",
         poster: "/images/movie/race3.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -93,6 +104,7 @@ export const movies = [
         cast: ["Salman Khan", "Sohail Khan", "Om Puri", "Matin Rey Tangu", "Zhu Zhu"],
         director: "Kabir Khan",
         poster: "/images/movie/tubelight.png",
+        category:"released",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -101,6 +113,7 @@ export const movies = [
         cast: ["Sooraj Pancholi", "Athiya Shetty", "Aditya Pancholi"],
         director: "Nikhil Advani",
         poster: "/images/movie/hero.png",
+        category:"upcoming movies",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -109,6 +122,7 @@ export const movies = [
         cast: ["Salman Khan", "Harshaali Malhotra", "Kareena Kapoor Khan", "Nawazuddin Siddiqui"],
         director: "Kabir Khan",
         poster: "/images/movie/bajrangi.png",
+        category:"upcoming movies",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -117,6 +131,7 @@ export const movies = [
         cast: ["Vinay Virmani", "Kunal Nayyar", "Adrianne Palicki"],
         director: "Jean-François Pouliot",
         poster: "/images/movie/cabbie.png",
+        category:"upcoming movies",
         trailer: "/images/home/hero.mp4"
     },
     {
@@ -125,6 +140,7 @@ export const movies = [
         cast: ["Shriya Sharma", "Sanath Menon", "Rohan Grover", "Naman Jain", "Aarav Khanna", "Vishesh Tiwari", "Shashank Shende"],
         director: ["Nitesh Tiwari", "Vikas Bahl"],
         poster: "/images/movie/chillar-party.png",
+        category:"upcoming movies",
         trailer: "/images/home/hero.mp4"
     }
 ];

@@ -7,6 +7,9 @@
   height: auto;
   padding-top: 7rem;
 }
+#movie_listing .btn_container{
+  display: flex;
+}
 
 .filter_movie {
   display: flex;
