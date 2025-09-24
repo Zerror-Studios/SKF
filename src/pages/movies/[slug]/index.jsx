@@ -1,10 +1,9 @@
 import Gallery from "@/components/common/Gallery";
 import CastSection from "@/components/movieDetails/CastSection";
-import HorizontalSlider from "@/components/movieDetails/HorizontalSlider";
+import HorizontalSlider from "@/components/common/HorizontalSlider/HorizontalSlider";
 import MovieDetailsHero from "@/components/movieDetails/MovieDetailsHero";
 import SynopsisSection from "@/components/movieDetails/SynopsisSection";
-import TrailerHeading from "@/components/movieDetails/TrailerHeading";
-import TrailerSection from "@/components/movieDetails/TrailerSection";
+import HorizontalSwiper from "@/components/common/HorizontalSlider/HorizontalSwiper";
 import { movies } from "@/helper/moviesData";
 import React from "react";
 
@@ -19,9 +18,8 @@ const MovieDetails = ({ movie }) => {
       <MovieDetailsHero data={movie} />
       <SynopsisSection />
       <CastSection />
-      <TrailerHeading />
       <HorizontalSlider />
-      <TrailerSection />
+      <HorizontalSwiper />
       <Gallery title={title} />
     </>
   );

@@ -5,12 +5,10 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
-import Cursor from "../common/Cursor";
 
-const TrailerSwiper = () => {
+const HorizontalSwiper = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
-  const sectionRef = useRef(null);
 
   const trailers = [
     "/images/moviedetails/trailer1.png",
@@ -19,8 +17,9 @@ const TrailerSwiper = () => {
   ];
 
   return (
-    <>
-      <div id="trailer_swiper_container" ref={sectionRef}>
+    <div id="trailer_section">
+      <h2 className="heading">Trailer and Teasers</h2>
+      <div id="trailer_swiper_container">
         <Swiper
           effect={"coverflow"}
           grabCursor={false}
@@ -50,9 +49,7 @@ const TrailerSwiper = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <Cursor sectionRef={sectionRef} text="Drag" />
       </div>
-
       <div id="trailer_swiper_indicator">
         {trailers.map((src, i) => (
           <div
@@ -69,8 +66,8 @@ const TrailerSwiper = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
-export default TrailerSwiper;
+export default HorizontalSwiper;

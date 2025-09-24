@@ -4,6 +4,7 @@ import "@/styles/components/common/footer.css";
 import "@/styles/components/common/button.css";
 import "@/styles/components/common/directors.css";
 import "@/styles/components/common/gallery.css";
+import "@/styles/components/common/horizontalSlider.css";
 import "@/styles/components/home.css";
 import "@/styles/components/movie.css";
 import "@/styles/components/movieDetails.css";
