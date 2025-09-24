@@ -8,13 +8,14 @@ import { movies } from '@/helper/moviesData'
 import UpcomingSection from '@/components/home/UpcomingSection'
 
 const Home = ({ movies }) => {
+  const title = <> Raw, Real & BTS from <br /> Salman Khan Films</>
   return (
     <>
       <HeroSection movies={movies} />
       <UpcomingSection />
       <DirectorsSection />
       <Highlights />
-      <Gallery />
+      <Gallery title={title}/>
       <AboutSection />
     </>
   )

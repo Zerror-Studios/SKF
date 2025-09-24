@@ -5,7 +5,7 @@ import MovieBanner from "./MovieBanner";
 import MovieInfo from "./MovieInfo";
 import MovieTrailerVideo from "./MovieTrailerVideo";
 
-const MovieDetailsHero = () => {
+const MovieDetailsHero = ({ data }) => {
   const sectionRef = useRef(null);
   const bannerRef = useRef(null);
   const detailsRef = useRef(null);
@@ -29,7 +29,7 @@ const MovieDetailsHero = () => {
       // banner slide
       .to(
         bannerRef.current,
-        { y: "0%", duration: .8, ease: "power2.inOut" },
+        { y: "0%", duration: 0.8, ease: "power2.inOut" },
         "start+=0.1"
       )
 
@@ -51,7 +51,12 @@ const MovieDetailsHero = () => {
   return (
     <div id="movie_details_hero">
       <div id="movie_details_wrapper" ref={sectionRef}>
-        <MovieBanner bannerRef={bannerRef} setShowVideo={setShowVideo} />
+        <MovieBanner
+          title={data?.title}
+          poster={data?.poster}
+          bannerRef={bannerRef}
+          setShowVideo={setShowVideo}
+        />
         <MovieInfo detailsRef={detailsRef} />
         <MovieTrailerVideo showVideo={showVideo} setShowVideo={setShowVideo} />
       </div>

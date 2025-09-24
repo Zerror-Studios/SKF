@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 
 const MovieCard = forwardRef(({ data, id }, ref) => {
   return (
-    <Link href="/movies/1" className="movie_card" ref={ref}>
+    <Link href={`/movies/${data?.slug}`} className="movie_card" ref={ref}>
       <div className="movie_img">
         <video autoPlay muted loop playsInline src={data?.trailer}></video>
         <Image

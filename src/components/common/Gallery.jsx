@@ -8,7 +8,7 @@ import Filters from "./Filters";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Gallery = () => {
+const Gallery = ({title}) => {
   const galleryRef = useRef(null);
 
   useGSAP(() => {
@@ -96,7 +96,7 @@ const Gallery = () => {
   return (
     <section id="gallery" className="gallery">
       <h2 className="heading">
-        Raw, Real & BTS from <br /> Salman Khan Films
+       {title}
       </h2>
       <Filters
         filters={["all", "images", "videos"]}
