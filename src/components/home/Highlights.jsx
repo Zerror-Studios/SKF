@@ -32,14 +32,14 @@ const highlightData = [
   },
 ];
 
-const Highlights = () => {
+const Highlights = ({tag ,title}) => {
   const titleRef = useRef(null);
   useSplitTextMaskAnimation([titleRef]);
 
   return (
     <section id="highlight_section">
-      <h5 className="tag">highlight</h5>
-      <h2 ref={titleRef}>News and Updates</h2>
+      {tag && <h5 className="tag">{tag}</h5>}
+      {title && <h2 ref={titleRef}>{title}</h2>}
       <div id="highlights_container">
         {highlightData.map((item, index) => (
           <HighlightCard

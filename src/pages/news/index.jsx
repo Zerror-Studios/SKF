@@ -6,7 +6,7 @@ const News = () => {
   return (
     <>
     <NewsHeroSection/>
-    <Highlights />
+    <Highlights tag={"other"}/>
     </>
   )
 }
