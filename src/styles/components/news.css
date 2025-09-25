@@ -1,0 +1,56 @@
+#news_hero_section {
+  width: 100%;
+  padding: 3.5rem;
+  padding-top: 7rem;
+}
+
+.news_poster {
+  width: 100%;
+  height: auto;
+  margin-top: 4rem;
+}
+.news_poster img {
+  width: 100%;
+  height: auto;
+}
+.news_info_section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.news_data{
+    color: #000;
+    margin-bottom: .5rem;
+    font-family: Urbanist;
+    font-size: .9rem;
+    font-weight: 500;
+}
+.news_title_wrap .heading {
+  font-size: 2.5rem;
+  width: 80%;
+}
+
+.news_time {
+  display: flex;
+  margin-top: 2rem;
+}
+.news_time_tab {
+  width: 40%;
+}
+.news_time_tab p{
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+.news_time_tab #share{
+    opacity: 0;
+}
+.news_detail_wrap {
+  width: 55%;
+}
+
+.news_detail_wrap p {
+  color: #000;
+}

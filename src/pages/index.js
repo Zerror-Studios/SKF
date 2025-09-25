@@ -14,8 +14,8 @@ const Home = ({ movies }) => {
       <HeroSection movies={movies} />
       <UpcomingSection />
       <DirectorsSection />
-      <Highlights />
-      <Gallery title={title}/>
+      <Highlights tag={"highlight"} title={"News and Updates"} />
+      <Gallery title={title} />
       <AboutSection />
     </>
   )

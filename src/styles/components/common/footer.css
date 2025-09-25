@@ -6,37 +6,71 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 45vh;
+  height: auto;
+  gap: 5rem;
   overflow: hidden;
 }
 
 #footer_top {
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 #footer_top h2 {
   font-family: var(--tag-font);
-  font-size: 4rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1;
+}
+#footer_top_right {
+  width: 18%;
+  display: flex;
+  gap: 4rem;
+}
+.footer_links {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.footer_social{
+  display: flex;
+  align-items:center;
+  gap: 1.2rem;
+}
+.footer_social svg:last-child{
+  fill: #FF0000;
+}
+.footer_links h5 {
+  display: block;
+  font-size: 1rem;
+  font-family: var(--tag-font);
+  color: #FFFEF1;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.footer_links a {
+  display: block;
+  font-size: 1.125rem;
+  font-family: var(--tag-font);
+  color: #FFFFFF;
+  margin-bottom: .4rem;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 #footer_bottom {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  border-top: 1px solid #ffffff50;
-  padding-top: 2rem;
 }
 
-#footer_bottom_left {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+#footer_bottom_left img {
+ width: 4.5rem;
+ height: 4.5rem;
+ object-fit: contain;
 }
 #footer_bottom_left a {
   text-decoration: none;
@@ -51,12 +85,13 @@ footer {
   justify-content: space-between;
 }
 
-#footer_bottom_right a {
-  text-decoration: none;
-  color: white;
-  font-family: Helvetic;
+#footer_bottom_right p {
+  display: block;
+  font-size: 1.125rem;
+  font-family: var(--tag-font);
+  color: #FFFFFF;
   font-weight: 400;
-  font-size: 0.8rem;
+  text-decoration: none;
 }
 
 /* Extra small (Phones) */
