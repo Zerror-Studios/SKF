@@ -35,7 +35,10 @@ const Navbar = () => {
   };
 
   // ✅ Determine animated routes
-  const isDarkRoute = pathname === "/" || pathname?.startsWith("/movies/");
+  const isDarkRoute =
+    pathname === "/" ||
+    pathname === "/contact" ||
+    pathname?.startsWith("/movies/");
 
   // ✅ Scroll handler only for animated routes
   useEffect(() => {
@@ -141,40 +144,60 @@ const Navbar = () => {
         },
         "a"
       )
-      .fromTo(".menu-links a",{
-        opacity:0,
-        y:20
-      },{
-        opacity:1,
-        stagger:0.1,
-        delay:-.3,
-        y:0
-      },"s")
-       .fromTo(".menu_social_icon svg",{
-        opacity:0,
-        y:20
-      },{
-        opacity:1,
-        stagger:0.1,
-        delay:-.3,
-        y:0
-      },"s")
-       .fromTo(".menu_contact p",{
-        opacity:0,
-        y:20
-      },{
-        opacity:.5,
-        delay:-.3,
-        y:0
-      },"s")
-       .fromTo(".menu_contact a",{
-        opacity:0,
-        y:20
-      },{
-        opacity:1,
-        delay:-.3,
-        y:0
-      },"s")
+      .fromTo(
+        ".menu-links a",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          stagger: 0.1,
+          delay: -0.3,
+          y: 0,
+        },
+        "s"
+      )
+      .fromTo(
+        ".menu_social_icon svg",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          stagger: 0.1,
+          delay: -0.3,
+          y: 0,
+        },
+        "s"
+      )
+      .fromTo(
+        ".menu_contact p",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 0.5,
+          delay: -0.3,
+          y: 0,
+        },
+        "s"
+      )
+      .fromTo(
+        ".menu_contact a",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          delay: -0.3,
+          y: 0,
+        },
+        "s"
+      );
   }, []);
 
   // ✅ This watches state and runs animation properly
@@ -202,11 +225,14 @@ const Navbar = () => {
           src="/images/skf_logo.png"
           alt="skf_logo"
           style={{
-            filter: isMobile
-              ? "invert(0)" // always normal on mobile
-              : isDarkRoute && !scrolled
-              ? "invert(1)"
-              : "invert(0)",
+            filter:
+              pathname === "/contact"
+                ? "invert(0)" // always normal on /contact
+                : isMobile
+                ? "invert(0)" // always normal on mobile
+                : isDarkRoute && !scrolled
+                ? "invert(1)"
+                : "invert(0)",
             transition: "filter 0.6s ease",
           }}
         />

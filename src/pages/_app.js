@@ -8,6 +8,7 @@ import "@/styles/components/common/horizontalSlider.css";
 import "@/styles/components/home.css";
 import "@/styles/components/movie.css";
 import "@/styles/components/movieDetails.css";
+import "@/styles/components/contact.css";
 import Layout from "@/components/layout/Layout";
 import SmoothScroller from "@/components/smoothScroll/SmoothScroller";
 
