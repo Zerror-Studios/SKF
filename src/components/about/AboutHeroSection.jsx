@@ -34,14 +34,14 @@ const AboutHeroSection = () => {
           </div>
         </div>
       </div>
-     <div className="about_banner">
-         <Image
-        width={1000}
-        height={1000}
-        src="/images/about/about-banner.png"
-        alt="contact-banner"
-      />
-     </div>
+      <div className="about_banner">
+        <Image
+          width={1000}
+          height={1000}
+          src="/images/about/about-banner.png"
+          alt="contact-banner"
+        />
+      </div>
     </div>
   );
 };
