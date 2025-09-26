@@ -1,11 +1,11 @@
 import AboutSection from '@/components/home/AboutSection'
 import DirectorsSection from '@/components/home/DirectorsSection'
-import Gallery from '@/components/common/Gallery'
 import HeroSection from '@/components/home/HeroSection'
 import Highlights from '@/components/home/Highlights'
 import React from 'react'
 import { movies } from '@/helper/moviesData'
 import UpcomingSection from '@/components/home/UpcomingSection'
+import GallerySection from '@/components/common/GallerySection'
 
 const Home = ({ movies }) => {
   const title = <> Raw, Real & BTS from <br /> Salman Khan Films</>
@@ -15,7 +15,7 @@ const Home = ({ movies }) => {
       <UpcomingSection />
       <DirectorsSection />
       <Highlights tag={"highlight"} title={"News and Updates"} />
-      <Gallery title={title} />
+      <GallerySection title={title} />
       <AboutSection />
     </>
   )

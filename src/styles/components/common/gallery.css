@@ -4,6 +4,9 @@
   padding: 3.5rem;
   min-height: 100vh;
 }
+.gallery.hero{
+  padding-top: 7rem !important;
+}
 
 #gallery .btn_container{
   display: flex;

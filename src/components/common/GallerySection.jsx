@@ -8,7 +8,7 @@ import Filters from "./Filters";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Gallery = ({title}) => {
+const GallerySection = ({title,ishero}) => {
   const galleryRef = useRef(null);
 
   useGSAP(() => {
@@ -94,7 +94,7 @@ const Gallery = ({title}) => {
   ];
 
   return (
-    <section id="gallery" className="gallery">
+    <section id="gallery" className={`gallery ${ishero ? "hero":""}`}>
       <h2 className="heading">
        {title}
       </h2>
@@ -127,4 +127,4 @@ const Gallery = ({title}) => {
   );
 };
 
-export default Gallery;
+export default GallerySection;

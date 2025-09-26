@@ -1,4 +1,3 @@
-import Gallery from "@/components/common/Gallery";
 import CastSection from "@/components/movieDetails/CastSection";
 import HorizontalSlider from "@/components/common/HorizontalSlider/HorizontalSlider";
 import MovieDetailsHero from "@/components/movieDetails/MovieDetailsHero";
@@ -6,6 +5,7 @@ import SynopsisSection from "@/components/movieDetails/SynopsisSection";
 import HorizontalSwiper from "@/components/common/HorizontalSlider/HorizontalSwiper";
 import { movies } from "@/helper/moviesData";
 import React from "react";
+import GallerySection from "@/components/common/GallerySection";
 
 const MovieDetails = ({ movie }) => {
   const title = (
@@ -20,7 +20,7 @@ const MovieDetails = ({ movie }) => {
       <CastSection />
       <HorizontalSlider />
       <HorizontalSwiper />
-      <Gallery title={title} />
+      <GallerySection title={title} />
     </>
   );
 };
