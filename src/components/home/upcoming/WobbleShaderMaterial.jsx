@@ -33,11 +33,11 @@ const WobbleShaderMaterial = shaderMaterial(
 
 extend({ WobbleShaderMaterial });
 
-const WobbleImageMesh = () => {
+const WobbleImageMesh = ({imageUrl}) => {
   const materialRef = useRef();
   const texture = useLoader(
     THREE.TextureLoader,
-    "/images/home/upcoming-rel.png"
+    imageUrl
   );
   const { viewport } = useThree();
 
