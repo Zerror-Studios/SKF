@@ -1,3 +1,4 @@
+import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
@@ -8,6 +9,9 @@ import { FaXTwitter } from "react-icons/fa6";
 gsap.registerPlugin(ScrollTrigger);
 const ContactSection = () => {
   const bgRef = useRef(null);
+    const titleRef = useRef(null);
+      const para1Ref = useRef(null);
+      useSplitTextMaskAnimation([titleRef,para1Ref]);
 
   useEffect(() => {
     if (!bgRef.current) return;
@@ -54,9 +58,9 @@ const ContactSection = () => {
   return (
     <div id="contact_section">
       <div id="contact_info">
-        <h2 className="heading">Contact Us</h2>
+        <h2 ref={titleRef} className="heading">Contact Us</h2>
         <div className="contact_dets">
-          <p className="description">
+          <p ref={para1Ref} className="description">
             Got a question or want to connect <br /> with the SKF team? We’d
             love to <br />
             hear from you.
