@@ -50,7 +50,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  cursor: none;
 }
 .movie_card {
   display: flex;
@@ -60,12 +59,8 @@
   text-decoration: none;
   color: #1d1d1d;
   width: 100%;
-  cursor: pointer;
 }
 
-#movie_container.hero .movie_card{
-  cursor: none;
-}
 #movie_container.hero .movie_img {
   height: 420px;
 }

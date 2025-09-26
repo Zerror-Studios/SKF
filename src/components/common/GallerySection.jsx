@@ -5,11 +5,15 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import Button from "./Button";
 import Filters from "./Filters";
+import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Gallery = ({title}) => {
+const GallerySection = ({title,ishero}) => {
   const galleryRef = useRef(null);
+
+    const titleRef = useRef(null);
+    useSplitTextMaskAnimation([titleRef]);
 
   useGSAP(() => {
     ScrollTrigger.matchMedia({
@@ -94,8 +98,8 @@ const Gallery = ({title}) => {
   ];
 
   return (
-    <section id="gallery" className="gallery">
-      <h2 className="heading">
+    <section id="gallery" className={`gallery ${ishero ? "hero":""}`}>
+      <h2 ref={titleRef} className="heading">
        {title}
       </h2>
       <Filters
@@ -127,4 +131,4 @@ const Gallery = ({title}) => {
   );
 };
 
-export default Gallery;
+export default GallerySection;

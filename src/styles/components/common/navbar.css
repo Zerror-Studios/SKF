@@ -34,6 +34,23 @@
   position: relative;
 }
 
+.nav_links a::before {
+ content: "";
+ position: absolute;
+ width: 0%;
+ height: 2px;
+ left: 0;
+ bottom: 0;
+ background-color: #1d1d1d;
+ transition: all ease .3s;
+}
+.nav_links a.dark::before{
+  background-color: #fff;
+}
+.nav_links a.active::before{
+  width: 100%;
+}
+
 .nav_links a span {
   display: inline-block;
 }

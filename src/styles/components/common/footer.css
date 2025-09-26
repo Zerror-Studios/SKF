@@ -18,46 +18,71 @@ footer {
 }
 #footer_top h2 {
   font-family: var(--tag-font);
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
   line-height: 1;
 }
 #footer_top_right {
-  width: 30%;
   display: flex;
   gap: 4rem;
+width: 45%;
 }
 .footer_links {
-  width: 50%;
   display: flex;
   flex-direction: column;
+}
+.footer_links{
+  width: 25%;
+}
+.footer_links:nth-child(2){
+  width: 50%;
 }
 .footer_social{
   display: flex;
   align-items:center;
   gap: 1.2rem;
 }
-.footer_social svg:last-child{
-  fill: #FF0000;
+.footer_social svg{
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all ease .3s;
 }
+.footer_social svg:hover{
+  transform: scale(1.1);
+}
+
 .footer_links h5 {
   display: block;
   font-size: 1rem;
   font-family: var(--tag-font);
-  color: #FFFEF1;
+  color: #a5a08c;
   margin-bottom: 1rem;
   font-weight: 400;
   text-decoration: none;
 }
-
 .footer_links a {
-  display: block;
   font-size: 1.125rem;
   font-family: var(--tag-font);
   color: #FFFFFF;
-  margin-bottom: .4rem;
+  margin-bottom: 0.4rem;
   font-weight: 400;
   text-decoration: none;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: fit-content;
+
+  /* underline with background-image */
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;       
+  background-position: 0 100%;  
+  transition: background-size 0.4s ease, color 0.4s ease;
+}
+
+.footer_links a:hover,
+.footer_links a.active {
+  background-size: 100% 1.5px;     
 }
 
 #footer_bottom {
@@ -67,17 +92,22 @@ footer {
   justify-content: space-between;
 }
 
-#footer_bottom_left img {
- width: 4.5rem;
- height: 4.5rem;
- object-fit: contain;
+#footer_bottom_left h5 {
+  text-decoration: none;
+  color: white;
+      font-family: var(--tag-font);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1rem;
 }
 #footer_bottom_left a {
   text-decoration: none;
   color: white;
-  font-family: Helvetic;
-  font-weight: 400;
-  font-size: 0.8rem;
+      font-family: var(--tag-font);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
 }
 #footer_bottom_right {
   display: flex;

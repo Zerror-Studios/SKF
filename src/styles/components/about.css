@@ -48,6 +48,7 @@
   width: 100%;
   height: auto;
   margin-top: 4rem;
+  overflow: hidden;
 }
 
 .about_banner img {
