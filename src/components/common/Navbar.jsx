@@ -49,12 +49,12 @@ const Navbar = () => {
   const navStyle = isDarkRoute
     ? {
         transform: pathname === "/" ? "translateY(-110%)" : "none",
-        background: isMobile || scrolled ? "white" : "transparent",
+        background: isMobile || scrolled ? "#fffef1" : "transparent",
         borderBottom: "1px solid",
         borderColor: isMobile || scrolled ? "#d8d8d8" : "transparent",
         transition: "background 0.3s ease, border-color 0.3s ease",
       }
-    : { transform: "none", background: "white", borderBottom: "1px solid #d8d8d8" };
+    : { transform: "none", background: "#fffef1", borderBottom: "1px solid #d8d8d8" };
 
   return (
     <nav ref={navRef} id="navbar" style={navStyle}>
