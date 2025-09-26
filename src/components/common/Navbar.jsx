@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const navRef = useRef(null);
   const pathname = usePathname();
-  const router = useRouter()
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
 
   const splitLetters = (text) =>
@@ -241,21 +241,29 @@ const Navbar = () => {
       </Link>
 
       <div className="nav_links">
-        {navLinks.map(({ href, label }) => (
-          <Link
-            key={label}
-            href={href}
-            className={`nav_item ${label} ${router.pathname === href ? "active" : ""}`}
-            onMouseEnter={() => handleHover(label)}
-            style={{
-              color: isDarkRoute && !scrolled ? "#fff" : "#1D1D1D",
-              transition: isDarkRoute ? "color 0.6s ease" : "none",
-            }}
-          >
-            <span className="title1">{splitLetters(label)}</span>
-            <span className="title2">{splitLetters(label)}</span>
-          </Link>
-        ))}
+        {navLinks.map(({ href, label }) => {
+          // Make parent active for sub-routes
+          const isActive =
+            href === "/"
+              ? router.pathname === href
+              : router.pathname.startsWith(href);
+
+          return (
+            <Link
+              key={label}
+              href={href}
+              className={`nav_item ${label} ${isActive ? "active" : ""}`}
+              onMouseEnter={() => handleHover(label)}
+              style={{
+                color: isDarkRoute && !scrolled ? "#fff" : "#1D1D1D",
+                transition: isDarkRoute ? "color 0.6s ease" : "none",
+              }}
+            >
+              <span className="title1">{splitLetters(label)}</span>
+              <span className="title2">{splitLetters(label)}</span>
+            </Link>
+          );
+        })}
       </div>
 
       <div id="menu-btn" onClick={toggleMenu}>
