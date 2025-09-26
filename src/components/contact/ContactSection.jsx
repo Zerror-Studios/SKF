@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { FaInstagram} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const ContactSection = () => {
@@ -24,7 +25,7 @@ const ContactSection = () => {
             <div className="contact_social">
               <FaXTwitter />
               <FaInstagram />
-              <FaYoutube />
+               <AiOutlineYoutube />
             </div>
           </div>
         </div>

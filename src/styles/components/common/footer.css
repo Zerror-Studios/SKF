@@ -42,6 +42,14 @@ width: 45%;
   align-items:center;
   gap: 1.2rem;
 }
+.footer_social svg{
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all ease .3s;
+}
+.footer_social svg:hover{
+  transform: scale(1.1);
+}
 
 .footer_links h5 {
   display: block;

@@ -2,7 +2,8 @@ import { navLinks } from "@/helper/menuData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { AiOutlineYoutube } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
@@ -46,7 +47,7 @@ const Footer = () => {
             <div className="footer_social">
               <FaXTwitter />
               <FaInstagram />
-              <FaYoutube />
+              <AiOutlineYoutube />
             </div>
           </div>
         </div>
