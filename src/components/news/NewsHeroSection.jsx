@@ -52,6 +52,42 @@ const NewsHeroSection = () => {
             streak in the weeks ahead, solidifying its place as one of the
             biggest hits of 2025.
           </p>
+          <p className="description">
+            Salman Khan’s Sikandar has stormed the box office, becoming the
+            fastest film under Salman Khan Films (SKF) to cross the ₹300 crore
+            mark. Released on Eid 2025, the action-packed drama has set new
+            benchmarks for the production house, drawing massive crowds both in
+            India and overseas
+          </p>
+          <p className="description">
+            Trade analysts note that Sikandar achieved the milestone in record
+            time, outpacing previous SKF blockbusters. The film’s gripping
+            storyline, high-octane action sequences, and chartbuster music have
+            contributed to its phenomenal run.
+          </p>
+          <p className="description">
+            Industry experts predict that Sikandar will continue its winning
+            streak in the weeks ahead, solidifying its place as one of the
+            biggest hits of 2025.
+          </p>
+          <p className="description">
+            Salman Khan’s Sikandar has stormed the box office, becoming the
+            fastest film under Salman Khan Films (SKF) to cross the ₹300 crore
+            mark. Released on Eid 2025, the action-packed drama has set new
+            benchmarks for the production house, drawing massive crowds both in
+            India and overseas
+          </p>
+          <p className="description">
+            Trade analysts note that Sikandar achieved the milestone in record
+            time, outpacing previous SKF blockbusters. The film’s gripping
+            storyline, high-octane action sequences, and chartbuster music have
+            contributed to its phenomenal run.
+          </p>
+          <p className="description">
+            Industry experts predict that Sikandar will continue its winning
+            streak in the weeks ahead, solidifying its place as one of the
+            biggest hits of 2025.
+          </p>
         </div>
       </div>
     </div>
