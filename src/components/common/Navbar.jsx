@@ -6,10 +6,12 @@ import { navLinks } from "@/helper/menuData";
 import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import NavigationMenu from "./NavigationMenu";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const navRef = useRef(null);
   const pathname = usePathname();
+  const router = useRouter()
   const [scrolled, setScrolled] = useState(false);
 
   const splitLetters = (text) =>
@@ -243,7 +245,7 @@ const Navbar = () => {
           <Link
             key={label}
             href={href}
-            className={`nav_item ${label}`}
+            className={`nav_item ${label} ${router.pathname === href ? "active" : ""}`}
             onMouseEnter={() => handleHover(label)}
             style={{
               color: isDarkRoute && !scrolled ? "#fff" : "#1D1D1D",
