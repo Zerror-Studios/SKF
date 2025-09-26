@@ -44,6 +44,9 @@
  background-color: #1d1d1d;
  transition: all ease .3s;
 }
+.nav_links a.dark::before{
+  background-color: #fff;
+}
 .nav_links a.active::before{
   width: 100%;
 }
