@@ -4,15 +4,15 @@ import HeroSection from '@/components/home/HeroSection'
 import Highlights from '@/components/home/Highlights'
 import React from 'react'
 import { movies } from '@/helper/moviesData'
-import UpcomingSection from '@/components/home/UpcomingSection'
 import GallerySection from '@/components/common/GallerySection'
+import UpcomingBanner from '@/components/home/upcoming/UpcomingBanner'
 
 const Home = ({ movies }) => {
   const title = <> Raw, Real & BTS from <br /> Salman Khan Films</>
   return (
     <>
       <HeroSection movies={movies} />
-      <UpcomingSection />
+      <UpcomingBanner/>
       <DirectorsSection />
       <Highlights tag={"highlight"} title={"News and Updates"} />
       <GallerySection title={title} />
