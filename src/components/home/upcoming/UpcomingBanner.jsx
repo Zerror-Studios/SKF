@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import WobbleImageMesh from "./WobbleShaderMaterial";
 import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(ScrollTrigger);
 
 const UpcomingBanner = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,21 +24,51 @@ const UpcomingBanner = () => {
     ? "/images/home/upcoming-banner-mobile.png"
     : "/images/home/upcoming-banner.jpg";
 
+  useGSAP(() => {
+    let ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#upcoming_banner",
+          start: "top top",
+          end: window.innerHeight * 4,
+          pin: true,
+          scrub: true,
+          // markers: true,
+        },
+      });
+
+      tl.fromTo("#expand_line", { width: "0%" }, { width: "100%" });
+      tl.fromTo(
+        "#canvas_container",
+        { transform: "translateY(-100%)" },
+        { transform: "translateY(-1.3rem)" }
+      );
+    });
+
+    return () => ctx.revert(); // ✅ properly cleans up ScrollTrigger
+  }, []);
+
   return (
     <div id="upcoming_banner">
-      <Image
-        width={1000}
-        height={1000}
-        priority
-        src={imageUrl}
-        alt="banner"
-        quality={1}
-      />
-      <div id="canvas_container">
-        <h5 className="tag">Upcoming Release</h5>
-        <Canvas>
-          <WobbleImageMesh imageUrl={imageUrl}/>
-        </Canvas>
+      <div id="upcoming_header">
+        <p className="tag">Upcoming</p>
+        <div id="expand_line"></div>
+        <p className="tag">Release</p>
+      </div>
+      <div id="canvas_parent">
+        <Image
+          width={1000}
+          height={1000}
+          priority
+          src={imageUrl}
+          alt="banner"
+          quality={1}
+        />
+        <div id="canvas_container">
+          <Canvas>
+            <WobbleImageMesh imageUrl={imageUrl} />
+          </Canvas>
+        </div>
       </div>
     </div>
   );
