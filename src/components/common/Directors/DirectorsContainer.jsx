@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DirectorCard from "./DirectorCard";
 
 const DirectorsContainer = ({ data }) => {
-  const [openIndex, setOpenIndex] = useState(0); // first card open by default
+  const [openIndex, setOpenIndex] = useState(null);
+
+  useEffect(() => {
+    // open first card only on screens larger than 480px
+    if (window.innerWidth > 480) {
+      setOpenIndex(0);
+    }
+  }, []);
 
   const handleOpen = (index) => setOpenIndex(index); // open specific card
   const handleClose = () => setOpenIndex(null); // close current open card
