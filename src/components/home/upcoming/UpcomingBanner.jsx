@@ -77,7 +77,6 @@ const UpcomingBanner = () => {
           priority
           src={imageUrl}
           alt="banner"
-          quality={1}
         />
         <div id="canvas_container">
           <Canvas>
