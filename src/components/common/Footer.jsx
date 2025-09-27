@@ -1,14 +1,23 @@
 import { navLinks } from "@/helper/menuData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const pathname = usePathname();
-   if (pathname === "/contact" && window.innerWidth >= 480) return null;
+  const [showFooter, setShowFooter] = useState(true);
+
+  useEffect(() => {
+    if (pathname === "/contact" && window.innerWidth >= 480) {
+      setShowFooter(false);
+    }
+  }, [pathname]);
+
+  if (!showFooter) return null;
+
   return (
     <footer>
       <div id="footer_top">
@@ -18,16 +27,10 @@ const Footer = () => {
             <h5>menu</h5>
             {[{ href: "/", label: "home" }, ...navLinks].map(
               ({ href, label }) => {
-                // Use startsWith for sub-routes
                 const isActive =
                   href === "/" ? pathname === href : pathname.startsWith(href);
-
                 return (
-                  <Link
-                    key={label}
-                    href={href}
-                    className={isActive ? "active" : ""}
-                  >
+                  <Link key={label} href={href} className={isActive ? "active" : ""}>
                     {label}
                   </Link>
                 );
