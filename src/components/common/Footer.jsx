@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const pathname = usePathname();
-   if (pathname === "/contact") return null;
+   if (pathname === "/contact" && window.innerWidth >= 480) return null;
   return (
     <footer>
       <div id="footer_top">

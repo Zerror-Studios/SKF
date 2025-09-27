@@ -12,6 +12,15 @@
   display: flex;
   user-select: none;
   flex-shrink: 0;
+  cursor: pointer;
+}
+
+.director_card .open{
+  opacity: 1;
+}
+
+.director_card .close{
+  opacity: 0;
 }
 
 .director_card_left {
@@ -19,7 +28,23 @@
   flex-shrink: 0;
   position: relative;
 }
-
+.director_card_img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.director_card_img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: all ease 0.6s;
+  background-color: #a5a08c;
+}
+.director_card:hover img {
+  transform: scale(1.05);
+}
 .director_card_right {
   width: 100%;
   height: 100%;
@@ -35,11 +60,7 @@
   position: relative;
   pointer-events: none;
 }
-.director_card img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
+
 .director_card_name {
   display: flex;
   align-items: center;
@@ -52,16 +73,16 @@
 }
 .director_card_name svg {
   cursor: pointer;
-  transition: opacity ease .3s;
+  transition: opacity ease 0.3s;
 }
 
 .director_card_details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 89.5%;
+  gap: 2rem;
+  height: 100%;
   background-color: #a5a08c;
-  padding: .8rem;
+  padding: 0.8rem;
 }
 .director_card_details h6 {
   text-transform: uppercase;

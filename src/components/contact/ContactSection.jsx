@@ -21,18 +21,18 @@ const ContactSection = () => {
             love to <br />
             hear from you.
           </p>
-          <div className="contact_dets_right">
-            <h5 className="tag">General Enquiries</h5>
-            <p className="description">info@skf.com</p>
-          </div>
-        </div>
-        <div className="contact_dets">
-          <div className="contact_dets_right">
-            <h5 className="tag">Socials</h5>
-            <div className="contact_social">
-              <FaXTwitter />
-              <FaInstagram />
-              <AiOutlineYoutube />
+          <div className="contact_dets_right_wrap">
+            <div className="contact_dets_right">
+              <h5 className="tag">General Enquiries</h5>
+              <p className="description">info@skf.com</p>
+            </div>
+            <div className="contact_dets_right">
+              <h5 className="tag">Socials</h5>
+              <div className="contact_social">
+                <FaXTwitter />
+                <FaInstagram />
+                <AiOutlineYoutube />
+              </div>
             </div>
           </div>
         </div>

@@ -27,6 +27,8 @@ const GallerySection = ({title,ishero}) => {
 
           cols.forEach((col) => {
             const diff = maxHeight - col.offsetHeight;
+            console.log(diff);
+            
 
             gsap.to(col, {
               y: diff,
