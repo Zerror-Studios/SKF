@@ -60,7 +60,9 @@
   color: #1d1d1d;
   width: 100%;
 }
-
+#movie_container.hero,#filter_wrap{
+  opacity: 0;
+}
 #movie_container.hero .movie_img {
   height: 420px;
 }
