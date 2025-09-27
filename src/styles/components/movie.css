@@ -16,7 +16,7 @@
   align-items: center;
   gap: 2rem;
   text-transform: uppercase;
-  font-family: Helvetic;
+  font-family: var(--secondary-font);
   font-weight: 700;
   font-size: 1rem;
   margin: 2.2rem 0 1rem;
