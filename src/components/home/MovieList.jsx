@@ -42,17 +42,19 @@ const MovieList = ({ movies }) => {
     <div id="movie_carousel_section">
       <div id="movie_header">
         <div id="movie_header_title">
-          <h5 className="tag">Movies</h5>
+          <div className="movie_tag_wrap">
+            <h5 className="tag">Movies</h5>
+            <Button
+              color={"black"}
+              title={"View all"}
+              onClick={() => router.push("/movies")}
+            />
+          </div>
           <h3 ref={titleRef} className="heading">
             Explore our top <span className="letter-u">films</span> loved by{" "}
             <br /> <span className="letter-u"> audiences </span> worldwide.
           </h3>
         </div>
-        <Button
-          color={"black"}
-          title={"View all"}
-          onClick={() => router.push("/movies")}
-        />
       </div>
       <div id="movie_carousel" className="grid grid-cols-3 gap-4">
         {movies.map((movie, index) => (

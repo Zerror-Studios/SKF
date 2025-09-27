@@ -109,6 +109,19 @@
   justify-content: space-between;
   align-items: flex-start;
 }
+#movie_header_title{
+  width: 100%;
+}
+.movie_tag_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.movie_tag_wrap .tag{
+  margin-bottom: 0;
+}
 #movie_carousel {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -449,6 +462,12 @@
   }
   .about_overlay .description {
     width: 90%;
+  }
+
+  #upcoming_banner{
+    height: 100vh;
+    padding: 1rem;
+    justify-content: center;
   }
 }
 
