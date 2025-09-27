@@ -15,11 +15,11 @@
   cursor: pointer;
 }
 
-.director_card .open{
+.director_card .open {
   opacity: 1;
 }
 
-.director_card .close{
+.director_card .close {
   opacity: 0;
 }
 
@@ -113,17 +113,18 @@
     height: auto;
     gap: 1rem;
     overflow-x: auto;
+    overflow-y: hidden;
     margin-top: 2rem;
   }
-.director_card_left{
-  width: 60vw;
-}
-.director_card:hover img {
-  transform: scale(1);
-}
-.director_card_right {
-  right: 0;
-}
+  .director_card_left {
+    width: 60vw;
+  }
+  .director_card:hover img {
+    transform: scale(1);
+  }
+  .director_card_right {
+    right: 0;
+  }
 }
 
 /* Small (Phones to Tablets) */
