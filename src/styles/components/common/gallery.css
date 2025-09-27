@@ -4,11 +4,11 @@
   padding: 3.5rem;
   min-height: 100vh;
 }
-.gallery.hero{
+.gallery.hero {
   padding-top: 7rem !important;
 }
 
-#gallery .btn_container{
+#gallery .btn_container {
   display: flex;
 }
 /* Grid for 3 columns */
@@ -36,6 +36,113 @@
   height: auto;
 }
 
+
+
+
+#filter_gallery{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.df-container {
+  width: 250px;
+  border-radius: 8px;
+  font-family: var(--secondary-font);
+  background-color: #fffef1;
+}
+
+.df-dropdown {
+  border: 1px solid #e0e6f0;
+  border-radius: 8px;
+}
+
+.df-dropdown-header {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  font-size: .9rem;
+  text-align: left;
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.df-arrow {
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+.df-arrow.df-open {
+  transform: rotate(180deg);
+}
+
+.df-dropdown-content {
+  padding: 10px 12px;
+  position: absolute;
+  z-index: 1;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background-color: #fffef1;
+  border: 1px solid #e0e6f0;
+  border-radius: 8px;
+}
+
+.df-checkbox-label {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.df-checkbox-label input {
+  margin-right: 10px;
+  accent-color: #a5a08c; /* blue */
+  width: 18px;
+  height: 18px;
+}
+
+.df-checkbox-text {
+  font-size: .9rem;
+  color: #1d1d1d;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.df-checkbox-text.df-active {
+  color: #1d1d1d;
+}
+
+.df-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.df-view-all {
+  color: #1d1d1d;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.df-badge {
+  background: #a5a08c;
+  color: white;
+  border-radius: 15px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
 /* Extra small (Phones) */
 @media (max-width: 480px) {
   #gallery {
@@ -45,12 +152,17 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
   }
-  .gallery_container .col{
+  .gallery_container .col {
     display: none;
   }
-  .gallery_container .col:nth-child(1){
+  .gallery_container .col:nth-child(1) {
     display: flex;
   }
+  #filter_gallery{
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
 }
 
 /* Small (Phones to Tablets) */

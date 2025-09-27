@@ -13,6 +13,7 @@ const TrailerCard = ({ trailer, index, panelsRef }) => {
           height={1000}
           src={trailer.poster}
           alt={`trailer-${index + 1}`}
+          priority
         />
       </div>
       <div className="trailer_panel_info">

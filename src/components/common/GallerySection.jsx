@@ -6,14 +6,15 @@ import { useGSAP } from "@gsap/react";
 import Button from "./Button";
 import Filters from "./Filters";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
+import DropdownFilter from "./DropdownFilter";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const GallerySection = ({title,ishero}) => {
+const GallerySection = ({ title, ishero }) => {
   const galleryRef = useRef(null);
 
-    const titleRef = useRef(null);
-    useSplitTextMaskAnimation([titleRef]);
+  const titleRef = useRef(null);
+  useSplitTextMaskAnimation([titleRef]);
 
   useGSAP(() => {
     ScrollTrigger.matchMedia({
@@ -28,7 +29,6 @@ const GallerySection = ({title,ishero}) => {
           cols.forEach((col) => {
             const diff = maxHeight - col.offsetHeight;
             console.log(diff);
-            
 
             gsap.to(col, {
               y: diff,
@@ -100,15 +100,18 @@ const GallerySection = ({title,ishero}) => {
   ];
 
   return (
-    <section id="gallery" className={`gallery ${ishero ? "hero":""}`}>
+    <section id="gallery" className={`gallery ${ishero ? "hero" : ""}`}>
       <h2 ref={titleRef} className="heading">
-       {title}
+        {title}
       </h2>
-      <Filters
-        filters={["all", "images", "videos"]}
-        defaultFilter="all"
-        onChange={(value) => console.log("Selected filter:", value)}
-      />
+      <div id="filter_gallery">
+        <Filters
+          filters={["all", "images", "videos"]}
+          defaultFilter="all"
+          onChange={(value) => console.log("Selected filter:", value)}
+        />
+       {ishero && <DropdownFilter />}
+      </div>
 
       <div ref={galleryRef} className="gallery_container">
         {columns.map((colImages, colIndex) => (
