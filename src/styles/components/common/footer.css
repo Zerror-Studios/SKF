@@ -141,6 +141,24 @@ footer {
     align-items: flex-start;
     gap: 2rem;
   }
+  #footer_top_right {
+    gap: 0;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .footer_links:nth-child(2) {
+    width: 100%;
+    order: 1;
+    margin-bottom: 3rem;
+  }
+  .footer_links:nth-child(1) {
+    width: 50%;
+    order: 2;
+  }
+  .footer_links:nth-child(3) {
+    width: 50%;
+    order: 3;
+  }
   #footer_bottom {
     flex-direction: column;
     align-items: flex-start;
