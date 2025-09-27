@@ -12,6 +12,7 @@
   display: flex;
   user-select: none;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .director_card .open{
