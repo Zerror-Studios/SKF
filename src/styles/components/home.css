@@ -1,6 +1,7 @@
 /* hero section  */
 #hero_section_container {
   width: 100%;
+  position: relative;
 }
 
 #hero_section {
@@ -466,7 +467,7 @@
 
   #upcoming_banner {
     height: auto;
-    padding: 2rem 1rem;
+    padding: 3.5rem 1rem;
     justify-content: center;
   }
   #canvas_parent {
