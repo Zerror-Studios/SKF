@@ -6,73 +6,47 @@ import gsap from "gsap";
 const DirectorCard = ({ data, isOpen, onOpen, onClose }) => {
   const rightRef = useRef(null);
   const spacerRef = useRef(null);
+  const openRef = useRef(null);
+  const closeRef = useRef(null);
 
-useEffect(() => {
-  const tl = gsap.timeline();
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
-  if (isOpen) {
-    // Open
-    tl.to(spacerRef.current, {
-      width: "13vw",           // expand
-      duration: 1.2,           // longer for smoothness
-      ease: "power2.inOut",    // silky smooth
-    }).to(
-      rightRef.current,
-      {
-        opacity: 1,
-        duration: .8,         // match width
-        ease: "power2.inOut",
-      },
-      "<" // start simultaneously
-    );
-  } else {
-    // Close
-    tl.to(spacerRef.current, {
-      width: "0vw",            // collapse
-      duration: 1.2,
-      ease: "power2.inOut",
-    }).to(
-      rightRef.current,
-      {
-        opacity: 0,
-        duration: .8,
-        ease: "power2.inOut",
-      },
-      "<"
-    );
-  }
-}, [isOpen]);
+    if (isOpen) {
+      // Open animation for this card only
+      tl.to(spacerRef.current, { width: "13vw", duration: 1.2 })
+        .to(rightRef.current, { opacity: 1, duration: 0.8 }, "<")
+        .to(openRef.current, { opacity: 0, duration: 0.8 }, "<")
+        .to(closeRef.current, { opacity: 1, duration: 0.8 }, "<");
+    } else {
+      // Close animation for this card only
+      tl.to(spacerRef.current, { width: "0vw", duration: 1.2 })
+        .to(rightRef.current, { opacity: 0, duration: 0.8 }, "<")
+        .to(openRef.current, { opacity: 1, duration: 0.8 }, "<")
+        .to(closeRef.current, { opacity: 0, duration: 0.8 }, "<");
+    }
+  }, [isOpen]);
 
-
+  const handleToggle = () => {
+    isOpen ? onClose() : onOpen();
+  };
 
   return (
-    <div className="director_card">
+    <div className="director_card" onClick={handleToggle}>
       <div className="director_card_left">
         <div className="director_card_name">
           <span>{data?.name}</span>
-          <span
-            className="open"
-            style={{
-              opacity: isOpen ? 0 : 1,
-              pointerEvents: isOpen ? "none" : "auto",
-            }}
-            onClick={onOpen}
-          >
+          <span ref={openRef}>
             <IoMdAdd />
           </span>
         </div>
-        <Image width={1000} height={1000} src={data?.image} alt={data?.name} />
+        <div className="director_card_img">
+          <Image width={1000} height={1000} src={data?.image} alt={data?.name} />
+        </div>
         <div className="director_card_right" ref={rightRef}>
           <div className="director_card_name">
             <span></span>
-            <span
-              className="close"
-              style={{
-                opacity: isOpen ? 1 : 0,
-                pointerEvents: isOpen ? "auto" : "none",
-              }}
-              onClick={onClose}
-            >
+            <span ref={closeRef}>
               <IoMdRemove />
             </span>
           </div>
@@ -82,11 +56,12 @@ useEffect(() => {
               <h5>Film Director, Screenwriter, Cinematographer</h5>
             </div>
             <p>
-              Kabir Khan is a renowned filmmaker known for human-centric
-              stories, with films like Bajrangi Bhaijaan, Ek Tha Tiger, and 83.
+              Kabir Khan is a renowned filmmaker known for human-centric stories,
+              with films like Bajrangi Bhaijaan, Ek Tha Tiger, and 83.
             </p>
             <div>
-              <h6>Awards</h6> <p>National Film Award – Bajrangi Bhaijaan</p>
+              <h6>Awards</h6>
+              <p>National Film Award – Bajrangi Bhaijaan</p>
             </div>
           </div>
         </div>
