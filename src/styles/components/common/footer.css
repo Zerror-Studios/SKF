@@ -131,10 +131,13 @@ footer {
   footer {
     padding: 3.5rem 1rem;
     height: auto;
-    gap: 5rem;
+    gap: 4rem;
   }
   #footer_top h2 {
-    font-size: 3rem;
+    font-size: 2rem;
+  }
+  .footer_links a ,#footer_bottom_left h5 ,#footer_bottom_left a,#footer_bottom_right p{
+    font-size: .9rem;
   }
   #footer_top {
     flex-direction: column;
@@ -149,7 +152,7 @@ footer {
   .footer_links:nth-child(2) {
     width: 100%;
     order: 1;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .footer_links:nth-child(1) {
     width: 50%;
