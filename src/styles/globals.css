@@ -84,6 +84,9 @@ body {
   width: 5.9722222222vw;
 }
 
+.landing_text{
+  opacity: 0;
+}
 /* Extra small (Phones) */
 @media (max-width: 480px) {
   .tag {
