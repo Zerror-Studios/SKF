@@ -63,6 +63,9 @@
  #news_hero_section {
     padding: 7rem 1rem 2rem;
 }
+.news_poster {
+  margin-top: 2rem;
+}
 .news_info_section {
     margin-top: 1rem;
     flex-direction: column;

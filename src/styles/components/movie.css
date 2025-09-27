@@ -180,7 +180,7 @@
     gap: 2rem;
   }
   .movie_img {
-    height: 250px;
+    height: 250px !important;
   }
   .filter_movie span {
     white-space: nowrap;
