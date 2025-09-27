@@ -1,19 +1,90 @@
-import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import NewsPoster from "./NewsPoster";
 import NewsDetails from "./NewsDetails";
+import gsap from "gsap";
+import SplitText from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(SplitText);
 
 const NewsHeroSection = () => {
+  const tagRef = useRef(null);
   const titleRef = useRef(null);
-  useSplitTextMaskAnimation([titleRef]);
+  const posterRef = useRef(null); // add ref to NewsPoster container
+
+  useGSAP(() => {
+    const splits = [];
+    const tl = gsap.timeline();
+
+    const refs = [tagRef, titleRef];
+
+    const runSplitAnimation = () => {
+      refs.forEach((ref, index) => {
+        if (!ref?.current) return;
+
+        const split = new SplitText(ref.current, {
+          type: "lines",
+          linesClass: "line",
+          mask: "lines",
+        });
+        splits.push(split);
+
+        const lines = ref.current.querySelectorAll(".line");
+
+        gsap.set(lines, { yPercent: 100 });
+        gsap.set(ref.current, { opacity: 1 });
+
+        // Animate lines faster and fluid
+        tl.to(
+          lines,
+          {
+            yPercent: 0,
+            duration: 0.7,
+            ease: "power4.out",
+            stagger: 0.03,
+          },
+          index === 0 ? 0 : "-=0.5" // h4 starts 0.5s before h5 finishes
+        );
+      });
+
+      // Poster animation overlapping more for continuous flow
+      if (posterRef.current) {
+        tl.to(
+          posterRef.current,
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.9,
+            ease: "power4.out",
+          },
+          "-=0.4" // overlap with last line
+        );
+      }
+    };
+
+    const fontReady = document.fonts?.ready || Promise.resolve();
+    fontReady.then(() => {
+      requestAnimationFrame(() => {
+        setTimeout(runSplitAnimation, 50);
+      });
+    });
+
+    return () => {
+      splits.forEach((s) => s.revert());
+      tl.kill();
+    };
+  }, []);
 
   return (
     <div id="news_hero_section">
-      <h5 className="tag">News</h5>
-      <h4 ref={titleRef} className="heading">
+      <h5 ref={tagRef} className="tag landing_text">
+        News
+      </h5>
+      <h4 ref={titleRef} className="heading landing_text">
         Latest News and <br /> Updates
       </h4>
-      <NewsPoster />
+      <div ref={posterRef} id="poster_wrap_news">
+        <NewsPoster />
+      </div>
       <NewsDetails />
     </div>
   );

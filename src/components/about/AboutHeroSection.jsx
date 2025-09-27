@@ -1,33 +1,112 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import AboutPoster from "./AboutPoster";
-import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
+import gsap from "gsap";
+import SplitText from "gsap/SplitText";
+
+gsap.registerPlugin(SplitText);
 
 const AboutHeroSection = () => {
-    const titleRef = useRef(null);
-    const para1Ref = useRef(null);
-    const para2Ref = useRef(null);
-    useSplitTextMaskAnimation([titleRef,para1Ref,para2Ref]);
+  const tagRef = useRef(null);
+  const titleRef = useRef(null);
+  const para1Ref = useRef(null);
+  const para2Ref = useRef(null);
+  const posterRef = useRef(null);
+  const officeRef = useRef(null); // new ref for office_label
+
+  useEffect(() => {
+    const splits = [];
+    const tl = gsap.timeline();
+
+    const refs = [tagRef, titleRef, para1Ref, para2Ref];
+
+    const runSplitAnimation = () => {
+      refs.forEach((ref, index) => {
+        if (!ref?.current) return;
+
+        const split = new SplitText(ref.current, {
+          type: "lines",
+          linesClass: "line",
+          mask: "lines",
+        });
+        splits.push(split);
+
+        const lines = ref.current.querySelectorAll(".line");
+
+        gsap.set(lines, { yPercent: 100 });
+        gsap.set(ref.current, { opacity: 1 });
+
+        tl.to(
+          lines,
+          {
+            yPercent: 0,
+            duration: 0.7,
+            ease: "power4.out",
+            stagger: 0.03,
+          },
+          index === 0 ? 0 : "-=0.5" // overlap for smoothness
+        );
+      });
+
+      // Animate AboutPoster
+      if (posterRef.current) {
+        tl.to(
+          posterRef.current,
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.9,
+            ease: "power4.out",
+          },
+          "-=0.4"
+        );
+      }
+
+      // Animate office_label from y:50 to 0 and opacity 0 -> 1
+      if (officeRef.current) {
+        tl.fromTo(
+          officeRef.current,
+          { y: 10 },
+          { opacity: 1, y: 0, duration: 0.7, ease: "power4.out" },
+          "-=0.5" // overlap with paragraph animation
+        );
+      }
+    };
+
+    const fontReady = document.fonts?.ready || Promise.resolve();
+    fontReady.then(() => {
+      requestAnimationFrame(() => {
+        setTimeout(runSplitAnimation, 50);
+      });
+    });
+
+    return () => {
+      splits.forEach((s) => s.revert());
+      tl.kill();
+    };
+  }, []);
+
   return (
     <div id="about_hero_section">
       <div className="about_top_wrapper">
         <div className="about_hero_title">
-          <h5 className="tag">About</h5>
-          <h2 ref={titleRef} className="heading">
+          <h5 ref={tagRef} className="tag landing_text">
+            About
+          </h5>
+          <h2 ref={titleRef} className="heading landing_text">
             Where Stories Meet <br /> Heart
           </h2>
         </div>
         <div className="about_hero_info">
-          <p ref={para1Ref} className="description">
+          <p ref={para1Ref} className="description landing_text">
             Salman Khan Films (SKF), founded by actor-producer Salman Khan in
             2011, is a leading Indian film production company based in Mumbai.
           </p>
-          <p ref={para2Ref} className="description">
+          <p ref={para2Ref} className="description landing_text">
             Known for its compelling storytelling, wide audience appeal, and
             high production values, SKF has delivered several blockbuster and
             critically acclaimed titles that continue to perform strongly across
             digital platforms.
           </p>
-          <div className="office_label">
+          <div ref={officeRef} className="office_label landing_text">
             <div>
               <h5 className="tag">Head Office</h5>
               <h2 className="heading">Mumbai</h2>
@@ -39,7 +118,9 @@ const AboutHeroSection = () => {
           </div>
         </div>
       </div>
-      <AboutPoster/>
+      <div ref={posterRef} id="poster_wrap_about">
+        <AboutPoster />
+      </div>
     </div>
   );
 };

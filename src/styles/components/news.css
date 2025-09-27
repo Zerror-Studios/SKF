@@ -4,6 +4,9 @@
   padding-top: 7rem;
 }
 
+#poster_wrap_news{
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
 .news_poster {
   width: 100%;
   height: auto;
