@@ -41,7 +41,7 @@ export default function DropdownFilter() {
   return (
     <div className="df-container" ref={containerRef}>
       <div className="df-dropdown">
-        <button
+        <div
           className="df-dropdown-header"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -87,7 +87,7 @@ export default function DropdownFilter() {
               )}
             </div>
           )}
-        </button>
+        </div>
       </div>
     </div>
   );

@@ -51,7 +51,9 @@
   border-radius: 8px;
   font-family: var(--secondary-font);
   background-color: #fffef1;
+  color: #1d1d1d !important;
 }
+
 
 .df-dropdown {
   border: 1px solid #e0e6f0;
