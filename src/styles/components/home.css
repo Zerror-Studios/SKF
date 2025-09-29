@@ -470,8 +470,9 @@
 
   #upcoming_banner {
     height: auto;
-    padding: 3.5rem 1rem;
+    padding: 7rem 1rem 3.5rem;
     justify-content: center;
+    align-items: center;
   }
   #canvas_parent {
     width: 105%;

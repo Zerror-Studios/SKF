@@ -9,6 +9,7 @@ const directors = [
   { id: 4, name: "Jean-François Pouliot", image: "/images/home/d4.png" },
   { id: 5, name: "Ali Abbas Zafar", image: "/images/home/d5.png" },
   { id: 6, name: "Ali Abbas Zafar", image: "/images/home/d6.png" },
+  { id: 7, name: "Nikhil", image: "/images/home/d3.png" },
 ];
 const DirectorsSection = () => {
   const titleRef = useRef(null);

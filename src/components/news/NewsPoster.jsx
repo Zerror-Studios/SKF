@@ -73,6 +73,7 @@ const NewsPoster = () => {
         height={1000}
         src="/images/news/news-banner.png"
         alt="contact-banner"
+        priority
       />
     </div>
   );
