@@ -5,14 +5,16 @@ import Filters from "../common/Filters";
 import Cursor from "../common/Cursor";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
+import CustomEase from "gsap/dist/CustomEase";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, CustomEase);
 
 const MoviesListing = ({ data }) => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
   const filtersRef = useRef(null);
   const sectionRef = useRef(null);
+  CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
   const [selectedFilter, setSelectedFilter] = useState("all");
   const [visibleCount, setVisibleCount] = useState(6);
@@ -28,7 +30,7 @@ const MoviesListing = ({ data }) => {
 
     const refs = [tagRef, titleRef];
 
-    refs.forEach((ref) => {
+    refs.forEach((ref,index) => {
       if (!ref?.current) return;
 
       const split = new SplitText(ref.current, {
@@ -42,13 +44,16 @@ const MoviesListing = ({ data }) => {
 
       gsap.set(lines, { yPercent: 100 });
       gsap.set(ref.current, { opacity: 1 });
-
-      tl.to(lines, {
-        yPercent: 0,
-        duration: 0.7,
-        ease: "power4.out",
-        stagger: 0.03,
-      });
+      tl.to(
+        lines,
+        {
+          yPercent: 0,
+          duration: 1.5,
+          ease: "ease-secondary",
+          stagger: { amount: 0.2 },
+        },
+        index === 0 ? 0 : "-=1.5"
+      );
     });
 
     // Animate Filters
@@ -56,8 +61,8 @@ const MoviesListing = ({ data }) => {
       tl.fromTo(
         filtersRef.current,
         { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power4.out" },
-        "-=0.4" // overlap with last line animation
+        { opacity: 1, y: 0, duration: 2, ease: "ease-secondary" },
+        "-=1" // overlap with last line animation
       );
     }
 
@@ -65,9 +70,9 @@ const MoviesListing = ({ data }) => {
     if (sectionRef.current) {
       tl.fromTo(
         sectionRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" },
-        "-=0.3" // overlap slightly with Filters animation
+        { opacity: 0, y: 50},
+        { opacity: 1, y: 0, duration: 1.5, ease: "ease-secondary" },
+        "-=1.5" // overlap slightly with Filters animation
       );
     }
 
