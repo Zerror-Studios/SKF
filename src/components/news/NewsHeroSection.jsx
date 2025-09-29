@@ -4,13 +4,15 @@ import NewsDetails from "./NewsDetails";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
+import CustomEase from "gsap/dist/CustomEase";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText,CustomEase);
 
 const NewsHeroSection = () => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
   const posterRef = useRef(null); // add ref to NewsPoster container
+    CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
   useGSAP(() => {
     const splits = [];
@@ -36,16 +38,16 @@ const NewsHeroSection = () => {
 
         // Animate lines faster and fluid
         tl.to(
-          lines,
-          {
-            yPercent: 0,
-            duration: 0.7,
-            ease: "power4.out",
-            stagger: 0.03,
-          },
-          index === 0 ? 0 : "-=0.5" // h4 starts 0.5s before h5 finishes
-        );
-      });
+        lines,
+        {
+          yPercent: 0,
+          duration: 1.5,
+          ease: "ease-secondary",
+          stagger: { amount: 0.2 },
+        },
+        index === 0 ? 0 : "-=1.5"
+      );
+    });
 
       // Poster animation overlapping more for continuous flow
       if (posterRef.current) {
@@ -53,10 +55,10 @@ const NewsHeroSection = () => {
           posterRef.current,
           {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            duration: 0.9,
-            ease: "power4.out",
+            duration: 1.5,
+            ease: "ease-secondary",
           },
-          "-=0.4" // overlap with last line
+          "-=1" // overlap with last line
         );
       }
     };

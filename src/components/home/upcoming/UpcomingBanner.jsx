@@ -26,38 +26,27 @@ const UpcomingBanner = () => {
 
   useGSAP(() => {
     let ctx = gsap.context(() => {
-      const mm = ScrollTrigger.matchMedia({
-        // Screens larger than 480px
-        "(min-width: 481px)": () => {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: "#upcoming_banner",
-              start: "top top",
-              end: window.innerHeight * 4,
-              pin: true,
-              scrub: true,
-              // markers: true
-            },
-          });
-
-          tl.fromTo("#expand_line", { width: "0%" }, { width: "100%" });
-          tl.fromTo(
-            "#canvas_container",
-            { transform: "translateY(-100%)" },
-            { transform: "translateY(-1.3rem)" }
-          );
-
-          return () => {
-            tl.kill();
-          };
-        },
-        // Screens 480px or smaller – do nothing
-        "(max-width: 480px)": () => {
-          // no animation on mobile
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#upcoming_banner",
+          start: "top top",
+          end: window.innerHeight * 4,
+          pin: true,
+          scrub: true,
+          // markers: true
         },
       });
 
-      return () => mm.revert(); // cleanup matchMedia
+      tl.fromTo("#expand_line", { width: "0%" }, { width: "100%" });
+      tl.fromTo(
+        "#canvas_container",
+        { transform: "translateY(-100%)" },
+        { transform: "translateY(-1.3rem)" }
+      );
+
+      return () => {
+        tl.kill();
+      };
     });
 
     return () => ctx.revert(); // cleanup gsap context

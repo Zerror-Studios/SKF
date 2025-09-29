@@ -17,14 +17,14 @@ const NewsPoster = () => {
       "(min-width: 481px)": () => {
         const tl = gsap.fromTo(
           bgRef.current,
-          { y: "-20%" },
+          { y: -100 },
           {
-            y: "20%",
-            ease: "none",
+            y: 100,
+            ease: "linear",
             scrollTrigger: {
               trigger: "#about_section",
               start: "top 5%",
-              end: "bottom top",
+              end: "bottom 50",
               scrub: true,
             },
           }
@@ -73,6 +73,7 @@ const NewsPoster = () => {
         height={1000}
         src="/images/news/news-banner.png"
         alt="contact-banner"
+        priority
       />
     </div>
   );

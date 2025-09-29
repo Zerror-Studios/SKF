@@ -5,12 +5,15 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
+import CustomEase from "gsap/dist/CustomEase";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText,CustomEase);
 
 const ContactSection = () => {
   const titleRef = useRef(null);
   const para1Ref = useRef(null);
+    CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
+  
 
   useEffect(() => {
     const splits = [];
@@ -45,16 +48,16 @@ const ContactSection = () => {
 
         // animate lines overlapping with banner
         tl.to(
-          lines,
-          {
-            yPercent: 0,
-            duration: 1.2, // faster
-            ease: "power3.out",
-            stagger: 0.1, // slightly tighter stagger
-          },
-          "-=1" // tighter overlap with banner
-        );
-      });
+        lines,
+        {
+          yPercent: 0,
+          duration: 1.5,
+          ease: "ease-secondary",
+          stagger: { amount: 0.2 },
+        },
+        index === 0 ? 0 : "-=1.5"
+      );
+    });
 
       // fade in the right info section overlapping with lines
       tl.fromTo(
@@ -63,8 +66,8 @@ const ContactSection = () => {
         {
           opacity: 1,
           y: 0, // to
-          duration: 0.6,
-          ease: "power3.out",
+          duration: 2,
+          ease: "ease-secondary",
         },
         "-=1.5" // overlap with line animation
       );

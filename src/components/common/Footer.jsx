@@ -13,6 +13,8 @@ const Footer = () => {
   useEffect(() => {
     if (pathname === "/contact" && window.innerWidth >= 480) {
       setShowFooter(false);
+    } else {
+      setShowFooter(true);
     }
   }, [pathname]);
 
@@ -30,7 +32,11 @@ const Footer = () => {
                 const isActive =
                   href === "/" ? pathname === href : pathname.startsWith(href);
                 return (
-                  <Link key={label} href={href} className={isActive ? "active" : ""}>
+                  <Link
+                    key={label}
+                    href={href}
+                    className={isActive ? "active" : ""}
+                  >
                     {label}
                   </Link>
                 );
