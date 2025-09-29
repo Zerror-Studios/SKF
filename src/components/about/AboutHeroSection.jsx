@@ -2,8 +2,9 @@ import React, { useRef, useEffect } from "react";
 import AboutPoster from "./AboutPoster";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
+import CustomEase from "gsap/dist/CustomEase";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, CustomEase);
 
 const AboutHeroSection = () => {
   const tagRef = useRef(null);
@@ -12,11 +13,11 @@ const AboutHeroSection = () => {
   const para2Ref = useRef(null);
   const posterRef = useRef(null);
   const officeRef = useRef(null); // new ref for office_label
+  CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
   useEffect(() => {
     const splits = [];
     const tl = gsap.timeline();
-
     const refs = [tagRef, titleRef, para1Ref, para2Ref];
 
     const runSplitAnimation = () => {
@@ -39,43 +40,38 @@ const AboutHeroSection = () => {
           lines,
           {
             yPercent: 0,
-            duration: 0.7,
-            ease: "power4.out",
-            stagger: 0.03,
+            duration: 1.5,
+            ease: "ease-secondary",
+            stagger: { amount: 0.2 },
           },
-          index === 0 ? 0 : "-=0.5" // overlap for smoothness
+          index === 0 ? 0 : "-=1.5"
         );
       });
 
-      // Animate AboutPoster
+      if (officeRef.current) {
+        tl.fromTo(
+          officeRef.current,
+          { y: 20, opacity: 0 },
+          { opacity: 1, y: 0, duration: 1.2, ease: "ease-secondary" },
+          "-=1.5"
+        );
+      }
+
       if (posterRef.current) {
         tl.to(
           posterRef.current,
           {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            duration: 0.9,
-            ease: "power4.out",
+            duration: 2,
+            ease: "ease-secondary",
           },
-          "-=0.4"
-        );
-      }
-
-      // Animate office_label from y:50 to 0 and opacity 0 -> 1
-      if (officeRef.current) {
-        tl.fromTo(
-          officeRef.current,
-          { y: 10 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "power4.out" },
-          "-=0.5" // overlap with paragraph animation
+          "-=2"
         );
       }
     };
 
-    const fontReady = document.fonts?.ready || Promise.resolve();
-    fontReady.then(() => {
-      requestAnimationFrame(() => {
-        setTimeout(runSplitAnimation, 50);
-      });
+    (document.fonts?.ready || Promise.resolve()).then(() => {
+      requestAnimationFrame(() => setTimeout(runSplitAnimation, 50));
     });
 
     return () => {
