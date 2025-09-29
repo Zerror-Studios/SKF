@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../common/Button";
 import DirectorsContainer from "../common/Directors/DirectorsContainer";
 
@@ -6,16 +6,31 @@ const directors = [
   { id: 1, name: "Salman khan", image: "/images/moviedetails/cast1.png" },
   { id: 2, name: "RASHMIKA MANDANA", image: "/images/moviedetails/cast2.png" },
   { id: 3, name: "KAJAL AGARWAL", image: "/images/moviedetails/cast3.png" },
-  { id: 3, name: "Anjini Dhawan", image: "/images/moviedetails/cast4.png" },
-  { id: 3, name: "Sathyaraj", image: "/images/moviedetails/cast5.png" },
-  { id: 3, name: "Sharman Joshi", image: "/images/moviedetails/cast6.png" },
+  { id: 4, name: "Anjini Dhawan", image: "/images/moviedetails/cast4.png" },
+  { id: 5, name: "Sathyaraj", image: "/images/moviedetails/cast5.png" },
+  { id: 6, name: "Sharman Joshi", image: "/images/moviedetails/cast6.png" },
 ];
+
 const CastSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 480);
+    handleResize(); // check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section id="cast_section">
-      <h5 className="tag">Cast and crew</h5>
-      <DirectorsContainer data={directors}/>
-      <Button title={"show more"} color={"black"} />
+      <div className="cast_tag_wrap">
+        <h5 className="tag">Cast and crew</h5>
+        {isMobile && <Button title="show more" color="black" />}
+      </div>
+
+      <DirectorsContainer data={directors} />
+
+      {!isMobile && <Button title="show more" color="black" />}
     </section>
   );
 };

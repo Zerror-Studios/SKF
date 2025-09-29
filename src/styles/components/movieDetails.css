@@ -160,6 +160,11 @@
 #cast_section .common_btn {
   margin-top: 2.5rem;
 }
+.cast_tag_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 /* cast section  */
 
 /* Extra small (Phones) */
@@ -205,6 +210,18 @@
   #cast_section {
     padding: 3.5rem 1rem;
   }
+  #cast_section .common_btn {
+  margin-top: 0;
+}
+.cast_tag_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.cast_tag_wrap .tag{
+  margin-bottom: 0;
+}
  
 }
 /* Small (Phones to Tablets) */
