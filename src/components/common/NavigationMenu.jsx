@@ -1,12 +1,16 @@
 import { navLinks } from "@/helper/menuData";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import CustomEase from "gsap/dist/CustomEase";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
+gsap.registerPlugin(CustomEase);
 
-const NavigationMenu = ({menu, setMenu }) => {
+const NavigationMenu = ({ menu, setMenu }) => {
   const menuTL = useRef();
+  CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
+
   useGSAP(() => {
     menuTL.current = gsap
       .timeline({ paused: true })
@@ -57,8 +61,8 @@ const NavigationMenu = ({menu, setMenu }) => {
         "#navigation",
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 0.4,
-          ease: "power2.out",
+          duration: 0.8,
+          ease: "ease-secondary",
         },
         "a"
       )
@@ -71,8 +75,10 @@ const NavigationMenu = ({menu, setMenu }) => {
         {
           opacity: 1,
           stagger: 0.1,
-          delay: -0.3,
+          delay: -0.5,
+          duration: 1,
           y: 0,
+          ease: "ease-secondary",
         },
         "s"
       )
@@ -85,8 +91,10 @@ const NavigationMenu = ({menu, setMenu }) => {
         {
           opacity: 1,
           stagger: 0.1,
-          delay: -0.3,
+          delay: -0.5,
+          duration: 0.8,
           y: 0,
+          ease: "ease-secondary",
         },
         "s"
       )
@@ -98,8 +106,10 @@ const NavigationMenu = ({menu, setMenu }) => {
         },
         {
           opacity: 0.5,
-          delay: -0.3,
+          delay: -0.5,
+          duration: 0.8,
           y: 0,
+          ease: "ease-secondary",
         },
         "s"
       )
@@ -111,8 +121,10 @@ const NavigationMenu = ({menu, setMenu }) => {
         },
         {
           opacity: 1,
-          delay: -0.3,
+          delay: -0.5,
+          duration: 0.8,
           y: 0,
+          ease: "ease-secondary",
         },
         "s"
       );

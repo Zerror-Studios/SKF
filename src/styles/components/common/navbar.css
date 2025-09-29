@@ -185,6 +185,9 @@
   #menu-btn {
     display: flex;
   }
+  .menu-links{
+    gap: 22px;
+  }
 }
 
 /* Small (Phones to Tablets) */
