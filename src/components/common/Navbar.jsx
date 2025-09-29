@@ -15,13 +15,19 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const splitLetters = (text) => text.split("").map((l, i) => <span key={i}>{l}</span>);
+  const splitLetters = (text) =>
+    text.split("").map((l, i) => <span key={i}>{l}</span>);
 
   const animateLetters = (selector) => {
     gsap.fromTo(
       navRef.current.querySelectorAll(selector),
       { yPercent: 0 },
-      { yPercent: -100,  stagger: { amount: 0.1 }, duration: 0.3, ease: "power2.out" }
+      {
+        yPercent: -100,
+        stagger: { amount: 0.1 },
+        duration: 0.3,
+        ease: "power2.out",
+      }
     );
   };
 
@@ -30,11 +36,15 @@ const Navbar = () => {
     animateLetters(`.${cls} .title2 span`);
   };
 
-  const isDarkRoute = pathname === "/" || pathname === "/contact" || pathname.startsWith("/movies/");
+  const isDarkRoute =
+    pathname === "/" ||
+    pathname === "/contact" ||
+    pathname.startsWith("/movies/");
 
   useEffect(() => {
     if (!isDarkRoute) return;
-    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.80);
+    const handleScroll = () =>
+      setScrolled(window.scrollY > window.innerHeight * 0.8);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isDarkRoute]);
@@ -46,15 +56,28 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const navStyle = isDarkRoute
-    ? {
-        transform: pathname === "/" ? "translateY(-110%)" : "none",
-        background: isMobile || scrolled ? "#fffef1" : "transparent",
-        borderBottom: "1px solid",
-        borderColor: isMobile || scrolled ? "#d8d8d8" : "transparent",
-        transition: "background 0.3s ease, border-color 0.3s ease",
-      }
-    : { transform: "none", background: "#fffef1", borderBottom: "1px solid #d8d8d8" };
+  const isContact = pathname === "/contact";
+
+  const navStyle =
+    isContact && isMobile
+      ? {
+          transform: "none",
+          background: "#fffef1", // always bg on mobile
+          borderBottom: "1px solid #d8d8d8", // always border on mobile
+        }
+      : isDarkRoute
+      ? {
+          transform: pathname === "/" ? "translateY(-110%)" : "none",
+          background: scrolled ? "#fffef1" : "transparent",
+          borderBottom: "1px solid",
+          borderColor: scrolled ? "#d8d8d8" : "transparent",
+          transition: "background 0.3s ease, border-color 0.3s ease",
+        }
+      : {
+          transform: "none",
+          background: "#fffef1",
+          borderBottom: "1px solid #d8d8d8",
+        };
 
   return (
     <nav ref={navRef} id="navbar" style={navStyle}>
@@ -66,7 +89,7 @@ const Navbar = () => {
           alt="skf_logo"
           style={{
             filter:
-              pathname === "/contact" || isMobile
+              pathname === "/contact"
                 ? "invert(0)"
                 : isDarkRoute && !scrolled
                 ? "invert(1)"
@@ -78,7 +101,10 @@ const Navbar = () => {
 
       <div className="nav_links">
         {navLinks.map(({ href, label }) => {
-          const isActive = href === "/" ? router.pathname === href : router.pathname.startsWith(href);
+          const isActive =
+            href === "/"
+              ? router.pathname === href
+              : router.pathname.startsWith(href);
           return (
             <Link
               key={label}
@@ -99,7 +125,17 @@ const Navbar = () => {
         })}
       </div>
 
-      <div id="menu-btn" onClick={() => setMenu((prev) => !prev)}>
+      <div
+        id="menu-btn"
+        className={`${
+          isContact && isMobile
+            ? ""
+            : isDarkRoute && !scrolled
+            ? "dark-menu"
+            : ""
+        }`}
+        onClick={() => setMenu((prev) => !prev)}
+      >
         <span className="line1m linem"></span>
         <span className="line3m linem"></span>
         <span className="line2m linem"></span>
