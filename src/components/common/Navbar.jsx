@@ -56,19 +56,28 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const navStyle = isDarkRoute
-    ? {
-        transform: pathname === "/" ? "translateY(-110%)" : "none",
-        background: scrolled ? "#fffef1" : "transparent",
-        borderBottom: "1px solid",
-        borderColor: scrolled ? "#d8d8d8" : "transparent",
-        transition: "background 0.3s ease, border-color 0.3s ease",
-      }
-    : {
-        transform: "none",
-        background: "#fffef1",
-        borderBottom: "1px solid #d8d8d8",
-      };
+  const isContact = pathname === "/contact";
+
+  const navStyle =
+    isContact && isMobile
+      ? {
+          transform: "none",
+          background: "#fffef1", // always bg on mobile
+          borderBottom: "1px solid #d8d8d8", // always border on mobile
+        }
+      : isDarkRoute
+      ? {
+          transform: pathname === "/" ? "translateY(-110%)" : "none",
+          background: scrolled ? "#fffef1" : "transparent",
+          borderBottom: "1px solid",
+          borderColor: scrolled ? "#d8d8d8" : "transparent",
+          transition: "background 0.3s ease, border-color 0.3s ease",
+        }
+      : {
+          transform: "none",
+          background: "#fffef1",
+          borderBottom: "1px solid #d8d8d8",
+        };
 
   return (
     <nav ref={navRef} id="navbar" style={navStyle}>
@@ -119,7 +128,11 @@ const Navbar = () => {
       <div
         id="menu-btn"
         className={`${
-          isDarkRoute && !scrolled ? "dark-menu" : ""
+          isContact && isMobile
+            ? ""
+            : isDarkRoute && !scrolled
+            ? "dark-menu"
+            : ""
         }`}
         onClick={() => setMenu((prev) => !prev)}
       >
