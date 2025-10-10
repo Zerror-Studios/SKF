@@ -19,6 +19,7 @@
   top: 45%;
   left: 50%;
   transform: translate(-50%,-50%);
+  width: 100%;
 }
 
 #contact-top .tag{
@@ -82,6 +83,22 @@
 }
 /* Extra small (Phones) */
 @media (max-width: 480px) {
+  #contact_bottom .description{
+    white-space: nowrap;
+  }
+  #contact_bottom{
+    gap: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+  #contact_section{
+    padding: 1rem;
+  }
+  #middle_img{
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+
 }
 
 /* Small (Phones to Tablets) */
