@@ -136,8 +136,11 @@ footer {
   #footer_top h2 {
     font-size: 2rem;
   }
-  .footer_links a ,#footer_bottom_left h5 ,#footer_bottom_left a,#footer_bottom_right p{
-    font-size: .9rem;
+  .footer_links a,
+  #footer_bottom_left h5,
+  #footer_bottom_left a,
+  #footer_bottom_right p {
+    font-size: 0.9rem;
   }
   #footer_top {
     flex-direction: column;
@@ -176,15 +179,47 @@ footer {
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-  /* styles for bigger phones & small tablets */
+  footer{
+    padding: 3rem 1rem;
+  }
+  #footer_top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  #footer_top_right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* Medium (Tablets) */
-@media (min-width: 764px) and (max-width: 1024px) {
-  /* styles for tablets */
+@media (min-width: 764px) and (max-width: 1100px) {
+ footer{
+    padding: 3rem 1.5rem;
+  }
+  #footer_top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  #footer_top_right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer_links:nth-child(2) {
+    width: 40%;
+}
+.footer_links{
+  width: 18%;
+}
 }
 
 /* Large (Laptops) */
-@media (min-width: 1024px) and (max-width: 1280px) {
-  /* styles for small laptops/desktops */
+@media (min-width: 1100px) and (max-width: 1280px) {
+   #footer_top_right {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
