@@ -12,7 +12,7 @@ const UpcomingBanner = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 480); // adjust breakpoint as needed
+      setIsMobile(window.innerWidth <= 767); // adjust breakpoint as needed
     };
 
     handleResize(); // set initially

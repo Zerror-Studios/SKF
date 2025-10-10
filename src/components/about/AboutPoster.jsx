@@ -13,7 +13,7 @@ const AboutPoster = () => {
 
     const mm = ScrollTrigger.matchMedia({
       // Screens larger than 480px
-      "(min-width: 767px)": () => {
+      "(min-width: 1024px)": () => {
         const tl = gsap.fromTo(
           bgRef.current,
           { y: -100 },
