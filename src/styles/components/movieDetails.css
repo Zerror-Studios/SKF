@@ -160,7 +160,7 @@
 #cast_section .common_btn {
   margin-top: 2.5rem;
 }
-.cast_tag_wrap{
+.cast_tag_wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -211,30 +211,136 @@
     padding: 3.5rem 1rem;
   }
   #cast_section .common_btn {
-  margin-top: 0;
-}
-.cast_tag_wrap{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-.cast_tag_wrap .tag{
-  margin-bottom: 0;
-}
- 
+    margin-top: 0;
+  }
+  .cast_tag_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .cast_tag_wrap .tag {
+    margin-bottom: 0;
+  }
 }
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-  /* styles for bigger phones & small tablets */
+  #movie_details_hero {
+    height: auto;
+  }
+  .movie_banner_overlay {
+    padding: 2rem 1rem;
+  }
+  .movie_banner {
+    height: 85vh;
+  }
+  .movie_banner_overlay h2 {
+    font-size: 2.5rem;
+  }
+  .movie_details_info {
+    padding: 3.5rem 1rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .movie_details_info > div {
+    width: 45%;
+    margin-bottom: 0.5rem;
+  }
+  .movie_details_info p {
+    font-size: 0.9rem;
+  }
+  .movie_details_info h4 {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+  .movie_details_info .netflix {
+    align-items: flex-start;
+  }
+
+  #synopsis_section {
+    padding: 2rem 1rem;
+  }
+  .synopsis_info p {
+    width: 95%;
+  }
+  #cast_section {
+    padding: 3.5rem 1rem;
+  }
+  #cast_section .common_btn {
+    margin-top: 2rem;
+  }
+  .cast_tag_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .cast_tag_wrap .tag {
+    margin-bottom: 0;
+  }
 }
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
-  /* styles for tablets */
+   #movie_details_hero {
+    height: auto;
+  }
+  .movie_banner_overlay {
+    padding: 2rem 1.5rem;
+  }
+  .movie_banner {
+    height: 85vh;
+  }
+  .movie_banner_overlay h2 {
+    font-size: 2.5rem;
+  }
+  .movie_details_info {
+    padding: 2rem 1rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .movie_details_info > div {
+    width: 45%;
+    margin-bottom: 0.5rem;
+  }
+  .movie_details_info p {
+    font-size: 0.9rem;
+  }
+  .movie_details_info h4 {
+    font-size: 1.8rem;
+    white-space: nowrap;
+  }
+  .movie_details_info .netflix {
+    align-items: flex-start;
+  }
+
+  #synopsis_section {
+    padding: 2rem 1rem;
+  }
+  .synopsis_info p {
+    width: 95%;
+  }
+  #cast_section {
+    padding: 3.5rem 1rem;
+  }
+  #cast_section .common_btn {
+    margin-top: 2rem;
+  }
+  .cast_tag_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .cast_tag_wrap .tag {
+    margin-bottom: 0;
+  }
 }
 
 /* Large (Laptops) */
-@media (min-width: 1024px) and (max-width: 1280px) {
-  /* styles for small laptops/desktops */
+@media (min-width: 1024px) and (max-width: 1286px) {
+  .movie_details_info h4 {
+    font-size: 2rem !important;
+  }
+
 }
