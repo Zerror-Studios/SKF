@@ -5,14 +5,10 @@ import SynopsisSection from "@/components/movieDetails/SynopsisSection";
 import HorizontalSwiper from "@/components/common/HorizontalSlider/HorizontalSwiper";
 import { movies } from "@/helper/moviesData";
 import React from "react";
-import GallerySection from "@/components/common/GallerySection";
+import GalleryDetailList from "@/components/gallery/GalleryDetailList";
+import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 
 const MovieDetails = ({ movie }) => {
-  const title = (
-    <>
-      Raw, Real & BTS from <br /> {movie?.title}
-    </>
-  );
   return (
     <>
       <MovieDetailsHero data={movie} />
@@ -20,7 +16,8 @@ const MovieDetails = ({ movie }) => {
       <CastSection />
       <HorizontalSlider />
       <HorizontalSwiper />
-      <GallerySection title={title} />
+      <GalleryTitleSection data={movie} />
+      <GalleryDetailList data={movie} />
     </>
   );
 };
