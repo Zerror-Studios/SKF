@@ -5,6 +5,8 @@ import SynopsisSection from "@/components/movieDetails/SynopsisSection";
 import HorizontalSwiper from "@/components/common/HorizontalSlider/HorizontalSwiper";
 import { movies } from "@/helper/moviesData";
 import React from "react";
+import GalleryDetailList from "@/components/gallery/GalleryDetailList";
+import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 
 const MovieDetails = ({ movie }) => {
   return (
@@ -14,6 +16,8 @@ const MovieDetails = ({ movie }) => {
       <CastSection />
       <HorizontalSlider />
       <HorizontalSwiper />
+      <GalleryTitleSection data={movie} />
+      <GalleryDetailList data={movie} />
     </>
   );
 };

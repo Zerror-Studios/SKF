@@ -4,6 +4,11 @@ import GalleryDetailCard from "./GalleryDetailCard";
 const GalleryDetailList = ({ data }) => {
   const [playingIndex, setPlayingIndex] = useState(null);
 
+  const handlePlay = (index) => {
+    // toggle: if same video clicked, pause it
+    setPlayingIndex((prev) => (prev === index ? null : index));
+  };
+
   return (
     <div id="gallery_detail_list">
       {data?.media?.map((item, index) => {
@@ -19,8 +24,8 @@ const GalleryDetailList = ({ data }) => {
             index={index}
             item={item}
             cardClass={cardClass}
-            isPlaying={playingIndex === index} // ✅ pass isPlaying
-            onPlay={() => setPlayingIndex(index)} // ✅ pass onPlay
+            isPlaying={playingIndex === index}
+            onPlay={() => handlePlay(index)}
           />
         );
       })}
