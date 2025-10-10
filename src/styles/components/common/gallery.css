@@ -129,14 +129,44 @@
 }
 /* Extra small (Phones) */
 @media (max-width: 480px) {
+  #gallery_title {
+    padding: 7rem 1rem 2rem;
+  }
+    #gallery_list {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 2.5rem;
+    padding: 1rem;
+  }
+  .arrow_circle {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.5rem;
+}
+
+#gallery_detail_list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5rem;
+    padding: 1rem;
+}
+.gallery_detail_card_small{
+  grid-column: span 6;
+}
 }
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
+  #gallery_title {
+    padding: 7rem 1rem 2rem;
+  }
+
 }
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
+  #gallery_title {
+    width: 100%;
+    padding: 7rem 1.5rem 2rem;
+  }
 }
 
 /* Large (Laptops) */
