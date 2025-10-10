@@ -13,7 +13,7 @@ const DirectorCard = ({ data, isOpen, onOpen, onClose }) => {
 
   // Detect mobile screen safely (SSR-friendly)
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 480);
+    const handleResize = () => setIsMobile(window.innerWidth < 1286);
     handleResize(); // initial check
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

@@ -482,15 +482,232 @@
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-  /* styles for bigger phones & small tablets */
+  #play_btn {
+    left: calc(100% - 4rem) !important;
+    top: calc(100% - 6rem) !important;
+    transform: translate(0, 0) !important;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+  }
+  #hero_section h2 {
+    font-size: 3rem;
+    height: 2.5rem;
+  }
+  #hero_section h2 span {
+    height: 2.5rem;
+    line-height: 1;
+  }
+  #landing_video {
+    height: 2.3rem;
+  }
+  #movie_carousel_section {
+    gap: 1.5rem;
+    height: auto;
+    padding: 3.5rem 1rem;
+  }
+  #movie_carousel {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+  }
+  #directors_section {
+    padding: 3.5rem 1rem;
+  }
+
+  #highlight_section h2 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+  #highlight_section > h2,
+  #highlight_section > h5 {
+    margin-left: 1rem;
+  }
+
+  .highlight_card {
+    padding: 2rem 1rem;
+    transition: none;
+  }
+  .highlight_card:hover {
+    background-color: #fffef1;
+  }
+
+  #highlight_section h2 {
+    font-size: 1.9rem;
+  }
+  #highlights_container {
+    margin-top: 1rem;
+  }
+
+  .highlight_card {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .highlight_info p:nth-child(1) {
+    margin-top: 0;
+  }
+  .highlight_info p {
+    margin-bottom: 0.8rem;
+    margin-top: 1.2rem;
+    width: 95% !important;
+  }
+  .highlight_card .common_btn {
+    display: none;
+  }
+  .highlight_info h4 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .btn_container {
+    display: flex;
+  }
+  .highlight_img {
+    width: 100%;
+    height: auto;
+  }
+  .highlight_info {
+    width: 100%;
+  }
+  #about_section {
+    height: 120vh;
+  }
+  .about_overlay {
+    width: 85%;
+    height: 60%;
+  }
+  .about_text_content {
+    padding: 1rem;
+  }
+  .about_overlay .description {
+    width: 90%;
+  }
+
+  #upcoming_banner {
+    height: auto;
+    padding: 7rem 1rem 3.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #canvas_parent {
+    width: 75%;
+    transform: translateY(1rem);
+  }
+
+  .filter_movie {
+    font-size: 0.9rem !important;
+  }
+  .filter_movie {
+    margin: 0 !important;
+  }
+  #filter_gallery {
+    margin-top: 2rem;
+  }
+
+  #highlight_section h2 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+  #highlight_section > h2,
+  #highlight_section > h5 {
+    margin-left: 1rem;
+  }
+
+  .highlight_card {
+    padding: 2rem 1rem;
+    transition: none;
+  }
+  .highlight_card:hover {
+    background-color: #fffef1;
+  }
+
+  #highlight_section h2 {
+    font-size: 1.9rem;
+  }
+  #highlights_container {
+    margin-top: 1rem;
+  }
+
+  .highlight_card {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .highlight_info p:nth-child(1) {
+    margin-top: 0;
+  }
+  .highlight_info p {
+    margin-bottom: 0.8rem;
+    margin-top: 1.2rem;
+    width: 95% !important;
+  }
+  .highlight_card .common_btn {
+    display: none;
+  }
+  .highlight_info h4 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .btn_container {
+    display: flex;
+  }
+  .highlight_img {
+    width: 100%;
+    height: auto;
+  }
+  .highlight_info {
+    width: 100%;
+  }
 }
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
-  /* styles for tablets */
+   #hero_section h2 {
+    font-size: 3rem;
+    height: 2.5rem;
+  }
+  #hero_section h2 span {
+    height: 2.5rem;
+    line-height: 1;
+  }
+  #landing_video {
+    height: 2.3rem;
+  }
+  .filter_movie {
+    margin: 0 !important;
+  }
+  #filter_gallery {
+    margin-top: 2rem;
+  }
+
+  .highlight_card {
+    padding: 2rem 1.5rem;
+  }
+  .highlight_info {
+    width: 50%;
+  }
+  .highlight_info h4 {
+    font-size: 2rem;
+  }
+  .highlight_img {
+    height: 285px;
+  }
+  #movie_carousel_section {
+    padding: 3.5rem 1rem 2.5rem;
+  }
+  #movie_carousel_section .movie_img {
+    height: 180px !important;
+  }
+  #directors_section {
+    padding: 3.5rem 1rem;
+  }
 }
 
 /* Large (Laptops) */
 @media (min-width: 1024px) and (max-width: 1280px) {
-  /* styles for small laptops/desktops */
+  .highlight_info {
+    width: 50%;
+  }
+  .highlight_img {
+    height: 300px;
+  }
 }

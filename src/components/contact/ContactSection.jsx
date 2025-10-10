@@ -6,122 +6,60 @@ import { FaXTwitter } from "react-icons/fa6";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import CustomEase from "gsap/dist/CustomEase";
+import Link from "next/link";
 
-gsap.registerPlugin(SplitText,CustomEase);
+gsap.registerPlugin(SplitText, CustomEase);
 
 const ContactSection = () => {
   const titleRef = useRef(null);
   const para1Ref = useRef(null);
-    CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
-  
-
-  useEffect(() => {
-    const splits = [];
-    const refs = [titleRef, para1Ref];
-    const tl = gsap.timeline();
-
-    const runSplitAnimation = () => {
-      // banner animation (faster & smooth)
-      tl.to("#contact_banner", {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        duration: 1.2, // slightly faster
-        ease: "power3.out", // smoother
-      });
-
-      // text animations
-      refs.forEach((ref, index) => {
-        if (!ref?.current) return;
-
-        // Split with mask
-        const split = new SplitText(ref.current, {
-          type: "lines",
-          linesClass: "landing-line",
-          mask: "lines",
-        });
-        splits.push(split);
-
-        const lines = ref.current.querySelectorAll(".landing-line");
-
-        // start lines hidden
-        gsap.set(lines, { yPercent: 100 });
-        gsap.set(ref.current, { opacity: 1 });
-
-        // animate lines overlapping with banner
-        tl.to(
-        lines,
-        {
-          yPercent: 0,
-          duration: 1.5,
-          ease: "ease-secondary",
-          stagger: { amount: 0.2 },
-        },
-        index === 0 ? 0 : "-=1.5"
-      );
-    });
-
-      // fade in the right info section overlapping with lines
-      tl.fromTo(
-        ".contact_dets_right_wrap",
-        { y: 50 }, // from
-        {
-          opacity: 1,
-          y: 0, // to
-          duration: 2,
-          ease: "ease-secondary",
-        },
-        "-=1.5" // overlap with line animation
-      );
-    };
-
-    // Run after fonts are ready
-    const fontReady = document.fonts?.ready || Promise.resolve();
-    fontReady.then(() => {
-      requestAnimationFrame(() => {
-        setTimeout(runSplitAnimation, 50);
-      });
-    });
-
-    return () => {
-      splits.forEach((s) => s.revert());
-      tl.kill();
-    };
-  }, []);
-
+  CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
   return (
     <div id="contact_section">
-      <div id="contact_info">
-        <h2 ref={titleRef} className="heading landing_text">
-          Contact Us
-        </h2>
-        <div className="contact_dets">
-          <p ref={para1Ref} className="description landing_text">
-            Got a question or want to connect <br /> with the SKF team? We’d
-            love to <br />
-            hear from you.
-          </p>
-          <div className="contact_dets_right_wrap landing_text">
-            <div className="contact_dets_right">
-              <h5 className="tag">General Enquiries</h5>
-              <p className="description">info@skf.com</p>
-            </div>
-            <div className="contact_dets_right">
-              <h5 className="tag">Socials</h5>
-              <div className="contact_social">
-                <FaXTwitter />
-                <FaInstagram />
-                <AiOutlineYoutube />
-              </div>
-            </div>
-          </div>
+      <div id="contact-top">
+        <div>
+          <h2 className="heading">
+            Have an <span className="letter-u">enquiry</span>? Get in
+          </h2>
+          <h2 className="heading">
+            touch
+            <span id="middle_img">
+              <Image
+                width={1000}
+                height={1000}
+                src="/images/contact/contact-img.jpg"
+                alt="SKF"
+              ></Image>
+            </span>
+            with us.
+          </h2>
+        </div>
+        <div>
+          <h5 className="tag">On this Email</h5>
+          <a className="description" href="mailto:social@skvonline.com">
+            social@skvonline.com
+          </a>
         </div>
       </div>
-      <div id="contact_banner">
-        <Image
-          width={1000}
-          height={1000}
-          src="/images/contact/contact-banner.jpg"
-          alt="contact-banner"
-        />
+      <div id="contact_bottom">
+        <p className="description">Follow us on social media:</p>
+        <div className="contact_social">
+          <Link href="https://x.com/skfilmsofficial?s=21" target="_blank">
+            <FaXTwitter />
+          </Link>
+          <Link
+            href="https://www.instagram.com/skfilmsofficial?igsh=MmU0MXh5M28xZHlw"
+            target="_blank"
+          >
+            <FaInstagram />
+          </Link>
+          <Link
+            href="https://youtube.com/@salmankhanfilms?si=t5TS1bnfuDtDWRpR"
+            target="_blank"
+          >
+            <AiOutlineYoutube />
+          </Link>
+        </div>
       </div>
     </div>
   );

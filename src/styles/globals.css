@@ -45,7 +45,7 @@ body {
   font-family: var(--primary-font);
   color: #1d1d1d;
   font-size: 3.75rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
 }
 .letter-u {
@@ -84,7 +84,7 @@ body {
   width: 5.9722222222vw;
 }
 
-.landing_text{
+.landing_text {
   opacity: 0;
 }
 /* Extra small (Phones) */
@@ -113,14 +113,14 @@ body {
     display: none;
   }
 
-  .common_btn{
+  .common_btn {
     font-size: 1rem !important;
-    padding: .3rem 1.3rem !important;
+    padding: 0.3rem 1.3rem !important;
   }
-  .btn_text{
-    height: .8rem;
+  .btn_text {
+    height: 0.8rem;
   }
-  .common_btn .icon_btn{
+  .common_btn .icon_btn {
     width: 1.1rem;
     height: 1.1rem;
   }
@@ -128,15 +128,30 @@ body {
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-  /* styles for bigger phones & small tablets */
+  .heading,
+  .letter-u {
+    font-size: 2.5rem !important;
+  }
+  .description{
+    font-size: .9rem !important;
+  }
 }
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
-  /* styles for tablets */
+ .heading,
+  .letter-u {
+    font-size: 3rem !important;
+  }
+   .description{
+    font-size:.95rem !important;
+  }
 }
 
 /* Large (Laptops) */
 @media (min-width: 1024px) and (max-width: 1280px) {
-  /* styles for small laptops/desktops */
+  .heading,
+  .letter-u {
+    font-size: 3rem !important;
+  }
 }

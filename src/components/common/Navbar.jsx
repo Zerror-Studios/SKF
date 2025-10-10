@@ -114,7 +114,11 @@ const Navbar = () => {
               }`}
               onMouseEnter={() => handleHover(label)}
               style={{
-                color: isDarkRoute && !scrolled ? "#fff" : "#1D1D1D",
+                color: isContact
+                  ? "#1D1D1D"
+                  : isDarkRoute && !scrolled
+                  ? "#fff"
+                  : "#1D1D1D",
                 transition: isDarkRoute ? "color 0.6s ease" : "none",
               }}
             >

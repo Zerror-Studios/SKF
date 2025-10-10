@@ -4,7 +4,9 @@ import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 gsap.registerPlugin(CustomEase);
 
 const NavigationMenu = ({ menu, setMenu }) => {
@@ -161,8 +163,21 @@ const NavigationMenu = ({ menu, setMenu }) => {
           <Link href="/">salmankhanflims@gmail.com</Link>
         </div>
         <div className="menu_social_icon">
-          <FaInstagram />
-          <FaFacebookF />
+          <Link href="https://x.com/skfilmsofficial?s=21" target="_blank">
+            <FaXTwitter />
+          </Link>
+          <Link
+            href="https://www.instagram.com/skfilmsofficial?igsh=MmU0MXh5M28xZHlw"
+            target="_blank"
+          >
+            <FaInstagram />
+          </Link>
+          <Link
+            href="https://youtube.com/@salmankhanfilms?si=t5TS1bnfuDtDWRpR"
+            target="_blank"
+          >
+            <AiOutlineYoutube />
+          </Link>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ const DirectorsContainer = ({ data }) => {
 
   useEffect(() => {
     // open first card only on screens larger than 480px
-    if (window.innerWidth > 480) {
+    if (window.innerWidth > 1286) {
       setOpenIndex(0);
     }
   }, []);

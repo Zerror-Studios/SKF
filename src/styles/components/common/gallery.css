@@ -169,12 +169,16 @@
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-  /* styles for bigger phones & small tablets */
+  #gallery {
+    padding: 3.5rem 1rem;
+}
 }
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
-  /* styles for tablets */
+ #gallery {
+    padding: 3.5rem 1.5rem;
+}
 }
 
 /* Large (Laptops) */

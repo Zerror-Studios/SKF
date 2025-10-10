@@ -192,12 +192,43 @@
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-  /* styles for bigger phones & small tablets */
+  #navbar {
+    mix-blend-mode: normal;
+    background-color: #fffef1;
+    padding: 0.9rem 1rem;
+    height: 55px;
+  }
+  #logo {
+    filter: invert(0);
+  }
+  #logo img {
+    width: 3.5rem;
+  }
+  .nav_links {
+    display: none;
+  }
+  #navigation {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100dvh);
+    height: calc(100dvh - 55px);
+    top: 55px;
+  }
+  #menu-btn {
+    display: flex;
+  }
+  .menu-links{
+    gap: 22px;
+  }
 }
 
 /* Medium (Tablets) */
 @media (min-width: 767px) and (max-width: 1024px) {
-  /* styles for tablets */
+ #navbar {
+    background-color: #fffef1;
+    padding: 0.9rem 1.5rem;
+    height: 55px;
+  }
 }
 
 /* Large (Laptops) */

@@ -59,7 +59,7 @@ useEffect(() => {
   // Create a GSAP MatchMedia instance
   const mm = gsap.matchMedia();
 
-  mm.add("(max-width: 480px)", () => {
+  mm.add("(max-width: 767px)", () => {
     // Highlight card when scrolled into view
     const tlHighlight = gsap.timeline({
       scrollTrigger: {
