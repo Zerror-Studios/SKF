@@ -222,6 +222,12 @@ footer {
   .footer_links {
     width: 18%;
   }
+  .footer_links a,
+  #footer_bottom_left h5,
+  #footer_bottom_right p,
+  #footer_bottom_left a {
+    font-size: 0.95rem;
+  }
 }
 
 /* Large (Laptops) */

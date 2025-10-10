@@ -491,6 +491,62 @@
   #filter_gallery{
     margin-top: 2rem;
   }
+
+  
+  #highlight_section h2 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+  #highlight_section > h2,
+  #highlight_section > h5 {
+    margin-left: 1rem;
+  }
+
+  .highlight_card {
+    padding: 2rem 1rem;
+    transition: none;
+  }
+  .highlight_card:hover {
+    background-color: #fffef1;
+  }
+
+  #highlight_section h2 {
+    font-size: 1.9rem;
+  }
+  #highlights_container {
+    margin-top: 1rem;
+  }
+
+  .highlight_card {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .highlight_info p:nth-child(1) {
+    margin-top: 0;
+  }
+  .highlight_info p {
+    margin-bottom: 0.8rem;
+    margin-top: 1.2rem;
+    width: 95% !important;
+  }
+  .highlight_card .common_btn {
+    display: none;
+  }
+  .highlight_info h4 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .btn_container {
+    display: flex;
+  }
+  .highlight_img {
+    width: 100%;
+    height: auto;
+  }
+  .highlight_info {
+    width: 100%;
+  }
 }
 
 /* Medium (Tablets) */
@@ -501,9 +557,28 @@
   #filter_gallery{
     margin-top: 2rem;
   }
+
+
+  .highlight_card{
+    padding: 2rem 1.5rem;
+  }
+  .highlight_info{
+    width: 50%;
+  }
+  .highlight_info h4{
+    font-size: 2rem;
+  }
+  .highlight_img {
+    height: 285px;
+  }
 }
 
 /* Large (Laptops) */
 @media (min-width: 1024px) and (max-width: 1280px) {
-  /* styles for small laptops/desktops */
+   .highlight_info{
+    width: 50%;
+  }
+  .highlight_img {
+    height: 300px;
+  }
 }

@@ -4,7 +4,7 @@
   padding-top: 7rem;
 }
 
-#poster_wrap_news{
+#poster_wrap_news {
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 .news_poster {
@@ -23,12 +23,12 @@
   justify-content: space-between;
   margin-top: 2rem;
 }
-.news_data{
-    color: #000;
-    margin-bottom: .5rem;
-    font-family: Urbanist;
-    font-size: .9rem;
-    font-weight: 500;
+.news_data {
+  color: #000;
+  margin-bottom: 0.5rem;
+  font-family: Urbanist;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 .news_title_wrap .heading {
   font-size: 2.5rem;
@@ -42,14 +42,14 @@
 .news_time_tab {
   width: 40%;
 }
-.news_time_tab p{
-    color: #000;
-    display: flex;
-    align-items: center;
-    gap: .4rem;
+.news_time_tab p {
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
-.news_time_tab #share{
-    opacity: 0;
+.news_time_tab #share {
+  opacity: 0;
 }
 .news_detail_wrap {
   width: 55%;
@@ -59,34 +59,58 @@
   color: #000;
 }
 
-
-
 /* Extra small (Phones) */
 @media (max-width: 480px) {
- #news_hero_section {
+  #news_hero_section {
     padding: 7rem 1rem 2rem;
-}
-.news_poster {
-  margin-top: 2rem;
-}
-.news_info_section {
+  }
+  .news_poster {
+    margin-top: 2rem;
+  }
+  .news_info_section {
     margin-top: 1rem;
     flex-direction: column;
     gap: 1rem;
-}
-.news_detail_wrap {
+  }
+  .news_detail_wrap {
     width: 95%;
-}
+  }
 }
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-  /* styles for bigger phones & small tablets */
+  #news_hero_section {
+    padding: 7rem 1rem 2rem;
+  }
+  .news_poster {
+    margin-top: 2rem;
+  }
+  .news_info_section {
+    margin-top: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .news_detail_wrap {
+    width: 95%;
+  }
 }
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
-  /* styles for tablets */
+  #news_hero_section {
+    padding: 7rem 1.5rem 2rem;
+  }
+  .news_poster {
+    margin-top: 2rem;
+  }
+  .news_info_section {
+    margin-top: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .news_detail_wrap {
+    width: 95%;
+  }
 }
 
 /* Large (Laptops) */

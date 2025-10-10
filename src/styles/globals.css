@@ -132,6 +132,9 @@ body {
   .letter-u {
     font-size: 2.5rem !important;
   }
+  .description{
+    font-size: .9rem !important;
+  }
 }
 
 /* Medium (Tablets) */
@@ -139,6 +142,9 @@ body {
  .heading,
   .letter-u {
     font-size: 3rem !important;
+  }
+   .description{
+    font-size:.95rem !important;
   }
 }
 
