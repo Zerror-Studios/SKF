@@ -1,0 +1,258 @@
+export const movieGallery = [
+  {
+    title: "Sikandar",
+    slug: "sikandar",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+    ]
+  },
+  {
+    title: "Farrey",
+    slug: "farrey",
+    media: [
+      { type: "video", url: "/images/home/farrey.mp4" },
+      { type: "video", url: "/images/home/farrey.mp4" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "video", url: "/images/home/farrey.mp4" },
+      { type: "video", url: "/images/home/farrey.mp4" },
+      { type: "image", url: "/images/movie/race3.png" },
+      { type: "image", url: "/images/movie/bharat.png" },
+      { type: "image", url: "/images/movie/loveyatri.png" },
+    ]
+  },
+  {
+    title: "Kisi Ka Bhai Kisi Ki Jaan",
+    slug: "kisi-ka-bhai-kisi-ki-jaan",
+    media: [
+      { type: "video", url: "/images/home/kiss-ka-bhai.mp4" },
+      { type: "video", url: "/images/home/kiss-ka-bhai.mp4" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+      { type: "video", url: "/images/home/kiss-ka-bhai.mp4" },
+      { type: "video", url: "/images/home/kiss-ka-bhai.mp4" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+    ]
+  },
+  {
+    title: "Antim: The Final Truth",
+    slug: "antim-the-final-truth",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+    ]
+  },
+  {
+    title: "Radhe",
+    slug: "radhe",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/bharat.png" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+    ]
+  },
+  {
+    title: "Kaagaz",
+    slug: "kaagaz",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+      { type: "image", url: "/images/movie/notebook.png" },
+      { type: "image", url: "/images/movie/loveyatri.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/race3.png" },
+      { type: "image", url: "/images/movie/bharat.png" },
+      { type: "image", url: "/images/movie/tubelight.png" },
+    ]
+  },
+  {
+    title: "Dabangg 3",
+    slug: "dabangg-3",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+      { type: "image", url: "/images/movie/bharat.png" },
+      { type: "image", url: "/images/movie/race3.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/loveyatri.png" },
+      { type: "image", url: "/images/movie/notebook.png" },
+    ]
+  },
+  {
+    title: "Bharat",
+    slug: "bharat",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/bharat.png" },
+      { type: "image", url: "/images/movie/loveyatri.png" },
+      { type: "image", url: "/images/movie/tubelight.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+    ]
+  },
+  {
+    title: "Notebook",
+    slug: "notebook",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/notebook.png" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/loveyatri.png" },
+      { type: "image", url: "/images/movie/antim.png" },
+    ]
+  },
+  {
+    title: "Loveyatri",
+    slug: "loveyatri",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/loveyatri.png" },
+      { type: "image", url: "/images/movie/hero.png" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+    ]
+  },
+  {
+    title: "Race 3",
+    slug: "race-3",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/race3.png" },
+      { type: "image", url: "/images/movie/bajrangi.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+      { type: "image", url: "/images/movie/loveyatri.png" },
+      { type: "image", url: "/images/movie/notebook.png" },
+    ]
+  },
+  {
+    title: "Tubelight",
+    slug: "tubelight",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/tubelight.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/hero.png" },
+      { type: "image", url: "/images/movie/bharat.png" },
+      { type: "image", url: "/images/movie/radhe.png" },
+    ]
+  },
+  {
+    title: "Hero",
+    slug: "hero",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/hero.png" },
+      { type: "image", url: "/images/movie/loveyatri.png" },
+      { type: "image", url: "/images/movie/notebook.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+    ]
+  },
+  {
+    title: "Bajrangi Bhaijaan",
+    slug: "bajrangi-bhaijaan",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/bajrangi.png" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/antim.png" },
+    ]
+  },
+  {
+    title: "Dr. Cabbie",
+    slug: "dr-cabbie",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/cabbie.png" },
+      { type: "image", url: "/images/movie/hero.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/cabbie.png" },
+      { type: "image", url: "/images/movie/hero.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+    ]
+  },
+  {
+    title: "Chillar Party",
+    slug: "chillar-party",
+    media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/chillar-party.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+    ]
+  }
+];

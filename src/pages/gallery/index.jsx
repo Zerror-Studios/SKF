@@ -1,16 +1,12 @@
-import GallerySection from "@/components/common/GallerySection";
+import GalleryList from "@/components/gallery/GalleryList";
+import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import React from "react";
 
 const Gallery = () => {
-  const title = (
-    <>
-      {" "}
-      Raw, Real & BTS from <br /> Salman Khan Films
-    </>
-  );
   return (
     <>
-      <GallerySection title={title} ishero={true} />
+      <GalleryTitleSection />
+      <GalleryList />
     </>
   );
 };
