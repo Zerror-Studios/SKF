@@ -55,9 +55,9 @@ const Footer = () => {
           <div className="footer_links">
             <h5>Socials</h5>
             <div className="footer_social">
-              <FaXTwitter />
-              <FaInstagram />
-              <AiOutlineYoutube />
+              <Link href="https://x.com/skfilmsofficial?s=21" target="_blank"><FaXTwitter /></Link>
+              <Link href="https://www.instagram.com/skfilmsofficial?igsh=MmU0MXh5M28xZHlw" target="_blank"><FaInstagram /></Link>
+              <Link href="https://youtube.com/@salmankhanfilms?si=t5TS1bnfuDtDWRpR" target="_blank"><AiOutlineYoutube /></Link>
             </div>
           </div>
         </div>

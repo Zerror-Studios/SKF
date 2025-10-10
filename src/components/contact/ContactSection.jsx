@@ -6,14 +6,14 @@ import { FaXTwitter } from "react-icons/fa6";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import CustomEase from "gsap/dist/CustomEase";
+import Link from "next/link";
 
-gsap.registerPlugin(SplitText,CustomEase);
+gsap.registerPlugin(SplitText, CustomEase);
 
 const ContactSection = () => {
   const titleRef = useRef(null);
   const para1Ref = useRef(null);
-    CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
-  
+  CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
   useEffect(() => {
     const splits = [];
@@ -48,16 +48,16 @@ const ContactSection = () => {
 
         // animate lines overlapping with banner
         tl.to(
-        lines,
-        {
-          yPercent: 0,
-          duration: 1.5,
-          ease: "ease-secondary",
-          stagger: { amount: 0.2 },
-        },
-        index === 0 ? 0 : "-=1.5"
-      );
-    });
+          lines,
+          {
+            yPercent: 0,
+            duration: 1.5,
+            ease: "ease-secondary",
+            stagger: { amount: 0.2 },
+          },
+          index === 0 ? 0 : "-=1.5"
+        );
+      });
 
       // fade in the right info section overlapping with lines
       tl.fromTo(
@@ -107,9 +107,21 @@ const ContactSection = () => {
             <div className="contact_dets_right">
               <h5 className="tag">Socials</h5>
               <div className="contact_social">
-                <FaXTwitter />
-                <FaInstagram />
-                <AiOutlineYoutube />
+                <Link href="https://x.com/skfilmsofficial?s=21" target="_blank">
+                  <FaXTwitter />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/skfilmsofficial?igsh=MmU0MXh5M28xZHlw"
+                  target="_blank"
+                >
+                  <FaInstagram />
+                </Link>
+                <Link
+                  href="https://youtube.com/@salmankhanfilms?si=t5TS1bnfuDtDWRpR"
+                  target="_blank"
+                >
+                  <AiOutlineYoutube />
+                </Link>
               </div>
             </div>
           </div>
