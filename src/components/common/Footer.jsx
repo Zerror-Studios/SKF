@@ -11,7 +11,7 @@ const Footer = () => {
   const [showFooter, setShowFooter] = useState(true);
 
   useEffect(() => {
-    if (pathname === "/contact" && window.innerWidth >= 480) {
+    if (pathname === "/contact" && window.innerWidth >= 767) {
       setShowFooter(false);
     } else {
       setShowFooter(true);
