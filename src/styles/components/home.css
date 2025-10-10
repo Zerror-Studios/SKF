@@ -482,12 +482,25 @@
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-  /* styles for bigger phones & small tablets */
+  .filter_movie{
+    font-size: .9rem !important;
+  }
+  .filter_movie{
+    margin: 0 !important;
+  }
+  #filter_gallery{
+    margin-top: 2rem;
+  }
 }
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
-  /* styles for tablets */
+  .filter_movie{
+    margin: 0 !important;
+  }
+  #filter_gallery{
+    margin-top: 2rem;
+  }
 }
 
 /* Large (Laptops) */
