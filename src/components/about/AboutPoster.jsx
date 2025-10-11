@@ -74,6 +74,7 @@ const AboutPoster = () => {
         height={1000}
         src="/images/about/about-banner.png"
         alt="about-banner"
+        priority
       />
     </div>
   );

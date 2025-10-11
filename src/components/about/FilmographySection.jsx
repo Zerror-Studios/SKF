@@ -1,29 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import React, { useRef } from "react";
 import { movies } from "@/helper/moviesData";
-import Image from "next/image";
-import Link from "next/link";
+import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
+import FilmographyCard from "./FilmographyCard";
 
 const FilmographySection = () => {
+  const titleRef = useRef(null);
+
+  useSplitTextMaskAnimation([titleRef]);
 
   return (
-    <div id="filmography_section" >
-      <h2 className="heading">Filmography</h2>
-
+    <div id="filmography_section">
+      <h2 ref={titleRef} className="heading">
+        Filmography
+      </h2>
       <div id="filmography_cards_wrap">
         {movies.map((film, index) => (
-          <Link href={`/movies/${film.slug}`} className="filmography_card" key={index}>
-            <div className="filmo_year">
-              <h4 className="heading">{film.year}</h4>
-            </div>
-            <div className="filmo_info">
-              <p className="description">{film.title}</p>
-              <div className="filmo_director">
-                <h5>Director</h5>
-                <p className="description">{film.cast.join(", ")}</p>
-              </div>
-            </div>
-          </Link>
+          <FilmographyCard film={film} index={index} />
         ))}
       </div>
     </div>

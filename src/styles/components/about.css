@@ -87,6 +87,9 @@
   margin-top: 2rem;
   width: 100%;
 }
+.filmography_card_link{
+  text-decoration: none;
+}
 
 .filmography_card {
   width: 100%;
