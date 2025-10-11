@@ -9,7 +9,7 @@ const GalleryCard = ({ data }) => {
 
   return (
     <Link href={`/gallery/${data.slug}`}>
-      <div className="gallery_card cursor-pointer">
+      <div className="gallery_card cursor-pointer landing_text">
         <div className="image1 image">
           {images[0] && (
             <Image
@@ -44,6 +44,7 @@ const GalleryCard = ({ data }) => {
           <h2 className="heading">{data.title}</h2>
           <div className="arrow">
             <div className="arrow_circle">
+              <GoArrowUpRight />
               <GoArrowUpRight />
             </div>
           </div>
