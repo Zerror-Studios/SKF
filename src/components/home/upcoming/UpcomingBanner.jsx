@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import WobbleImageMesh from "./WobbleShaderMaterial";
 import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -39,8 +37,8 @@ const UpcomingBanner = () => {
 
       tl.fromTo("#expand_line", { width: "0%" }, { width: "100%" });
       tl.fromTo(
-        "#canvas_container",
-        { transform: "translateY(-100%)" },
+        "#canvas_parent img",
+        { transform: "translateY(-110%)" },
         { transform: "translateY(-1.3rem)" }
       );
 
@@ -67,11 +65,6 @@ const UpcomingBanner = () => {
           src={imageUrl}
           alt="banner"
         />
-        <div id="canvas_container">
-          <Canvas>
-            <WobbleImageMesh imageUrl={imageUrl} />
-          </Canvas>
-        </div>
       </div>
     </div>
   );

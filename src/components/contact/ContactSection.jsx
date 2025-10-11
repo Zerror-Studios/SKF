@@ -86,7 +86,7 @@ useEffect(() => {
           duration: 1.5,
           ease: "ease-secondary",
         },
-        "-=1.2" // small delay after icons
+        "-=1.4" // small delay after icons
       );
     }
   };
