@@ -81,6 +81,10 @@
   height: 100%;
   object-fit: cover;
 }
+.middle_img_wrap .line{
+  display: flex !important;
+  align-items: center;
+}
 /* Extra small (Phones) */
 @media (max-width: 480px) {
   #contact_bottom .description{
