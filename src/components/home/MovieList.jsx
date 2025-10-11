@@ -42,14 +42,7 @@ const MovieList = ({ movies }) => {
     <div id="movie_carousel_section">
       <div id="movie_header">
         <div id="movie_header_title">
-          <div className="movie_tag_wrap">
-            <h5 className="tag">Movies</h5>
-            <Button
-              color={"black"}
-              title={"View all"}
-              onClick={() => router.push("/movies")}
-            />
-          </div>
+          <h5 className="tag">Movies</h5>
           <h3 ref={titleRef} className="heading">
             Explore our top <span className="letter-u">films</span> loved by{" "}
             <br /> <span className="letter-u"> audiences </span> worldwide.
@@ -65,6 +58,13 @@ const MovieList = ({ movies }) => {
             ref={(el) => (cardsRef.current[index] = el)}
           />
         ))}
+      </div>
+      <div className="btn_container">
+        <Button
+          color={"black"}
+          title={"View all movies"}
+          onClick={() => router.push("/movies")}
+        />
       </div>
     </div>
   );

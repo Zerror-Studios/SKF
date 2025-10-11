@@ -44,15 +44,6 @@ const Footer = () => {
             )}
           </div>
           <div className="footer_links">
-            <h5>Our Address</h5>
-            <Link href="/">
-              Shop No. 1, Oceanside Cooperative Housing Society, Chimbai Road,
-              Near Chimbai Police Chowky, Bandra (W), Mumbai, Maharashtra,
-              400050, India
-            </Link>
-            <Link href="/">+91 8739402482</Link>
-          </div>
-          <div className="footer_links">
             <h5>Socials</h5>
             <div className="footer_social">
               <Link href="https://x.com/skfilmsofficial?s=21" target="_blank">
@@ -79,7 +70,6 @@ const Footer = () => {
           <h5>
             Creating stories that inspire <br /> and entertain, Write to us{" "}
           </h5>
-          <Link href="/">contact@skf.in</Link>
         </div>
         <div id="footer_bottom_right">
           <p>© 2025 Salman Khan Films. All Rights Reserved.</p>
