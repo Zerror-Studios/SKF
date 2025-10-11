@@ -87,6 +87,9 @@
   margin-top: 2rem;
   width: 100%;
 }
+.filmography_card_link{
+  text-decoration: none;
+}
 
 .filmography_card {
   width: 100%;
@@ -94,6 +97,7 @@
   align-items: center;
   border-bottom: 1px solid #1d1d1d;
   padding: 2rem 0;
+  text-decoration: none;
 }
 
 .filmo_year {

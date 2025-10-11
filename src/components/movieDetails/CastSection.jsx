@@ -25,12 +25,11 @@ const CastSection = () => {
     <section id="cast_section">
       <div className="cast_tag_wrap">
         <h5 className="tag">Cast and crew</h5>
-        {isMobile && <Button title="show more" color="black" />}
       </div>
 
       <DirectorsContainer data={directors} />
 
-      {!isMobile && <Button title="show more" color="black" />}
+      <Button title="show more" color="black" />
     </section>
   );
 };
