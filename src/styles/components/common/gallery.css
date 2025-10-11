@@ -83,19 +83,19 @@
   transition: all ease 0.3s;
 }
 
-.arrow_circle svg{
+.arrow_circle svg {
   width: 100%;
   height: 100%;
-  padding: .8rem;
+  padding: 0.8rem;
   flex-shrink: 0;
   transition: all ease 0.3s;
 }
-.arrow_circle svg:nth-child(2){
+.arrow_circle svg:nth-child(2) {
   transform: translateX(-100%);
 }
 
 .arrow_circle:hover {
-  background-color:#1d1d1d;
+  background-color: #1d1d1d;
   color: #fffef1;
 }
 .arrow_circle:hover svg:nth-child(1) {
@@ -167,6 +167,7 @@
     grid-template-columns: repeat(1, 1fr) !important;
     gap: 2.5rem;
     padding: 1rem;
+    padding-bottom: 3.5rem;
   }
   .arrow_circle {
     width: 2.8rem;
@@ -182,6 +183,25 @@
   .gallery_detail_card_small {
     grid-column: span 6;
   }
+
+  .image {
+    width: 96%;
+    height: 96%;
+  }
+  .image1 {
+    top: 0;
+    right: 0;
+  }
+  .image2 {
+    top: 2%;
+    right: 2%;
+    transition: all ease 0.5s;
+  }
+  .image3 {
+    top: 4%;
+    right: 4%;
+    transition: all ease 0.5s;
+  }
 }
 
 /* Small (Phones to Tablets) */
@@ -189,7 +209,50 @@
   #gallery_title {
     padding: 7rem 1rem 2rem;
   }
+   #gallery_title {
+    padding: 7rem 1rem 2rem;
+  }
+  #gallery_list {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 2.5rem;
+    padding: 1rem;
+    padding-bottom: 3.5rem;
+  }
+  .arrow_circle {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.5rem;
+  }
+
+  #gallery_detail_list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5rem;
+    padding: 1rem;
+  }
+  .gallery_detail_card_small {
+    grid-column: span 6;
+  }
+
+  .image {
+    width: 96%;
+    height: 96%;
+  }
+  .image1 {
+    top: 0;
+    right: 0;
+  }
+  .image2 {
+    top: 2%;
+    right: 2%;
+    transition: all ease 0.5s;
+  }
+  .image3 {
+    top: 4%;
+    right: 4%;
+    transition: all ease 0.5s;
+  }
 }
+
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
@@ -197,6 +260,36 @@
     width: 100%;
     padding: 7rem 1.5rem 2rem;
   }
+    #gallery_list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    padding: 1rem;
+  }
+  .gallery_card {
+    height: 340px;
+    position: relative;
+}
+  .gallery_detail_card_large {
+    height: 295px;
+}
+#gallery_detail_list{
+  padding:3.5rem 1.5rem ;
+}
+.gallery_detail_card_small {
+  height: 200px;
+}
+  .image {
+    width: 96%;
+    height: 96%;
+  }
+
+    .arrow_circle {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.5rem;
+  }
+
+  
 }
 
 /* Large (Laptops) */
