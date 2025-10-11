@@ -45,6 +45,7 @@ const GalleryCard = ({ data }) => {
           <div className="arrow">
             <div className="arrow_circle">
               <GoArrowUpRight />
+              <GoArrowUpRight />
             </div>
           </div>
         </div>
