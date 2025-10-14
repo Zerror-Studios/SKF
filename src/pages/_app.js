@@ -16,9 +16,11 @@ import SmoothScroller from "@/components/smoothScroll/SmoothScroller";
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
+    <>
       <SmoothScroller />
-      <Component {...pageProps} />
-    </Layout>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }

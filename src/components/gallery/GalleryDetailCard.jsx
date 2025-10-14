@@ -1,42 +1,30 @@
 import Image from "next/image";
 import React, { useRef, useEffect } from "react";
-import { IoPlay, IoPause } from "react-icons/io5";
+import { IoPlay } from "react-icons/io5";
 
-const GalleryDetailCard = ({ index, item, cardClass, isPlaying, onPlay }) => {
+const GalleryDetailCard = ({
+  index,
+  item,
+  cardClass,
+  isPlaying,
+  onClick,
+}) => {
   const videoRef = useRef(null);
 
   useEffect(() => {
     if (!videoRef.current) return;
-
-    if (isPlaying) {
-      videoRef.current.play();
-    } else {
-      videoRef.current.pause();
-    }
+    if (isPlaying) videoRef.current.play();
+    else videoRef.current.pause();
   }, [isPlaying]);
 
-  const handleVideoClick = () => {
-    if (item.type === "video") {
-      onPlay(); // set this video as currently playing
-    }
-  };
-
   return (
-    <div className={cardClass}>
+    <div className={cardClass} onClick={onClick}>
       {item.type === "video" ? (
         <>
-          <video
-            ref={videoRef}
-            src={item.url}
-            muted
-            loop
-            playsInline
-            onClick={handleVideoClick}
-            style={{ width: "100%", height: "100%", cursor: "pointer" }}
-          />
-          <div className="video_player" onClick={handleVideoClick}>
+          <video ref={videoRef} src={item.url} muted loop playsInline />
+          <div className="video_player">
             <span className="mute_btn">
-              {isPlaying ? <IoPause /> : <IoPlay />}
+              <IoPlay />
             </span>
           </div>
         </>
