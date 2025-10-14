@@ -25,7 +25,7 @@ const GalleryDetailList = ({ data }) => {
       opacity: 1,
       duration: 1.2,
       ease: "power3.out",
-      stagger: 0.15,
+      stagger: 0.05,
     });
 
     return () => tl.kill();
