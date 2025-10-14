@@ -3,13 +3,14 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const FilmographyCard = ({ film, index }) => {
   const cardRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const splits = [];
 
     const runAnimation = () => {

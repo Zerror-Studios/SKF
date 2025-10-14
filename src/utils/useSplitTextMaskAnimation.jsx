@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SplitText from "gsap/dist/SplitText";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export const useSplitTextMaskAnimation = (refs = []) => {
-  useEffect(() => {
+  useGSAP(() => {
     const splits = [];
 
     const runSplitAnimation = () => {
