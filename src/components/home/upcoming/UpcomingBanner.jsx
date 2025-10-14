@@ -37,9 +37,9 @@ const UpcomingBanner = () => {
 
       tl.fromTo("#expand_line", { width: "0%" }, { width: "100%" });
       tl.fromTo(
-        "#canvas_parent img",
-        { transform: "translateY(-110%)" },
-        { transform: "translateY(-1.3rem)" }
+        "#image_banner img",
+        { transform: "translateY(-100%)" },
+        { transform: "translateY(0%)" }
       );
 
       return () => {
@@ -54,17 +54,18 @@ const UpcomingBanner = () => {
     <div id="upcoming_banner">
       <div id="upcoming_header">
         <p className="tag">Upcoming</p>
-        <div id="expand_line"></div>
+        <div id="expand_line">
+          <div id="image_banner">
+            <Image
+              width={1000}
+              height={1000}
+              priority
+              src={imageUrl}
+              alt="banner"
+            />
+          </div>
+        </div>
         <p className="tag">Release</p>
-      </div>
-      <div id="canvas_parent">
-        <Image
-          width={1000}
-          height={1000}
-          priority
-          src={imageUrl}
-          alt="banner"
-        />
       </div>
     </div>
   );
