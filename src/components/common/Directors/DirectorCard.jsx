@@ -84,6 +84,7 @@ const DirectorCard = ({ data, isOpen, onOpen, onClose }) => {
             height={1000}
             src={data?.image}
             alt={data?.name}
+            priority
           />
         </div>
         <div className="director_card_right" ref={rightRef}>
