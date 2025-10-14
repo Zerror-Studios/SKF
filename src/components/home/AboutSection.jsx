@@ -78,7 +78,7 @@ const AboutSection = () => {
           <div className="about_text_content">
             <h5 className="tag">about</h5>
             <h2 className="heading">
-              Bringing Stories to Life, One Blockbuster at a Time
+              Bringing Stories to Life,One Blockbuster at a Time
             </h2>
             <p className="description">
               Founded in 2011 by Salman Khan, Salman Khan Films (SKF) is a

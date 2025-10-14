@@ -71,7 +71,7 @@ const NewsPoster = () => {
         ref={bgRef}
         width={1000}
         height={1000}
-        src="/images/news/news-banner.png"
+        src="/images/news/news-banner.jpg"
         alt="contact-banner"
         priority
       />
