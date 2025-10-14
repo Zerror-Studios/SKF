@@ -87,6 +87,7 @@ body {
 .landing_text {
   opacity: 0;
 }
+
 /* Extra small (Phones) */
 @media (max-width: 480px) {
   .tag {
