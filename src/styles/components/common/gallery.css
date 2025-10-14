@@ -158,7 +158,7 @@
   font-size: 3.5rem;
   cursor: pointer;
 }
-#gallery_fullview{
+#gallery_fullview {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -169,54 +169,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
-#preview_container{
+#preview_container {
   width: auto;
   height: 70vh;
 }
-.spinner{
+.spinner {
   height: 100%;
   width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.spinner img{
+.spinner img {
   width: 3rem !important;
   height: 3rem !important;
   object-fit: contain !important ;
 }
-#close_view{
+#close_view {
   position: absolute;
   top: 2rem;
   right: 2rem;
   cursor: pointer;
   color: white;
 }
-#close_view svg{
+#close_view svg {
   font-size: 1.5rem !important;
   cursor: pointer;
 }
-#gallery_fullview svg{
+#gallery_fullview svg {
   color: white;
   font-size: 3rem;
   transition: all ease 0.3s;
 }
-#gallery_fullview svg:hover{
+#gallery_fullview svg:hover {
   color: grey;
 }
-.prev_btn{
+.prev_btn {
   position: absolute;
   left: 2rem;
   cursor: pointer;
+  z-index: 9;
 }
-.next_btn{
+.next_btn {
   position: absolute;
   right: 2rem;
   cursor: pointer;
+  z-index: 9;
 }
-#preview_container img, #preview_container video{
+#preview_container img,
+#preview_container video {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -264,6 +266,21 @@
     top: 4%;
     right: 4%;
     transition: all ease 0.5s;
+  }
+  #preview_container {
+    width: 100%;
+    height:auto;
+  }
+  #gallery_fullview svg {
+    font-size: 2rem;
+  }
+  .prev_btn {
+    left: 2rem;
+    bottom: 5rem;
+  }
+  .next_btn {
+    right: 2rem;
+    bottom: 5rem;
   }
 }
 
@@ -314,6 +331,21 @@
     right: 4%;
     transition: all ease 0.5s;
   }
+   #preview_container {
+    width: 100%;
+    height:auto;
+  }
+    #gallery_fullview svg {
+    font-size: 2rem;
+  }
+  .prev_btn {
+    left: 2rem;
+    bottom: 5rem;
+  }
+  .next_btn {
+    right: 2rem;
+    bottom: 5rem;
+  }
 }
 
 /* Medium (Tablets) */
@@ -349,6 +381,22 @@
     width: 2.8rem;
     height: 2.8rem;
     font-size: 1.5rem;
+  }
+
+     #preview_container {
+    width: 90%;
+    height:auto;
+  }
+    #gallery_fullview svg {
+    font-size: 2rem;
+  }
+  .prev_btn {
+    left: 2rem;
+    bottom: 2rem;
+  }
+  .next_btn {
+    right: 2rem;
+    bottom: 2rem;
   }
 }
 
