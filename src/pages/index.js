@@ -17,18 +17,27 @@ const movie = {
   poster: "/images/movie/sikandar.png",
   category: "upcoming movies",
   trailer: "/images/home/hero.mp4",
-  media: [
-    { type: "video", url: "/images/home/hero.mp4" },
-    { type: "video", url: "/images/home/hero.mp4" },
-    { type: "image", url: "/images/movie/sikandar.png" },
-    { type: "image", url: "/images/movie/farrey.png" },
-    { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
-    { type: "video", url: "/images/home/hero.mp4" },
-    { type: "video", url: "/images/home/hero.mp4" },
-    { type: "image", url: "/images/movie/antim.png" },
-    { type: "image", url: "/images/movie/radhe.png" },
-    { type: "image", url: "/images/movie/kaagaz.png" },
-  ]
+   media: [
+      { type: "video", url: "/images/home/hero.mp4" },
+      { type: "image", url: "/images/gallery/image7.jpg" },
+      { type: "image", url: "/images/gallery/image2.png" },
+      { type: "image", url: "/images/movie/sikandar.png" },
+      { type: "image", url: "/images/movie/farrey.png" },
+      { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
+      { type: "image", url: "/images/gallery/image15.png" },
+      { type: "video", url: "/images/home/farrey.mp4" },
+      { type: "image", url: "/images/movie/antim.png" },
+      { type: "image", url: "/images/movie/radhe.png" },
+      { type: "image", url: "/images/movie/kaagaz.png" },
+      { type: "image", url: "/images/gallery/image1.png" },
+      { type: "image", url: "/images/gallery/image3.png" },
+      { type: "image", url: "/images/gallery/image4.png" },
+      { type: "image", url: "/images/gallery/image5.png" },
+      { type: "image", url: "/images/gallery/image6.png" },
+      { type: "image", url: "/images/gallery/image14.png" },
+      { type: "image", url: "/images/gallery/image12.png" },
+      { type: "image", url: "/images/gallery/image13.png" },
+    ]
 }
 const Home = ({ movies }) => {
   return (
