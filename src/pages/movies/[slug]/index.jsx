@@ -16,7 +16,7 @@ const MovieDetails = ({ movie }) => {
       <CastSection />
       <HorizontalSlider />
       <HorizontalSwiper />
-      <GalleryTitleSection data={movie} />
+      <GalleryTitleSection data={movie}  isPadding={true} />
       <GalleryDetailList data={movie} />
     </>
   );
