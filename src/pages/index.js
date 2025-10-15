@@ -68,7 +68,7 @@ const Home = ({ movies }) => {
       <UpcomingBanner />
       <DirectorsSection />
       <Highlights tag={"highlight"} title={"News and Updates"} />
-      <GalleryTitleSection data={movie} isHero={false}/>
+      <GalleryTitleSection data={movie} isPadding={true}/>
       <GalleryDetailList data={movie} />
       <AboutSection />
     </>
