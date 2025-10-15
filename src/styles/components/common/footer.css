@@ -100,6 +100,15 @@ footer {
   font-weight: 400;
   line-height: 1.3;
 }
+.message_mobile {
+  text-decoration: none;
+  color: white;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  display: none;
+}
 
 #footer_bottom_right {
   display: flex;
@@ -121,7 +130,7 @@ footer {
   footer {
     padding: 3.5rem 1rem;
     height: auto;
-    gap: 4rem;
+    gap: 1.5rem;
   }
   #footer_top h2 {
     font-size: 2rem;
@@ -131,6 +140,13 @@ footer {
   #footer_bottom_left a,
   #footer_bottom_right p {
     font-size: 0.9rem;
+  }
+  .message_mobile {
+    display: block;
+    margin-top: 1rem;
+  }
+  .message_desktop {
+    display: none;
   }
   #footer_top {
     flex-direction: column;

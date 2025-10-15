@@ -23,7 +23,12 @@ const Footer = () => {
   return (
     <footer>
       <div id="footer_top">
-        <h2>Salman Khan Flims</h2>
+        <div>
+          <h2>Salman Khan Flims</h2>
+          <h5 className="message_mobile">
+            Creating stories that inspire <br /> and entertain.
+          </h5>
+        </div>
         <div id="footer_top_right">
           <div className="footer_links">
             <h5>menu</h5>
@@ -67,8 +72,8 @@ const Footer = () => {
       </div>
       <div id="footer_bottom">
         <div id="footer_bottom_left">
-          <h5>
-            Creating stories that inspire <br /> and entertain, Write to us{" "}
+          <h5 className="message_desktop">
+            Creating stories that inspire <br /> and entertain.
           </h5>
         </div>
         <div id="footer_bottom_right">
