@@ -457,6 +457,7 @@
   }
   .btn_container {
     display: flex;
+    margin-top: 1.5rem;
   }
   .highlight_img {
     width: 100%;

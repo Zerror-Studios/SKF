@@ -231,6 +231,9 @@
   #gallery_title {
     padding: 7rem 1rem 2rem;
   }
+  #gallery_title.not-hero{
+  padding-top: 1.5rem !important;
+  }
   #gallery_list {
     grid-template-columns: repeat(1, 1fr) !important;
     gap: 2.5rem;
