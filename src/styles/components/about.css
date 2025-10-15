@@ -10,6 +10,9 @@
 .about_hero_title {
   width: 50%;
 }
+.about_hero_title h2 {
+  width: 90%;
+}
 .about_hero_info {
   width: 45%;
   padding-top: 4rem;
@@ -45,7 +48,7 @@
   line-height: 1;
 }
 
-#poster_wrap_about{
+#poster_wrap_about {
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 .about_banner {
@@ -87,7 +90,7 @@
   margin-top: 2rem;
   width: 100%;
 }
-.filmography_card_link{
+.filmography_card_link {
   text-decoration: none;
 }
 
@@ -161,15 +164,24 @@
   }
   .filmo_year {
     width: 100%;
-}
+  }
   .filmo_info {
     width: 95%;
-}
+  }
+  .filmo_info > p {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    font-family: Urbanist !important;
+  }
+  .filmo_director h5 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+  }
 }
 
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
-   #about_hero_section {
+  #about_hero_section {
     padding: 7rem 1rem 2rem;
   }
   .about_top_wrapper {
@@ -200,10 +212,10 @@
   }
   .filmo_year {
     width: 100%;
-}
+  }
   .filmo_info {
     width: 95%;
-}
+  }
 }
 
 /* Medium (Tablets) */
@@ -227,7 +239,7 @@
   .about_banner {
     margin-top: 2rem;
   }
-   #filmography_section {
+  #filmography_section {
     padding: 2rem 1.5rem;
   }
 }

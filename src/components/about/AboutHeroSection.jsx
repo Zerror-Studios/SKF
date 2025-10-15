@@ -88,7 +88,7 @@ const AboutHeroSection = () => {
             About
           </h5>
           <h2 ref={titleRef} className="heading landing_text">
-            Where Stories Meet <br /> Heart
+            Where Stories Meet Heart
           </h2>
         </div>
         <div className="about_hero_info">

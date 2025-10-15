@@ -470,7 +470,7 @@
   }
   .about_overlay {
     width: calc(100% - 2rem);
-    height: auto;
+    height: 80%;
   }
   .about_text_content {
     padding: 1rem;
