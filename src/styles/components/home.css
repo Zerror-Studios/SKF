@@ -411,6 +411,9 @@
 
 /* Extra small (Phones) */
 @media (max-width: 480px) {
+  #highlight_section{
+    padding: 2.5rem 0;
+  }
   #expand_line::before,
 #expand_line::after{
   display: none;
@@ -435,16 +438,16 @@
     height: 2.3rem;
   }
   #movie_carousel_section {
-    gap: 1.5rem;
+    gap: 1rem;
     height: auto;
-    padding: 3.5rem 1rem;
+    padding: 2.5rem 1rem;
   }
   #movie_carousel {
     grid-template-columns: repeat(1, 1fr);
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
   #directors_section {
-    padding: 3.5rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
   #highlight_section h2 {
@@ -468,7 +471,10 @@
     font-size: 1.9rem;
   }
   #highlights_container {
-    margin-top: 1rem;
+    margin-top: 0rem;
+  }
+  .highlight_card:nth-child(1){
+    padding-top: .9rem;
   }
 
   .highlight_card {
@@ -518,7 +524,7 @@
 
   #upcoming_banner {
     height: auto !important;
-    padding: 3.5rem 1rem 3.5rem !important;
+    padding: 2.5rem 1rem !important;
   }
 
   #upcoming_header .tag {

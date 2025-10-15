@@ -90,6 +90,9 @@
   #contact_bottom .description{
     white-space: nowrap;
   }
+  #contact_section .heading{
+    font-size: 1.7rem !important;
+  }
   #contact_bottom{
     gap: 0;
     justify-content: space-between;
