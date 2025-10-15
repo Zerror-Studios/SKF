@@ -10,10 +10,9 @@ const UpcomingBanner = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 767); // adjust breakpoint as needed
+      setIsMobile(window.innerWidth <= 767);
     };
-
-    handleResize(); // set initially
+    handleResize(); // initialize once
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -22,7 +21,10 @@ const UpcomingBanner = () => {
     ? "/images/home/upcoming-banner-mobile.png"
     : "/images/home/upcoming-banner.jpg";
 
+  // 👇 Only run GSAP animation if not mobile
   useGSAP(() => {
+    if (window.innerWidth <= 767) return; // skip animation on mobile
+
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -41,14 +43,10 @@ const UpcomingBanner = () => {
         { transform: "translateY(-100%)" },
         { transform: "translateY(0%)" }
       );
-
-      return () => {
-        tl.kill();
-      };
     });
 
     return () => ctx.revert(); // cleanup gsap context
-  }, []);
+  }, [isMobile]); // re-run if screen size changes
 
   return (
     <div id="upcoming_banner">
@@ -67,6 +65,8 @@ const UpcomingBanner = () => {
         </div>
         <p className="tag">Release</p>
       </div>
+
+      <Image className="mobile_upcoming" width={1000} height={1000} priority src={imageUrl} alt="banner" />
     </div>
   );
 };

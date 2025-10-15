@@ -5,7 +5,7 @@ import CustomEase from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-const GalleryTitleSection = ({ data, isHero=true }) => {
+const GalleryTitleSection = ({ data, isHero=true , isPadding }) => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
   const descRef = useRef(null);
@@ -62,7 +62,7 @@ const GalleryTitleSection = ({ data, isHero=true }) => {
   }, [isHero]);
 
   return (
-    <div id="gallery_title" className={`${isHero ? "" : "not-hero"}`}>
+    <div id="gallery_title" className={`${isPadding ? "not-hero" : ""}`}>
       <div className="about_top_wrapper">
         <div className="about_hero_title">
           <h5 ref={tagRef} className="tag landing_text">
