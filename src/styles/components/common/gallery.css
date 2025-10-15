@@ -118,7 +118,6 @@
   position: relative;
   overflow: hidden;
   background-color: rgba(128, 128, 128, 0.175);
-  border-radius: 10px;
 }
 
 .gallery_detail_card video,
