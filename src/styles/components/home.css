@@ -457,6 +457,7 @@
   }
   .btn_container {
     display: flex;
+    margin-top: 1.5rem;
   }
   .highlight_img {
     width: 100%;
@@ -470,7 +471,7 @@
   }
   .about_overlay {
     width: calc(100% - 2rem);
-    height: auto;
+    height: 80%;
   }
   .about_text_content {
     padding: 1rem;

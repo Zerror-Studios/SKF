@@ -62,7 +62,7 @@ const GalleryTitleSection = ({ data, isHero=true }) => {
   }, [isHero]);
 
   return (
-    <div id="gallery_title">
+    <div id="gallery_title" className={`${isHero ? "" : "not-hero"}`}>
       <div className="about_top_wrapper">
         <div className="about_hero_title">
           <h5 ref={tagRef} className="tag landing_text">

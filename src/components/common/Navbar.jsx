@@ -58,19 +58,20 @@ const Navbar = () => {
 
   const isContact = pathname === "/contact";
 
+  // 👇 Replace your navStyle logic with this
   const navStyle =
     isContact && isMobile
       ? {
           transform: "none",
-          background: "#fffef1", // always bg on mobile
-          borderBottom: "1px solid #d8d8d8", // always border on mobile
+          background: "#fffef1",
+          borderBottom: "1px solid #d8d8d8",
         }
       : isDarkRoute
       ? {
           transform: pathname === "/" ? "translateY(-110%)" : "none",
-          background: scrolled ? "#fffef1" : "transparent",
+          background: scrolled || menu ? "#fffef1" : "transparent", // 👈 menu open → white bg
           borderBottom: "1px solid",
-          borderColor: scrolled ? "#d8d8d8" : "transparent",
+          borderColor: scrolled || menu ? "#d8d8d8" : "transparent", // 👈 menu open → border visible
           transition: "background 0.3s ease, border-color 0.3s ease",
         }
       : {
@@ -91,8 +92,8 @@ const Navbar = () => {
             filter:
               pathname === "/contact"
                 ? "invert(0)"
-                : isDarkRoute && !scrolled
-                ? "invert(1)"
+                : isDarkRoute && !scrolled && !menu
+                ? "invert(1)" // 👈 dark mode only when not scrolled & menu closed
                 : "invert(0)",
             transition: "filter 0.6s ease",
           }}
@@ -130,20 +131,21 @@ const Navbar = () => {
       </div>
 
       <div
-        id="menu-btn"
-        className={`${
-          isContact && isMobile
-            ? ""
-            : isDarkRoute && !scrolled
-            ? "dark-menu"
-            : ""
-        }`}
-        onClick={() => setMenu((prev) => !prev)}
-      >
-        <span className="line1m linem"></span>
-        <span className="line3m linem"></span>
-        <span className="line2m linem"></span>
-      </div>
+  id="menu-btn"
+  className={`${
+    isContact && isMobile
+      ? ""
+      : isDarkRoute && !scrolled && !menu // 👈 added !menu check
+      ? "dark-menu"
+      : ""
+  }`}
+  onClick={() => setMenu((prev) => !prev)}
+>
+  <span className="line1m linem"></span>
+  <span className="line3m linem"></span>
+  <span className="line2m linem"></span>
+</div>
+
 
       <NavigationMenu menu={menu} setMenu={setMenu} />
     </nav>
