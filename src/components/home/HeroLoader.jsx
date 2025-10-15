@@ -158,13 +158,11 @@ const HeroLoader = () => {
         </span>
       </h2>
       <div id="landing_video" ref={landingVideoRef}>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          src="/images/home/loader.mp4"
-        ></video>
+        <video playsInline autoPlay muted loop preload="auto">
+          <source src="/images/home/loader.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
         <span ref={playBtnRef} id="play_btn">
           {isMuted ? <GoMute /> : <GoUnmute />}
         </span>
