@@ -37,12 +37,13 @@ const UpcomingBanner = () => {
         },
       });
 
-      tl.fromTo("#expand_line", { width: "0%" }, { width: "100%" });
       tl.fromTo(
         "#image_banner img",
-        { transform: "translateY(-100%)" },
-        { transform: "translateY(0%)" }
+        { transform: "translateY(-110%)" },
+        { transform: "translateY(0%)" },
+        "a"
       );
+      tl.to(".shadow-img", { opacity: ".5" }, "a");
     });
 
     return () => ctx.revert(); // cleanup gsap context
@@ -62,11 +63,36 @@ const UpcomingBanner = () => {
               alt="banner"
             />
           </div>
+          <Image
+            className="rod"
+            width={1000}
+            height={1000}
+            priority
+            src="/rod.png"
+            alt="banner"
+          />
+          <div className="shadow">
+            <Image
+              className="shadow-img"
+              width={1000}
+              height={1000}
+              priority
+              src="/shadow.png"
+              alt="banner"
+            />
+          </div>
         </div>
         <p className="tag">Release</p>
       </div>
 
-      <Image className="mobile_upcoming" width={1000} height={1000} priority src={imageUrl} alt="banner" />
+      <Image
+        className="mobile_upcoming"
+        width={1000}
+        height={1000}
+        priority
+        src={imageUrl}
+        alt="banner"
+      />
     </div>
   );
 };
