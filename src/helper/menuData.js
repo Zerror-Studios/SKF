@@ -1,7 +1,7 @@
-export const navLinks = [
-    { href: "/movies", label: "movies" },
-    { href: "/about", label: "about" },
-    { href: "/news", label: "news" },
-    { href: "/gallery", label: "gallery" },
-    { href: "/contact", label: "contact" },
+export const menus = [
+    { link: "/movies", name: "movies" },
+    { link: "/about", name: "about" },
+    { link: "/news", name: "news" },
+    { link: "/gallery", name: "gallery" },
+    { link: "/contact", name: "contact" },
   ];

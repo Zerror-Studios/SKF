@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import GalleryCard from "./GalleryCard";
-import { movieGallery } from "@/helper/galleryData";
 import gsap from "gsap";
+import { movies } from "@/helper/moviesData";
 
 const GalleryList = () => {
   const galleryRef = useRef(null);
@@ -15,13 +15,17 @@ const GalleryList = () => {
 
     gsap.set(cards, { y: 80, opacity: 0 });
 
-    tl.to(cards, {
-      y: 0,
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.out",
-      stagger: 0.15, // delay between cards
-    },"+=.6");
+    tl.to(
+      cards,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        stagger: 0.15, // delay between cards
+      },
+      "+=.6"
+    );
 
     return () => {
       tl.kill();
@@ -30,7 +34,7 @@ const GalleryList = () => {
 
   return (
     <div id="gallery_list" ref={galleryRef}>
-      {movieGallery.map((item) => (
+      {movies.map((item) => (
         <GalleryCard key={item.slug} data={item} />
       ))}
     </div>

@@ -1,4 +1,4 @@
-import { navLinks } from "@/helper/menuData";
+import { menus} from "@/helper/menuData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -32,17 +32,17 @@ const Footer = () => {
         <div id="footer_top_right">
           <div className="footer_links">
             <h5>menu</h5>
-            {[{ href: "/", label: "home" }, ...navLinks].map(
-              ({ href, label }) => {
+            {[{ link: "/", name: "home" }, ...menus].map(
+              ({ link, name }) => {
                 const isActive =
-                  href === "/" ? pathname === href : pathname.startsWith(href);
+                  link === "/" ? pathname === link : pathname.startsWith(link);
                 return (
                   <Link
-                    key={label}
-                    href={href}
+                    key={name}
+                    href={link}
                     className={isActive ? "active" : ""}
                   >
-                    {label}
+                    {name}
                   </Link>
                 );
               }

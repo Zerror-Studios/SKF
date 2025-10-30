@@ -1,41 +1,41 @@
 import Image from "next/image";
-import React, { useRef, useEffect } from "react";
-import { IoPlay } from "react-icons/io5";
+import React from "react";
+import { FiPlay } from "react-icons/fi";
 
-const GalleryDetailCard = ({
-  index,
-  item,
-  cardClass,
-  isPlaying,
-  onClick,
-}) => {
-  const videoRef = useRef(null);
+const getYouTubeThumbnail = (url) => {
+  try {
+    // extract video ID from different possible YouTube URL formats
+    const videoId = new URL(url).searchParams.get("v");
+    if (videoId) return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    const parts = url.split("/");
+    const id = parts[parts.length - 1].split("?")[0];
+    return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+  } catch {
+    return "";
+  }
+};
 
-  useEffect(() => {
-    if (!videoRef.current) return;
-    if (isPlaying) videoRef.current.play();
-    else videoRef.current.pause();
-  }, [isPlaying]);
+const GalleryDetailCard = ({ index, item, cardClass, onClick }) => {
+  const thumbnailUrl = getYouTubeThumbnail(item.url);
 
   return (
     <div className={cardClass} onClick={onClick}>
-      {item.type === "video" ? (
-        <>
-          <video ref={videoRef} src={item.url} muted loop playsInline />
-          <div className="video_player">
-            <span className="mute_btn">
-              <IoPlay />
-            </span>
-          </div>
-        </>
-      ) : (
-        <Image
-          src={item.url}
-          alt={`media-${index}`}
-          width={1000}
-          height={1000}
-        />
-      )}
+      <div className="video_wrapper">
+        {thumbnailUrl ? (
+          <>
+            <Image
+              width={1000}
+              height={1000}
+              src={thumbnailUrl}
+              alt={`YouTube thumbnail ${index}`}
+              className="video_thumbnail"
+            />
+            <span className="card_play_icon"><FiPlay /></span>
+          </>
+        ) : (
+          <div className="video_placeholder">No Thumbnail Available</div>
+        )}
+      </div>
     </div>
   );
 };

@@ -106,8 +106,9 @@
 }
 
 #gallery_detail_list {
-  column-count: 4; /* Number of columns like Pinterest */
-  column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   padding: 3.5rem;
 }
 
@@ -174,8 +175,15 @@
   justify-content: center;
 }
 #preview_container {
-  width: auto;
-  height: 70vh;
+  width: 855px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#preview_container iframe {
+  width: 100%;
+  height: 100%;
 }
 .spinner {
   height: 100%;
@@ -220,19 +228,14 @@
   cursor: pointer;
   z-index: 9;
 }
-#preview_container img,
-#preview_container video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+
 /* Extra small (Phones) */
 @media (max-width: 480px) {
   #gallery_title {
     padding: 7rem 1rem 1rem;
   }
-  #gallery_title.not-hero{
-  padding-top: 1.5rem !important;
+  #gallery_title.not-hero {
+    padding-top: 1.5rem !important;
   }
   #gallery_list {
     grid-template-columns: repeat(1, 1fr) !important;
@@ -247,10 +250,10 @@
   }
 
   #gallery_detail_list {
-    column-count: 1;
     padding: 1rem;
+    grid-template-columns: repeat(1, 1fr);
   }
-  .gallery_detail_card{
+  .gallery_detail_card {
     margin-bottom: 1rem;
   }
 
@@ -309,7 +312,7 @@
     font-size: 1.5rem;
   }
   #gallery_detail_list {
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
     padding: 1rem;
   }
   .image {
@@ -359,10 +362,11 @@
     padding: 1rem;
   }
 
-
   #gallery_detail_list {
     column-count: 3;
-     padding: 3.5rem 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: 3.5rem 1.5rem;
   }
   .image {
     width: 96%;
