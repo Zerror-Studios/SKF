@@ -7,6 +7,11 @@ const GalleryDetailList = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const listRef = useRef(null);
 
+    // ✅ Don't render anything if no media
+  if (!data?.media || data.media.length === 0) {
+    return null;
+  }
+
   useEffect(() => {
     if (!listRef.current) return;
 

@@ -5,11 +5,16 @@ import CustomEase from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-const GalleryTitleSection = ({ data, isHero = true, isPadding ,ishero }) => {
+const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
   const descRef = useRef(null);
   const underlineRef = useRef(null); // underline span ref
+
+  // ✅ if media is missing or empty, don't render the section
+  if (!data?.media || data.media.length === 0) {
+    return null;
+  }
 
   useEffect(() => {
     if (!isHero) return; // 🔹 only animate if isHero is true
@@ -73,7 +78,6 @@ const GalleryTitleSection = ({ data, isHero = true, isPadding ,ishero }) => {
             ) : (
               <>
                 Inside the <span ref={underlineRef} className="letter-u"> Frame </span>
-                
               </>
             )}
           </h2>

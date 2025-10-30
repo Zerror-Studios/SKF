@@ -34,9 +34,11 @@ const GalleryList = () => {
 
   return (
     <div id="gallery_list" ref={galleryRef}>
-      {movies.map((item) => (
-        <GalleryCard key={item.slug} data={item} />
-      ))}
+      {movies.map(
+        (item) =>
+          item.media &&
+          item.media.length > 0 && <GalleryCard key={item.slug} data={item} />
+      )}
     </div>
   );
 };
