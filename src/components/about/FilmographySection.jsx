@@ -103,7 +103,7 @@ const FilmographySection = () => {
                 <p className="description">{film.title}</p>
                 <div className="filmo_director">
                   <h5>Director</h5>
-                  <p className="description">{film.cast.join(", ")}</p>
+                  <p className="description">{film.director}</p>
                 </div>
               </div>
             </div>
