@@ -193,7 +193,7 @@ const Highlights = ({ tag, title }) => {
       </div>
 
       <div className="btn_container">
-        <Button color="black" title="read more" />
+        <Button color="black" title="view more" />
       </div>
     </section>
   );
