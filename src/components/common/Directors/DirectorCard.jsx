@@ -100,8 +100,7 @@ const DirectorCard = ({ data, isOpen, onOpen, onClose }) => {
               <h5>Film Director, Screenwriter, Cinematographer</h5>
             </div>
             <p>
-              Kabir Khan is a renowned filmmaker known for human-centric
-              stories, with films like Bajrangi Bhaijaan, Ek Tha Tiger, and 83.
+             Filmmaker Kabir Khan made hits like *Bajrangi Bhaijaan*, *Ek Tha Tiger*, and *83*.
             </p>
             <div>
               <h6>Awards</h6>

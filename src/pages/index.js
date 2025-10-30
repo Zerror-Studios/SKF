@@ -8,37 +8,39 @@ import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 
-const baseMovie = {
-  slug: "sikandar",
-  year: 2025,
-  title: "",
-  cast: ["Salman Khan", "Rashmika Mandanna", "Sathyaraj", "Kajal Aggarwal", "Sharman Joshi"],
-  director: "AR Murugadoss",
-  poster: "/images/movie/sikandar.png",
-  category: "upcoming movies",
-  trailer: "/images/home/hero.mp4",
-  media: [
-    { type: "video", url: "/images/home/hero.mp4" },
-    { type: "image", url: "/images/gallery/image7.jpg" },
-    { type: "image", url: "/images/gallery/image2.png" },
-    { type: "image", url: "/images/movie/sikandar.png" },
-    { type: "image", url: "/images/movie/farrey.png" },
-    { type: "image", url: "/images/movie/kiss-ka-bhai.png" },
-    { type: "image", url: "/images/gallery/image15.png" },
-    { type: "video", url: "/images/home/farrey.mp4" },
-    { type: "image", url: "/images/movie/antim.png" },
-    { type: "image", url: "/images/movie/radhe.png" },
-    { type: "image", url: "/images/movie/kaagaz.png" },
-    { type: "image", url: "/images/gallery/image1.png" },
-    { type: "image", url: "/images/gallery/image3.png" },
-    { type: "image", url: "/images/gallery/image4.png" },
-    { type: "image", url: "/images/gallery/image5.png" },
-    { type: "image", url: "/images/gallery/image6.png" },
-    { type: "image", url: "/images/gallery/image14.png" },
-    { type: "image", url: "/images/gallery/image12.png" },
-    { type: "image", url: "/images/gallery/image13.png" },
-  ],
-};
+const baseMovie =  {
+        slug: "bajrangi-bhaijaan",
+        year: 2015,
+        cast: ["Salman Khan", "Harshaali Malhotra", "Kareena Kapoor Khan", "Nawazuddin Siddiqui"],
+        director: "Kabir Khan",
+        poster: "/images/movie/bajrangi.png",
+        category: "upcoming movies",
+        trailer: "/images/home/hero.mp4",
+        media: [
+            { url: "https://www.youtube.com/watch?v=VXzUue3v20k" },
+            { url: "https://www.youtube.com/watch?v=fpwmbYdJbQA" },
+            { url: "https://www.youtube.com/watch?v=iTnNWLawjgo" },
+            { url: "https://www.youtube.com/watch?v=1xOcQEa7bx0" },
+            { url: "https://www.youtube.com/watch?v=yu7AHhrPbcY" },
+            { url: "https://www.youtube.com/watch?v=jiQz6SIlw5M" },
+            { url: "https://www.youtube.com/watch?v=siSXwyXtjiU" },
+            { url: "https://www.youtube.com/watch?v=xsfvTLhOAGQ" },
+            { url: "https://www.youtube.com/watch?v=QihJw8c0eCU" },
+            { url: "https://www.youtube.com/watch?v=fn2bpVLUoJs" },
+            { url: "https://www.youtube.com/watch?v=-W132TEnvZU" },
+            { url: "https://www.youtube.com/watch?v=dWQkPeajgj8" },
+            { url: "https://www.youtube.com/watch?v=Q1zTCmyoKig" },
+            { url: "https://www.youtube.com/watch?v=YFbsvugPlVo" },
+            { url: "https://www.youtube.com/watch?v=2-hTE4MhPuQ" },
+            { url: "https://www.youtube.com/watch?v=HanwrCgOJ_A" },
+            { url: "https://www.youtube.com/watch?v=YasKpC-Nag0" },
+        ],
+        galleryCover: [
+            "/images/movie/farrey.png",
+            "/images/movie/kiss-ka-bhai.png",
+            "/images/movie/bajrangi.png",
+        ]
+    };
 
 const Home = ({ movies }) => {
   const [movie, setMovie] = useState(baseMovie);
@@ -68,7 +70,7 @@ const Home = ({ movies }) => {
       <UpcomingBanner />
       <DirectorsSection />
       <Highlights tag={"highlight"} title={"News and Updates"} />
-      <GalleryTitleSection data={movie} isPadding={true}/>
+      <GalleryTitleSection data={movie} isPadding={true} titlehero={true}/>
       <GalleryDetailList data={movie} />
       <AboutSection />
     </>

@@ -5,7 +5,7 @@ import CustomEase from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-const GalleryTitleSection = ({ data, isHero=true , isPadding }) => {
+const GalleryTitleSection = ({ data, isHero = true, isPadding ,ishero }) => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
   const descRef = useRef(null);
@@ -48,7 +48,6 @@ const GalleryTitleSection = ({ data, isHero=true , isPadding }) => {
           index === 0 ? 0 : "-=1.1"
         );
       });
-
     };
 
     (document.fonts?.ready || Promise.resolve()).then(() => {
@@ -66,17 +65,15 @@ const GalleryTitleSection = ({ data, isHero=true , isPadding }) => {
       <div className="about_top_wrapper">
         <div className="about_hero_title">
           <h5 ref={tagRef} className="tag landing_text">
-            Gallery
+            BTS Gallery
           </h5>
           <h2 ref={titleRef} className="heading landing_text">
             {data?.title ? (
               data.title
             ) : (
               <>
-                Inside the
-                <span ref={underlineRef} className="letter-u">
-                  Frame
-                </span>
+                Inside the <span ref={underlineRef} className="letter-u"> Frame </span>
+                
               </>
             )}
           </h2>
