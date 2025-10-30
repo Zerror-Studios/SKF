@@ -1,6 +1,6 @@
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
-import { movieGallery } from "@/helper/galleryData";
+import { movies } from "@/helper/moviesData";
 import React from "react";
 
 const GalleryDetails = ({ media }) => {
@@ -15,7 +15,7 @@ const GalleryDetails = ({ media }) => {
 export default GalleryDetails;
 
 export async function getStaticPaths() {
-  const paths = movieGallery.map((movie) => ({
+  const paths = movies.map((movie) => ({
     params: { slug: movie.slug },
   }));
 
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const movie = movieGallery.find((m) => m.slug === params.slug);
+  const movie = movies.find((m) => m.slug === params.slug);
 
   return {
     props: {

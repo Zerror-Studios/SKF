@@ -1,13 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GrClose, GrNext, GrPrevious } from "react-icons/gr";
 import gsap from "gsap";
-import Image from "next/image";
+
+const getYouTubeEmbedUrl = (url) => {
+  try {
+    const videoId = new URL(url).searchParams.get("v");
+    if (videoId) return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    const parts = url.split("/");
+    const id = parts[parts.length - 1].split("?")[0];
+    return `https://www.youtube.com/embed/${id}?autoplay=1`;
+  } catch {
+    return "";
+  }
+};
 
 const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
   const [mediaKey, setMediaKey] = useState(0);
   const fullViewRef = useRef(null);
   const mediaRef = useRef(null);
   const activeItem = data?.[activeIndex];
+  const embedUrl = getYouTubeEmbedUrl(activeItem?.url);
 
   // === Open animation ===
   useEffect(() => {
@@ -46,7 +58,6 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
     );
   };
 
-  // Trigger fade animation on change
   useEffect(() => {
     if (activeItem) fadeMedia();
   }, [activeItem]);
@@ -72,30 +83,18 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
         <GrPrevious />
       </span>
 
-      <div id="preview_container">
-        <div
-          key={mediaKey}
-          ref={mediaRef}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            height: "100%",
-            position: "relative",
-          }}
-        >
-          {activeItem?.type === "video" ? (
-            <video src={activeItem.url} autoPlay controls playsInline />
-          ) : (
-            <Image
-              src={activeItem.url}
-              alt="preview"
-              width={1000}
-              height={1000}
-            />
-          )}
-        </div>
+      <div id="preview_container" key={mediaKey} ref={mediaRef}>
+        {embedUrl ? (
+          <iframe
+            src={embedUrl}
+            title={`YouTube video ${activeIndex}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        ) : (
+          <p style={{ color: "#fff" }}>Video unavailable</p>
+        )}
       </div>
 
       <span className="next_btn" onClick={handleNext}>
