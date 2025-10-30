@@ -15,9 +15,12 @@ const GalleryDetails = ({ media }) => {
 export default GalleryDetails;
 
 export async function getStaticPaths() {
-  const paths = movies.map((movie) => ({
-    params: { slug: movie.slug },
-  }));
+  // ✅ only include movies that actually have media
+  const paths = movies
+    .filter((movie) => movie.media && movie.media.length > 0)
+    .map((movie) => ({
+      params: { slug: movie.slug },
+    }));
 
   return { paths, fallback: false };
 }
@@ -25,9 +28,16 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const movie = movies.find((m) => m.slug === params.slug);
 
+  // ✅ handle invalid or empty media case safely
+  if (!movie || !movie.media || movie.media.length === 0) {
+    return {
+      notFound: true, // tells Next.js to show 404
+    };
+  }
+
   return {
     props: {
-      media: movie ? movie : [],
+      media: movie,
     },
   };
 }

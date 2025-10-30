@@ -113,13 +113,8 @@ export const movies = [
         category: "released",
         trailer: "/images/home/hero.mp4",
         media: [
-            { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
-            { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
         ],
         galleryCover: [
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/farrey.png",
-            "/images/movie/kaagaz.png",
         ]
     },
     {
@@ -157,13 +152,8 @@ export const movies = [
         category: "released",
         trailer: "/images/home/hero.mp4",
         media: [
-            { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
-            { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
         ],
         galleryCover: [
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/farrey.png",
-            "/images/movie/bharat.png",
         ]
     },
     {
@@ -329,13 +319,8 @@ export const movies = [
         category: "upcoming movies",
         trailer: "/images/home/hero.mp4",
         media: [
-            { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
-            { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
         ],
         galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/cabbie.png",
         ]
     },
     {
@@ -348,13 +333,8 @@ export const movies = [
         category: "upcoming movies",
         trailer: "/images/home/hero.mp4",
         media: [
-            { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
-            { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
         ],
         galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/chillar-party.png",
         ]
     }
 ];
