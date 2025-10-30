@@ -1,4 +1,4 @@
-import { navLinks } from "@/helper/menuData";
+import { menus } from "@/helper/menuData";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
@@ -146,14 +146,14 @@ const NavigationMenu = ({ menu, setMenu }) => {
   return (
     <div id="navigation">
       <div className="menu-links">
-        {navLinks.map(({ href, label }) => (
+        {menus.map(({ link, name }) => (
           <Link
-            key={label}
-            href={href}
-            className={`${label}`}
+            key={name}
+            href={link}
+            className={`${name}`}
             onClick={() => setMenu(false)}
           >
-            {label}
+            {name}
           </Link>
         ))}
       </div>

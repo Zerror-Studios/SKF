@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
-import { navLinks } from "@/helper/menuData";
+import { menus} from "@/helper/menuData";
 import { usePathname } from "next/navigation";
 import NavigationMenu from "./NavigationMenu";
 import { useRouter } from "next/router";
@@ -101,19 +101,19 @@ const Navbar = () => {
       </Link>
 
       <div className="nav_links">
-        {navLinks.map(({ href, label }) => {
+        {menus.map(({ link, name }) => {
           const isActive =
-            href === "/"
-              ? router.pathname === href
-              : router.pathname.startsWith(href);
+            link === "/"
+              ? router.pathname === link
+              : router.pathname.startsWith(link);
           return (
             <Link
-              key={label}
-              href={href}
-              className={`nav_item ${label} ${isActive ? "active" : ""} ${
+              key={name}
+              href={link}
+              className={`nav_item ${name} ${isActive ? "active" : ""} ${
                 isDarkRoute && !scrolled ? "dark" : ""
               }`}
-              onMouseEnter={() => handleHover(label)}
+              onMouseEnter={() => handleHover(name)}
               style={{
                 color: isContact
                   ? "#1D1D1D"
@@ -123,8 +123,8 @@ const Navbar = () => {
                 transition: isDarkRoute ? "color 0.6s ease" : "none",
               }}
             >
-              <span className="title1">{splitLetters(label)}</span>
-              <span className="title2">{splitLetters(label)}</span>
+              <span className="title1">{splitLetters(name)}</span>
+              <span className="title2">{splitLetters(name)}</span>
             </Link>
           );
         })}
