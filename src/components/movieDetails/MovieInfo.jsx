@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const MovieInfo = ({detailsRef}) => {
+const MovieInfo = ({info,detailsRef}) => {
   return (
     <div
       ref={detailsRef}
@@ -10,7 +10,7 @@ const MovieInfo = ({detailsRef}) => {
     >
       <div>
         <p>Directed By</p>
-        <h4>A.R. Murugadoss</h4>
+        <h4>{info?.director}</h4>
       </div>
       <div>
         <p>Produced By</p>

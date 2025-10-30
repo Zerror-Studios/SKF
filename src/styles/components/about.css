@@ -22,9 +22,10 @@
   margin: 0;
   width: 85%;
   color: #000000;
-}
-.about_hero_info p:nth-child(2) {
   margin-top: 1.2rem;
+}
+.about_hero_info p:nth-child(1) {
+  margin-top: 0;
 }
 .office_label {
   width: 100%;

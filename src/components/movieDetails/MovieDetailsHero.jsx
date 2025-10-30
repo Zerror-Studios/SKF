@@ -57,7 +57,7 @@ const MovieDetailsHero = ({ data }) => {
           bannerRef={bannerRef}
           setShowVideo={setShowVideo}
         />
-        <MovieInfo detailsRef={detailsRef} />
+        <MovieInfo info={data} detailsRef={detailsRef} />
         <MovieTrailerVideo showVideo={showVideo} setShowVideo={setShowVideo} />
       </div>
     </div>
