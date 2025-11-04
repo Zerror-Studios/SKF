@@ -206,7 +206,7 @@
 }
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
- #trailer_heading,
+  #trailer_heading,
   .trailer_slider {
     display: none;
   }
