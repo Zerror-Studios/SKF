@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import GalleryCard from "./GalleryCard";
 import gsap from "gsap";
-import { movies } from "@/helper/moviesData";
 
-const GalleryList = () => {
+const GalleryList = ({ data }) => {
   const galleryRef = useRef(null);
 
   useEffect(() => {
@@ -34,7 +33,7 @@ const GalleryList = () => {
 
   return (
     <div id="gallery_list" ref={galleryRef}>
-      {movies.map(
+      {data.map(
         (item) =>
           item.media &&
           item.media.length > 0 && <GalleryCard key={item.slug} data={item} />
