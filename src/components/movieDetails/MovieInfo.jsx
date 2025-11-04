@@ -1,39 +1,42 @@
 import Image from "next/image";
 import React from "react";
 
-const MovieInfo = ({info,detailsRef}) => {
+const MovieInfo = ({ info, detailsRef }) => {
   return (
-    <div
-      ref={detailsRef}
-      className="movie_details_info"
-      style={{ transform: "translateY(60%)", opacity: 0 }}
-    >
-      <div>
-        <p>Directed By</p>
-        <h4>{info?.director}</h4>
+    <>
+      <div
+        ref={detailsRef}
+        className="movie_details_info"
+        style={{ transform: "translateY(60%)", opacity: 0 }}
+      >
+        <div>
+          <p>Directed By</p>
+          <h4>{info?.director}</h4>
+        </div>
+
+        <div>
+          <p>Genre</p>
+          <h4>Action | Thriller</h4>
+        </div>
+        <div>
+          <p>Duration</p>
+          <h4>2h 15m</h4>
+        </div>
+        <div className="netflix">
+          <p>Watch now</p>
+          <Image
+            width={1000}
+            height={1000}
+            src="/images/moviedetails/netflix.png"
+            alt="image"
+          />
+        </div>
+        <div className="movie_details_info_produce">
+          <p>Produced By</p>
+          <h4>{info?.produced}</h4>
+        </div>
       </div>
-      <div>
-        <p>Produced By</p>
-        <h4>Salman Khan</h4>
-      </div>
-      <div>
-        <p>Genre</p>
-        <h4>Action | Thriller</h4>
-      </div>
-      <div>
-        <p>Duration</p>
-        <h4>2h 15m</h4>
-      </div>
-      <div className="netflix">
-        <p>Watch now</p>
-        <Image
-          width={1000}
-          height={1000}
-          src="/images/moviedetails/netflix.png"
-          alt="image"
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
