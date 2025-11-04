@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
+const MovieTrailerVideo = ({ showVideo, setShowVideo, trailer }) => {
   const overlayRef = useRef(null);
   const containerRef = useRef(null);
-  const videoRef = useRef(null);
+  const iframeRef = useRef(null);
   const [isVisible, setIsVisible] = useState(showVideo);
 
   useEffect(() => {
@@ -23,8 +23,8 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
         overlayRef.current,
         { backgroundColor: "rgba(0,0,0,0)", pointerEvents: "none" },
         {
-          backgroundColor: "rgba(0,0,0,0.5)", // lighter background
-          duration: 0.5, // smoother
+          backgroundColor: "rgba(0,0,0,0.5)",
+          duration: 0.5,
           ease: "power2.out",
           onStart: () => {
             overlayRef.current.style.pointerEvents = "auto";
@@ -39,6 +39,7 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
           { autoAlpha: 1, y: "0%", duration: 0.5, ease: "power4.out" }
         )
 
+        // Step 3: Move nav up and scale video
         .to(
           navEl,
           {
@@ -49,7 +50,6 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
           },
           "u"
         )
-        // Step 3: Scale to normal
         .to(
           containerRef.current,
           {
@@ -57,11 +57,13 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
             duration: 0.35,
             ease: "power3.out",
             onComplete: () => {
-              // ✅ Play video after animation finishes
-              if (videoRef.current) {
-                videoRef.current.play().catch((err) => {
-                  console.log("Autoplay with sound might be blocked:", err);
-                });
+              // ✅ Autoplay iframe YouTube video
+              if (iframeRef.current) {
+                const src = new URL(iframeRef.current.src);
+                if (!src.searchParams.has("autoplay")) {
+                  src.searchParams.set("autoplay", "1");
+                  iframeRef.current.src = src.toString();
+                }
               }
             },
           },
@@ -72,11 +74,6 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
 
   const handleClose = () => {
     const nav = document.querySelector("nav");
-    // ✅ Stop & reset video first
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0; // reset to start
-    }
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -85,11 +82,10 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
       },
     });
 
-    // Animate container + overlay
     tl.to(
       containerRef.current,
       {
-        scale: 0.85, // smoother shrink
+        scale: 0.85,
         duration: 0.35,
         ease: "power3.in",
       },
@@ -119,17 +115,32 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
           overlayRef.current.style.pointerEvents = "none";
         },
       });
+
+    // Stop video playback by resetting iframe src
+    if (iframeRef.current) {
+      iframeRef.current.src = iframeRef.current.src.replace("&autoplay=1", "");
+    }
   };
 
   if (!isVisible) return null;
+
+  // Convert YouTube link to embeddable format
+  const embedUrl = trailer?.replace("watch?v=", "embed/");
 
   return (
     <div ref={overlayRef} id="movie_trailer_video">
       <div ref={containerRef} className="movie_trailer_container">
         <button onClick={handleClose}>✖</button>
-        <video ref={videoRef} src="/images/home/loader.mp4" controls>
-          Your browser does not support the video tag.
-        </video>
+        <iframe
+          ref={iframeRef}
+          width="100%"
+          height="100%"
+          src={`${embedUrl}?enablejsapi=1&rel=0`}
+          title="YouTube trailer"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          frameBorder="0"
+        ></iframe>
       </div>
     </div>
   );

@@ -12,9 +12,9 @@ const MovieDetails = ({ movie }) => {
   return (
     <>
       <MovieDetailsHero data={movie} />
-      <SynopsisSection />
-      <CastSection />
-      <HorizontalSlider />
+      <SynopsisSection data={movie} />
+      <CastSection data={movie} />
+      <HorizontalSlider data={movie} />
       <HorizontalSwiper />
       <GalleryTitleSection data={movie} isPadding={true} />
       <GalleryDetailList data={movie} />

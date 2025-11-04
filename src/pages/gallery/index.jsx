@@ -1,14 +1,23 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
+import { movies } from "@/helper/moviesData";
 import React from "react";
 
-const Gallery = () => {
+const Gallery = ({ media }) => {
   return (
     <>
       <GalleryTitleSection />
-      <GalleryList />
+      <GalleryList data={media} />
     </>
   );
 };
 
 export default Gallery;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      media: movies,
+    },
+  };
+}

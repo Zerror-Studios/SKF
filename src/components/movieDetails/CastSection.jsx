@@ -11,7 +11,7 @@ const directors = [
   { id: 6, name: "Sharman Joshi", image: "/images/moviedetails/cast6.png" },
 ];
 
-const CastSection = () => {
+const CastSection = ({ data }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const CastSection = () => {
         <h5 className="tag">Cast and crew</h5>
       </div>
 
-      <DirectorsContainer data={directors} />
+      <DirectorsContainer data={data?.cast} />
 
       <Button title="show more" color="black" />
     </section>
