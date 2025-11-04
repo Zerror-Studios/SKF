@@ -9,8 +9,8 @@ export const movies = [
         poster: "/images/movie/sikandar.png",
         category: "upcoming movies",
         synopsis: `Sikandar follows the journey of a man who overcomes all hurdles that life throws his way just so that he can alleviate the plight of the less fortunate and those in need of his help. His transition from a nonchalant man to a selfless man, inspired by his wife, makes him emerge as a beacon of hope for those ensnared in darkness.`,
-        teaser: "",
-        trailer: "/images/home/hero.mp4",
+        teaser: "https://www.youtube.com/watch?v=l2AMaPCsJIQ",
+        trailer: "https://www.youtube.com/watch?v=BAk5ZCoTWY8",
         media: [
             { url: "https://www.youtube.com/watch?v=diQPz4y6bWA" },
             { url: "https://www.youtube.com/watch?v=GvKXUpXwd_M" },
@@ -31,8 +31,8 @@ export const movies = [
         poster: "/images/movie/farrey.png",
         category: "upcoming movies",
         synopsis: `Niyati, an orphan prodigy, living under the care of her warden in a local orphanage in Delhi, becomes the national level topper in the 10th board exams and secures admission in an elite school on scholarship. There she is lured by her rich friends to help them cheat in exams by developing elaborate methods and gets pulled into a cheating racket with increasingly higher risks and even higher rewards. But she may lose much more than she gains.`,
-        teaser: "",
-        trailer: "/images/home/farrey.mp4",
+        teaser: "https://www.youtube.com/watch?v=5uevc4jfxFg",
+        trailer: "https://www.youtube.com/watch?v=WUbl1870N7c",
         media: [
             { url: "https://www.youtube.com/watch?v=Dpgy-Juf8zk" },
         ],
@@ -52,8 +52,8 @@ export const movies = [
         poster: "/images/movie/kiss-ka-bhai.png",
         category: "released",
         synopsis: `Salman Khan is a self-appointed vigilante committed to the cause of keeping the society crime-free. His younger brothers set him up with a woman similar to his previous love interest. What follows is a series of events that takes all of them across the length of the country and various revelations with all the elements of a wholesome entertainer.`,
-        teaser: "",
-        trailer: "/images/home/kiss-ka-bhai.mp4",
+        teaser: "https://www.youtube.com/watch?v=bGM490nJoDE",
+        trailer: "https://www.youtube.com/watch?v=bsi8_9EoYyg",
         media: [
             { url: "https://www.youtube.com/watch?v=VEDhJIl8kNk&list=PLofFoQnZAD2HKdDB6wTn7Wcs601_ZPOa6&index=3" },
             { url: "https://www.youtube.com/watch?v=w0ECti8sCp8&list=PLofFoQnZAD2HKdDB6wTn7Wcs601_ZPOa6&index=9" },
@@ -87,8 +87,8 @@ ranks. As the power goes to his head, he ruins relations with his family and lad
 solace is Ganya and Sidhu, an orphan boy he adopts. Will Rajveer manage to bring Rahulya
 down, or will his own past catch up with him first? Only at the end is the final truth revealed.
 `,
-        teaser: "",
-        trailer: "/images/home/hero.mp4",
+        teaser: "https://www.youtube.com/watch?v=dOt8mdGUM9o",
+        trailer: "https://www.youtube.com/watch?v=XFKz1DACGdE",
         media: [
             { url: "https://www.youtube.com/watch?v=7-E9jBVF2Ng&list=PLofFoQnZAD2GbZ7q_z4WGULuFzxxaoU08&index=6" },
             { url: "https://www.youtube.com/watch?v=Pl0pRLY9ZZk&list=PLofFoQnZAD2GbZ7q_z4WGULuFzxxaoU08&index=9" },
@@ -110,7 +110,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         category: "released",
         synopsis: `The drug mafia has increased in India, where more and more youngsters are addicted to drugs and taking their lives. The Mumbai police decides to get suspended officer Radhe (Salman Khan) on duty to clean the city. Radhe joins soon and firstly makes two rival groups of Dagdu Dada and Dilwar to join hands as they are against the drug business and will help him clean the city. Radhe's reporting officer is funny, ACP Avinash Abhyankar, who runs away with Radhe's credits while Radhe loves Avinash's sister Dia and pretends to be an upcoming model. Rana the drug lord who has landed in Mumbai and forces people to sell drugs and gets Dilwar killed from his brother Mansoor who works for him, Radhe manages to trace Rana which starts a long cat and mouse race between them. `,
         teaser: "",
-        trailer: "/images/home/hero.mp4",
+        trailer: "https://www.youtube.com/watch?v=zPl7y5yBzuo",
         media: [
             { url: "https://www.youtube.com/watch?v=r7MJ2gaIwsE&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=5" },
             { url: "https://www.youtube.com/watch?v=dmeryUOm5VM&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=7" },
@@ -138,7 +138,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         category: "released",
         synopsis: ``,
         teaser: "",
-        trailer: "/images/home/hero.mp4",
+        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
         ],
         galleryCover: [
@@ -154,8 +154,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         poster: "/images/movie/kaagaz.png",
         category: "released",
         synopsis: `More beefed-up, worked up and dangerous than ever, Chulbul Pandey, now the tough-as-nails police superintendent of Tundla city in Uttar Pradesh, finds himself juggling career and family after bringing down unscrupulous Baccha Singh's empire in Dabangg 2 (2012). However, as the past comes back to haunt him in the shape of the wicked old nemesis, Bali Singh. `,
-        teaser: "",
-        trailer: "/images/home/hero.mp4",
+        teaser: "https://www.youtube.com/watch?v=guqjxWjuSno",
+        trailer: "https://www.youtube.com/watch?v=-AJ7cLi1Jfk",
         media: [
             { url: "https://www.youtube.com/watch?v=Vl0UaDiJ6Hw&list=PLofFoQnZAD2Ge5Tg1UfGDPSS9yxokWyKy" },
             { url: "https://www.youtube.com/watch?v=BUHIooHBj9A&list=PLofFoQnZAD2Ge5Tg1UfGDPSS9yxokWyKy&index=3" },
@@ -183,7 +183,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         category: "released",
         synopsis: ``,
         teaser: "",
-        trailer: "/images/home/hero.mp4",
+        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
         ],
         galleryCover: [
@@ -200,7 +200,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         category: "released",
         synopsis: ``,
         teaser: "",
-        trailer: "/images/home/hero.mp4",
+        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
             { url: "https://www.youtube.com/watch?v=bSA8Zuu7icE&list=PLofFoQnZAD2Fckf2uddImjOBss59DynoH&index=8" },
             { url: "https://www.youtube.com/watch?v=QctNjpNYOH8&list=PLofFoQnZAD2Fckf2uddImjOBss59DynoH&index=9" },
@@ -224,8 +224,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         poster: "/images/movie/loveyatri.png",
         category: "released",
         synopsis: `Sushrut, a garba teacher, falls in love with NRI girl Michelle when she visits town during festival`,
-        teaser: "",
-        trailer: "/images/home/hero.mp4",
+        teaser: "https://www.youtube.com/watch?v=AvsIErOn83o",
+        trailer: "https://www.youtube.com/watch?v=NCC6izqds04",
         media: [
             { url: "https://www.youtube.com/watch?v=T2hPPkgdUWw" },
             { url: "https://www.youtube.com/watch?v=mczUShOM2nk" },
@@ -250,7 +250,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         category: "released",
         synopsis: `Race 3 as its predecessors is an internationally mounted saga of a family that deals in borderline crime but is ruthless and vindictive to the core. A world with twists and turns at every nook and corner, which will take the audience by surprise with its sheer unpredictability. Characters change their characteristics at the blink of an eye as the story rushes towards a high-octane climax with betrayal, fast guns, fast cars, and sleek action never seen before on the Indian screen. Action and drama that leads to a shocking twist in the climax that takes your breath away.`,
         teaser: "",
-        trailer: "/images/home/hero.mp4",
+        trailer: "https://www.youtube.com/watch?v=xBht9TG7ySw",
         media: [
             { url: "https://www.youtube.com/watch?v=u4jyLpmIdqw&list=PLofFoQnZAD2Fdqp8vB_oi4gGgMkdwCofa&index=31" },
             { url: "https://www.youtube.com/watch?v=tlMYVJV7YHM&list=PLofFoQnZAD2Fdqp8vB_oi4gGgMkdwCofa&index=32" },
@@ -275,10 +275,9 @@ down, or will his own past catch up with him first? Only at the end is the final
         poster: "/images/movie/tubelight.png",
         category: "released",
         synopsis: `A story of two brothers set during the Sino-Indian war, 1962: the younger one who's at war at the borders and the elder who's at war with his own world.
-
 `,
-        teaser: "",
-        trailer: "/images/home/hero.mp4",
+        teaser: "https://www.youtube.com/watch?v=UKlkIzD-Yj8",
+        trailer: "https://www.youtube.com/watch?v=PGQRNKHJwH4",
         media: [
             { url: "https://www.youtube.com/watch?v=dkWBLXnFuQk&list=PLofFoQnZAD2HuiZX69CtZ8w46VsIxI28v&index=12" },
             { url: "https://www.youtube.com/watch?v=OHms7Zx_3TE&list=PLofFoQnZAD2HuiZX69CtZ8w46VsIxI28v&index=15" },
@@ -301,8 +300,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         poster: "/images/movie/hero.png",
         category: "upcoming movies",
         synopsis: `An adrenaline junkie walks away from a whirlwind romance and embraces a new life as a thief, though he soon finds himself pursued by veteran police officer and engaged in a turf war with a local gangster.`,
-        teaser: "",
-        trailer: "/images/home/hero.mp4",
+        teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
+        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
             { url: "https://www.youtube.com/watch?v=j3cWyRmapdg" },
             { url: "https://www.youtube.com/watch?v=O926knS3XEU" },
@@ -335,8 +334,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         poster: "/images/movie/bajrangi.png",
         category: "upcoming movies",
         synopsis: `A 5-year-old girl from Pakistan gets separated from her mother at an Indian railway station. Lost and hungry, she finds shelter at the home of Pawan, an ardent devotee of Hanuman, hailing from a robust wrestling family. Bajrangi Bhaijaan is the moving story of Pavan's quest to unite the child with her parents against all odds. Set against the backdrop of colourful Chandni Chowk, the film travels from the heartland of Punjab, through the deserts of Rajasthan, and over the snow-capped mountains of Kashmir. Bajrangi Bhaijaan tells the story of how Pavan, who moved heaven and earth to fulfil the promise he made to the girl from across the border.`,
-        teaser: "",
-        trailer: "/images/home/hero.mp4",
+        teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
+        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
             { url: "https://www.youtube.com/watch?v=VXzUue3v20k" },
             { url: "https://www.youtube.com/watch?v=fpwmbYdJbQA" },
@@ -373,7 +372,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         category: "upcoming movies",
         synopsis: ``,
         teaser: "",
-        trailer: "/images/home/hero.mp4",
+        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
         ],
         galleryCover: [
@@ -390,7 +389,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         category: "upcoming movies",
         synopsis: ``,
         teaser: "",
-        trailer: "/images/home/hero.mp4",
+        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
         ],
         galleryCover: [
