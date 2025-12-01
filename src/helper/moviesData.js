@@ -13,7 +13,7 @@ export const movies = [
         produced: "Sajid Nadiadwala",
         director: "A.R. Murugadoss",
         poster: "/images/movie/sikandar.png",
-        category: "upcoming movies",
+        category: "released",
         synopsis: `Sikandar follows the journey of a man who overcomes all hurdles that life throws his way just so that he can alleviate the plight of the less fortunate and those in need of his help. His transition from a nonchalant man to a selfless man, inspired by his wife, makes him emerge as a beacon of hope for those ensnared in darkness.`,
         teaser: "https://www.youtube.com/watch?v=l2AMaPCsJIQ",
         trailer: "https://www.youtube.com/watch?v=BAk5ZCoTWY8",
@@ -25,34 +25,6 @@ export const movies = [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
             "/images/movie/sikandar.png",
-        ]
-    },
-    {
-        slug: "farrey",
-        year: 2023,
-        title: "Farrey",
-        cast: [
-            { id: 1, name: "Alizeh", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Ronit Roy", image: "/images/moviedetails/cast2.png" },
-            { id: 3, name: "Sahil Mehta", image: "/images/moviedetails/cast3.png" },
-            { id: 4, name: "Zeyn Shaw", image: "/images/moviedetails/cast4.png" },
-            { id: 5, name: "Prasanna Bisht", image: "/images/moviedetails/cast5.png" },
-        ],
-
-        produced: "Atul Agnihotri, Alvira Khan, Sunir Kheterpal, Nikhil Namit, Y. Ravi Shankar, Naveen Yerneni, Salman Khan",
-        director: "Soumendra Padhi",
-        poster: "/images/movie/farrey.png",
-        category: "upcoming movies",
-        synopsis: `Niyati, an orphan prodigy, living under the care of her warden in a local orphanage in Delhi, becomes the national level topper in the 10th board exams and secures admission in an elite school on scholarship. There she is lured by her rich friends to help them cheat in exams by developing elaborate methods and gets pulled into a cheating racket with increasingly higher risks and even higher rewards. But she may lose much more than she gains.`,
-        teaser: "https://www.youtube.com/watch?v=5uevc4jfxFg",
-        trailer: "https://www.youtube.com/watch?v=WUbl1870N7c",
-        media: [
-            { url: "https://www.youtube.com/watch?v=Dpgy-Juf8zk" },
-        ],
-        galleryCover: [
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/sikandar.png",
-            "/images/movie/farrey.png",
         ]
     },
     {
@@ -83,6 +55,68 @@ export const movies = [
             "/images/movie/sikandar.png",
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
+        ]
+    },
+    {
+        slug: "farrey",
+        year: 2023,
+        title: "Farrey",
+        cast: [
+            { id: 1, name: "Alizeh", image: "/images/moviedetails/cast1.png" },
+            { id: 2, name: "Ronit Roy", image: "/images/moviedetails/cast2.png" },
+            { id: 3, name: "Sahil Mehta", image: "/images/moviedetails/cast3.png" },
+            { id: 4, name: "Zeyn Shaw", image: "/images/moviedetails/cast4.png" },
+            { id: 5, name: "Prasanna Bisht", image: "/images/moviedetails/cast5.png" },
+        ],
+
+        produced: "Atul Agnihotri, Alvira Khan, Sunir Kheterpal, Nikhil Namit, Y. Ravi Shankar, Naveen Yerneni, Salman Khan",
+        director: "Soumendra Padhi",
+        poster: "/images/movie/farrey.png",
+        category: "released",
+        synopsis: `Niyati, an orphan prodigy, living under the care of her warden in a local orphanage in Delhi, becomes the national level topper in the 10th board exams and secures admission in an elite school on scholarship. There she is lured by her rich friends to help them cheat in exams by developing elaborate methods and gets pulled into a cheating racket with increasingly higher risks and even higher rewards. But she may lose much more than she gains.`,
+        teaser: "https://www.youtube.com/watch?v=5uevc4jfxFg",
+        trailer: "https://www.youtube.com/watch?v=WUbl1870N7c",
+        media: [
+            { url: "https://www.youtube.com/watch?v=Dpgy-Juf8zk" },
+        ],
+        galleryCover: [
+            "/images/movie/kiss-ka-bhai.png",
+            "/images/movie/sikandar.png",
+            "/images/movie/farrey.png",
+        ]
+    },
+    {
+        slug: "radhe",
+        year: 2021,
+        title: "Radhe: Your Most Wanted Bhai",
+        cast: [
+            { id: 1, name: "Salman Khan", image: "/images/moviedetails/cast1.png" },
+            { id: 2, name: "Disha Patani", image: "/images/moviedetails/cast2.png" },
+            { id: 3, name: "Randeep Hooda", image: "/images/moviedetails/cast3.png" },
+            { id: 4, name: "Jackie Shroff", image: "/images/moviedetails/cast4.png" },
+        ]
+        ,
+        produced: "Salman Khan, Sohail Khan, Atul Agnihotri, Nikhil Namit",
+        director: "Prabhu Deva",
+        poster: "/images/movie/radhe.png",
+        category: "released",
+        synopsis: `The drug mafia has increased in India, where more and more youngsters are addicted to drugs and taking their lives. The Mumbai police decides to get suspended officer Radhe (Salman Khan) on duty to clean the city. Radhe joins soon and firstly makes two rival groups of Dagdu Dada and Dilwar to join hands as they are against the drug business and will help him clean the city. Radhe's reporting officer is funny, ACP Avinash Abhyankar, who runs away with Radhe's credits while Radhe loves Avinash's sister Dia and pretends to be an upcoming model. Rana the drug lord who has landed in Mumbai and forces people to sell drugs and gets Dilwar killed from his brother Mansoor who works for him, Radhe manages to trace Rana which starts a long cat and mouse race between them. `,
+        teaser: "",
+        trailer: "https://www.youtube.com/watch?v=zPl7y5yBzuo",
+        media: [
+            { url: "https://www.youtube.com/watch?v=r7MJ2gaIwsE&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=5" },
+            { url: "https://www.youtube.com/watch?v=dmeryUOm5VM&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=7" },
+            { url: "https://www.youtube.com/watch?v=7tKwYnKfuMY&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=8" },
+            { url: "https://www.youtube.com/watch?v=qMx2MoYwxms&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=13" },
+            { url: "https://www.youtube.com/watch?v=vt4gyzr0ib8&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=17" },
+            { url: "https://www.youtube.com/watch?v=FPQs4u2d_Ik&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=21" },
+            { url: "https://www.youtube.com/watch?v=7yeZzwK8kwY&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=25" },
+            { url: "https://www.youtube.com/watch?v=dda6pqEpdeQ&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=27" },
+        ],
+        galleryCover: [
+            "/images/movie/sikandar.png",
+            "/images/movie/kiss-ka-bhai.png",
+            "/images/movie/radhe.png",
         ]
     },
     {
@@ -124,64 +158,6 @@ down, or will his own past catch up with him first? Only at the end is the final
         ]
     },
     {
-        slug: "radhe",
-        year: 2021,
-        title: "Radhe",
-        cast: [
-            { id: 1, name: "Salman Khan", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Disha Patani", image: "/images/moviedetails/cast2.png" },
-            { id: 3, name: "Randeep Hooda", image: "/images/moviedetails/cast3.png" },
-            { id: 4, name: "Jackie Shroff", image: "/images/moviedetails/cast4.png" },
-        ]
-        ,
-        produced: "Salman Khan, Sohail Khan, Atul Agnihotri, Nikhil Namit",
-        director: "Prabhu Deva",
-        poster: "/images/movie/radhe.png",
-        category: "released",
-        synopsis: `The drug mafia has increased in India, where more and more youngsters are addicted to drugs and taking their lives. The Mumbai police decides to get suspended officer Radhe (Salman Khan) on duty to clean the city. Radhe joins soon and firstly makes two rival groups of Dagdu Dada and Dilwar to join hands as they are against the drug business and will help him clean the city. Radhe's reporting officer is funny, ACP Avinash Abhyankar, who runs away with Radhe's credits while Radhe loves Avinash's sister Dia and pretends to be an upcoming model. Rana the drug lord who has landed in Mumbai and forces people to sell drugs and gets Dilwar killed from his brother Mansoor who works for him, Radhe manages to trace Rana which starts a long cat and mouse race between them. `,
-        teaser: "",
-        trailer: "https://www.youtube.com/watch?v=zPl7y5yBzuo",
-        media: [
-            { url: "https://www.youtube.com/watch?v=r7MJ2gaIwsE&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=5" },
-            { url: "https://www.youtube.com/watch?v=dmeryUOm5VM&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=7" },
-            { url: "https://www.youtube.com/watch?v=7tKwYnKfuMY&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=8" },
-            { url: "https://www.youtube.com/watch?v=qMx2MoYwxms&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=13" },
-            { url: "https://www.youtube.com/watch?v=vt4gyzr0ib8&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=17" },
-            { url: "https://www.youtube.com/watch?v=FPQs4u2d_Ik&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=21" },
-            { url: "https://www.youtube.com/watch?v=7yeZzwK8kwY&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=25" },
-            { url: "https://www.youtube.com/watch?v=dda6pqEpdeQ&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=27" },
-        ],
-        galleryCover: [
-            "/images/movie/sikandar.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/radhe.png",
-        ]
-    },
-    {
-        slug: "kaagaz",
-        year: 2021,
-        title: "Kaagaz",
-        cast: [
-            { id: 1, name: "Pankaj Tripathi", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Monal Gajjar", image: "/images/moviedetails/cast2.png" },
-            { id: 3, name: "Amar Upadhyay", image: "/images/moviedetails/cast3.png" },
-            { id: 4, name: "Tina Ahuja", image: "/images/moviedetails/cast4.png" },
-            { id: 5, name: "Lankesh", image: "/images/moviedetails/cast5.png" },
-        ]
-        ,
-        produced: "",
-        director: "Satish Kaushik",
-        poster: "/images/movie/kaagaz.png",
-        category: "released",
-        synopsis: ``,
-        teaser: "",
-        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
-        media: [
-        ],
-        galleryCover: [
-        ]
-    },
-    {
         slug: "dabangg-3",
         year: 2019,
         title: "Dabangg 3",
@@ -214,88 +190,6 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/sikandar.png",
             "/images/movie/kiss-ka-bhai.png",
             "/images/movie/farrey.png",
-        ]
-    },
-    {
-        slug: "bharat",
-        year: 2019,
-        title: "Bharat",
-        cast: [
-            { id: 1, name: "Salman Khan", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Katrina Kaif", image: "/images/moviedetails/cast2.png" },
-            { id: 3, name: "Disha Patani", image: "/images/moviedetails/cast3.png" },
-            { id: 4, name: "Sunil Grover", image: "/images/moviedetails/cast4.png" },
-            { id: 5, name: "Jackie Shroff", image: "/images/moviedetails/cast5.png" },
-        ],
-
-        produced: "",
-        director: "Ali Abbas Zafar",
-        poster: "/images/movie/bharat.png",
-        category: "released",
-        synopsis: ``,
-        teaser: "",
-        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
-        media: [
-        ],
-        galleryCover: [
-        ]
-    },
-    {
-        slug: "notebook",
-        year: 2019,
-        title: "Notebook",
-        cast: [
-            { id: 1, name: "Zaheer Iqbal", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Pranutan Bahl", image: "/images/moviedetails/cast2.png" },
-        ]
-        ,
-        produced: "",
-        director: "Nitin Kakkar",
-        poster: "/images/movie/notebook.png",
-        category: "released",
-        synopsis: ``,
-        teaser: "",
-        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
-        media: [
-            { url: "https://www.youtube.com/watch?v=bSA8Zuu7icE&list=PLofFoQnZAD2Fckf2uddImjOBss59DynoH&index=8" },
-            { url: "https://www.youtube.com/watch?v=QctNjpNYOH8&list=PLofFoQnZAD2Fckf2uddImjOBss59DynoH&index=9" },
-            { url: "https://www.youtube.com/watch?v=J7PFVcRzblA&list=PLofFoQnZAD2Fckf2uddImjOBss59DynoH&index=10" },
-            { url: "https://www.youtube.com/watch?v=qQVDU4lwSII&list=PLofFoQnZAD2Fckf2uddImjOBss59DynoH&index=18" },
-            { url: "https://www.youtube.com/watch?v=qQVDU4lwSII&list=PLofFoQnZAD2Fckf2uddImjOBss59DynoH&index=18" },
-        ],
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/notebook.png",
-        ]
-    },
-    {
-        slug: "loveyatri",
-        year: 2018,
-        title: "Loveyatri",
-        cast: [
-            { id: 1, name: "Aayush Sharma", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Warina Hussain", image: "/images/moviedetails/cast2.png" },
-        ]
-        ,
-        produced: "Salman Khan",
-        director: "Abhiraj Minawala",
-        poster: "/images/movie/loveyatri.png",
-        category: "released",
-        synopsis: `Sushrut, a garba teacher, falls in love with NRI girl Michelle when she visits town during festival`,
-        teaser: "https://www.youtube.com/watch?v=AvsIErOn83o",
-        trailer: "https://www.youtube.com/watch?v=NCC6izqds04",
-        media: [
-            { url: "https://www.youtube.com/watch?v=T2hPPkgdUWw" },
-            { url: "https://www.youtube.com/watch?v=mczUShOM2nk" },
-            { url: "https://www.youtube.com/watch?v=i0nF2yaowrw" },
-            { url: "https://www.youtube.com/watch?v=pkcEGCeOGAs" },
-            { url: "https://www.youtube.com/watch?v=fSvhDShe7oQ" },
-        ],
-        galleryCover: [
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/farrey.png",
-            "/images/movie/loveyatri.png",
         ]
     },
     {
@@ -332,6 +226,35 @@ down, or will his own past catch up with him first? Only at the end is the final
         ]
     },
     {
+        slug: "loveyatri",
+        year: 2018,
+        title: "Loveyatri: A Journey of Love",
+        cast: [
+            { id: 1, name: "Aayush Sharma", image: "/images/moviedetails/cast1.png" },
+            { id: 2, name: "Warina Hussain", image: "/images/moviedetails/cast2.png" },
+        ]
+        ,
+        produced: "Salman Khan",
+        director: "Abhiraj Minawala",
+        poster: "/images/movie/loveyatri.png",
+        category: "released",
+        synopsis: `Sushrut, a garba teacher, falls in love with NRI girl Michelle when she visits town during festival`,
+        teaser: "https://www.youtube.com/watch?v=AvsIErOn83o",
+        trailer: "https://www.youtube.com/watch?v=NCC6izqds04",
+        media: [
+            { url: "https://www.youtube.com/watch?v=T2hPPkgdUWw" },
+            { url: "https://www.youtube.com/watch?v=mczUShOM2nk" },
+            { url: "https://www.youtube.com/watch?v=i0nF2yaowrw" },
+            { url: "https://www.youtube.com/watch?v=pkcEGCeOGAs" },
+            { url: "https://www.youtube.com/watch?v=fSvhDShe7oQ" },
+        ],
+        galleryCover: [
+            "/images/movie/kiss-ka-bhai.png",
+            "/images/movie/farrey.png",
+            "/images/movie/loveyatri.png",
+        ]
+    },
+    {
         slug: "tubelight",
         year: 2017,
         title: "Tubelight",
@@ -362,44 +285,6 @@ down, or will his own past catch up with him first? Only at the end is the final
         ]
     },
     {
-        slug: "hero",
-        year: 2015,
-        title: "Hero",
-        cast: [
-            { id: 1, name: "Sooraj Pancholi", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Athiya Shetty", image: "/images/moviedetails/cast2.png" },
-            { id: 3, name: "Aditya Pancholi", image: "/images/moviedetails/cast3.png" },
-        ],
-        produced: "Salman Khan, Subhash Ghai",
-        director: "Nikhil Advani",
-        poster: "/images/movie/hero.png",
-        category: "upcoming movies",
-        synopsis: `An adrenaline junkie walks away from a whirlwind romance and embraces a new life as a thief, though he soon finds himself pursued by veteran police officer and engaged in a turf war with a local gangster.`,
-        teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
-        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
-        media: [
-            { url: "https://www.youtube.com/watch?v=j3cWyRmapdg" },
-            { url: "https://www.youtube.com/watch?v=O926knS3XEU" },
-            { url: "https://www.youtube.com/watch?v=DAcgSUyLj90" },
-            { url: "https://www.youtube.com/watch?v=4YkvseTzuXk" },
-            { url: "https://www.youtube.com/watch?v=4YkvseTzuXk" },
-            { url: "https://www.youtube.com/watch?v=aMy_uOJu2_c" },
-            { url: "https://www.youtube.com/watch?v=hx-hjh3BQuw" },
-            { url: "https://www.youtube.com/watch?v=V1BQj4nb_I4" },
-            { url: "https://www.youtube.com/watch?v=jMSHTNpO6JY" },
-            { url: "https://www.youtube.com/watch?v=CFD0BUFY0Y8" },
-            { url: "https://www.youtube.com/watch?v=3xXYuS5H-Q8" },
-            { url: "https://www.youtube.com/watch?v=-PLTEwAdoKA" },
-            { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
-            { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
-        ],
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/hero.png",
-        ]
-    },
-    {
         slug: "bajrangi-bhaijaan",
         year: 2015,
         title: "Bajrangi Bhaijaan",
@@ -413,7 +298,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         produced: "Salman Khan, Rockline Venkatesh, Kabir Khan",
         director: "Kabir Khan",
         poster: "/images/movie/bajrangi.png",
-        category: "upcoming movies",
+        category: "released",
         synopsis: `A 5-year-old girl from Pakistan gets separated from her mother at an Indian railway station. Lost and hungry, she finds shelter at the home of Pawan, an ardent devotee of Hanuman, hailing from a robust wrestling family. Bajrangi Bhaijaan is the moving story of Pavan's quest to unite the child with her parents against all odds. Set against the backdrop of colourful Chandni Chowk, the film travels from the heartland of Punjab, through the deserts of Rajasthan, and over the snow-capped mountains of Kashmir. Bajrangi Bhaijaan tells the story of how Pavan, who moved heaven and earth to fulfil the promise he made to the girl from across the border.`,
         teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
         trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
@@ -443,51 +328,82 @@ down, or will his own past catch up with him first? Only at the end is the final
         ]
     },
     {
-        slug: "dr-cabbie",
-        year: 2014,
-        title: "Dr. Cabbie",
+        slug: "hero",
+        year: 2015,
+        title: "Hero",
         cast: [
-            { id: 1, name: "Vinay Virmani", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Kunal Nayyar", image: "/images/moviedetails/cast2.png" },
-            { id: 3, name: "Adrianne Palicki", image: "/images/moviedetails/cast3.png" },
-        ]
-        ,
-        produced: "",
-        director: "Jean-François Pouliot",
-        poster: "/images/movie/cabbie.png",
-        category: "upcoming movies",
-        synopsis: ``,
-        teaser: "",
+            { id: 1, name: "Sooraj Pancholi", image: "/images/moviedetails/cast1.png" },
+            { id: 2, name: "Athiya Shetty", image: "/images/moviedetails/cast2.png" },
+            { id: 3, name: "Aditya Pancholi", image: "/images/moviedetails/cast3.png" },
+        ],
+        produced: "Salman Khan, Subhash Ghai",
+        director: "Nikhil Advani",
+        poster: "/images/movie/hero.png",
+        category: "released",
+        synopsis: `An adrenaline junkie walks away from a whirlwind romance and embraces a new life as a thief, though he soon finds himself pursued by veteran police officer and engaged in a turf war with a local gangster.`,
+        teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
         trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
+            { url: "https://www.youtube.com/watch?v=j3cWyRmapdg" },
+            { url: "https://www.youtube.com/watch?v=O926knS3XEU" },
+            { url: "https://www.youtube.com/watch?v=DAcgSUyLj90" },
+            { url: "https://www.youtube.com/watch?v=4YkvseTzuXk" },
+            { url: "https://www.youtube.com/watch?v=4YkvseTzuXk" },
+            { url: "https://www.youtube.com/watch?v=aMy_uOJu2_c" },
+            { url: "https://www.youtube.com/watch?v=hx-hjh3BQuw" },
+            { url: "https://www.youtube.com/watch?v=V1BQj4nb_I4" },
+            { url: "https://www.youtube.com/watch?v=jMSHTNpO6JY" },
+            { url: "https://www.youtube.com/watch?v=CFD0BUFY0Y8" },
+            { url: "https://www.youtube.com/watch?v=3xXYuS5H-Q8" },
+            { url: "https://www.youtube.com/watch?v=-PLTEwAdoKA" },
+            { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
+            { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
         ],
         galleryCover: [
+            "/images/movie/farrey.png",
+            "/images/movie/kiss-ka-bhai.png",
+            "/images/movie/hero.png",
         ]
     },
     {
-        slug: "chillar-party",
-        year: 2011,
-        title: "Chillar Party",
+        slug: "battle-of-galwan",
+        year: 2026,
+        title: "Battle of Galwan",
         cast: [
-            { id: 1, name: "Shriya Sharma", image: "/images/moviedetails/cast1.png" },
-            { id: 2, name: "Sanath Menon", image: "/images/moviedetails/cast2.png" },
-            { id: 3, name: "Rohan Grover", image: "/images/moviedetails/cast3.png" },
-            { id: 4, name: "Naman Jain", image: "/images/moviedetails/cast4.png" },
-            { id: 5, name: "Aarav Khanna", image: "/images/moviedetails/cast5.png" },
+            { id: 1, name: "Sooraj Pancholi", image: "/images/moviedetails/cast1.png" },
+            { id: 2, name: "Athiya Shetty", image: "/images/moviedetails/cast2.png" },
+            { id: 3, name: "Aditya Pancholi", image: "/images/moviedetails/cast3.png" },
         ],
-
-        produced: "",
-        director: ["Nitesh Tiwari", "Vikas Bahl"],
-        poster: "/images/movie/chillar-party.png",
-        category: "upcoming movies",
-        synopsis: ``,
-        teaser: "",
+        produced: "Salman Khan, Subhash Ghai",
+        director: "Nikhil Advani",
+        poster: "/images/movie/hero.png",
+        category: "upcoming movie",
+        synopsis: `An adrenaline junkie walks away from a whirlwind romance and embraces a new life as a thief, though he soon finds himself pursued by veteran police officer and engaged in a turf war with a local gangster.`,
+        teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
         trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
         media: [
+            { url: "https://www.youtube.com/watch?v=j3cWyRmapdg" },
+            { url: "https://www.youtube.com/watch?v=O926knS3XEU" },
+            { url: "https://www.youtube.com/watch?v=DAcgSUyLj90" },
+            { url: "https://www.youtube.com/watch?v=4YkvseTzuXk" },
+            { url: "https://www.youtube.com/watch?v=4YkvseTzuXk" },
+            { url: "https://www.youtube.com/watch?v=aMy_uOJu2_c" },
+            { url: "https://www.youtube.com/watch?v=hx-hjh3BQuw" },
+            { url: "https://www.youtube.com/watch?v=V1BQj4nb_I4" },
+            { url: "https://www.youtube.com/watch?v=jMSHTNpO6JY" },
+            { url: "https://www.youtube.com/watch?v=CFD0BUFY0Y8" },
+            { url: "https://www.youtube.com/watch?v=3xXYuS5H-Q8" },
+            { url: "https://www.youtube.com/watch?v=-PLTEwAdoKA" },
+            { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
+            { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
         ],
         galleryCover: [
+            "/images/movie/farrey.png",
+            "/images/movie/kiss-ka-bhai.png",
+            "/images/movie/hero.png",
         ]
-    }
+    },
+
 ];
 
 

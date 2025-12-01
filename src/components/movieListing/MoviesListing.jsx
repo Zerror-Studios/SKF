@@ -102,7 +102,7 @@ const MoviesListing = ({ data }) => {
         </h3>
         <div ref={filtersRef} id="filter_wrap">
           <Filters
-            filters={["all", "released", "upcoming movies"]}
+            filters={["all", "released", "upcoming movie"]}
             defaultFilter="all"
             onChange={(value) => {
               setSelectedFilter(value);
