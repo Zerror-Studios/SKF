@@ -82,14 +82,13 @@ const AboutSection = () => {
             </h2>
             <p className="description">
               Founded in 2011 by Salman Khan, Salman Khan Films (SKF) is a
-              Mumbai-based production house behind blockbusters like Bajrangi
-              Bhaijaan, Race 3, and Antim. Known for powerful storytelling,
-              grand entertainment.
+              Mumbai-based production house behind critically acclaimed and
+              loved films like Bajrangi Bhaijaan, Race 3, and Antim.
             </p>
             <p className="description">
-               The company is known not only for bringing grand cinematic
-              experiences to the audience but also for supporting fresh talent
-              and innovative storytelling.
+              The company is known not only for delivering grand cinematic
+              experiences but also for supporting fresh talent and innovative
+              storytelling.
             </p>
           </div>
         </div>

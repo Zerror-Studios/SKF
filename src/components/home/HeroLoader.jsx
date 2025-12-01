@@ -154,7 +154,7 @@ const HeroLoader = () => {
         </span>
         <span>
           <span>F</span>
-          <span className="letter_inner">lims</span>
+          <span className="letter_inner">ilms</span>
         </span>
       </h2>
       <div id="landing_video" ref={landingVideoRef}>

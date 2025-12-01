@@ -94,10 +94,10 @@ const MoviesListing = ({ data }) => {
     <section id="movie_listing" className="hero">
       <div className="movie_listing_header">
         <h5 ref={tagRef} className="tag landing_text">
-          Movies
+          Explore Movies
         </h5>
         <h3 ref={titleRef} className="heading landing_text">
-          Explore our top <span className="letter-u">films</span> loved by{" "}
+          Explore our top <span className="letter-u">films</span> loved by
           <br /> <span className="letter-u">audiences</span> worldwide.
         </h3>
         <div ref={filtersRef} id="filter_wrap">

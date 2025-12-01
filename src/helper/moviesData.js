@@ -11,7 +11,7 @@ export const movies = [
             { id: 5, name: "Sharman Joshi", image: "/images/moviedetails/cast5.png" },
         ],
         produced: "Sajid Nadiadwala",
-        director: "A.R. Murugadoss",
+        director: "A. R. Murugadoss",
         poster: "/images/movie/sikandar.png",
         category: "released",
         synopsis: `Sikandar follows the journey of a man who overcomes all hurdles that life throws his way just so that he can alleviate the plight of the less fortunate and those in need of his help. His transition from a nonchalant man to a selfless man, inspired by his wife, makes him emerge as a beacon of hope for those ensnared in darkness.`,
@@ -86,7 +86,7 @@ export const movies = [
         ]
     },
     {
-        slug: "radhe",
+        slug: "radhe-your-most-wanted-bhai",
         year: 2021,
         title: "Radhe: Your Most Wanted Bhai",
         cast: [
@@ -97,7 +97,7 @@ export const movies = [
         ]
         ,
         produced: "Salman Khan, Sohail Khan, Atul Agnihotri, Nikhil Namit",
-        director: "Prabhu Deva",
+        director: " Prabhu Deva",
         poster: "/images/movie/radhe.png",
         category: "released",
         synopsis: `The drug mafia has increased in India, where more and more youngsters are addicted to drugs and taking their lives. The Mumbai police decides to get suspended officer Radhe (Salman Khan) on duty to clean the city. Radhe joins soon and firstly makes two rival groups of Dagdu Dada and Dilwar to join hands as they are against the drug business and will help him clean the city. Radhe's reporting officer is funny, ACP Avinash Abhyankar, who runs away with Radhe's credits while Radhe loves Avinash's sister Dia and pretends to be an upcoming model. Rana the drug lord who has landed in Mumbai and forces people to sell drugs and gets Dilwar killed from his brother Mansoor who works for him, Radhe manages to trace Rana which starts a long cat and mouse race between them. `,
@@ -205,7 +205,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ]
         ,
         produced: "Salman Khan",
-        director: "Remo D'Souza",
+        director: "Remo D’Souza",
         poster: "/images/movie/race3.png",
         category: "released",
         synopsis: `Race 3 as its predecessors is an internationally mounted saga of a family that deals in borderline crime but is ruthless and vindictive to the core. A world with twists and turns at every nook and corner, which will take the audience by surprise with its sheer unpredictability. Characters change their characteristics at the blink of an eye as the story rushes towards a high-octane climax with betrayal, fast guns, fast cars, and sleek action never seen before on the Indian screen. Action and drama that leads to a shocking twist in the climax that takes your breath away.`,
@@ -226,7 +226,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ]
     },
     {
-        slug: "loveyatri",
+        slug: "loveyatri-a-journey-of-love",
         year: 2018,
         title: "Loveyatri: A Journey of Love",
         cast: [
@@ -235,7 +235,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ]
         ,
         produced: "Salman Khan",
-        director: "Abhiraj Minawala",
+        director: "Abhiraj K. Minawala",
         poster: "/images/movie/loveyatri.png",
         category: "released",
         synopsis: `Sushrut, a garba teacher, falls in love with NRI girl Michelle when she visits town during festival`,
@@ -337,7 +337,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { id: 3, name: "Aditya Pancholi", image: "/images/moviedetails/cast3.png" },
         ],
         produced: "Salman Khan, Subhash Ghai",
-        director: "Nikhil Advani",
+        director: "Nikkhil Advani",
         poster: "/images/movie/hero.png",
         category: "released",
         synopsis: `An adrenaline junkie walks away from a whirlwind romance and embraces a new life as a thief, though he soon finds himself pursued by veteran police officer and engaged in a turf war with a local gangster.`,

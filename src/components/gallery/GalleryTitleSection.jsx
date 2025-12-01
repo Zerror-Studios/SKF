@@ -8,7 +8,7 @@ gsap.registerPlugin(SplitText, CustomEase);
 const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
-  const descRef = useRef(null);
+  // const descRef = useRef(null);
   const underlineRef = useRef(null); // underline span ref
 
 
@@ -19,7 +19,7 @@ const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
     const tl = gsap.timeline({ delay: 0.3 });
     CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
-    const refs = [tagRef, titleRef, descRef];
+    const refs = [tagRef, titleRef];
 
     const runSplitAnimation = () => {
       refs.forEach((ref, index) => {
@@ -66,7 +66,7 @@ const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
       <div className="about_top_wrapper">
         <div className="about_hero_title">
           <h5 ref={tagRef} className="tag landing_text">
-            BTS Gallery
+            Gallery
           </h5>
           <h2 ref={titleRef} className="heading landing_text">
             {data?.title ? (
@@ -79,10 +79,10 @@ const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
           </h2>
         </div>
         <div className="about_hero_info">
-          <p ref={descRef} className="description landing_text">
+          {/* <p ref={descRef} className="description landing_text">
             Explore exclusive moments, unseen footage, and special glimpses from
             the world of SKF
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

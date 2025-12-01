@@ -4,12 +4,11 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { movies } from "@/helper/moviesData";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-const FilmographySection = () => {
+const FilmographySection = ({ movies }) => {
   const titleRef = useRef(null);
   const cardsRef = useRef([]); // store refs for all cards
 

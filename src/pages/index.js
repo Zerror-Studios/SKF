@@ -8,61 +8,50 @@ import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 
-const baseMovie =  {
-        slug: "bajrangi-bhaijaan",
-        year: 2015,
-        cast: ["Salman Khan", "Harshaali Malhotra", "Kareena Kapoor Khan", "Nawazuddin Siddiqui"],
-        director: "Kabir Khan",
-        poster: "/images/movie/bajrangi.png",
-        category: "upcoming movies",
-        trailer: "/images/home/hero.mp4",
-        media: [
-            { url: "https://www.youtube.com/watch?v=VXzUue3v20k" },
-            { url: "https://www.youtube.com/watch?v=fpwmbYdJbQA" },
-            { url: "https://www.youtube.com/watch?v=iTnNWLawjgo" },
-            { url: "https://www.youtube.com/watch?v=1xOcQEa7bx0" },
-            { url: "https://www.youtube.com/watch?v=yu7AHhrPbcY" },
-            { url: "https://www.youtube.com/watch?v=jiQz6SIlw5M" },
-            { url: "https://www.youtube.com/watch?v=siSXwyXtjiU" },
-            { url: "https://www.youtube.com/watch?v=xsfvTLhOAGQ" },
-            { url: "https://www.youtube.com/watch?v=QihJw8c0eCU" },
-            { url: "https://www.youtube.com/watch?v=fn2bpVLUoJs" },
-            { url: "https://www.youtube.com/watch?v=-W132TEnvZU" },
-            { url: "https://www.youtube.com/watch?v=dWQkPeajgj8" },
-            { url: "https://www.youtube.com/watch?v=Q1zTCmyoKig" },
-            { url: "https://www.youtube.com/watch?v=YFbsvugPlVo" },
-            { url: "https://www.youtube.com/watch?v=2-hTE4MhPuQ" },
-            { url: "https://www.youtube.com/watch?v=HanwrCgOJ_A" },
-            { url: "https://www.youtube.com/watch?v=YasKpC-Nag0" },
-        ],
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/bajrangi.png",
-        ]
-    };
+const baseMovie = {
+  slug: "bajrangi-bhaijaan",
+  year: 2015,
+  cast: ["Salman Khan", "Harshaali Malhotra", "Kareena Kapoor Khan", "Nawazuddin Siddiqui"],
+  director: "Kabir Khan",
+  poster: "/images/movie/bajrangi.png",
+  category: "upcoming movies",
+  trailer: "/images/home/hero.mp4",
+  media: [
+    { url: "https://www.youtube.com/watch?v=VXzUue3v20k" },
+    { url: "https://www.youtube.com/watch?v=fpwmbYdJbQA" },
+    { url: "https://www.youtube.com/watch?v=iTnNWLawjgo" },
+    { url: "https://www.youtube.com/watch?v=1xOcQEa7bx0" },
+    { url: "https://www.youtube.com/watch?v=yu7AHhrPbcY" },
+    { url: "https://www.youtube.com/watch?v=jiQz6SIlw5M" },
+    { url: "https://www.youtube.com/watch?v=siSXwyXtjiU" },
+    { url: "https://www.youtube.com/watch?v=xsfvTLhOAGQ" },
+    { url: "https://www.youtube.com/watch?v=QihJw8c0eCU" },
+    { url: "https://www.youtube.com/watch?v=fn2bpVLUoJs" },
+    { url: "https://www.youtube.com/watch?v=-W132TEnvZU" },
+    { url: "https://www.youtube.com/watch?v=dWQkPeajgj8" },
+    { url: "https://www.youtube.com/watch?v=Q1zTCmyoKig" },
+    { url: "https://www.youtube.com/watch?v=YFbsvugPlVo" },
+    { url: "https://www.youtube.com/watch?v=2-hTE4MhPuQ" },
+    { url: "https://www.youtube.com/watch?v=HanwrCgOJ_A" },
+    { url: "https://www.youtube.com/watch?v=YasKpC-Nag0" },
+  ],
+  galleryCover: [
+    "/images/movie/farrey.png",
+    "/images/movie/kiss-ka-bhai.png",
+    "/images/movie/bajrangi.png",
+  ]
+};
 
 const Home = ({ movies }) => {
   const [movie, setMovie] = useState(baseMovie);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 480) {
-        // 👇 show fewer media items on mobile
-        setMovie({
-          ...baseMovie,
-          media: baseMovie.media.slice(0, 6), // adjust count as you want
-        });
-      } else {
-        // 👇 restore full list on larger screens
-        setMovie(baseMovie);
-      }
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    setMovie({
+      ...baseMovie,
+      media: baseMovie.media.slice(0, 8), // show first 8
+    });
   }, []);
+
 
   return (
     <>
@@ -70,7 +59,7 @@ const Home = ({ movies }) => {
       <UpcomingBanner />
       <DirectorsSection />
       <Highlights tag={"highlight"} title={"News and Updates"} />
-      <GalleryTitleSection data={movie} isPadding={true} titlehero={true}/>
+      <GalleryTitleSection isPadding={true} titlehero={true} />
       <GalleryDetailList data={movie} />
       <AboutSection />
     </>

@@ -26,7 +26,7 @@ const DirectorCard = ({ data, isOpen, onOpen, onClose }) => {
     if (isOpen) {
       if (!isMobile) {
         // Desktop open
-        tl.to(spacerRef.current, { width: "13vw", duration: 1.2 })
+        tl.to(spacerRef.current, { width: "14vw", duration: 1.2 })
           .to(rightRef.current, { opacity: 1, duration: 0.8 }, "<")
           .to(openRef.current, { opacity: 0, duration: 0.8 }, "<")
           .to(closeRef.current, { opacity: 1, duration: 0.8 }, "<");
@@ -96,16 +96,11 @@ const DirectorCard = ({ data, isOpen, onOpen, onClose }) => {
           </div>
           <div className="director_card_details">
             <div>
-              <h6>Title</h6>
-              <h5>Film Director, Screenwriter, Cinematographer</h5>
+              <h5>Director</h5>
+              <p>of {data?.directorOf}</p>
             </div>
-            <p>
-             Filmmaker Kabir Khan made hits like *Bajrangi Bhaijaan*, *Ek Tha Tiger*, and *83*.
-            </p>
-            <div>
-              <h6>Awards</h6>
-              <p>National Film Award – Bajrangi Bhaijaan</p>
-            </div>
+
+            <p>{data?.description}</p>
           </div>
         </div>
       </div>
