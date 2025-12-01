@@ -37,7 +37,7 @@ const highlightData = [
   },
 ];
 
-const Highlights = ({ tag, title }) => {
+const Highlights = ({ tag, title ,data}) => {
   const titleRef = useRef(null);
   const cardsRef = useRef([]);
   const router = useRouter();
@@ -154,15 +154,19 @@ const Highlights = ({ tag, title }) => {
     return () => router.events.off("routeChangeStart", handleRouteChange);
   }, [router]);
 
+   const handleClick = (slug) => {
+    router.push(`/news/${slug}`);
+  };
+
   return (
     <section id="highlight_section">
       {tag && <h5 className="tag">{tag}</h5>}
       {title && <h2 ref={titleRef}>{title}</h2>}
 
       <div id="highlights_container">
-        {highlightData.map((item, index) => (
+        {data.map((item, index) => (
           <div
-            key={item.id}
+            key={index}
             className="highlight_card"
             ref={(el) => (cardsRef.current[index] = el)}
           >
@@ -172,7 +176,7 @@ const Highlights = ({ tag, title }) => {
                 <h4>{item.title}</h4>
                 <p className="description">{item.description}</p>
               </div>
-              <Button title="Read More" color="black" />
+              <Button onClick={()=>handleClick(item.slug)}  title="Read More" color="black" />
             </div>
 
             <div className="highlight_img">

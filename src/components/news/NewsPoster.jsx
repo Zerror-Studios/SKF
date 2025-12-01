@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const NewsPoster = () => {
+const NewsPoster = ({newsData}) => {
   const bgRef = useRef(null);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const NewsPoster = () => {
     });
 
     return () => mm.revert(); // clean up matchMedia
-  }, []);
+  }, [newsData]);
 
   return (
     <div className="news_poster">
@@ -71,8 +71,8 @@ const NewsPoster = () => {
         ref={bgRef}
         width={1000}
         height={1000}
-        src="/images/news/news-banner.jpg"
-        alt="contact-banner"
+        src={newsData?.image}
+        alt={newsData?.title}
         priority
       />
     </div>

@@ -7,6 +7,7 @@ import { movies } from "@/helper/moviesData";
 import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
+import { news } from "@/helper/newsData";
 
 const baseMovie = {
   slug: "bajrangi-bhaijaan",
@@ -42,7 +43,7 @@ const baseMovie = {
   ]
 };
 
-const Home = ({ movies }) => {
+const Home = ({ movies, highlightsData }) => {
   const [movie, setMovie] = useState(baseMovie);
 
   useEffect(() => {
@@ -58,7 +59,7 @@ const Home = ({ movies }) => {
       <HeroSection movies={movies} />
       <UpcomingBanner />
       <DirectorsSection />
-      <Highlights tag={"highlight"} title={"News and Updates"} />
+      <Highlights tag={"highlight"} title={"News and Updates"} data={highlightsData} />
       <GalleryTitleSection isPadding={true} titlehero={true} />
       <GalleryDetailList data={movie} />
       <AboutSection />
@@ -70,9 +71,11 @@ export default Home;
 
 export async function getStaticProps() {
   const latestMovies = movies.slice(0, 3);
+  const highlightsData = news;
   return {
     props: {
       movies: latestMovies,
+      highlightsData
     },
   };
 }

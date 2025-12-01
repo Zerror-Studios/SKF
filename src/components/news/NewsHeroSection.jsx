@@ -8,7 +8,7 @@ import CustomEase from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(SplitText,CustomEase);
 
-const NewsHeroSection = () => {
+const NewsHeroSection = ({data}) => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
   const posterRef = useRef(null); // add ref to NewsPoster container
@@ -74,7 +74,7 @@ const NewsHeroSection = () => {
       splits.forEach((s) => s.revert());
       tl.kill();
     };
-  }, []);
+  }, [data]);
 
   return (
     <div id="news_hero_section">
@@ -85,9 +85,9 @@ const NewsHeroSection = () => {
        News & Updates
       </h4>
       <div ref={posterRef} id="poster_wrap_news">
-        <NewsPoster />
+        <NewsPoster newsData={data}/>
       </div>
-      <NewsDetails />
+      <NewsDetails newsData={data} />
     </div>
   );
 };
