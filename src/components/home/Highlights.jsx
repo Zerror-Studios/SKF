@@ -1,21 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import Button from "../common/Button";
-import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 const Highlights = ({ tag, title, data }) => {
   const cardsRef = useRef([]);
-  const router = useRouter();
-
-  const handleClick = (slug) => {
-    router.push(`/news/${slug}`);
-  };
 
   return (
     <section id="highlight_section">
@@ -24,7 +17,8 @@ const Highlights = ({ tag, title, data }) => {
 
       <div id="highlights_container">
         {data?.map((item, index) => (
-          <div
+          <Link
+            href={`/news/${item?.slug}`}
             key={index}
             className="highlight_card"
             ref={(el) => (cardsRef.current[index] = el)}
@@ -35,11 +29,7 @@ const Highlights = ({ tag, title, data }) => {
                 <h4>{item?.title}</h4>
                 <p className="description">{item?.description}</p>
               </div>
-              <Button
-                onClick={() => handleClick(item?.slug)}
-                title="Read More"
-                color="black"
-              />
+              <Button title="Read More" color="black" />
             </div>
 
             <div className="highlight_img">
@@ -55,7 +45,7 @@ const Highlights = ({ tag, title, data }) => {
             {index !== data?.length - 1 && (
               <div className="highlight_line"></div>
             )}
-          </div>
+          </Link>
         ))}
       </div>
 

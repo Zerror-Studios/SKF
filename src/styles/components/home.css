@@ -199,6 +199,7 @@
   position: relative;
   background-color: #fffef1;
   transition: background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
 }
 .highlight_card:hover {
   background-color: #a5a08c;
@@ -375,12 +376,18 @@
     height: auto;
     padding: 2.5rem 1rem;
   }
+  #movie_header_title .description br{
+    display: none;
+  }
   #movie_carousel {
     grid-template-columns: repeat(1, 1fr);
     margin-top: 0rem;
   }
   #directors_section {
     padding: 2.5rem 1rem;
+  }
+  .directors_section_header .description br{
+    display: none;
   }
 
   #highlight_section h2 {
@@ -460,9 +467,6 @@
     padding: 2.5rem 1rem !important;
   }
 
-  #upcoming_header .tag {
-    width: 50%;
-  }
   #upcoming_header .tag:nth-child(3) {
     text-align: right;
   }

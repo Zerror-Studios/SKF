@@ -15,9 +15,12 @@ const Gallery = ({ media }) => {
 export default Gallery;
 
 export async function getStaticProps() {
+    const media = movies.filter(
+    (film) => !film.category.toLowerCase().includes("upcoming")
+  );
   return {
     props: {
-      media: movies,
+      media,
     },
   };
 }

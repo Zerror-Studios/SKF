@@ -43,7 +43,7 @@ const baseMovie = {
   ]
 };
 
-const Home = ({ movies, highlightsData,media }) => {
+const Home = ({ movies, highlightsData, media }) => {
   const [movie, setMovie] = useState(baseMovie);
 
   useEffect(() => {
@@ -72,7 +72,9 @@ export default Home;
 export async function getStaticProps() {
   const latestMovies = movies.slice(0, 3);
   const highlightsData = news;
-  const media = movies;
+  const media = movies.filter(
+    (film) => !film.category.toLowerCase().includes("upcoming")
+  ).slice(0, 8);
   return {
     props: {
       movies: latestMovies,
