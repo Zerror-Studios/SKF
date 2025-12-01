@@ -1,80 +1,66 @@
 import React, { useRef, useEffect } from "react";
-import NewsPoster from "./NewsPoster";
 import NewsDetails from "./NewsDetails";
 import gsap from "gsap";
-import SplitText from "gsap/SplitText";
-import { useGSAP } from "@gsap/react";
 import CustomEase from "gsap/dist/CustomEase";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(SplitText,CustomEase);
+gsap.registerPlugin(CustomEase);
 
-const NewsHeroSection = ({data}) => {
+const NewsHeroSection = ({ data }) => {
+  const router = useRouter();
   const tagRef = useRef(null);
   const titleRef = useRef(null);
-  const posterRef = useRef(null); // add ref to NewsPoster container
-    CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
+  const posterRef = useRef(null);
 
-  useGSAP(() => {
-    const splits = [];
-    const tl = gsap.timeline();
+  CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
-    const refs = [tagRef, titleRef];
+  useEffect(() => {
+    if (!tagRef.current || !titleRef.current || !posterRef.current) return;
 
-    const runSplitAnimation = () => {
-      refs.forEach((ref, index) => {
-        if (!ref?.current) return;
-
-        const split = new SplitText(ref.current, {
-          type: "lines",
-          linesClass: "line",
-          mask: "lines",
-        });
-        splits.push(split);
-
-        const lines = ref.current.querySelectorAll(".line");
-
-        gsap.set(lines, { yPercent: 100 });
-        gsap.set(ref.current, { opacity: 1 });
-
-        // Animate lines faster and fluid
-        tl.to(
-        lines,
-        {
-          yPercent: 0,
-          duration: 1.5,
-          ease: "ease-secondary",
-          stagger: { amount: 0.2 },
-        },
-        index === 0 ? 0 : "-=1.5"
-      );
-    });
-
-      // Poster animation overlapping more for continuous flow
-      if (posterRef.current) {
-        tl.to(
-          posterRef.current,
-          {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            duration: 1.5,
-            ease: "ease-secondary",
-          },
-          "-=1" // overlap with last line
-        );
-      }
-    };
-
-    const fontReady = document.fonts?.ready || Promise.resolve();
-    fontReady.then(() => {
-      requestAnimationFrame(() => {
-        setTimeout(runSplitAnimation, 50);
+    requestAnimationFrame(() => {
+      const tl = gsap.timeline({
+        defaults: { ease: "ease-secondary", duration: 1 },
       });
-    });
 
-    return () => {
-      splits.forEach((s) => s.revert());
-      tl.kill();
-    };
-  }, [data]);
+      // Initial states
+      gsap.set(tagRef.current, { opacity: 0, y: 30 });
+      gsap.set(titleRef.current, { opacity: 0, y: 40 });
+      gsap.set(posterRef.current, {
+        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+      });
+
+      // Animations (same pattern as your working code)
+      tl.to(tagRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+      });
+
+      tl.to(
+        titleRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+        },
+        "-=0.4"
+      );
+
+      tl.to(
+        posterRef.current,
+        {
+          clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
+
+          duration: 1,
+        },
+        "-=0.3"
+      );
+
+      return () => tl.kill();
+    });
+  }, [router.asPath, data]);
 
   return (
     <div id="news_hero_section">
@@ -82,11 +68,21 @@ const NewsHeroSection = ({data}) => {
         Highlights
       </h5>
       <h4 ref={titleRef} className="heading landing_text">
-       News & Updates
+        News & Updates
       </h4>
+
       <div ref={posterRef} id="poster_wrap_news">
-        <NewsPoster newsData={data}/>
+        <div className="news_poster">
+          <Image
+            width={1000}
+            height={1000}
+            src={data?.image}
+            alt={data?.title}
+            priority
+          />
+        </div>
       </div>
+
       <NewsDetails newsData={data} />
     </div>
   );

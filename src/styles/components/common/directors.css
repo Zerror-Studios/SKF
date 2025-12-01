@@ -1,7 +1,7 @@
 /* directors container */
 #directors_container {
   display: flex;
-  margin-top: 3rem;
+  margin-top: 1rem;
   gap: 1rem;
   width: 100%;
   overflow-x: auto;

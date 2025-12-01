@@ -1,5 +1,4 @@
-import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
-import React, { useRef } from "react";
+import React from "react";
 import { IoShareSocial } from "react-icons/io5";
 import { LuClock12 } from "react-icons/lu";
 const NewsDetails = ({ newsData }) => {

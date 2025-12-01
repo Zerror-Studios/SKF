@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../common/Button";
 import DirectorsContainer from "../common/Directors/DirectorsContainer";
+import CastCard from "./CastCard";
 
 const directors = [
   { id: 1, name: "Salman khan", image: "/images/moviedetails/cast1.png" },
@@ -27,7 +28,11 @@ const CastSection = ({ data }) => {
         <h5 className="tag">Cast and crew</h5>
       </div>
 
-      <DirectorsContainer data={data?.cast} />
+      <div id="directors_container">
+        {data?.cast?.map((cast, index) => (
+          <CastCard key={index} data={cast} />
+        ))}
+      </div>
 
       <Button title="show more" color="black" />
     </section>

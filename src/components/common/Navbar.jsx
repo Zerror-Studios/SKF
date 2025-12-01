@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
-import { menus} from "@/helper/menuData";
+import { menus } from "@/helper/menuData";
 import { usePathname } from "next/navigation";
 import NavigationMenu from "./NavigationMenu";
 import { useRouter } from "next/router";
@@ -36,10 +36,10 @@ const Navbar = () => {
     animateLetters(`.${cls} .title2 span`);
   };
 
-const isDarkRoute =
-  pathname === "/" ||
-  pathname === "/contact" ||
-  (typeof pathname === "string" && (pathname.startsWith("/movies/") || pathname.startsWith("/news/")));
+  const isDarkRoute =
+    pathname === "/" ||
+    pathname === "/contact" ||
+    (typeof pathname === "string" && pathname.startsWith("/movies/"));
 
   useEffect(() => {
     if (!isDarkRoute) return;
@@ -104,8 +104,9 @@ const isDarkRoute =
         {menus.map(({ link, name }) => {
           const isActive =
             link === "/"
-              ? router.pathname === link
-              : router.pathname.startsWith(link);
+              ? router.asPath === link
+              : router.asPath.startsWith(link);
+
           return (
             <Link
               key={name}
@@ -131,21 +132,20 @@ const isDarkRoute =
       </div>
 
       <div
-  id="menu-btn"
-  className={`${
-    isContact && isMobile
-      ? ""
-      : isDarkRoute && !scrolled && !menu // 👈 added !menu check
-      ? "dark-menu"
-      : ""
-  }`}
-  onClick={() => setMenu((prev) => !prev)}
->
-  <span className="line1m linem"></span>
-  <span className="line3m linem"></span>
-  <span className="line2m linem"></span>
-</div>
-
+        id="menu-btn"
+        className={`${
+          isContact && isMobile
+            ? ""
+            : isDarkRoute && !scrolled && !menu // 👈 added !menu check
+            ? "dark-menu"
+            : ""
+        }`}
+        onClick={() => setMenu((prev) => !prev)}
+      >
+        <span className="line1m linem"></span>
+        <span className="line3m linem"></span>
+        <span className="line2m linem"></span>
+      </div>
 
       <NavigationMenu menu={menu} setMenu={setMenu} />
     </nav>
