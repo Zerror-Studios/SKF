@@ -6,8 +6,8 @@ import React, { useEffect, useState } from "react";
 import { movies } from "@/helper/moviesData";
 import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
-import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import { news } from "@/helper/newsData";
+import GalleryList from "@/components/gallery/GalleryList";
 
 const baseMovie = {
   slug: "bajrangi-bhaijaan",
@@ -43,7 +43,7 @@ const baseMovie = {
   ]
 };
 
-const Home = ({ movies, highlightsData }) => {
+const Home = ({ movies, highlightsData,media }) => {
   const [movie, setMovie] = useState(baseMovie);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Home = ({ movies, highlightsData }) => {
       <DirectorsSection />
       <Highlights tag={"highlight"} title={"News and Updates"} data={highlightsData} />
       <GalleryTitleSection isPadding={true} titlehero={true} />
-      <GalleryDetailList data={movie} />
+      <GalleryList data={media} />
       <AboutSection />
     </>
   );
@@ -72,10 +72,11 @@ export default Home;
 export async function getStaticProps() {
   const latestMovies = movies.slice(0, 3);
   const highlightsData = news;
+  const media = movies;
   return {
     props: {
       movies: latestMovies,
-      highlightsData
+      highlightsData, media
     },
   };
 }
