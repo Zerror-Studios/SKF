@@ -36,10 +36,10 @@ const Navbar = () => {
     animateLetters(`.${cls} .title2 span`);
   };
 
-  const isDarkRoute =
-    pathname === "/" ||
-    pathname === "/contact" ||
-    pathname.startsWith("/movies/");
+const isDarkRoute =
+  pathname === "/" ||
+  pathname === "/contact" ||
+  (typeof pathname === "string" && (pathname.startsWith("/movies/") || pathname.startsWith("/news/")));
 
   useEffect(() => {
     if (!isDarkRoute) return;

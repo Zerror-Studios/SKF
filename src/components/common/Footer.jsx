@@ -1,4 +1,4 @@
-import { menus} from "@/helper/menuData";
+import { menus } from "@/helper/menuData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -32,21 +32,21 @@ const Footer = () => {
         <div id="footer_top_right">
           <div className="footer_links">
             <h5>menu</h5>
-            {[{ link: "/", name: "home" }, ...menus].map(
-              ({ link, name }) => {
-                const isActive =
-                  link === "/" ? pathname === link : pathname.startsWith(link);
-                return (
-                  <Link
-                    key={name}
-                    href={link}
-                    className={isActive ? "active" : ""}
-                  >
-                    {name}
-                  </Link>
-                );
-              }
-            )}
+            {[{ link: "/", name: "home" }, ...menus].map(({ link, name }) => {
+              const isActive =
+                typeof pathname === "string" &&
+                (link === "/" ? pathname === link : pathname.startsWith(link));
+
+              return (
+                <Link
+                  key={name}
+                  href={link}
+                  className={isActive ? "active" : ""}
+                >
+                  {name}
+                </Link>
+              );
+            })}
           </div>
           <div className="footer_links">
             <h5>Socials</h5>
