@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import GalleryCard from "./GalleryCard";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const GalleryList = ({ data }) => {
+const GalleryList = ({ data, ishome }) => {
   const galleryRef = useRef(null);
 
   // Custom album order
@@ -18,17 +17,21 @@ const GalleryList = ({ data }) => {
   ];
 
   // Sort data according to album order
-  const sortedData = [...data].sort((a, b) => {
-    const indexA = albumOrder.indexOf(a.title);
-    const indexB = albumOrder.indexOf(b.title);
-    return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
-  });
+  const sortedData = [...data]
+    .sort((a, b) => {
+      const indexA = albumOrder.indexOf(a.title);
+      const indexB = albumOrder.indexOf(b.title);
+      return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+    })
+    .filter((item) => item.media && item.media.length > 0);
+
+  // Slice to 8 cards if ishome
+  const displayData = ishome ? sortedData.slice(0, 8) : sortedData;
 
   useEffect(() => {
     if (!galleryRef.current) return;
 
     const cards = galleryRef.current.querySelectorAll(".gallery_card");
-
     gsap.set(cards, { y: 80, opacity: 0 });
 
     const playAnimation = () => {
@@ -59,18 +62,15 @@ const GalleryList = ({ data }) => {
     }
 
     return () => {
-      // safe cleanup
       if (st) st.kill();
     };
-  }, []);
+  }, [displayData]);
 
   return (
     <div id="gallery_list" ref={galleryRef}>
-      {sortedData.map(
-        (item) =>
-          item.media &&
-          item.media.length > 0 && <GalleryCard key={item.slug} data={item} />
-      )}
+      {displayData.map((item) => (
+        <GalleryCard key={item.slug} data={item} />
+      ))}
     </div>
   );
 };

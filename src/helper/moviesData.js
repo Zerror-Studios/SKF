@@ -21,6 +21,7 @@ export const movies = [
             { url: "https://www.youtube.com/watch?v=diQPz4y6bWA" },
             { url: "https://www.youtube.com/watch?v=GvKXUpXwd_M" },
         ],
+        albumName: "Sikandar Album",
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
@@ -51,6 +52,7 @@ export const movies = [
             { url: "https://www.youtube.com/watch?v=vGfTqxdR1H0&list=PLofFoQnZAD2HKdDB6wTn7Wcs601_ZPOa6&index=19" },
             { url: "https://www.youtube.com/watch?v=DJhxnA8ELlk&list=PLofFoQnZAD2HKdDB6wTn7Wcs601_ZPOa6&index=23" },
         ],
+        albumName: "Kisi Ka Bhai Kisi Ki Jaan Album",
         galleryCover: [
             "/images/movie/sikandar.png",
             "/images/movie/farrey.png",
@@ -79,6 +81,7 @@ export const movies = [
         media: [
             { url: "https://www.youtube.com/watch?v=Dpgy-Juf8zk" },
         ],
+        albumName: "Farrey Album",
         galleryCover: [
             "/images/movie/kiss-ka-bhai.png",
             "/images/movie/sikandar.png",
@@ -113,6 +116,7 @@ export const movies = [
             { url: "https://www.youtube.com/watch?v=7yeZzwK8kwY&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=25" },
             { url: "https://www.youtube.com/watch?v=dda6pqEpdeQ&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=27" },
         ],
+        albumName: "Radhe Album",
         galleryCover: [
             "/images/movie/sikandar.png",
             "/images/movie/kiss-ka-bhai.png",
@@ -151,6 +155,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=7-E9jBVF2Ng&list=PLofFoQnZAD2GbZ7q_z4WGULuFzxxaoU08&index=6" },
             { url: "https://www.youtube.com/watch?v=Pl0pRLY9ZZk&list=PLofFoQnZAD2GbZ7q_z4WGULuFzxxaoU08&index=9" },
         ],
+        albumName: "Antim: The Final Truth Album",
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
@@ -186,6 +191,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=hEsOHbIg7w8&list=PLofFoQnZAD2Ge5Tg1UfGDPSS9yxokWyKy&index=25" },
             { url: "https://www.youtube.com/watch?v=SItUtPrEX4M&list=PLofFoQnZAD2Ge5Tg1UfGDPSS9yxokWyKy&index=30" },
         ],
+        albumName: "Dabangg 3 Album",
         galleryCover: [
             "/images/movie/sikandar.png",
             "/images/movie/kiss-ka-bhai.png",
@@ -219,6 +225,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=TLs004_sMqM&list=PLofFoQnZAD2Fdqp8vB_oi4gGgMkdwCofa&index=42" },
             { url: "https://www.youtube.com/watch?v=UbrDz8Fnks4&list=PLofFoQnZAD2Fdqp8vB_oi4gGgMkdwCofa&index=43" },
         ],
+        albumName: "Race 3 Album",
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
@@ -248,6 +255,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=pkcEGCeOGAs" },
             { url: "https://www.youtube.com/watch?v=fSvhDShe7oQ" },
         ],
+        albumName: "Loveyatri Album",
         galleryCover: [
             "/images/movie/kiss-ka-bhai.png",
             "/images/movie/farrey.png",
@@ -278,6 +286,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=uUQLrFhe5WE&list=PLofFoQnZAD2HuiZX69CtZ8w46VsIxI28v&index=16" },
             { url: "https://www.youtube.com/watch?v=OY2RTlnPDEU&list=PLofFoQnZAD2HuiZX69CtZ8w46VsIxI28v&index=27" },
         ],
+        albumName: "Tubelight Album",
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
@@ -321,6 +330,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=HanwrCgOJ_A" },
             { url: "https://www.youtube.com/watch?v=YasKpC-Nag0" },
         ],
+        albumName: "Bajrangi Bhaijaan Album",
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
@@ -359,6 +369,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
             { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
         ],
+        albumName: "Hero Album",
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
@@ -397,6 +408,7 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=H0BCcI_T1_w" },
             { url: "https://www.youtube.com/watch?v=EG1aTIFSD8A" },
         ],
+        albumName: "Battle of Galwan Album",
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",

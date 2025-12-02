@@ -18,7 +18,7 @@ const Home = ({ movies, highlightsData, media }) => {
       <DirectorsSection />
       <Highlights tag={"highlight"} title={"News and Updates"} data={highlightsData} />
       <GalleryTitleSection isPadding={true} titlehero={true} />
-      <GalleryList data={media} />
+      <GalleryList data={media} ishome={true} />
       <AboutSection />
     </>
   );
@@ -31,7 +31,7 @@ export async function getStaticProps() {
   const highlightsData = news;
   const media = movies.filter(
     (film) => !film.category.toLowerCase().includes("upcoming")
-  ).slice(0, 8);
+  );
   return {
     props: {
       movies: latestMovies,

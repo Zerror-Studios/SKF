@@ -15,7 +15,6 @@
 }
 .about_hero_info {
   width: 45%;
-  padding-top: 4rem;
 }
 
 .about_hero_info p {
@@ -109,6 +108,7 @@
 }
 .filmo_info {
   width: 30%;
+  text-transform: uppercase;
 }
 .filmography_card:hover p,
 .filmography_card:hover h5 {
@@ -175,8 +175,11 @@
     font-family: Urbanist !important;
   }
   .filmo_director h5 {
-    font-size: 1.25rem !important;
+    font-size: 0.9rem !important;
     font-weight: 600 !important;
+  }
+  .filmo_director p{
+    font-size: 1.25rem !important;
   }
 }
 
