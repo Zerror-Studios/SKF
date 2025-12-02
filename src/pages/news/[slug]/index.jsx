@@ -7,7 +7,7 @@ const News = ({ newsData, highlightsData }) => {
   return (
     <>
       <NewsHeroSection data={newsData} />
-      <Highlights tag={"other"} data={highlightsData} />
+      <Highlights tag={"More Highlights"} data={highlightsData} />
     </>
   );
 };
