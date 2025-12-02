@@ -1,40 +1,35 @@
-import React, { useState, useEffect } from "react";
-import Button from "../common/Button";
-import DirectorsContainer from "../common/Directors/DirectorsContainer";
+import React from "react";
 import CastCard from "./CastCard";
 
-const directors = [
-  { id: 1, name: "Salman khan", image: "/images/moviedetails/cast1.png" },
-  { id: 2, name: "RASHMIKA MANDANA", image: "/images/moviedetails/cast2.png" },
-  { id: 3, name: "KAJAL AGARWAL", image: "/images/moviedetails/cast3.png" },
-  { id: 4, name: "Anjini Dhawan", image: "/images/moviedetails/cast4.png" },
-  { id: 5, name: "Sathyaraj", image: "/images/moviedetails/cast5.png" },
-  { id: 6, name: "Sharman Joshi", image: "/images/moviedetails/cast6.png" },
-];
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const CastSection = ({ data }) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 480);
-    handleResize(); // check on mount
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <section id="cast_section">
       <div className="cast_tag_wrap">
         <h5 className="tag">Cast and crew</h5>
       </div>
 
-      <div id="directors_container">
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={6.2}
+        grabCursor={true}
+        breakpoints={{
+          0: { slidesPerView: 1.6, spaceBetween: 12 },
+          480: { slidesPerView: 2.2, spaceBetween: 16 },
+          768: { slidesPerView: 3.2, spaceBetween: 20 },
+          1024: { slidesPerView: 4, spaceBetween: 24 },
+        }}
+      >
         {data?.cast?.map((cast, index) => (
-          <CastCard key={index} data={cast} />
+          <SwiperSlide key={index}>
+            <CastCard data={cast} />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
 
-      <Button title="show more" color="black" />
+      {/* <Button title="show more" color="black" /> */}
     </section>
   );
 };

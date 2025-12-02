@@ -168,6 +168,12 @@
   width: 100%;
   padding: 3.5rem;
 }
+#cast_section .director_card{
+  cursor: grab;
+}
+#cast_section  .swiper-slide{
+  width: auto !important;
+}
 #cast_section .common_btn {
   margin-top: 2.5rem;
 }
