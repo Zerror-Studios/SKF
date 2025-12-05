@@ -62,7 +62,7 @@ const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
 
   return (
     <div id="gallery_title" className={`${isPadding ? "not-hero" : ""}`}>
-      <h5 ref={tagRef} className="tag landing_text">
+      <h5 ref={tagRef} className="tag1 landing_text">
         BTS
       </h5>
       <h2 ref={titleRef} className="heading landing_text">
@@ -70,7 +70,7 @@ const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
           data.title
         ) : (
           <>
-            Exclusive Moments 
+            Exclusive <span className="letter-u">Moments</span>
           </>
         )}
       </h2>

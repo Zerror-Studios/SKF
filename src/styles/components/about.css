@@ -110,9 +110,13 @@
 
 .filmo_year {
   width: 35%;
+  flex-shrink: 0;
+}
+.filmo_year .heading{
+  font-size: 3rem;
 }
 .filmo_info {
-  width: 30%;
+  width: 100%;
   text-transform: uppercase;
 }
 .filmography_card:hover p,

@@ -53,9 +53,9 @@ const HorizontalSlider = ({ data }) => {
   return (
     <>
       <div className="trailer_title">
-        <p className="tag">TRAILERS AND TEASERS</p>
-        <h2 className="heading" id="trailer_heading">
-          Cinematic Glimpse
+        <p className="tag1">TRAILERS AND TEASERS</p>
+        <h2 className="heading">
+          Cinematic <span className="letter-u"> Glimpse</span>
         </h2>
       </div>
       <div className="trailer_slider" ref={containerRef}>

@@ -8,8 +8,8 @@ const SynopsisSection = ({ data }) => {
   useSplitTextMaskAnimation([titleRef, paraRef1]);
   return (
     <section id="synopsis_section">
-      <h5 className="tag">Movies</h5>
-      <h2 ref={titleRef} className="heading">Blockbuster Lineup</h2>
+      <h5 className="tag1">Movies</h5>
+      <h2 ref={titleRef} className="heading">Blockbuster <span className="letter-u">Lineup</span></h2>
       <div className="synopsis_info">
         {data?.synopsis && (
           <p ref={paraRef1} className="description">

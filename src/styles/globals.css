@@ -14,11 +14,18 @@
   font-family: playfair;
   src: url(/fonts/playfair-display.regular.ttf);
 }
+@font-face {
+  font-family: playfair-italic;
+  src: url(/fonts/playfair-display.italic.ttf);
+}
+
 
 :root {
-  --primary-font: playfair;
+  --primary-font: BebasNeue;
+  --primary-font-style: playfair-italic;
   --secondary-font: Helvetic;
   --tag-font: BebasNeue;
+  --tag1-font: Urbanist;
 }
 * {
   margin: 0;
@@ -34,27 +41,34 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+.tag1 {
+  font-family: var(--tag1-font);
+  color: #5F5F5F;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
 .tag {
   font-family: var(--tag-font);
-  color: #a5a08c;
+  color: #1D1D1D;
   font-size: 1.4rem;
   font-weight: 400;
   margin-bottom: 1rem;
-  
 }
+
 .heading {
   font-family: var(--primary-font);
-  color: #1d1d1d;
+  color: #1D1D1D;
   font-size: 3.75rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.2;
 }
 .letter-u {
-  font-family: var(--primary-font);
+  font-family: var(--primary-font-style);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
-  color: #a5a08c;
 }
 
 .description {

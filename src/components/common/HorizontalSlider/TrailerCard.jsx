@@ -8,17 +8,19 @@ const TrailerCard = ({ trailer, index, panelsRef }) => {
       ref={panelsRef ? (el) => (panelsRef.current[index] = el) : null}
     >
       <div className="trailer_panel_poster">
-        <Image
+       <div className="trailer_banner">
+         <Image
           width={1000}
           height={1000}
           src={trailer.poster}
           alt={`trailer-${index + 1}`}
           priority
         />
-      </div>
-      <div className="trailer_panel_info">
-        <p>{trailer.title}</p>
-        <p>{trailer.date}</p>
+       </div>
+        <div className="trailer_panel_info">
+          <p>{trailer.title}</p>
+          <p>{trailer.date}</p>
+        </div>
       </div>
     </div>
   );

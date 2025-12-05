@@ -64,12 +64,14 @@ const NewsHeroSection = ({ data }) => {
 
   return (
     <div id="news_hero_section">
-      <h5 ref={tagRef} className="tag landing_text">
+      <div className="news_hero_title">
+        <h5 ref={tagRef} className="tag1 landing_text">
         News
       </h5>
       <h4 ref={titleRef} className="heading landing_text">
-        Fresh Stories
+        Fresh <span className="letter-u">Stories</span>
       </h4>
+      </div>
 
       <div ref={posterRef} id="poster_wrap_news">
         <div className="news_poster">

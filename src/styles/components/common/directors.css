@@ -24,7 +24,7 @@
 }
 
 .director_card_left {
-  width: 14vw;
+  width: 18vw;
   flex-shrink: 0;
   position: relative;
 }
@@ -83,7 +83,7 @@
   justify-content: space-between;
   background-color: #FBF2D8;
   padding: 0.8rem;
-  height: calc(100% - 1.4rem);
+  height: calc(100% - 2rem);
 }
 .director_card_details h6 {
   text-transform: uppercase;

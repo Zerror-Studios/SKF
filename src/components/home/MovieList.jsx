@@ -42,9 +42,9 @@ const MovieList = ({ movies }) => {
     <div id="movie_carousel_section">
       <div id="movie_header">
         <div id="movie_header_title">
-          <h5 className="tag">Movies</h5>
+          <h5 className="tag1">Movies</h5>
           <h3 ref={titleRef} className="heading">
-           Blockbuster Lineup
+           Blockbuster <span className="letter-u">Lineup</span>
           </h3>
         </div>
       </div>

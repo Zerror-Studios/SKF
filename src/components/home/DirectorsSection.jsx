@@ -77,9 +77,9 @@ const DirectorsSection = () => {
   return (
     <section id="directors_section">
       <div className="directors_section_header">
-        <h5 className="tag">Directors</h5>
+        <h5 className="tag1">Directors</h5>
         <h3 ref={titleRef} className="heading">
-          Director Spotlight
+          Director <span className="letter-u">Spotlight</span>
         </h3>
         <p className="description">
           At SKF, our directors transform ideas into unforgettable cinematic <br />

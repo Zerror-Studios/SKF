@@ -16,6 +16,7 @@
   font-weight: 400;
   background-color: #fff;
   position: relative;
+  flex-shrink: 0;
 }
 .btn_text {
   width: fit-content;

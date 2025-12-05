@@ -5,6 +5,7 @@ import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
+import Button from "../common/Button";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -81,9 +82,9 @@ const FilmographySection = ({ movies }) => {
   return (
     <div id="filmography_section">
      <div className="filmography_title">
-       <p className="tag">Filmography</p>
+       <p className="tag1">Filmography</p>
       <h2 ref={titleRef} className="heading">
-        Cinematic Journey
+        Cinematic <span className="letter-u">Journey</span>
       </h2>
      </div>
       <div id="filmography_cards_wrap">
@@ -108,6 +109,7 @@ const FilmographySection = ({ movies }) => {
                   <p className="description">{film.director}</p>
                 </div>
               </div>
+                <Button title="Read More" color="black" />
             </div>
           </Link>
         ))}

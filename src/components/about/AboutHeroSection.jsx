@@ -85,7 +85,7 @@ const AboutHeroSection = () => {
     <div id="about_hero_section">
       <div className="about_top_wrapper">
         <div className="about_hero_title">
-          <h5 ref={tagRef} className="tag landing_text">
+          <h5 ref={tagRef} className="tag1 landing_text">
             About
           </h5>
           <h2 ref={titleRef} className="heading landing_text">

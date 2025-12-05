@@ -26,7 +26,7 @@ const DirectorCard = ({ data, isOpen, onOpen, onClose }) => {
     if (isOpen) {
       if (!isMobile) {
         // Desktop open
-        tl.to(spacerRef.current, { width: "14vw", duration: 1.2 })
+        tl.to(spacerRef.current, { width: "18vw", duration: 1.2 })
           .to(rightRef.current, { opacity: 1, duration: 0.8 }, "<")
           .to(openRef.current, { opacity: 0, duration: 0.8 }, "<")
           .to(closeRef.current, { opacity: 1, duration: 0.8 }, "<");
