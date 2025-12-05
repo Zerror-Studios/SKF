@@ -42,15 +42,10 @@ const MovieList = ({ movies }) => {
     <div id="movie_carousel_section">
       <div id="movie_header">
         <div id="movie_header_title">
-          <h5 className="tag">Explore Movies</h5>
+          <h5 className="tag">Movies</h5>
           <h3 ref={titleRef} className="heading">
-            Explore our top <span className="letter-u">films</span> loved by{" "}
-            <br /> <span className="letter-u">audiences</span> worldwide.
+           Blockbuster Lineup
           </h3>
-          <p className="description">
-            From iconic moments to unforgettable characters, explore the movies <br />
-            that audiences around the world love and celebrate.
-          </p>
         </div>
       </div>
       <div id="movie_carousel" className="grid grid-cols-3 gap-4">

@@ -65,10 +65,10 @@ const NewsHeroSection = ({ data }) => {
   return (
     <div id="news_hero_section">
       <h5 ref={tagRef} className="tag landing_text">
-        Highlights
+        News
       </h5>
       <h4 ref={titleRef} className="heading landing_text">
-        News & Updates
+        Fresh Stories
       </h4>
 
       <div ref={posterRef} id="poster_wrap_news">

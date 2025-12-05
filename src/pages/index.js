@@ -16,7 +16,7 @@ const Home = ({ movies, highlightsData, media }) => {
       <HeroSection movies={movies} />
       <UpcomingBanner />
       <DirectorsSection />
-      <Highlights tag={"highlight"} title={"News and Updates"} data={highlightsData} />
+      <Highlights tag={"News"} title={"Fresh Stories"} data={highlightsData} />
       <GalleryTitleSection isPadding={true} titlehero={true} />
       <GalleryList data={media} ishome={true} />
       <AboutSection />

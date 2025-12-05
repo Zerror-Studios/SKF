@@ -79,17 +79,12 @@ const DirectorsSection = () => {
       <div className="directors_section_header">
         <h5 className="tag">Directors</h5>
         <h3 ref={titleRef} className="heading">
-          Visionaries <span className="letter-u">Behind</span> the <br />
-          <span className="letter-u">Camera</span>
+          Director Spotlight
         </h3>
         <p className="description">
-          Behind every great film is a storyteller with a vision. At SKF, our
-          directors
-          <br />
-          transform ideas into unforgettable cinematic experiences—combining
-          creativity,
-          <br />
-          discipline, emotion, and innovation to bring powerful stories to life.
+          At SKF, our directors transform ideas into unforgettable cinematic <br />
+          experiences combining creativity, discipline, emotion, and innovation <br />
+          to bring powerful stories to life.
         </p>
       </div>
       <DirectorsContainer data={directors} />

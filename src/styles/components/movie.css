@@ -10,7 +10,16 @@
 #movie_listing .btn_container {
   display: flex;
 }
+.movie_listing_header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
+#filter_wrap{
+  width: 100%;
+}
 .filter_movie {
   display: flex;
   align-items: center;

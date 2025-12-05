@@ -70,6 +70,11 @@
   padding: 3.5rem;
   position: relative;
 }
+.filmography_title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #filmograpy_img {
   width: 21vw;
   height: 30vw;

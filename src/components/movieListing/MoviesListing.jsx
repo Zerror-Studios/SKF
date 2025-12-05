@@ -30,7 +30,7 @@ const MoviesListing = ({ data }) => {
 
     const refs = [tagRef, titleRef];
 
-    refs.forEach((ref,index) => {
+    refs.forEach((ref, index) => {
       if (!ref?.current) return;
 
       const split = new SplitText(ref.current, {
@@ -70,7 +70,7 @@ const MoviesListing = ({ data }) => {
     if (sectionRef.current) {
       tl.fromTo(
         sectionRef.current,
-        { opacity: 0, y: 50},
+        { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1.5, ease: "ease-secondary" },
         "-=1.5" // overlap slightly with Filters animation
       );
@@ -94,11 +94,10 @@ const MoviesListing = ({ data }) => {
     <section id="movie_listing" className="hero">
       <div className="movie_listing_header">
         <h5 ref={tagRef} className="tag landing_text">
-          Explore Movies
+          Movies
         </h5>
         <h3 ref={titleRef} className="heading landing_text">
-          Explore our top <span className="letter-u">films</span> loved by
-          <br /> <span className="letter-u">audiences</span> worldwide.
+          Blockbuster Lineup
         </h3>
         <div ref={filtersRef} id="filter_wrap">
           <Filters

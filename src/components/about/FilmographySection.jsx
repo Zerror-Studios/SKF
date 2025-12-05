@@ -80,9 +80,12 @@ const FilmographySection = ({ movies }) => {
 
   return (
     <div id="filmography_section">
+     <div className="filmography_title">
+       <p className="tag">Filmography</p>
       <h2 ref={titleRef} className="heading">
-        Filmography
+        Cinematic Journey
       </h2>
+     </div>
       <div id="filmography_cards_wrap">
         {movies.map((film, index) => (
           <Link

@@ -7,7 +7,7 @@ import TrailerCard from "./TrailerCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HorizontalSlider = ({data}) => {
+const HorizontalSlider = ({ data }) => {
   const containerRef = useRef(null);
   const panelsRef = useRef([]);
 
@@ -52,9 +52,12 @@ const HorizontalSlider = ({data}) => {
 
   return (
     <>
-      <h2 className="heading" id="trailer_heading">
-        Trailer and Teasers
-      </h2>
+      <div className="trailer_title">
+        <p className="tag">TRAILERS AND TEASERS</p>
+        <h2 className="heading" id="trailer_heading">
+          Cinematic Glimpse
+        </h2>
+      </div>
       <div className="trailer_slider" ref={containerRef}>
         {trailers.map((trailer, index) => (
           <TrailerCard

@@ -11,7 +11,6 @@ const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
   // const descRef = useRef(null);
   const underlineRef = useRef(null); // underline span ref
 
-
   useEffect(() => {
     if (!isHero) return; // 🔹 only animate if isHero is true
 
@@ -63,28 +62,18 @@ const GalleryTitleSection = ({ data, isHero = true, isPadding }) => {
 
   return (
     <div id="gallery_title" className={`${isPadding ? "not-hero" : ""}`}>
-      <div className="about_top_wrapper">
-        <div className="about_hero_title">
-          <h5 ref={tagRef} className="tag landing_text">
-            Gallery
-          </h5>
-          <h2 ref={titleRef} className="heading landing_text">
-            {data?.title ? (
-              data.title
-            ) : (
-              <>
-                Inside the <span ref={underlineRef} className="letter-u"> Frame </span>
-              </>
-            )}
-          </h2>
-        </div>
-        <div className="about_hero_info">
-          {/* <p ref={descRef} className="description landing_text">
-            Explore exclusive moments, unseen footage, and special glimpses from
-            the world of SKF
-          </p> */}
-        </div>
-      </div>
+      <h5 ref={tagRef} className="tag landing_text">
+        BTS
+      </h5>
+      <h2 ref={titleRef} className="heading landing_text">
+        {data?.title ? (
+          data.title
+        ) : (
+          <>
+            Exclusive Moments 
+          </>
+        )}
+      </h2>
     </div>
   );
 };
