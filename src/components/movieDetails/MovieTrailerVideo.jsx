@@ -44,7 +44,7 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo, trailer }) => {
           navEl,
           {
             duration: 0.8,
-            transform: "translateY(-105%)",
+            transform: "translateY(-150%)",
             overwrite: "auto",
             ease: "power4.out",
           },
