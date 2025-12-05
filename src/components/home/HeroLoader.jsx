@@ -159,7 +159,7 @@ const HeroLoader = () => {
       </h2>
       <div id="landing_video" ref={landingVideoRef}>
         <video playsInline autoPlay muted loop preload="auto">
-          <source src="/images/home/loader.mp4" type="video/mp4" />
+          <source src="/images/home/sikandar_trailer.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
