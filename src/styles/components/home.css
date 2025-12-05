@@ -266,7 +266,7 @@
 
 #about_section {
   width: 100%;
-  height: 150vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   background-color: #1d1d1d;
@@ -276,74 +276,36 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.4);
-  object-position: top;
+  filter: brightness(0.6);
+  object-position: 50% 25%;
 }
-
-.about_overlay {
+#about_section_over{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  height: 70%;
-  overflow: hidden;
-}
-.about_overlay > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(2px) brightness(0.5);
-  transform: scale(1) rotate(0deg);
-  transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
-}
-
-.about_overlay:hover > img {
-  transform: scale(1.1) rotate(2deg);
-}
-.about_overlay:hover .about_overlay_inner {
-  transform: translate(-50%, -50%) scale(0.85);
-}
-.about_overlay_inner {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
-}
-.about_overlay_inner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 30%;
-  filter: brightness(0.5);
-}
-.about_text_content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  padding: 3.5rem 18%;
+  inset: 0;
+  padding: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.about_overlay .tag {
-  color: #fff;
+
+#about_section .heading,
+#about_section .description{
+  color: #FCFCFC;
 }
-.about_overlay .heading {
-  color: #fff;
+#about_section .heading{
+  font-size: 7rem;
+  line-height: 1;
 }
-.about_overlay .heading span {
-  color: #fff;
+#about_section_title{
+  width: 100%;
+  padding-right: 40%;
 }
-.about_overlay .description {
-  color: #fff;
-  width: 80%;
+#about_section_info{
+  width: 100%;
+  padding-left: 60%;
+}
+#about_section_info .common_btn{
+  margin-top: 2rem;
 }
 
 /* Extra small (Phones) */
@@ -458,19 +420,8 @@
     width: 100%;
   }
   #about_section {
-    height: 120vh;
+    height: 100vh;
   }
-  .about_overlay {
-    width: calc(100% - 2rem);
-    height: 80%;
-  }
-  .about_text_content {
-    padding: 1rem;
-  }
-  .about_overlay .description {
-    width: 90%;
-  }
-
   #upcoming_banner {
     height: auto !important;
     padding: 2.5rem 1rem !important;
@@ -591,16 +542,7 @@
   #about_section {
     height: 120vh;
   }
-  .about_overlay {
-    width: 85%;
-    height: 60%;
-  }
-  .about_text_content {
-    padding: 1rem;
-  }
-  .about_overlay .description {
-    width: 90%;
-  }
+
 
   #upcoming_banner {
     height: auto;
