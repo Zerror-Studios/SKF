@@ -1,54 +1,30 @@
-import MovieTrailerVideo from "@/components/movieDetails/MovieTrailerVideo";
-import PlaySvg from "@/components/movieDetails/PlaySvg";
-import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 
 const TrailerCard = ({ trailer, index, panelsRef }) => {
-  const [showVideo, setShowVideo] = useState(false);
-
-  // YouTube thumbnail URL
-  const videoId = trailer.iframeUrl?.split("/embed/")[1];
-
-  const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-
   return (
-    <>
-      {/* Thumbnail Card */}
-      <div
-        className={`trailer_panel trailer_panel${index + 1}`}
-        ref={panelsRef ? (el) => (panelsRef.current[index] = el) : null}
-      >
-        <div
-          className="trailer_panel_poster"
-        >
-          <div className="trailer_banner">
-            <Image
-              width={1000}
-              height={1000}
-              src={thumbnail}
-              alt={trailer.title}
-            />
-            <div className="movie_banner_overlay">
-              <PlaySvg setShowVideo={setShowVideo} />
-            </div>
-          </div>
+    <div
+      className={`trailer_panel trailer_panel${index + 1}`}
+      ref={panelsRef ? (el) => (panelsRef.current[index] = el) : null}
+    >
+      <div className="trailer_panel_poster">
+        <div className="trailer_banner">
+          <iframe
+            width="100%"
+            height="100%"
+            src={trailer?.iframeUrl}
+            title="YouTube trailer"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            frameBorder="0"
+          ></iframe>
+        </div>
 
-          <div className="trailer_panel_info">
-            <p>{trailer.title}</p>
-            <p>{trailer.type}</p>
-          </div>
+        <div className="trailer_panel_info">
+          <p>{trailer.title}</p>
+          <p>{trailer.type}</p>
         </div>
       </div>
-
-      {/* Popup */}
-      {showVideo && (
-        <MovieTrailerVideo
-          trailer={trailer?.iframeUrl}
-          showVideo={showVideo}
-          setShowVideo={setShowVideo}
-        />
-      )}
-    </>
+    </div>
   );
 };
 

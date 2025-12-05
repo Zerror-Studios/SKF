@@ -121,7 +121,6 @@ const HorizontalSlider = ({ data }) => {
     }, containerRef);
 
     return () => {
-      // 💥 FULL CLEANUP
       ScrollTrigger.getAll().forEach((st) => st.kill());
       gsap.killTweensOf(panelsRef.current);
       ctx.revert();

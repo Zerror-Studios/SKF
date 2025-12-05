@@ -51,13 +51,11 @@
   height: auto;
   width: 100%;
 }
-.trailer_panel_poster img {
+.trailer_panel_poster iframe {
   width: auto;
   height: 100%;
   aspect-ratio: 16/9;
-  filter: brightness(0.7);
   object-fit: cover;
-  transition: all ease-in-out 0.6s;
   background-color: rgba(211, 211, 211, 0.367);
 }
 
