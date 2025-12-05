@@ -247,6 +247,11 @@
     padding: 1rem;
     padding-bottom: 3.5rem;
   }
+  .gallery_card {
+    height: 250px;
+    width: 100%;
+    position: relative;
+}
   .arrow_circle {
     width: 2.8rem;
     height: 2.8rem;

@@ -15,7 +15,7 @@ const MovieDetails = ({ movie }) => {
       <SynopsisSection data={movie} />
       <CastSection data={movie} />
       <HorizontalSlider data={movie} />
-      <HorizontalSwiper />
+      <HorizontalSwiper data={movie} />
       <GalleryTitleSection data={movie} isPadding={true} />
       <GalleryDetailList data={movie} />
     </>
