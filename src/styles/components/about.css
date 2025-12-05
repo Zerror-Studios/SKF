@@ -179,7 +179,7 @@
     width: 95%;
   }
   .filmo_info > p {
-    font-size: 1.3rem !important;
+    font-size: 1.05rem !important;
     font-weight: 600 !important;
     font-family: Urbanist !important;
   }
@@ -188,7 +188,10 @@
     font-weight: 600 !important;
   }
   .filmo_director p{
-    font-size: 1.25rem !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    font-family: Urbanist !important;
+    margin-bottom: 1rem;
   }
 }
 

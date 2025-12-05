@@ -3,11 +3,13 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Button from "../common/Button";
+import { useRouter } from "next/router";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
   const bgRef = useRef(null);
+  const router = useRouter()
 
   useEffect(() => {
     if (!bgRef.current) return;
@@ -80,7 +82,7 @@ const AboutSection = () => {
             experiences to the audience but also for supporting fresh talent and
             innovative storytelling.
           </p>
-          <Button color="white" title="Show More" />
+          <Button color="white" title="Show More" onClick={()=>router.push("/about")} />
         </div>
       </div>
     </section>

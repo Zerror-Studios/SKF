@@ -87,6 +87,9 @@
 }
 /* Extra small (Phones) */
 @media (max-width: 480px) {
+  #contact-top .heading .letter-u {
+    margin-left: .5rem;
+}
   #contact_bottom .description{
     white-space: nowrap;
   }

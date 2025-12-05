@@ -149,8 +149,6 @@
   justify-content: center;
 }
 
-
-
 #upcoming_banner img {
   width: 100%;
   height: auto;
@@ -166,11 +164,12 @@
   width: 100%;
   padding: 3.5rem;
 }
-.directors_section_header{
+.directors_section_header {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-bottom: 4.5rem;
 }
 
 /* highlight section */
@@ -279,7 +278,7 @@
   filter: brightness(0.6);
   object-position: 50% 25%;
 }
-#about_section_over{
+#about_section_over {
   position: absolute;
   inset: 0;
   padding: 10rem;
@@ -289,38 +288,38 @@
 }
 
 #about_section .heading,
-#about_section .description{
-  color: #FCFCFC;
+#about_section .description {
+  color: #fcfcfc;
 }
-#about_section .heading{
-  font-size: 7rem;
+#about_section .heading {
+  font-size: 6rem;
   line-height: 1;
 }
-#about_section_title{
+#about_section_title {
   width: 100%;
   padding-right: 40%;
 }
-#about_section_info{
+#about_section_info {
   width: 100%;
   padding-left: 60%;
 }
-#about_section_info .common_btn{
+#about_section_info .common_btn {
   margin-top: 2rem;
 }
 
 /* Extra small (Phones) */
 @media (max-width: 480px) {
-  .rod{
-  display: none;
-}
+  .rod {
+    display: none;
+  }
 
-.shadow{
- display: none;
-}
+  .shadow {
+    display: none;
+  }
   #highlight_section {
     padding: 2.5rem 0;
   }
-  #expand_line{
+  #expand_line {
     background-color: #a5a08c;
   }
   #play_btn {
@@ -347,17 +346,20 @@
     height: auto;
     padding: 2.5rem 1rem;
   }
-  #movie_header_title .description br{
+  #movie_header_title .description br {
     display: none;
   }
   #movie_carousel {
     grid-template-columns: repeat(1, 1fr);
     margin-top: 0rem;
   }
+  .directors_section_header {
+    margin-bottom: 3rem;
+  }
   #directors_section {
     padding: 2.5rem 1rem;
   }
-  .directors_section_header .description br{
+  .directors_section_header .description br {
     display: none;
   }
 
@@ -444,6 +446,25 @@
     display: block;
     width: 100%;
     height: auto;
+  }
+  #about_section_over {
+    padding: 1em;
+  }
+  #about_section {
+    height: 90vh;
+  }
+  #about_section_info {
+    padding-left: 0%;
+  }
+  #about_section_title {
+    width: 100%;
+    padding-right: 0%;
+    margin-bottom: 2rem;
+  }
+  #about_section .heading,
+  #about_section .heading .letter-u {
+    font-size: 3rem !important;
+    line-height: 1;
   }
 }
 
@@ -543,7 +564,6 @@
     height: 120vh;
   }
 
-
   #upcoming_banner {
     height: auto;
     padding: 3.5rem 1rem 3.5rem;
@@ -630,6 +650,37 @@
     width: 100%;
     height: auto;
   }
+
+  #about_section_over {
+    padding: 2em;
+  }
+  #about_section {
+    height: 90vh;
+  }
+  #about_section_info {
+    padding-left: 20%;
+  }
+  #about_section_title {
+    width: 100%;
+    padding-right: 0%;
+    margin-bottom: 2rem;
+  }
+  #about_section .heading,
+  #about_section .heading .letter-u {
+    font-size: 3.5rem !important;
+    line-height: 1;
+  }
+}
+@media (min-width: 650px) and (max-width: 767px) {
+  #gallery_list {
+    gap: 2.5rem;
+    padding: 1rem 1rem 3.5rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .gallery_card {
+    height: 260px;
+    position: relative;
+  }
 }
 
 /* Medium (Tablets) */
@@ -673,6 +724,26 @@
   #directors_section {
     padding: 3.5rem 1rem;
   }
+
+  #about_section_over {
+    padding: 2em;
+  }
+  #about_section {
+    height: 85vh !important;
+  }
+  #about_section_info {
+    padding-left: 40%;
+  }
+  #about_section_title {
+    width: 100%;
+    padding-right: 0%;
+    margin-bottom: 2rem;
+  }
+  #about_section .heading,
+  #about_section .heading .letter-u {
+    font-size: 4.5rem !important;
+    line-height: 1;
+  }
 }
 
 /* Large (Laptops) */
@@ -682,5 +753,26 @@
   }
   .highlight_img {
     height: 300px;
+  }
+
+  
+  #about_section_over {
+    padding: 3.5em;
+  }
+  #about_section {
+    height: 90vh !important;
+  }
+  #about_section_info {
+    padding-left: 50%;
+  }
+  #about_section_title {
+    width: 100%;
+    padding-right: 0%;
+    margin-bottom: 2rem;
+  }
+  #about_section .heading,
+  #about_section .heading .letter-u {
+    font-size: 5rem !important;
+    line-height: 1;
   }
 }

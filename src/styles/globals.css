@@ -15,13 +15,13 @@
   src: url(/fonts/playfair-display.regular.woff2);
 }
 @font-face {
-  font-family: playfair-italic;
+  font-family: playfaiItalic;
   src: url(/fonts/playfair-display.italic.woff2);
 }
 
 :root {
   --primary-font: BebasNeue;
-  --primary-font-style: playfair-italic;
+  --primary-font-style: playfaiItalic;
   --secondary-font: Helvetic;
   --tag-font: BebasNeue;
   --tag1-font: Urbanist;

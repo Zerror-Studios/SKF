@@ -164,6 +164,7 @@
   }
   #trailer_section {
     padding: 2rem 1rem;
+    padding-top: 0;
     display: flex;
   }
   #trailer_swiper_container {

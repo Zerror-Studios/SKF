@@ -13,7 +13,6 @@ const HorizontalSwiper = () => {
   const swiperRef = useRef(null);
   return (
     <div id="trailer_section">
-      <h2 className="heading">Trailer and Teasers</h2>
       <div id="trailer_swiper_container">
         <Swiper
           effect={"coverflow"}
