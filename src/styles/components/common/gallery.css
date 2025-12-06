@@ -1,17 +1,21 @@
 /* gallery section */
 #gallery_title {
   width: 100%;
-  padding: 7rem 3.5rem 2rem;
+  padding: 9rem 3.5rem 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+  #gallery_title.not-hero {
+    padding-top: 3.5rem !important;
+  }
 
 #gallery_list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3.5rem;
   padding: 3.5rem;
+  padding-bottom: 4.5rem;
 }
 
 .gallery_card {

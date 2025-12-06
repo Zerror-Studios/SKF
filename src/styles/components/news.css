@@ -1,7 +1,7 @@
 #news_hero_section {
   width: 100%;
   padding: 3.5rem;
-  padding-top: 7rem;
+  padding-top: 9rem;
 }
 .news_hero_title{
   display: flex;
@@ -14,7 +14,7 @@
 .news_poster {
   width: 100%;
   height: auto;
-  margin-top: 4rem;
+  margin-top: 2rem;
   overflow: hidden;
 }
 .news_poster img {

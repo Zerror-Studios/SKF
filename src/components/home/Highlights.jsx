@@ -47,7 +47,7 @@ const Highlights = ({ tag, title, data = [] }) => {
 
   return (
     <section id="highlight_section">
-      {tag && <h5 className="tag">{tag}</h5>}
+      {tag && <h5 className="tag1">{tag}</h5>}
       {title && <h2>{title}</h2>}
 
       <div id="highlights_container">

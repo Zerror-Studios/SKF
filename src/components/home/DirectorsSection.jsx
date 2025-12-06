@@ -82,9 +82,8 @@ const DirectorsSection = () => {
           Director <span className="letter-u">Spotlight</span>
         </h3>
         <p className="description">
-          At SKF, our directors transform ideas into unforgettable cinematic <br />
-          experiences combining creativity, discipline, emotion, and innovation <br />
-          to bring powerful stories to life.
+        At SKF, our directors transform ideas into unforgettable cinematic experiences, <br />
+combining creativity, discipline, emotion, and innovation to bring powerful stories to life.
         </p>
       </div>
       <DirectorsContainer data={directors} />

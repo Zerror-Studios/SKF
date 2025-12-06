@@ -37,8 +37,7 @@ footer {
 
 .footer_social {
   display: flex;
-  align-items: center;
-  gap: 1.2rem;
+  flex-direction: column;
 }
 .footer_social svg {
   cursor: pointer;
@@ -124,9 +123,13 @@ footer {
   font-weight: 400;
   text-decoration: none;
 }
-
+.footer_social a{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
 .footer_social a span{
-  display: none;
+  display: inline-block;
 }
 /* Extra small (Phones) */
 @media (max-width: 480px) {

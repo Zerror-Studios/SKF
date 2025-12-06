@@ -8,7 +8,7 @@ const CastSection = ({ data }) => {
   return (
     <section id="cast_section">
       <div className="cast_tag_wrap">
-        <h5 className="tag">Cast and crew</h5>
+        <h2 className="heading">Cast <span className="letter-u">and</span> crew</h2>
       </div>
 
       <Swiper

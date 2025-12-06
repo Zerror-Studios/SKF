@@ -20,7 +20,7 @@ const UpcomingBanner = () => {
   return (
     <div id="upcoming_banner">
       <div id="upcoming_header">
-        <p className="tag">Upcoming Release</p>
+        <h2 className="heading">Upcoming <span className="letter-u">Release</span></h2>
       </div>
        <Image
           width={1000}

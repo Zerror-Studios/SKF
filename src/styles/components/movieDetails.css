@@ -157,7 +157,6 @@
 }
 
 .synopsis_info {
-  margin-top: 2rem;
   display: flex;
   justify-content: center;
 }
@@ -183,7 +182,8 @@
 .cast_tag_wrap {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 /* cast section  */
 
