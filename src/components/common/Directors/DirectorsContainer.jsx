@@ -1,30 +1,49 @@
 import React, { useState, useEffect } from "react";
 import DirectorCard from "./DirectorCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+
+import { FreeMode } from "swiper/modules";
 
 const DirectorsContainer = ({ data }) => {
   const [openIndex, setOpenIndex] = useState(null);
 
   useEffect(() => {
-    // open first card only on screens larger than 480px
     if (window.innerWidth > 1286) {
       setOpenIndex(0);
     }
   }, []);
 
-  const handleOpen = (index) => setOpenIndex(index); // open specific card
-  const handleClose = () => setOpenIndex(null); // close current open card
+  const handleOpen = (index) => setOpenIndex(index);
+  const handleClose = () => setOpenIndex(null);
 
   return (
     <div id="directors_container">
-      {data?.map((director, index) => (
-        <DirectorCard
-          key={index}
-          data={director}
-          isOpen={openIndex === index}
-          onOpen={() => handleOpen(index)}
-          onClose={handleClose}
-        />
-      ))}
+     <Swiper
+  modules={[FreeMode]}
+  freeMode={true}
+  spaceBetween={20}
+  slidesPerView={"auto"}
+  grabCursor={true}
+>
+  {data?.map((director, index) => (
+    <SwiperSlide key={index} style={{ width: "auto" }}>
+      <DirectorCard
+        data={director}
+        isOpen={openIndex === index}
+        onOpen={() => handleOpen(index)}
+        onClose={handleClose}
+      />
+    </SwiperSlide>
+  ))}
+
+  {/* Extra empty space card */}
+  <SwiperSlide style={{ width: "20vw" }}></SwiperSlide>
+</Swiper>
+
     </div>
   );
 };

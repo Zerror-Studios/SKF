@@ -1,6 +1,5 @@
 import React from "react";
 import CastCard from "./CastCard";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -29,7 +28,6 @@ const CastSection = ({ data }) => {
         ))}
       </Swiper>
 
-      {/* <Button title="show more" color="black" /> */}
     </section>
   );
 };
