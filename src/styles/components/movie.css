@@ -193,7 +193,8 @@
     gap: 2rem;
   }
   .movie_img {
-    height: 250px !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
   }
   .movie_card video {
     display: none;
