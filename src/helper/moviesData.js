@@ -12,7 +12,8 @@ export const movies = [
         ],
         produced: "Sajid Nadiadwala",
         director: "A. R. Murugadoss",
-        poster: "/images/movie/sikandar.png",
+        poster: "/posters/Sikandar.png",
+        backgroundVideo: "/videos/SIKANDAR Official Trailer.mp4",
         category: "released",
         synopsis: `Sikandar follows the journey of a man who overcomes all hurdles that life throws his way just so that he can alleviate the plight of the less fortunate and those in need of his help. His transition from a nonchalant man to a selfless man, inspired by his wife, makes him emerge as a beacon of hope for those ensnared in darkness.`,
         teaser: "https://www.youtube.com/watch?v=l2AMaPCsJIQ",
@@ -25,7 +26,7 @@ export const movies = [
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/sikandar.png",
+            "/posters/Sikandar.png",
         ]
     },
     {
@@ -39,7 +40,8 @@ export const movies = [
         ],
         produced: "Salman Khan",
         director: "Farhad Samji",
-        poster: "/images/movie/kiss-ka-bhai.png",
+        poster: "/posters/kisi ka bhai.png",
+        backgroundVideo: "/videos/Kisi Ka Bhai Kisi Ki Jaan.mp4",
         category: "released",
         synopsis: `Salman Khan is a self-appointed vigilante committed to the cause of keeping the society crime-free. His younger brothers set him up with a woman similar to his previous love interest. What follows is a series of events that takes all of them across the length of the country and various revelations with all the elements of a wholesome entertainer.`,
         teaser: "https://www.youtube.com/watch?v=bGM490nJoDE",
@@ -56,7 +58,7 @@ export const movies = [
         galleryCover: [
             "/images/movie/sikandar.png",
             "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
+            "/posters/kisi ka bhai.png",
         ]
     },
     {
@@ -73,7 +75,8 @@ export const movies = [
 
         produced: "Atul Agnihotri, Alvira Khan, Sunir Kheterpal, Nikhil Namit, Y. Ravi Shankar, Naveen Yerneni, Salman Khan",
         director: "Soumendra Padhi",
-        poster: "/images/movie/farrey.png",
+        poster: "/posters/Farrey.png",
+        backgroundVideo: "/videos/FARREY Official Trailer.mp4",
         category: "released",
         synopsis: `Niyati, an orphan prodigy, living under the care of her warden in a local orphanage in Delhi, becomes the national level topper in the 10th board exams and secures admission in an elite school on scholarship. There she is lured by her rich friends to help them cheat in exams by developing elaborate methods and gets pulled into a cheating racket with increasingly higher risks and even higher rewards. But she may lose much more than she gains.`,
         teaser: "https://www.youtube.com/watch?v=5uevc4jfxFg",
@@ -85,7 +88,7 @@ export const movies = [
         galleryCover: [
             "/images/movie/kiss-ka-bhai.png",
             "/images/movie/sikandar.png",
-            "/images/movie/farrey.png",
+            "/posters/Farrey.png",
         ]
     },
     {
@@ -101,7 +104,8 @@ export const movies = [
         ,
         produced: "Salman Khan, Sohail Khan, Atul Agnihotri, Nikhil Namit",
         director: " Prabhu Deva",
-        poster: "/images/movie/radhe.png",
+        poster: "/posters/Radhe.png",
+        backgroundVideo: "/videos/Radhe Your Most Wanted Bhai.mp4",
         category: "released",
         synopsis: `The drug mafia has increased in India, where more and more youngsters are addicted to drugs and taking their lives. The Mumbai police decides to get suspended officer Radhe (Salman Khan) on duty to clean the city. Radhe joins soon and firstly makes two rival groups of Dagdu Dada and Dilwar to join hands as they are against the drug business and will help him clean the city. Radhe's reporting officer is funny, ACP Avinash Abhyankar, who runs away with Radhe's credits while Radhe loves Avinash's sister Dia and pretends to be an upcoming model. Rana the drug lord who has landed in Mumbai and forces people to sell drugs and gets Dilwar killed from his brother Mansoor who works for him, Radhe manages to trace Rana which starts a long cat and mouse race between them. `,
         teaser: "",
@@ -120,7 +124,7 @@ export const movies = [
         galleryCover: [
             "/images/movie/sikandar.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/radhe.png",
+            "/posters/Radhe.png",
         ]
     },
     {
@@ -137,7 +141,8 @@ export const movies = [
         ,
         produced: "Salman Khan",
         director: "Mahesh Manjrekar",
-        poster: "/images/movie/antim.png",
+        poster: "/posters/Antim.png",
+        backgroundVideo: "/videos/ANTIM The Final Truth.mp4",
         category: "released",
         synopsis: `Rahulya is a penniless village boy with a dream of being Pune’s biggest don. His closest friend
 Ganya is beside him through it all, while his parents shun their violent son. A hot-headed boy,
@@ -159,7 +164,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/antim.png",
+            "/posters/Antim.png",
         ]
     },
     {
@@ -176,7 +181,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         ,
         produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
         director: "Prabhu Deva",
-        poster: "/images/movie/kaagaz.png",
+        poster: "/posters/Dabangg 3.png",
+        backgroundVideo: "/videos/Dabangg 3.mp4",
         category: "released",
         synopsis: `More beefed-up, worked up and dangerous than ever, Chulbul Pandey, now the tough-as-nails police superintendent of Tundla city in Uttar Pradesh, finds himself juggling career and family after bringing down unscrupulous Baccha Singh's empire in Dabangg 2 (2012). However, as the past comes back to haunt him in the shape of the wicked old nemesis, Bali Singh. `,
         teaser: "https://www.youtube.com/watch?v=guqjxWjuSno",
@@ -195,7 +201,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         galleryCover: [
             "/images/movie/sikandar.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/farrey.png",
+            "/posters/Dabangg 3.png",
         ]
     },
     {
@@ -215,7 +221,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         ,
         produced: "Salman Khan",
         director: "Remo D’Souza",
-        poster: "/images/movie/race3.png",
+        poster: "/posters/Race 3.png",
+        backgroundVideo: "/videos/Race 3.mp4",
         category: "released",
         synopsis: `Race 3 as its predecessors is an internationally mounted saga of a family that deals in borderline crime but is ruthless and vindictive to the core. A world with twists and turns at every nook and corner, which will take the audience by surprise with its sheer unpredictability. Characters change their characteristics at the blink of an eye as the story rushes towards a high-octane climax with betrayal, fast guns, fast cars, and sleek action never seen before on the Indian screen. Action and drama that leads to a shocking twist in the climax that takes your breath away.`,
         teaser: "",
@@ -232,7 +239,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/race3.png",
+            "/posters/Race 3.png",
         ]
     },
     {
@@ -249,7 +256,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         ,
         produced: "Salman Khan",
         director: "Abhiraj K. Minawala",
-        poster: "/images/movie/loveyatri.png",
+        poster: "/posters/Loveyatri.png",
+        backgroundVideo: "/videos/Loveyatri.mp4",
         category: "released",
         synopsis: `Sushrut, a garba teacher, falls in love with NRI girl Michelle when she visits town during festival`,
         teaser: "https://www.youtube.com/watch?v=AvsIErOn83o",
@@ -265,7 +273,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         galleryCover: [
             "/images/movie/kiss-ka-bhai.png",
             "/images/movie/farrey.png",
-            "/images/movie/loveyatri.png",
+            "/posters/Loveyatri.png",
         ]
     },
     {
@@ -283,7 +291,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         ,
         produced: "Salman Khan, Kabir Khan, Salma Khan",
         director: "Kabir Khan",
-        poster: "/images/movie/tubelight.png",
+        poster: "/posters/Tubelight.png",
+        backgroundVideo: "/videos/Tubelight.mp4",
         category: "released",
         synopsis: `A story of two brothers set during the Sino-Indian war, 1962: the younger one who's at war at the borders and the elder who's at war with his own world.
 `,
@@ -299,7 +308,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/tubelight.png",
+            "/posters/Tubelight.png",
         ]
     },
     {
@@ -318,7 +327,8 @@ down, or will his own past catch up with him first? Only at the end is the final
         ,
         produced: "Salman Khan, Rockline Venkatesh, Kabir Khan",
         director: "Kabir Khan",
-        poster: "/images/movie/bajrangi.png",
+        poster: "/posters/Bajrangi Bhaijaan.png",
+        backgroundVideo: "/videos/Bajrangi Bhaijaan.mp4",
         category: "released",
         synopsis: `A 5-year-old girl from Pakistan gets separated from her mother at an Indian railway station. Lost and hungry, she finds shelter at the home of Pawan, an ardent devotee of Hanuman, hailing from a robust wrestling family. Bajrangi Bhaijaan is the moving story of Pavan's quest to unite the child with her parents against all odds. Set against the backdrop of colourful Chandni Chowk, the film travels from the heartland of Punjab, through the deserts of Rajasthan, and over the snow-capped mountains of Kashmir. Bajrangi Bhaijaan tells the story of how Pavan, who moved heaven and earth to fulfil the promise he made to the girl from across the border.`,
         teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
@@ -346,7 +356,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/bajrangi.png",
+            "/posters/Bajrangi Bhaijaan.png",
         ]
     },
     {
@@ -364,11 +374,12 @@ down, or will his own past catch up with him first? Only at the end is the final
         ],
         produced: "Salman Khan, Subhash Ghai",
         director: "Nikkhil Advani",
-        poster: "/images/movie/hero.png",
+        poster: "/posters/Hero.png",
+        backgroundVideo: "/videos/Hero.mp4",
         category: "released",
         synopsis: `An adrenaline junkie walks away from a whirlwind romance and embraces a new life as a thief, though he soon finds himself pursued by veteran police officer and engaged in a turf war with a local gangster.`,
-        teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
-        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
+        teaser: "",
+        trailer: "https://www.youtube.com/watch?v=6k3wapAOu-M",
         media: [
             { url: "https://www.youtube.com/watch?v=j3cWyRmapdg" },
             { url: "https://www.youtube.com/watch?v=O926knS3XEU" },
@@ -389,7 +400,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/hero.png",
+            "/posters/Hero.png",
         ]
     },
     {
@@ -403,11 +414,12 @@ down, or will his own past catch up with him first? Only at the end is the final
         ],
         produced: "Salman Khan, Subhash Ghai",
         director: "Nikhil Advani",
-        poster: "/images/movie/hero.png",
+        poster: "/posters/Battle Of Galwan.png",
+        backgroundVideo: "/videos/Battle Of Galwan.mp4",
         category: "upcoming movie",
         synopsis: `An adrenaline junkie walks away from a whirlwind romance and embraces a new life as a thief, though he soon finds himself pursued by veteran police officer and engaged in a turf war with a local gangster.`,
-        teaser: "https://www.youtube.com/watch?v=1j02gw87ln0",
-        trailer: "https://www.youtube.com/watch?v=4nwAra0mz_Q",
+        teaser: "",
+        trailer: "https://www.youtube.com/watch?v=9G6gBpby58g",
         media: [
             { url: "https://www.youtube.com/watch?v=j3cWyRmapdg" },
             { url: "https://www.youtube.com/watch?v=O926knS3XEU" },
@@ -428,7 +440,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         galleryCover: [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/hero.png",
+            "/posters/Battle Of Galwan.png",
         ]
     },
 
