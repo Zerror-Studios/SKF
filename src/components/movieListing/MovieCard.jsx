@@ -15,27 +15,11 @@ const MovieCard = forwardRef(({ data }, ref) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleHover = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0; // 🔥 restart from start
-      videoRef.current.play();         // ensure playback
-    }
-  };
-
-  const handleLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0; // optional: reset on leave also
-    }
-  };
-
   return (
     <Link
       href={`/movies/${data?.slug}`}
       className="movie_card"
       ref={ref}
-      onMouseEnter={handleHover}
-      onMouseLeave={handleLeave}
     >
       <div className="movie_img">
         {/* 🔹 Video for non-mobile */}
@@ -44,8 +28,9 @@ const MovieCard = forwardRef(({ data }, ref) => {
             ref={videoRef}
             src={data.backgroundVideo}
             muted
+            autoPlay
             playsInline
-            loop={false} // 🔥 set to false so replay only on hover
+            loop
           />
         )}
 
