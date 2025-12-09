@@ -7,7 +7,7 @@ const CastSection = ({ data }) => {
   return (
     <section id="cast_section">
       <div className="cast_tag_wrap">
-        <h2 className="heading">Cast <span className="letter-u">and</span> crew</h2>
+        <h2 className="tag1">Cast and crew</h2>
       </div>
 
       <Swiper
@@ -27,7 +27,6 @@ const CastSection = ({ data }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-
     </section>
   );
 };

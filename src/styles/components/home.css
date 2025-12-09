@@ -348,7 +348,7 @@
   #movie_carousel_section {
     gap: 1rem;
     height: auto;
-    padding: 2.5rem 1rem;
+    padding: 2.5rem 1rem !important;
   }
   #movie_header_title .description br {
     display: none;
@@ -501,7 +501,7 @@
   #movie_carousel_section {
     gap: 1.5rem;
     height: auto;
-    padding: 3.5rem 1rem;
+    padding: 3.5rem 1rem !important;
   }
   #movie_carousel {
     grid-template-columns: repeat(2, 1fr);
@@ -721,7 +721,7 @@
     height: 285px;
   }
   #movie_carousel_section {
-    padding: 3.5rem 1rem 2.5rem;
+    padding: 3.5rem 1rem 2.5rem !important;
   }
   #movie_carousel_section .movie_img {
     height: 180px !important;
