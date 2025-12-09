@@ -6,7 +6,7 @@ import React from "react";
 const GalleryDetails = ({ media }) => {
   return (
     <>
-      <GalleryTitleSection data={media} />
+      <GalleryTitleSection subHeading={"BTS"} data={media} />
       <GalleryDetailList data={media} />
     </>
   );

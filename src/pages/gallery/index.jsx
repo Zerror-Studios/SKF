@@ -6,7 +6,7 @@ import React from "react";
 const Gallery = ({ media }) => {
   return (
     <>
-      <GalleryTitleSection />
+      <GalleryTitleSection subHeading={"GALLERY"} />
       <GalleryList data={media} />
     </>
   );
