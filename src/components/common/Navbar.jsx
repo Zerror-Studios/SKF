@@ -39,7 +39,9 @@ const Navbar = () => {
   const isDarkRoute =
     pathname === "/" ||
     pathname === "/contact" ||
-    (typeof pathname === "string" && pathname.startsWith("/movies/"));
+    (typeof pathname === "string" &&
+      pathname.startsWith("/movies/") &&
+      !pathname.startsWith("/movies/coming-soon"));
 
   useEffect(() => {
     if (!isDarkRoute) return;
