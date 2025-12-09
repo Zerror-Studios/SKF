@@ -103,6 +103,10 @@
   justify-content: center;
   overflow: hidden;
 }
+#movie_carousel_section.not-ishero{
+  height: auto;
+  padding: 3.5rem;
+}
 
 #movie_header {
   width: 100%;

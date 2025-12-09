@@ -13,7 +13,7 @@ const HeroSection = ({ movies }) => {
   return (
     <div id="hero_section_container" ref={heroRef}>
       <HeroLoader />
-      <MovieList movies={movies}/>
+      <MovieList movies={movies} subheading={"Movies"}/>
     </div>
   );
 };
