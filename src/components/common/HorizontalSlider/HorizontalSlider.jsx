@@ -1,131 +1,73 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import TrailerCard from "./TrailerCard";
-import { useRouter } from "next/router";
+import TrailerFullView from "./TrailerFullView";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
-
-// Fetch YouTube title + date
-const fetchVideoMeta = async (url) => {
-  try {
-    const oembedUrl = `https://www.youtube.com/oembed?url=${url}&format=json`;
-    const res = await fetch(oembedUrl);
-    const data = await res.json();
-
-    return {
-      title: data.title || "No title available",
-      date: data.upload_date || "Unknown date",
-    };
-  } catch (err) {
-    return {
-      title: "Unknown title",
-      date: "Unknown date",
-    };
-  }
-};
-
-const extractId = (url) => url.split("v=")[1]?.split("&")[0];
 
 const HorizontalSlider = ({ data }) => {
   const containerRef = useRef(null);
   const panelsRef = useRef([]);
-  const [trailers, setTrailers] = useState([]);
-  const router = useRouter();
 
-  // Build trailers array
-  const buildTrailersArray = async (movie) => {
-    const arr = [];
+  const [activeIndex, setActiveIndex] = useState(null);
 
-    // If teaser exists
-    if (movie.teaser) {
-      const teaserMeta = await fetchVideoMeta(movie.teaser);
-      arr.push({
-        id: arr.length + 1,
-        title: teaserMeta.title,
-        type: "Teaser",
-        iframeUrl: `https://www.youtube.com/embed/${extractId(movie.teaser)}`,
-      });
-    }
+  const trailerList = [
+    data?.trailer
+      ? { title: data?.title, url: data.trailer, type: "trailer" }
+      : null,
+    data?.teaser
+      ? { title: data?.title, url: data.teaser, type: "teaser" }
+      : null,
+  ].filter(Boolean);
 
-    // If trailer exists
-    if (movie.trailer) {
-      const trailerMeta = await fetchVideoMeta(movie.trailer);
-      arr.push({
-        id: arr.length + 1,
-        title: trailerMeta.title,
-        type: "Trailer",
-        iframeUrl: `https://www.youtube.com/embed/${extractId(movie.trailer)}`,
-      });
-    }
+  if (trailerList.length === 0) return null;
 
-    return arr; // if neither exists → returns empty array
-  };
+  // GSAP Animation
+  useGSAP(() => {
+    if (!containerRef.current || trailerList.length < 2) return;
 
-  // Load metadata once
-  useEffect(() => {
-    const loadTrailers = async () => {
-      const arr = await buildTrailersArray(data);
-      setTrailers(arr);
-    };
-    loadTrailers();
-  }, [data]);
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      ScrollTrigger.getAll().forEach((st) => st.kill(true));
-      gsap.globalTimeline.clear();
-    };
-
-    router.events.on("routeChangeStart", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
-  }, []);
-
-  // GSAP animation only after trailers exist
-  useEffect(() => {
-    if (!trailers || trailers.length < 2) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=250%",
-          scrub: 1,
-          pin: true,
-          snap: {
-            snapTo: 1 / 2,
-            duration: { min: 0.2, max: 0.5 },
-            ease: "linear",
-          },
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "+=250%",
+        scrub: 1,
+        pin: true,
+        snap: {
+          snapTo: 1 / (trailerList.length - 1),
+          duration: { min: 0.2, max: 0.5 },
+          ease: "linear",
         },
-      });
+      },
+    });
 
-      tl.to(panelsRef.current[0], { x: "-50%", rotateY: 40, ease: "linear" });
-      tl.fromTo(
-        panelsRef.current[1],
-        { x: "110%", y: "150%", rotateY: -80 },
-        { x: "35%", y: "0%", rotateY: -40, ease: "linear" },
-        "<"
-      );
+    tl.to(panelsRef.current[0], {
+      x: "-50%",
+      rotateY: 40,
+      ease: "linear",
+    });
 
-      tl.to(panelsRef.current[0], { x: "-120%", rotateY: 70, ease: "linear" });
-      tl.to(
-        panelsRef.current[1],
-        { x: "0%", y: "0%", rotateY: 0, ease: "linear" },
-        "<"
-      );
-    }, containerRef);
+    tl.fromTo(
+      panelsRef.current[1],
+      { x: "110%", y: "150%", rotateY: -80 },
+      { x: "35%", y: "0%", rotateY: -40, ease: "linear" },
+      "<"
+    );
 
-    return () => {
-      ScrollTrigger.getAll().forEach((st) => st.kill());
-      gsap.killTweensOf(panelsRef.current);
-      ctx.revert();
-    };
-  }, [trailers, router.asPath]);
+    tl.to(panelsRef.current[0], {
+      x: "-120%",
+      rotateY: 70,
+      ease: "linear",
+    });
+
+    tl.to(
+      panelsRef.current[1],
+      { x: "0%", y: "0%", rotateY: 0, ease: "linear" },
+      "<"
+    );
+  }, [trailerList.length]);
 
   return (
     <>
@@ -137,15 +79,23 @@ const HorizontalSlider = ({ data }) => {
       </div>
 
       <div className="trailer_slider" ref={containerRef}>
-        {trailers.map((trailer, index) => (
+        {trailerList.map((item, index) => (
           <TrailerCard
-            key={trailer.id}
-            trailer={trailer}
+            key={index}
+            item={item}
             index={index}
             panelsRef={panelsRef}
+            onClick={() => setActiveIndex(index)}
           />
         ))}
       </div>
+
+      {activeIndex !== null && (
+        <TrailerFullView
+          item={trailerList[activeIndex]}   // pass single item
+          onClose={() => setActiveIndex(null)}
+        />
+      )}
     </>
   );
 };

@@ -30,7 +30,7 @@
 }
 
 .trailer_panel_poster {
-  width: fit-content;
+  width: auto;
   height: 100%;
   overflow: hidden;
   display: flex;
@@ -43,15 +43,21 @@
   align-items: flex-end;
 }
 .trailer_banner{
-  width: fit-content;
+  width: auto;
   height: 89%;
   overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
-#trailer_section .trailer_banner{
-  height: auto;
-  width: 100%;
+.trailer_banner .card_play_icon{
+  font-size: 4rem;
+  bottom: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
-.trailer_panel_poster iframe {
+
+.trailer_panel_poster img {
   width: auto;
   height: 100%;
   aspect-ratio: 16/9;
@@ -86,10 +92,6 @@
 }
 
 .trailer_panel2 {
-  z-index: 1;
-}
-
-.trailer_panel3 {
   z-index: 1;
 }
 
@@ -162,6 +164,70 @@
   height: 120px;
 }
 /* trailer section end */
+
+
+
+
+.trailer_popup_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.trailer_popup_content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background: #000;
+  overflow: hidden;
+}
+
+.popup_close_btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+.trailer_iframe_wrapper {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.trailer_iframe_wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.trailer_title {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+}
+
+
+
+
+
 
 /* Extra small (Phones) */
 @media (max-width: 480px) {
