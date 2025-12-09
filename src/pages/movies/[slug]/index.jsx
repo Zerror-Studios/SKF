@@ -9,13 +9,13 @@ import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import MovieList from "@/components/home/MovieList";
 
-const MovieDetails = ({ movie, latestMovies }) => {
+const MovieDetails = ({ movie, latestMovies, trailerList }) => {
   return (
     <>
       <MovieDetailsHero data={movie} />
       <SynopsisSection data={movie} />
       <CastSection data={movie} />
-      <HorizontalSlider data={movie} />
+      <HorizontalSlider trailerList={trailerList} />
       <HorizontalSwiper data={movie} />
       <GalleryTitleSection data={movie} isPadding={true} />
       <GalleryDetailList data={movie} />
@@ -41,8 +41,16 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const movie = movies.find((m) => m.slug === params.slug) || null;
   const latestMovies = movies.filter((m) => m.slug !== params.slug).slice(0, 3);
+    const trailerList = [
+      movie?.trailer
+        ? { title: movie?.title, url: movie.trailer, type: "trailer" }
+        : null,
+      movie?.teaser
+        ? { title: movie?.title, url: movie.teaser, type: "teaser" }
+        : null,
+    ].filter(Boolean);
 
   return {
-    props: { movie, latestMovies },
+    props: { movie, latestMovies,trailerList },
   };
 }

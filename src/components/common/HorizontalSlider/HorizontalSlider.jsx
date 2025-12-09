@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import TrailerCard from "./TrailerCard";
@@ -7,26 +7,21 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HorizontalSlider = ({ data }) => {
+const HorizontalSlider = ({ trailerList }) => {
   const containerRef = useRef(null);
   const panelsRef = useRef([]);
 
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const trailerList = [
-    data?.trailer
-      ? { title: data?.title, url: data.trailer, type: "trailer" }
-      : null,
-    data?.teaser
-      ? { title: data?.title, url: data.teaser, type: "teaser" }
-      : null,
-  ].filter(Boolean);
-
-  if (trailerList.length === 0) return null;
+  if (trailerList?.length === 0) return null;
 
   // GSAP Animation
   useGSAP(() => {
-    if (!containerRef.current || trailerList.length < 2) return;
+    //Stop everything if only 1 trailer
+    if (!containerRef.current || trailerList.length <= 1) {
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+      return;
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -67,6 +62,11 @@ const HorizontalSlider = ({ data }) => {
       { x: "0%", y: "0%", rotateY: 0, ease: "linear" },
       "<"
     );
+
+    return () => {
+      tl.kill();
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
   }, [trailerList.length]);
 
   return (
@@ -79,7 +79,7 @@ const HorizontalSlider = ({ data }) => {
       </div>
 
       <div className="trailer_slider" ref={containerRef}>
-        {trailerList.map((item, index) => (
+        {trailerList?.map((item, index) => (
           <TrailerCard
             key={index}
             item={item}
@@ -92,7 +92,7 @@ const HorizontalSlider = ({ data }) => {
 
       {activeIndex !== null && (
         <TrailerFullView
-          item={trailerList[activeIndex]}   // pass single item
+          item={trailerList[activeIndex]} // pass single item
           onClose={() => setActiveIndex(null)}
         />
       )}
