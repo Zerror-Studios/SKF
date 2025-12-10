@@ -5,7 +5,7 @@
   gap: 1.5rem;
   width: 100%;
   overflow-x: auto;
-  cursor: grab;
+  cursor: pointer;
 }
 
 .director_card {
