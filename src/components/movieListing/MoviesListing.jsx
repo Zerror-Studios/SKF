@@ -17,7 +17,6 @@ const MoviesListing = ({ data }) => {
   CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
   const [selectedFilter, setSelectedFilter] = useState("all");
-  const [visibleCount, setVisibleCount] = useState(6);
 
   const filteredData =
     selectedFilter === "all"
@@ -82,14 +81,6 @@ const MoviesListing = ({ data }) => {
     };
   }, [tagRef, titleRef, filtersRef, sectionRef]);
 
-  const handleShowMore = () => {
-    if (visibleCount < filteredData.length) {
-      setVisibleCount(filteredData.length);
-    } else {
-      setVisibleCount(6);
-    }
-  };
-
   return (
     <section id="movie_listing" className="hero">
       <div className="movie_listing_header">
@@ -105,29 +96,16 @@ const MoviesListing = ({ data }) => {
             defaultFilter="all"
             onChange={(value) => {
               setSelectedFilter(value);
-              setVisibleCount(6);
             }}
           />
         </div>
       </div>
 
       <div id="movie_container" className="hero" ref={sectionRef}>
-        {filteredData.slice(0, visibleCount).map((movie, index) => (
+        {filteredData?.map((movie, index) => (
           <MovieCard key={index} id={index + 1} data={movie} />
         ))}
       </div>
-
-      {filteredData.length > 6 && (
-        <div className="btn_container">
-          <Button
-            color={"black"}
-            title={
-              visibleCount < filteredData.length ? "show more" : "show less"
-            }
-            onClick={handleShowMore}
-          />
-        </div>
-      )}
 
       <Cursor sectionRef={sectionRef} text="know more" />
     </section>

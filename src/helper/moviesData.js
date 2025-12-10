@@ -418,7 +418,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ]
     },
     {
-        slug: "battle-of-galwan",
+        slug: "coming-soon?name=battle-of-galwan",
         year: 2026,
         title: "Battle of Galwan",
         cast: [

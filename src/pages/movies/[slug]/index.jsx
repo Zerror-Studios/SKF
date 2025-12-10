@@ -41,21 +41,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const movie = movies.find((m) => m.slug === params.slug) || null;
 
-  // Redirect if upcoming movie
-  if (movie?.category === "upcoming movie") {
-    const movieSlug = movie.title
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-"); // spaces → dashes, lowercase
-
-    return {
-      redirect: {
-        destination: `/movies/coming-soon?name=${movieSlug}`,
-        permanent: false,
-      },
-    };
-  }
-
   const latestMovies = movies.filter((m) => m.slug !== params.slug).slice(0, 3);
   const trailerList = [
     movie?.trailer
