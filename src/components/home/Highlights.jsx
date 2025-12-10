@@ -8,42 +8,7 @@ import Button from "../common/Button";
 gsap.registerPlugin(ScrollTrigger);
 
 const Highlights = ({ tag, title, data = [] }) => {
-  const cardsRef = useRef([]);
-  const triggersRef = useRef([]);
   const lastIndex = useMemo(() => data.length - 1, [data.length]);
-
-  useEffect(() => {
-    if (!cardsRef.current) return;
-
-    cardsRef.current.forEach((card) => {
-      if (!card) return;
-
-      const tl = gsap.fromTo(
-        card,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      triggersRef.current.push(tl.scrollTrigger); // store triggers for cleanup
-    });
-
-    return () => {
-      // cleanup triggers on unmount
-      triggersRef.current.forEach((t) => t && t.kill());
-      triggersRef.current = [];
-    };
-  }, [data]);
 
   return (
     <section id="highlight_section">
@@ -58,7 +23,6 @@ const Highlights = ({ tag, title, data = [] }) => {
               href={`/news/${slug}`}
               key={slug || index}
               className="highlight_card"
-              ref={(el) => (cardsRef.current[index] = el)}
             >
               <div className="highlight_info">
                 <div className="highlight_info_dets">

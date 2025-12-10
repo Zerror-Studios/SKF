@@ -22,7 +22,7 @@ const MovieDetails = ({ movie, latestMovies, trailerList }) => {
       <MovieList
         movies={latestMovies}
         subheading="Other Movies"
-        isHeor={false}
+        NotHero={true}
       />
     </>
   );
