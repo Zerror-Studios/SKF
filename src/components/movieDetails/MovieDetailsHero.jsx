@@ -22,6 +22,11 @@ const MovieDetailsHero = ({ data }) => {
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
+    // reset for new animation
+    tl.set(sectionRef.current, { opacity: 0 });
+    tl.set(bannerRef.current, { y: "20%" });
+    tl.set(detailsRef.current, { y: "20%", opacity: 0 });
+
     tl.to(
       sectionRef.current,
       {
@@ -42,11 +47,13 @@ const MovieDetailsHero = ({ data }) => {
         { y: "0%", opacity: 1, duration: 1 },
         "start+=0.3"
       );
-  }, []);
+
+    return () => tl.kill();
+  }, [data?.slug]);
 
   return (
     <>
-      <div id="movie_details_hero">
+      <div id="movie_details_hero" key={data?.slug}>
         <div id="movie_details_wrapper" ref={sectionRef}>
           <MovieBanner
             title={data?.title}
@@ -57,7 +64,7 @@ const MovieDetailsHero = ({ data }) => {
           <MovieInfo info={data} detailsRef={detailsRef} />
         </div>
       </div>
-      {/* Popup */}
+
       {activeTrailer && (
         <TrailerFullView
           item={activeTrailer}

@@ -62,5 +62,5 @@ export const useSplitTextMaskAnimation = (refs = []) => {
     return () => {
       splits.forEach((s) => s.revert());
     };
-  }, []);
+  }, [refs.map((r) => r.current).join("-")]);
 };

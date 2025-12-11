@@ -36,7 +36,7 @@ const MovieList = ({ movies,subheading,NotHero }) => {
         }
       );
     });
-  }, []);
+  }, [movies]);
 
   return (
     <div id="movie_carousel_section" className={`${NotHero ? "not-ishero":"" }`}>
