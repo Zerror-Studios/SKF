@@ -41,7 +41,7 @@ const TrailerCard = ({ item, index, panelsRef ,onClick }) => {
             height={1000}
             src={thumbnailUrl || "/fallback-thumbnail.jpg"}
             alt="YouTube thumbnail"
-            priority={index === 0} // optimize: load first panel fast
+            priority
           />
 
           <span className="card_play_icon">
