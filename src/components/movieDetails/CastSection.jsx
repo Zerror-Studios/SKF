@@ -12,18 +12,14 @@ const CastSection = ({ data }) => {
 
       <Swiper
         spaceBetween={20}
-        slidesPerView={6.2}
+        slidesPerView={"auto"}
         grabCursor={true}
-        breakpoints={{
-          0: { slidesPerView: 1.6, spaceBetween: 12 },
-          480: { slidesPerView: 2.2, spaceBetween: 16 },
-          768: { slidesPerView: 3.2, spaceBetween: 20 },
-          1024: { slidesPerView: 4, spaceBetween: 24 },
-        }}
       >
         {data?.cast?.map((cast, index) => (
-          <SwiperSlide key={index}>
-            <CastCard data={cast} />
+          <SwiperSlide
+            key={index}
+          >
+           <CastCard data={cast} />
           </SwiperSlide>
         ))}
       </Swiper>

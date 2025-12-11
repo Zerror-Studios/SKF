@@ -171,12 +171,19 @@
   width: 100%;
   padding: 3.5rem;
 }
+#cast_section #cast_slider {
+  width: 100%;
+}
 #cast_section .director_card{
   cursor: grab;
 }
-#cast_section .director_card .director_card_left{
+#cast_section .director_card_left{
   width: 15vw;
 }
+#cast_section .director_card_left:hover img{
+  transform: scale(1.05);
+}
+
 #cast_section  .swiper-slide{
   width: auto !important;
 }
@@ -199,6 +206,9 @@
 
 /* Extra small (Phones) */
 @media (max-width: 480px) {
+  #cast_section .director_card_left {
+    width: 55vw;
+}
   .synopsis_info{
     margin: 0;
   }
@@ -265,6 +275,9 @@
 }
 /* Small (Phones to Tablets) */
 @media (min-width: 480px) and (max-width: 767px) {
+  #cast_section .director_card_left {
+    width: 35vw;
+}
   #movie_details_hero {
     height: auto;
   }
@@ -329,6 +342,9 @@
 
 /* Medium (Tablets) */
 @media (min-width: 764px) and (max-width: 1024px) {
+  #cast_section .director_card_left {
+    width: 22vw;
+}
    #movie_details_hero {
     height: auto;
   }
@@ -393,6 +409,9 @@
 
 /* Large (Laptops) */
 @media (min-width: 1024px) and (max-width: 1286px) {
+  #cast_section .director_card_left {
+    width: 17vw;
+}
   .movie_details_info h4 {
     font-size: 2rem !important;
   }
