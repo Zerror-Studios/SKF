@@ -16,11 +16,7 @@ const MovieCard = forwardRef(({ data }, ref) => {
   }, []);
 
   return (
-    <Link
-      href={`/movies/${data?.slug}`}
-      className="movie_card"
-      ref={ref}
-    >
+    <Link href={`/movies/${data?.slug}`} className={`movie_card ${data?.category === "upcoming movie" ? "upcoming":"" }`} ref={ref}>
       <div className="movie_img">
         {/* 🔹 Video for non-mobile */}
         {!isMobile && data?.backgroundVideo && (
@@ -41,6 +37,9 @@ const MovieCard = forwardRef(({ data }, ref) => {
           src={data?.poster}
           alt={data?.title}
         />
+        {data?.category === "upcoming movie" && (
+          <span className="ribbon">Upcoming</span>
+        )}
       </div>
 
       <div className="movie_dets">
