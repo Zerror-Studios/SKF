@@ -7,7 +7,7 @@ import Button from "../common/Button";
 import { useRouter } from "next/router";
 gsap.registerPlugin(ScrollTrigger);
 
-const MovieList = ({ movies,subheading,NotHero }) => {
+const MovieList = ({ movies, subheading, NotHero }) => {
   const router = useRouter();
   const cardsRef = useRef([]);
   const titleRef = useRef(null);
@@ -39,12 +39,15 @@ const MovieList = ({ movies,subheading,NotHero }) => {
   }, [movies]);
 
   return (
-    <div id="movie_carousel_section" className={`${NotHero ? "not-ishero":"" }`}>
+    <div
+      id="movie_carousel_section"
+      className={`${NotHero ? "not-ishero" : ""}`}
+    >
       <div id="movie_header">
         <div id="movie_header_title">
           <h5 className="tag1">{subheading}</h5>
           <h3 ref={titleRef} className="heading">
-           Blockbuster <span className="letter-u">Lineup</span>
+            Explore <span className="letter-u">Movies</span>
           </h3>
         </div>
       </div>

@@ -70,7 +70,7 @@ const GalleryTitleSection = ({ data, subHeading, isHero = true, isPadding }) => 
           data.title
         ) : (
           <>
-            Exclusive <span className="letter-u">Moments</span>
+          Inside The <span className="letter-u">Frame</span>
           </>
         )}
       </h2>

@@ -27,11 +27,21 @@ const Home = ({ movies, highlightsData, media }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const latestMovies = movies.slice(0, 3);
+ const orderedTitles = [
+  "Bajrangi Bhaijaan",
+  "Dabangg 3",
+  "Tubelight",
+];
+
+const latestMovies = orderedTitles
+  .map(title => movies.find(movie => movie.title === title))
+  .filter(Boolean);
   const highlightsData = news;
-  const media = movies.filter(
-    (film) => !film.category.toLowerCase().includes("upcoming")
-  );
+ const media = movies.filter(
+  (film) =>
+    !film.category.toLowerCase().includes("upcoming") &&
+    film.title !== "Kisi Ka Bhai Kisi Ki Jaan"
+);
   return {
     props: {
       movies: latestMovies,
