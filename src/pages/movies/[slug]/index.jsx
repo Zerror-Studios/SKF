@@ -13,14 +13,22 @@ import SeoHeader from "@/components/seo/SeoHeader";
 const MovieDetails = ({ movie, latestMovies, trailerList }) => {
   return (
     <>
-    <SeoHeader meta={movie?.meta} />
+      <SeoHeader meta={movie?.meta} />
       <MovieDetailsHero data={movie} />
       <SynopsisSection data={movie} />
       <CastSection data={movie} />
       <HorizontalSlider trailerList={trailerList} />
       <HorizontalSwiper data={movie} />
-      <GalleryTitleSection data={movie} isPadding={true} subHeading={"BTS"}/>
-      <GalleryDetailList data={movie} />
+      {movie?.media && movie?.media.length > 0 && (
+        <>
+          <GalleryTitleSection
+            data={movie}
+            isPadding={true}
+            subHeading={"BTS"}
+          />
+          <GalleryDetailList data={movie} />
+        </>
+      )}
       <MovieList
         movies={latestMovies}
         subheading="Other Movies"

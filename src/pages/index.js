@@ -42,7 +42,7 @@ export async function getStaticProps() {
   const orderedTitles = [
     "Bajrangi Bhaijaan",
     "Dabangg 3",
-    "Tubelight",
+    "Bharat",
   ];
 
   const latestMovies = orderedTitles

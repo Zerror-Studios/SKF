@@ -8,7 +8,7 @@ const Gallery = ({ meta, media }) => {
   return (
     <>
       <SeoHeader meta={meta} />
-      <GalleryTitleSection subHeading={"GALLERY"} />
+      <GalleryTitleSection subHeading={"GALLERY"} isPadding={true} />
       <GalleryList data={media} />
     </>
   );

@@ -34,18 +34,18 @@ const MovieDetailsHero = ({ data }) => {
         opacity: 1,
         duration: 1,
       },
-      "start"
+      "start",
     )
       .to(bannerRef.current, { y: "0%", duration: 0.8 }, "start+=0.1")
       .to(
         bannerRef.current.querySelector("img"),
         { objectPosition: "50% 50%", duration: 1, ease: "power4.out" },
-        "start+=0.2"
+        "start+=0.2",
       )
       .to(
         detailsRef.current,
         { y: "0%", opacity: 1, duration: 1 },
-        "start+=0.3"
+        "start+=0.3",
       );
 
     return () => tl.kill();
@@ -58,6 +58,7 @@ const MovieDetailsHero = ({ data }) => {
           <MovieBanner
             title={data?.title}
             poster={data?.poster}
+            trailer={data?.trailer}
             bannerRef={bannerRef}
             setShowVideo={openTrailer}
           />
@@ -65,12 +66,13 @@ const MovieDetailsHero = ({ data }) => {
         </div>
       </div>
 
-      {activeTrailer && (
-        <TrailerFullView
-          item={activeTrailer}
-          onClose={() => setActiveTrailer(null)}
-        />
-      )}
+      {data?.trailer &&
+        activeTrailer && (
+          <TrailerFullView
+            item={activeTrailer}
+            onClose={() => setActiveTrailer(null)}
+          />
+        )}
     </>
   );
 };

@@ -41,6 +41,47 @@ export const movies = [
         }
     },
     {
+        slug: "angry-young-men",
+        year: 2024,
+        title: "Angry Young Men",
+        cast: [
+            { id: 1, name: "Salman Khan", image: "/images/moviedetails/cast/Dabang 3/Salman khan.png" },
+            { id: 2, name: "Salim Khan", image: "/images/moviedetails/cast/Dabang 3/Sonakshi Sinha.png" },
+            { id: 3, name: "Javed Akhtar", image: "/images/moviedetails/cast/Radhe/DISHA PATANI.png" },
+            { id: 4, name: "Farhan Akhtar", image: "/images/moviedetails/cast/Dabang 3/Sudeepa.png" },
+            { id: 5, name: "Arbaaz Khan", image: "/images/moviedetails/cast/Radhe/JACKIE SHROFF.png" },
+            { id: 6, name: "Aamir Khan", image: "/images/moviedetails/cast/Radhe/JACKIE SHROFF.png" },
+            { id: 7, name: "Shabana Azmi", image: "/images/moviedetails/cast/Radhe/JACKIE SHROFF.png" },
+        ]
+        ,
+        produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
+        director: "Namrata Rao",
+        poster: "/posters/Angry Young Men.webp",
+        backgroundVideo: "/videos/Angry Young Men.mp4",
+        category: "released",
+        synopsis: `Salim-Javed, the legendary screenwriters of 70’s Hindi cinema co-wrote 24 films in 11 years, of which 20 were blockbusters. They created the Angry Young Men  the brooding anti-hero who captured the imagination of an entire nation. Like the character, Salim Khan & Javed Akhtar, two outsiders, defied all odds and rose to superstardom. Hindi cinema never saw a cultural collaboration as powerful again.`,
+        teaser: "",
+        trailer: "https://www.youtube.com/watch?v=QXKvR2hD5lI",
+        media: [
+            // { url: "" },
+        ],
+        albumName: "Angry Young Men Album",
+        galleryCover: [
+            "/images/movie/sikandar.png",
+            "/images/movie/kiss-ka-bhai.png",
+            "/posters/Dabangg 3.png",
+        ],
+        meta: {
+            title: "Angry Young Men | Prime Video Original Series",
+            description:
+                "Angry Young Men is a Hindi documentary series that explores the lives, legacy, and creative journey of legendary screenwriters Salim Khan and Javed Akhtar, the duo who redefined Hindi cinema.",
+            keywords:
+                "Angry Young Men, Salim Javed, Salim Khan, Javed Akhtar, Bollywood screenwriters, Hindi cinema documentary, Prime Video series",
+            author: "Prime Video",
+            robots: "index,follow",
+        }
+    },
+    {
         slug: "kisi-ka-bhai-kisi-ki-jaan",
         year: 2023,
         title: "Kisi Ka Bhai Kisi Ki Jaan",
@@ -262,6 +303,45 @@ down, or will his own past catch up with him first? Only at the end is the final
             { url: "https://www.youtube.com/watch?v=SItUtPrEX4M&list=PLofFoQnZAD2Ge5Tg1UfGDPSS9yxokWyKy&index=30" },
         ],
         albumName: "Dabangg 3 Album",
+        galleryCover: [
+            "/images/movie/sikandar.png",
+            "/images/movie/kiss-ka-bhai.png",
+            "/posters/Dabangg 3.png",
+        ],
+        meta: {
+            title: "Dabangg 3 | Salman Khan Films",
+            description:
+                "Dabangg 3 is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Dabangg 3, Dabangg film series, Salman Khan Dabangg 3, SKF production, Hindi feature film, Bollywood movie",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
+    },
+    {
+        slug: "bharat",
+        year: 2019,
+        title: "Bharat",
+        cast: [
+            { id: 1, name: "Salman Khan", image: "/images/moviedetails/cast/Dabang 3/Salman khan.png" },
+            { id: 2, name: "Katrina Kaif", image: "/images/moviedetails/cast/Dabang 3/Sonakshi Sinha.png" },
+            { id: 3, name: "Disha Patani", image: "/images/moviedetails/cast/Radhe/DISHA PATANI.png" },
+            { id: 4, name: "Sunil Grover", image: "/images/moviedetails/cast/Dabang 3/Sudeepa.png" },
+            { id: 5, name: "Jackie Shroff", image: "/images/moviedetails/cast/Radhe/JACKIE SHROFF.png" },
+        ]
+        ,
+        produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
+        director: "Ali Abbas Zafar",
+        poster: "/posters/Bharat.jpg",
+        backgroundVideo: "/videos/bharat.mp4",
+        category: "released",
+        synopsis: `Bharat is a journey of a man and a nation together. At the cusp of India's birth as an Independent nation, a family makes an arduous journey to freedom. Played by Indian superstar, Salman Khan in the title role, with Katrina Kaif, Sunil Grover, Tabu and Disha Patni, Bharat is an entertaining and endearing film about a man’s sacrifices to fulfill a promise made to his father.`,
+        teaser: "",
+        trailer: "",
+        media: [
+            // { url: "" },
+        ],
+        albumName: "Bharat Album",
         galleryCover: [
             "/images/movie/sikandar.png",
             "/images/movie/kiss-ka-bhai.png",
