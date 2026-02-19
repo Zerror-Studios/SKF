@@ -29,7 +29,16 @@ export const movies = [
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Sikandar.png",
-        ]
+        ],
+        meta: {
+            title: "Sikandar | Salman Khan Films",
+            description:
+                "Sikandar is a Hindi feature film produced by Salman Khan Films. Explore official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Sikandar film, Salman Khan Sikandar, SKF Sikandar movie, Hindi feature film, Bollywood movie Sikandar",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "kisi-ka-bhai-kisi-ki-jaan",
@@ -66,7 +75,16 @@ export const movies = [
             "/images/movie/sikandar.png",
             "/images/movie/farrey.png",
             "/posters/kisi ka bhai.png",
-        ]
+        ],
+        meta: {
+            title: "Kisi Ka Bhai Kisi Ki Jaan | Salman Khan Films",
+            description:
+                "Kisi Ka Bhai Kisi Ki Jaan is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Kisi Ka Bhai Kisi Ki Jaan, Salman Khan film, SKF production, Hindi feature film, Bollywood movie",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "farrey",
@@ -99,7 +117,16 @@ export const movies = [
             "/images/movie/kiss-ka-bhai.png",
             "/images/movie/sikandar.png",
             "/posters/Farrey.png",
-        ]
+        ],
+        meta: {
+            title: "Farrey | Salman Khan Films",
+            description:
+                "Farrey is a Hindi feature film produced by Salman Khan Films. Find official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Farrey film, Salman Khan Films Farrey, SKF production, Hindi feature film, Bollywood movie Farrey",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "radhe-your-most-wanted-bhai",
@@ -138,7 +165,16 @@ export const movies = [
             "/images/movie/sikandar.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Radhe.png",
-        ]
+        ],
+        meta: {
+            title: "Radhe: Your Most Wanted Bhai | Salman Khan Films",
+            description:
+                "Radhe: Your Most Wanted Bhai is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Radhe Your Most Wanted Bhai, Radhe film, Salman Khan Radhe, SKF production, Hindi feature film, Bollywood movie",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "antim-the-final-truth",
@@ -182,7 +218,16 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Antim.png",
-        ]
+        ],
+        meta: {
+            title: "Antim: The Final Truth | Salman Khan Films",
+            description:
+                "Antim: The Final Truth is a Hindi feature film produced by Salman Khan Films. View official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Antim The Final Truth, Antim film, Salman Khan Antim, SKF production, Hindi feature film, Bollywood movie",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "dabangg-3",
@@ -221,7 +266,16 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/sikandar.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Dabangg 3.png",
-        ]
+        ],
+        meta: {
+            title: "Dabangg 3 | Salman Khan Films",
+            description:
+                "Dabangg 3 is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Dabangg 3, Dabangg film series, Salman Khan Dabangg 3, SKF production, Hindi feature film, Bollywood movie",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "race-3",
@@ -260,7 +314,16 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Race 3.png",
-        ]
+        ],
+        meta: {
+            title: "Race 3 | Salman Khan Films",
+            description:
+                "Race 3 is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Race 3, Salman Khan Race 3, SKF production, Hindi feature film, Bollywood movie Race 3",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "loveyatri-a-journey-of-love",
@@ -293,7 +356,16 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/kiss-ka-bhai.png",
             "/images/movie/farrey.png",
             "/posters/Loveyatri.png",
-        ]
+        ],
+        meta: {
+            title: "Loveyatri: A Journey of Love | Salman Khan Films",
+            description:
+                "Loveyatri: A Journey of Love is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Loveyatri A Journey of Love, Loveyatri film, Salman Khan Films Loveyatri, SKF production, Hindi feature film, Bollywood movie",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "tubelight",
@@ -328,7 +400,16 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Tubelight.png",
-        ]
+        ],
+        meta: {
+            title: "Tubelight | Salman Khan Films",
+            description:
+                "Tubelight is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Tubelight film, Salman Khan Tubelight, SKF production, Hindi feature film, Bollywood movie Tubelight",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "bajrangi-bhaijaan",
@@ -376,7 +457,17 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Bajrangi Bhaijaan.png",
-        ]
+        ],
+        meta: {
+            title: "Bajrangi Bhaijaan | Salman Khan Films",
+            description:
+                "Bajrangi Bhaijaan is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Bajrangi Bhaijaan, Salman Khan Bajrangi Bhaijaan, SKF production, Hindi feature film, Bollywood movie",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
+
     },
     {
         slug: "hero",
@@ -420,7 +511,16 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Hero.png",
-        ]
+        ],
+        meta: {
+            title: "Hero | Salman Khan Films",
+            description:
+                "Hero is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Hero film, Salman Khan Films Hero, SKF production, Hindi feature film, Bollywood movie Hero",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "coming-soon?name=battle-of-galwan",
@@ -460,7 +560,16 @@ down, or will his own past catch up with him first? Only at the end is the final
             "/images/movie/farrey.png",
             "/images/movie/kiss-ka-bhai.png",
             "/posters/Battle Of Galwan.png",
-        ]
+        ],
+        meta: {
+            title: "Battle of Galwan | Salman Khan Films",
+            description:
+                "Battle of Galwan is a Hindi feature film produced by Salman Khan Films. Access official information, visuals, and key highlights related to the film.",
+            keywords:
+                "Battle of Galwan, Salman Khan Films Battle of Galwan, SKF production, Hindi feature film, Bollywood movie",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
 
 ];

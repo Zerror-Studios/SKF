@@ -1,11 +1,13 @@
 import Highlights from "@/components/home/Highlights";
 import NewsHeroSection from "@/components/news/NewsHeroSection";
+import SeoHeader from "@/components/seo/SeoHeader";
 import { news } from "@/helper/newsData";
 import React from "react";
 
 const News = ({ newsData, highlightsData }) => {
   return (
     <>
+      <SeoHeader meta={newsData?.meta} />
       <NewsHeroSection data={newsData} />
       <Highlights tag={"More Highlights"} data={highlightsData} />
     </>

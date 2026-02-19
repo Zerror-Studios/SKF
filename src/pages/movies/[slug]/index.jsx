@@ -8,10 +8,12 @@ import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import MovieList from "@/components/home/MovieList";
 import { movies } from "@/helper/moviesData";
+import SeoHeader from "@/components/seo/SeoHeader";
 
 const MovieDetails = ({ movie, latestMovies, trailerList }) => {
   return (
     <>
+    <SeoHeader meta={movie?.meta} />
       <MovieDetailsHero data={movie} />
       <SynopsisSection data={movie} />
       <CastSection data={movie} />

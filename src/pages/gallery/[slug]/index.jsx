@@ -1,11 +1,13 @@
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
+import SeoHeader from "@/components/seo/SeoHeader";
 import { movies } from "@/helper/moviesData";
 import React from "react";
 
 const GalleryDetails = ({ media }) => {
   return (
     <>
+      <SeoHeader meta={media?.meta} />
       <GalleryTitleSection subHeading={"BTS"} data={media} />
       <GalleryDetailList data={media} />
     </>

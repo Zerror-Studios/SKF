@@ -28,7 +28,16 @@ setting a new benchmark for Indian cinema this year.`,
             `With Sikandar’s unprecedented success, Salman Khan Films is already looking ahead to future projects,
 aiming to deliver high-quality entertainment that continues to captivate audiences worldwide.`
 
-        ]
+        ],
+        meta: {
+            title: "Sikander Creates Box Office Storm | Salman Khan Films",
+            description:
+                "Official news, announcements, and updates related to film projects, releases, and company developments from Salman Khan Films.",
+            keywords:
+                "Salman Khan Films news, SKF announcements, Bollywood film updates, production news",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "kisi-ka-bhai-kisi-ki-jaan-finds-new-audience-on-ott",
@@ -59,7 +68,16 @@ setting a new benchmark for Indian cinema this year.`,
             `With Sikandar’s unprecedented success, Salman Khan Films is already looking ahead to future projects,
 aiming to deliver high-quality entertainment that continues to captivate audiences worldwide.`
 
-        ]
+        ],
+        meta: {
+            title: "Kisi Ka Bhai Kisi Ki Jaan Finds New Audience on OTT | Salman Khan Films",
+            description:
+                "Official news, announcements, and updates related to film projects, releases, and company developments from Salman Khan Films.",
+            keywords:
+                "Salman Khan Films news, SKF announcements, Bollywood film updates, production news",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
     {
         slug: "kick-2-brings-back-devil-in-style",
@@ -90,6 +108,15 @@ setting a new benchmark for Indian cinema this year.`,
             `With Sikandar’s unprecedented success, Salman Khan Films is already looking ahead to future projects,
 aiming to deliver high-quality entertainment that continues to captivate audiences worldwide.`
 
-        ]
+        ],
+        meta: {
+            title: "Kick 2 Brings Back Devil in Style | Salman Khan Films",
+            description:
+                "Official news, announcements, and updates related to film projects, releases, and company developments from Salman Khan Films.",
+            keywords:
+                "Salman Khan Films news, SKF announcements, Bollywood film updates, production news",
+            author: "Salman Khan Films",
+            robots: "index,follow",
+        }
     },
 ];
