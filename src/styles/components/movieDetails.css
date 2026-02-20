@@ -66,17 +66,23 @@
   will-change: transform, opacity;
 }
 .movie_details_info >div{
-  width: calc(100%/3.5);
+  width: calc(100%/3.7);
 }
 .movie_details_info img {
-  width: 1.2rem;
-  height: auto;
+  width: auto;
+  height: 1.8rem;
 }
 .movie_details_info .netflix {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: fit-content;
+}
+.watch-now{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .movie_details_info_produce {

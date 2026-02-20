@@ -15,7 +15,7 @@ export const movies = [
         ,
         produced: "Salman Khan, Rockline Venkatesh, Kabir Khan",
         director: "Kabir Khan",
-        poster: "/posters/Bajrangi Bhaijaan.png",
+        poster: "/images/movie/Bajrangi-Bhaijaan.webp",
         backgroundVideo: "/videos/Bajrangi Bhaijaan.mp4",
         category: "released",
         synopsis: `A 5-year-old girl from Pakistan gets separated from her mother at an Indian railway station. Lost and hungry, she finds shelter at the home of Pawan, an ardent devotee of Hanuman, hailing from a robust wrestling family. Bajrangi Bhaijaan is the moving story of Pavan's quest to unite the child with her parents against all odds. Set against the backdrop of colourful Chandni Chowk, the film travels from the heartland of Punjab, through the deserts of Rajasthan, and over the snow-capped mountains of Kashmir. Bajrangi Bhaijaan tells the story of how Pavan, who moved heaven and earth to fulfil the promise he made to the girl from across the border.`,
@@ -32,11 +32,11 @@ export const movies = [
         },
         watchNow: [
             {
-                platform: "Netflix",
+                platform: "netflix",
                 url: "https://www.netflix.com/in/title/80065328"
             },
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/Bajrangi-Bhaijaan/0HKBAUBOLTFVGSD0TV6LMLZHY9"
             }
         ],
@@ -58,7 +58,7 @@ export const movies = [
         ,
         produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
         director: "Namrata Rao",
-        poster: "/posters/Angry Young Men.webp",
+        poster: "/images/movie/Angry-Young-Men.webp",
         backgroundVideo: "/videos/Angry Young Men.mp4",
         category: "released",
         synopsis: `Salim-Javed, the legendary screenwriters of 70’s Hindi cinema co-wrote 24 films in 11 years, of which 20 were blockbusters. They created the Angry Young Men  the brooding anti-hero who captured the imagination of an entire nation. Like the character, Salim Khan & Javed Akhtar, two outsiders, defied all odds and rose to superstardom. Hindi cinema never saw a cultural collaboration as powerful again.`,
@@ -75,7 +75,7 @@ export const movies = [
         },
         watchNow: [
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/Angry-Young-Men/0PCKSMVTFQD30VBOCO3CMTDIXJ"
             }
         ],
@@ -94,7 +94,7 @@ export const movies = [
         ,
         produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
         director: "Ali Abbas Zafar",
-        poster: "/posters/Bharat.jpg",
+        poster: "/images/movie/Bharat.webp",
         backgroundVideo: "/videos/bharat.mp4",
         category: "released",
         synopsis: `Bharat is a journey of a man and a nation together. At the cusp of India's birth as an Independent nation, a family makes an arduous journey to freedom. Played by Indian superstar, Salman Khan in the title role, with Katrina Kaif, Sunil Grover, Tabu and Disha Patni, Bharat is an entertaining and endearing film about a man’s sacrifices to fulfill a promise made to his father.`,
@@ -111,11 +111,11 @@ export const movies = [
         },
         watchNow: [
             {
-                platform: "Netflix",
+                platform: "netflix",
                 url: "https://www.netflix.com/in/title/81587836"
             },
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/Bharat/0MJEKHZXJS0MLM79LS7ND0ADZM"
             }
         ],
@@ -136,7 +136,7 @@ export const movies = [
         ,
         produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
         director: "Prabhu Deva",
-        poster: "/posters/Dabangg 3.png",
+        poster: "/images/movie/Dabangg-3.webp",
         backgroundVideo: "/videos/Dabangg 3.mp4",
         category: "released",
         synopsis: `More beefed-up, worked up and dangerous than ever, Chulbul Pandey, now the tough-as-nails police superintendent of Tundla city in Uttar Pradesh, finds himself juggling career and family after bringing down unscrupulous Baccha Singh's empire in Dabangg 2 (2012). However, as the past comes back to haunt him in the shape of the wicked old nemesis, Bali Singh. `,
@@ -153,7 +153,7 @@ export const movies = [
         },
         watchNow: [
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/Dabangg-3/0O73F892CD3S1XQISXH7DQD7L9"
             }
         ],
@@ -173,7 +173,7 @@ export const movies = [
         ,
         produced: "Salman Khan, Kabir Khan, Salma Khan",
         director: "Kabir Khan",
-        poster: "/posters/Tubelight.png",
+        poster: "/images/movie/Tubelight.webp",
         backgroundVideo: "/videos/Tubelight.mp4",
         category: "released",
         synopsis: `A story of two brothers set during the Sino-Indian war, 1962: the younger one who's at war at the borders and the elder who's at war with his own world.
@@ -191,11 +191,11 @@ export const movies = [
         },
         watchNow: [
             {
-                platform: "Netflix",
+                platform: "netflix",
                 url: "https://www.netflix.com/in/title/80198682"
             },
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/Tubelight/0LGZEXYJYQ7LV93Q5AG3XADABS"
             }
         ],
@@ -244,7 +244,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Zee",
+                platform: "zee",
                 url: "https://www.zee5.com/collections/antim-the-final-truth/0-8-9015"
             }
         ],
@@ -262,7 +262,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ,
         produced: "Salman Khan",
         director: "Abhiraj K. Minawala",
-        poster: "/posters/Loveyatri.png",
+        poster: "/images/movie/Loveyatri.webp",
         backgroundVideo: "/videos/Loveyatri.mp4",
         category: "released",
         synopsis: `Sushrut, a garba teacher, falls in love with NRI girl Michelle when she visits town during festival`,
@@ -279,11 +279,11 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Netflix",
+                platform: "netflix",
                 url: "https://www.netflix.com/in/title/81994054"
             },
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/Loveyatri---The-Journey-of-Love/0MF4D57QDNKD3PPAWNE0AN42Z5"
             }
         ],
@@ -304,7 +304,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ,
         produced: "Salman Khan, Sohail Khan, Atul Agnihotri, Nikhil Namit",
         director: " Prabhu Deva",
-        poster: "/posters/Radhe.png",
+        poster: "/images/movie/Radhe.webp",
         backgroundVideo: "/videos/Radhe Your Most Wanted Bhai.mp4",
         category: "released",
         synopsis: `The drug mafia has increased in India, where more and more youngsters are addicted to drugs and taking their lives. The Mumbai police decides to get suspended officer Radhe (Salman Khan) on duty to clean the city. Radhe joins soon and firstly makes two rival groups of Dagdu Dada and Dilwar to join hands as they are against the drug business and will help him clean the city. Radhe's reporting officer is funny, ACP Avinash Abhyankar, who runs away with Radhe's credits while Radhe loves Avinash's sister Dia and pretends to be an upcoming model. Rana the drug lord who has landed in Mumbai and forces people to sell drugs and gets Dilwar killed from his brother Mansoor who works for him, Radhe manages to trace Rana which starts a long cat and mouse race between them. `,
@@ -321,7 +321,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Zee",
+                platform: "zee",
                 url: "https://www.zee5.com/movies/details/radhe-your-most-wanted-bhai/0-0-399328"
             }
         ],
@@ -344,7 +344,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ,
         produced: "Salman Khan",
         director: "Remo D’Souza",
-        poster: "/posters/Race 3.png",
+        poster: "/images/movie/Race-3.webp",
         backgroundVideo: "/videos/Race 3.mp4",
         category: "released",
         synopsis: `Race 3 as its predecessors is an internationally mounted saga of a family that deals in borderline crime but is ruthless and vindictive to the core. A world with twists and turns at every nook and corner, which will take the audience by surprise with its sheer unpredictability. Characters change their characteristics at the blink of an eye as the story rushes towards a high-octane climax with betrayal, fast guns, fast cars, and sleek action never seen before on the Indian screen. Action and drama that leads to a shocking twist in the climax that takes your breath away.`,
@@ -361,11 +361,11 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Netflix",
+                platform: "netflix",
                 url: "https://www.netflix.com/in/title/81587769"
             },
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/Race-3/0SKRJNJOWMM7PJ7L7BBIL3Y002"
             }
         ],
@@ -387,7 +387,7 @@ down, or will his own past catch up with him first? Only at the end is the final
 
         produced: "Atul Agnihotri, Alvira Khan, Sunir Kheterpal, Nikhil Namit, Y. Ravi Shankar, Naveen Yerneni, Salman Khan",
         director: "Soumendra Padhi",
-        poster: "/posters/Farrey.png",
+        poster: "/images/movie/Farrey.webp",
         backgroundVideo: "/videos/FARREY Official Trailer.mp4",
         category: "released",
         synopsis: `Niyati, an orphan prodigy, living under the care of her warden in a local orphanage in Delhi, becomes the national level topper in the 10th board exams and secures admission in an elite school on scholarship. There she is lured by her rich friends to help them cheat in exams by developing elaborate methods and gets pulled into a cheating racket with increasingly higher risks and even higher rewards. But she may lose much more than she gains.`,
@@ -404,7 +404,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Zee",
+                platform: "zee",
                 url: "https://www.zee5.com/movies/details/farrey/0-0-1z5535565"
             }
         ],
@@ -424,7 +424,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ],
         produced: "Salman Khan, Subhash Ghai",
         director: "Nikkhil Advani",
-        poster: "/posters/Hero.png",
+        poster: "/images/movie/Hero.webp",
         backgroundVideo: "/videos/Hero.mp4",
         category: "released",
         synopsis: `An adrenaline junkie walks away from a whirlwind romance and embraces a new life as a thief, though he soon finds himself pursued by veteran police officer and engaged in a turf war with a local gangster.`,
@@ -441,11 +441,11 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Netflix",
+                platform: "netflix",
                 url: "https://www.netflix.com/in/title/80080110"
             },
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/Hero/0N8ZSPCYWM4GEC56A8DCXUYCY2"
             }
         ],
@@ -455,16 +455,20 @@ down, or will his own past catch up with him first? Only at the end is the final
         year: 2019,
         title: "Notebook",
         cast: [
-            { id: 1, name: "Salman Khan", image: "/images/moviedetails/cast/kisi ka bhai/Salman khan.png" },
+            { id: 1, name: "Zaheer Iqbal", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 2, name: "Pranutan Bahl", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 3, name: "Payal Ashar", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 4, name: "Sharib Hashmi", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 5, name: "Darab Farooqui", image: "/images/moviedetails/cast/placeholder.png" },
         ],
-        produced: "Salman Khan",
-        director: "Farhad Samji",
-        poster: "/posters/notebook.webp",
+        produced: "Salman Khan, Murad Khetani, Ashwin Varde",
+        director: "Nitin Kakkar",
+        poster: "/images/movie/Notebook.webp",
         backgroundVideo: "/videos/Notebook.mp4",
         category: "released",
         synopsis: `An ex-army officer Kabir (Zaheer Iqbal) comes back to Kashmir to be a school teacher. However, things turn out to be totally opposite of what he had imagined. The school is situated in the middle of the remote Wuller lake, lacking basic amenities like running water and electricity and is attended by just a handful of students. This is not what Kabir had signed up for.Things take a turn when one day Kabir finds a notebook, left behind by the previous year's teacher Firdaus (Pranutan Bahl). What follows is what happens to Kabir after the discovery of this special notebook.`,
-        teaser: "",
-        trailer: "https://www.youtube.com/watch?v=SXYxOCLc9-c",
+        teaser: "https://youtu.be/i5kMuXDb4Fc?si=64RtepwBwpCi-3bP",
+        trailer: "https://youtu.be/SXYxOCLc9-c?si=LFZ4uyxNK1vJrcvY",
         meta: {
             title: "Notebook | Salman Khan Films",
             description:
@@ -476,11 +480,11 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Netflix",
+                platform: "netflix",
                 url: "https://www.netflix.com/in/title/81994051"
             },
             {
-                platform: "Amazon Prime Video",
+                platform: "prime",
                 url: "https://www.primevideo.com/detail/The-Notebook/0Q3BGO06JJV3U877CLAZWZDPLV"
             }
         ],
@@ -501,7 +505,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ],
         produced: "Salman Khan",
         director: "Farhad Samji",
-        poster: "/posters/kisi ka bhai.png",
+        poster: "/images/movie/Kisi-Ka-Kisi-Ki-Bhai-Jaan.webp",
         backgroundVideo: "/videos/Kisi Ka Bhai Kisi Ki Jaan.mp4",
         category: "released",
         synopsis: `Salman Khan is a self-appointed vigilante committed to the cause of keeping the society crime-free. His younger brothers set him up with a woman similar to his previous love interest. What follows is a series of events that takes all of them across the length of the country and various revelations with all the elements of a wholesome entertainer.`,
@@ -518,7 +522,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Zee",
+                platform: "zee",
                 url: "https://www.zee5.com/movies/details/kisi-ka-bhai-kisi-ki-jaan/0-0-1z5379692"
             }
         ],
@@ -537,7 +541,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         ],
         produced: "Sajid Nadiadwala",
         director: "A. R. Murugadoss",
-        poster: "/posters/Sikandar.png",
+        poster: "/images/movie/Sikandar.webp",
         backgroundVideo: "/videos/SIKANDAR Official Trailer.mp4",
         category: "released",
         synopsis: `Sikandar follows the journey of a man who overcomes all hurdles that life throws his way just so that he can alleviate the plight of the less fortunate and those in need of his help. His transition from a nonchalant man to a selfless man, inspired by his wife, makes him emerge as a beacon of hope for those ensnared in darkness.`,
@@ -554,7 +558,7 @@ down, or will his own past catch up with him first? Only at the end is the final
         },
         watchNow: [
             {
-                platform: "Netflix",
+                platform: "netflix",
                 url: "https://www.netflix.com/in/title/81993917"
             }
         ],

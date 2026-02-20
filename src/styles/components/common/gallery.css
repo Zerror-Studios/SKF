@@ -19,8 +19,9 @@
 }
 
 .gallery_card {
-  height: 400px;
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* YouTube video ratio */
 }
 .image,
 .card_details {
@@ -251,11 +252,11 @@
     padding: 1rem;
     padding-bottom: 3.5rem;
   }
-  .gallery_card {
+  /* .gallery_card {
     height: 250px;
     width: 100%;
     position: relative;
-}
+} */
   .arrow_circle {
     width: 2.8rem;
     height: 2.8rem;

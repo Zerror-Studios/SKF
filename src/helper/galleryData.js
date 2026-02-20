@@ -3,11 +3,7 @@ export const galleryAlbums = [
         id: "1",
         slug: "bajrangi-bhaijaan",
         title: "Bajrangi Bhaijaan",
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Bajrangi Bhaijaan.png",
-        ],
+        galleryCover: "/images/movie/Bajrangi-Bhaijaan.webp",
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=VXzUue3v20k" },
             { type: "video", src: "https://www.youtube.com/watch?v=fpwmbYdJbQA" },
@@ -41,11 +37,7 @@ export const galleryAlbums = [
         id: "2",
         slug: "angry-young-men",
         title: "Angry Young Men",
-        galleryCover: [
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Dabangg 3.png",
-            "/posters/Angry Young Men.webp",
-        ],
+        galleryCover: "/images/movie/Angry-Young-Men.webp",
 
         media: [
         ],
@@ -63,11 +55,7 @@ export const galleryAlbums = [
         id: "3",
         slug: "bharat",
         title: "Bharat",
-        galleryCover: [
-            "/images/movie/sikandar.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Bharat.jpg",
-        ],
+        galleryCover: "/images/movie/Bharat.webp",
 
         media: [
         ],
@@ -85,11 +73,7 @@ export const galleryAlbums = [
         id: "4",
         slug: "dabangg-3",
         title: "Dabangg 3",
-        galleryCover: [
-            "/images/movie/sikandar.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Dabangg 3.png",
-        ],
+        galleryCover: "/images/movie/Dabangg-3.webp",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=Vl0UaDiJ6Hw&list=PLofFoQnZAD2Ge5Tg1UfGDPSS9yxokWyKy" },
@@ -115,11 +99,7 @@ export const galleryAlbums = [
         id: "5",
         slug: "tubelight",
         title: "Tubelight",
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Tubelight.png",
-        ],
+        galleryCover: "/images/movie/Tubelight.webp",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=dkWBLXnFuQk&list=PLofFoQnZAD2HuiZX69CtZ8w46VsIxI28v&index=12" },
@@ -141,11 +121,7 @@ export const galleryAlbums = [
         id: "6",
         slug: "antim-the-final-truth",
         title: "Antim: The Final Truth",
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Antim.png",
-        ],
+        galleryCover: "/posters/Antim.png",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=7-E9jBVF2Ng&list=PLofFoQnZAD2GbZ7q_z4WGULuFzxxaoU08&index=6" },
@@ -165,11 +141,7 @@ export const galleryAlbums = [
         id: "7",
         slug: "loveyatri-a-journey-of-love",
         title: "Loveyatri: A Journey of Love",
-        galleryCover: [
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/farrey.png",
-            "/posters/Loveyatri.png",
-        ],
+        galleryCover: "/images/movie/Loveyatri.webp",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=T2hPPkgdUWw" },
@@ -192,11 +164,7 @@ export const galleryAlbums = [
         id: "8",
         slug: "radhe-your-most-wanted-bhai",
         title: "Radhe: Your Most Wanted Bhai",
-        galleryCover: [
-            "/images/movie/sikandar.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Radhe.png",
-        ],
+        galleryCover: "/images/movie/Radhe.webp",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=r7MJ2gaIwsE&list=PLofFoQnZAD2FGyj1lEdrj5bjt-MHzZ6sm&index=5" },
@@ -222,11 +190,7 @@ export const galleryAlbums = [
         id: "9",
         slug: "race-3",
         title: "Race 3",
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Race 3.png",
-        ],
+        galleryCover: "/images/movie/Race-3.webp",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=u4jyLpmIdqw&list=PLofFoQnZAD2Fdqp8vB_oi4gGgMkdwCofa&index=31" },
@@ -250,11 +214,7 @@ export const galleryAlbums = [
         id: "10",
         slug: "farrey",
         title: "Farrey",
-        galleryCover: [
-            "/images/movie/kiss-ka-bhai.png",
-            "/images/movie/sikandar.png",
-            "/posters/Farrey.png",
-        ],
+        galleryCover: "/images/movie/Farrey.webp",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=Dpgy-Juf8zk" },
@@ -273,11 +233,7 @@ export const galleryAlbums = [
         id: "11",
         slug: "hero",
         title: "Hero",
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Hero.png",
-        ],
+        galleryCover: "/images/movie/Hero.webp",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=j3cWyRmapdg" },
@@ -309,13 +265,15 @@ export const galleryAlbums = [
         id: "12",
         slug: "notebook",
         title: "Notebook",
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/posters/kisi ka bhai.png",
-            "/posters/notebook.webp",
-        ],
+        galleryCover: "/images/movie/Notebook.webp",
 
         media: [
+            {type:"video",src:"https://youtu.be/QctNjpNYOH8?si=cXG-VSFUG3W60AIt"},
+            {type:"video",src:"https://youtu.be/J7PFVcRzblA?si=f0qBopI-im6-Oi10"},
+            {type:"video",src:"https://youtu.be/ujKSOi1fL3E?si=ppIvXznwtOnxuFqu"},
+            {type:"video",src:"https://youtu.be/c9-RhRjYYVE?si=mM2T1hc16pvHXEm2"},
+            {type:"video",src:"https://youtu.be/JtUIu3JtG-w?si=FtiSODI1iHV3YSzS"},
+            {type:"video",src:"https://youtu.be/YY-oxGcSRyE?si=talF9aBkiWfX4gdJ"},
         ],
         meta: {
             title: "Notebook | Salman Khan Films",
@@ -331,11 +289,7 @@ export const galleryAlbums = [
         id: "13",
         slug: "kisi-ka-bhai-kisi-ki-jaan",
         title: "Kisi Ka Bhai Kisi Ki Jaan",
-        galleryCover: [
-            "/images/movie/sikandar.png",
-            "/images/movie/farrey.png",
-            "/posters/kisi ka bhai.png",
-        ],
+        galleryCover: "/images/movie/Kisi-Ka-Kisi-Ki-Bhai-Jaan.webp",
 
         media: [
             { video: "video", src: "https://www.youtube.com/watch?v=VEDhJIl8kNk&list=PLofFoQnZAD2HKdDB6wTn7Wcs601_ZPOa6&index=3" },
@@ -359,11 +313,7 @@ export const galleryAlbums = [
         id: "14",
         slug: "sikandar",
         title: "Sikandar",
-        galleryCover: [
-            "/images/movie/farrey.png",
-            "/images/movie/kiss-ka-bhai.png",
-            "/posters/Sikandar.png",
-        ],
+        galleryCover: "/images/movie/Sikandar.webp",
 
         media: [
             { tye: "video", src: "https://www.youtube.com/watch?v=diQPz4y6bWA" },
