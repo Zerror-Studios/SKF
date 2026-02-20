@@ -20,87 +20,68 @@ const ContactSection = () => {
 
   CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
-useEffect(() => {
-  const splits = [];
-  const tl = gsap.timeline({ delay: 0.3 });
-  const refs = [heading1Ref, heading2Ref, emailTagRef, emailRef, socialRef];
+  useEffect(() => {
+    const splits = [];
+    const tl = gsap.timeline({ delay: 0.3 });
+    const refs = [heading1Ref, heading2Ref, emailTagRef, emailRef, socialRef];
 
-  const runSplitAnimation = () => {
-    refs.forEach((ref, index) => {
-      if (!ref?.current) return;
+    const runSplitAnimation = () => {
+      refs.forEach((ref, index) => {
+        if (!ref?.current) return;
 
-      const split = new SplitText(ref.current, {
-        type: "lines",
-        mask: "lines",
-        linesClass: "line",
+        const split = new SplitText(ref.current, {
+          type: "lines",
+          mask: "lines",
+          linesClass: "line",
+        });
+        splits.push(split);
+
+        const lines = ref.current.querySelectorAll(".line");
+
+        gsap.set(lines, { yPercent: 100, opacity: 0 });
+        gsap.set(ref.current, { opacity: 1 });
+
+        tl.to(
+          lines,
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: "ease-secondary",
+            stagger: { amount: 0.2 },
+          },
+          index === 0 ? 0 : "-=1.1",
+        );
       });
-      splits.push(split);
 
-      const lines = ref.current.querySelectorAll(".line");
+      // 🔹 Animate icons after text
+      const icons = iconsRef.current?.querySelectorAll("a");
+      if (icons?.length) {
+        gsap.set(icons, { opacity: 0, scale: 0.6, y: 20 });
+        tl.to(
+          icons,
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            ease: "ease-secondary",
+            duration: 1,
+            stagger: 0.15,
+          },
+          "-=1.5",
+        );
+      }
+    };
 
-      gsap.set(lines, { yPercent: 100, opacity: 0 });
-      gsap.set(ref.current, { opacity: 1 });
-
-      tl.to(
-        lines,
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "ease-secondary",
-          stagger: { amount: 0.2 },
-        },
-        index === 0 ? 0 : "-=1.1"
-      );
+    (document.fonts?.ready || Promise.resolve()).then(() => {
+      requestAnimationFrame(() => setTimeout(runSplitAnimation, 50));
     });
 
-    // 🔹 Animate icons after text
-    const icons = iconsRef.current?.querySelectorAll("a");
-    if (icons?.length) {
-      gsap.set(icons, { opacity: 0, scale: 0.6, y: 20 });
-      tl.to(
-        icons,
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          ease: "ease-secondary",
-          duration: 1,
-          stagger: 0.15,
-        },
-        "-=1.5"
-      );
-    }
-
-    // 🔹 Animate middle image reveal after everything
-    const middleImg = document.querySelector("#middle_img");
-    if (middleImg) {
-      gsap.set(middleImg, {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-      });
-
-      tl.to(
-        middleImg,
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 1.5,
-          ease: "ease-secondary",
-        },
-        "-=1.4" // small delay after icons
-      );
-    }
-  };
-
-  (document.fonts?.ready || Promise.resolve()).then(() => {
-    requestAnimationFrame(() => setTimeout(runSplitAnimation, 50));
-  });
-
-  return () => {
-    splits.forEach((s) => s.revert());
-    tl.kill();
-  };
-}, []);
-
+    return () => {
+      splits.forEach((s) => s.revert());
+      tl.kill();
+    };
+  }, []);
 
   return (
     <div id="contact_section">
@@ -109,17 +90,11 @@ useEffect(() => {
           <h2 ref={heading1Ref} className="heading landing_text">
             Have an<span className="letter-u">enquiry</span>? Get in
           </h2>
-          <h2 ref={heading2Ref} className="heading middle_img_wrap landing_text">
-            touch
-            <span id="middle_img">
-              <Image
-                width={1000}
-                height={1000}
-                src="/images/contact/contact-img.jpg"
-                alt="SKF"
-              />
-            </span>
-            with us.
+          <h2
+            ref={heading2Ref}
+            className="heading middle_img_wrap landing_text"
+          >
+            touch with us.
           </h2>
         </div>
         <div>
@@ -141,18 +116,21 @@ useEffect(() => {
         </p>
         <div className="contact_social" ref={iconsRef}>
           <Link
-          className="landing_text" href="https://x.com/skfilmsofficial?s=21" target="_blank">
+            className="landing_text"
+            href="https://x.com/skfilmsofficial?s=21"
+            target="_blank"
+          >
             <FaXTwitter />
           </Link>
           <Link
-          className="landing_text"
+            className="landing_text"
             href="https://www.instagram.com/skfilmsofficial?igsh=MmU0MXh5M28xZHlw"
             target="_blank"
           >
             <FaInstagram />
           </Link>
           <Link
-          className="landing_text"
+            className="landing_text"
             href="https://youtube.com/@salmankhanfilms?si=t5TS1bnfuDtDWRpR"
             target="_blank"
           >
