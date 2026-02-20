@@ -52,8 +52,28 @@
   align-items: center;
   gap: 0.4rem;
 }
-.news_time_tab #share {
+
+.share_btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.share_text {
+  font-size: 12px;
   opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.2s ease;
+  background-color: black;
+  color: white; 
+  padding: .2rem .5rem;
+}
+
+.share_btn:hover .share_text {
+  opacity: 1;
+  transform: translateY(0);
 }
 .news_detail_wrap {
   width: 55%;

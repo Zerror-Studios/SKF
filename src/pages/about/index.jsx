@@ -18,7 +18,7 @@ export default About;
 
 export async function getStaticProps() {
   const meta = {
-    title: "About | Salman Khan Films",
+    title: "About Us – Film Production House | Salman Khan Films",
     description:
       "Salman Khan Films is a Mumbai-based film production company established to create impactful cinema through strong storytelling and high production standards.",
     keywords:

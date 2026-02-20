@@ -15,9 +15,9 @@ export default Contact;
 
 export async function getStaticProps(params) {
   const meta = {
-    title: "Contact | Salman Khan Films",
+    title: "Contact Us | Salman Khan Films",
     description:
-      "Contact Salman Khan Films for official business enquiries, media communication, and professional correspondence.",
+      "Get in touch with Salman Khan Films for official business enquiries, media relations, partnerships, and professional communication.",
     keywords:
       "Contact Salman Khan Films, SKF enquiries, film production contact, Bollywood studio contact",
     author: "Salman Khan Films",
