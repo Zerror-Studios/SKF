@@ -72,7 +72,7 @@ const AboutPoster = () => {
         ref={bgRef}
         width={1000}
         height={1000}
-        src="/posters/Race 3.png"
+        src="/images/about/About Us.jpeg"
         alt="about-banner"
         priority
       />

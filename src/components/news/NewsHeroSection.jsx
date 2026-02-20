@@ -66,7 +66,7 @@ const NewsHeroSection = ({ data }) => {
     <div id="news_hero_section">
       <div className="news_hero_title">
         <h5 ref={tagRef} className="tag1 landing_text">
-        News
+        Blogs
       </h5>
       <h4 ref={titleRef} className="heading landing_text">
         Fresh <span className="letter-u">Stories</span>
