@@ -46,12 +46,12 @@ export const movies = [
         title: "Angry Young Men",
         cast: [
             { id: 1, name: "Salman Khan", image: "/images/moviedetails/cast/Dabang 3/Salman khan.png" },
-            { id: 2, name: "Salim Khan", image: "/images/moviedetails/cast/Dabang 3/Sonakshi Sinha.png" },
-            { id: 3, name: "Javed Akhtar", image: "/images/moviedetails/cast/Radhe/DISHA PATANI.png" },
-            { id: 4, name: "Farhan Akhtar", image: "/images/moviedetails/cast/Dabang 3/Sudeepa.png" },
-            { id: 5, name: "Arbaaz Khan", image: "/images/moviedetails/cast/Radhe/JACKIE SHROFF.png" },
-            { id: 6, name: "Aamir Khan", image: "/images/moviedetails/cast/Radhe/JACKIE SHROFF.png" },
-            { id: 7, name: "Shabana Azmi", image: "/images/moviedetails/cast/Radhe/JACKIE SHROFF.png" },
+            { id: 2, name: "Salim Khan", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 3, name: "Javed Akhtar", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 4, name: "Farhan Akhtar", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 5, name: "Arbaaz Khan", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 6, name: "Aamir Khan", image: "/images/moviedetails/cast/placeholder.png" },
+            { id: 7, name: "Shabana Azmi", image: "/images/moviedetails/cast/placeholder.png" },
         ]
         ,
         produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
