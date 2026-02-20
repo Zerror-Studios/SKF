@@ -27,10 +27,11 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  const moviesData = movies.filter(
-    (film) => !film.category.toLowerCase().includes("upcoming"),
-  );
-
+ const moviesData = movies
+  .filter(
+    (film) => !film.category.toLowerCase().includes("upcoming")
+  )
+  .sort((a, b) => b.year - a.year);
   return {
     props: {
       meta,

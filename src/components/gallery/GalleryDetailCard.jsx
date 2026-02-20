@@ -16,7 +16,7 @@ const getYouTubeThumbnail = (url) => {
 };
 
 const GalleryDetailCard = ({ index, item, cardClass, onClick }) => {
-  const thumbnailUrl = getYouTubeThumbnail(item.url);
+  const thumbnailUrl = getYouTubeThumbnail(item.src);
 
   return (
     <div className={cardClass} onClick={onClick}>

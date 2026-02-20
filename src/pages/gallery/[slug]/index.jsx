@@ -1,6 +1,7 @@
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
+import { galleryAlbums } from "@/helper/galleryData";
 import { movies } from "@/helper/moviesData";
 import React from "react";
 
@@ -18,7 +19,7 @@ export default GalleryDetails;
 
 export async function getStaticPaths() {
   // ✅ only include movies that actually have media
-  const paths = movies
+  const paths = galleryAlbums
     .filter((movie) => movie.media && movie.media.length > 0)
     .map((movie) => ({
       params: { slug: movie.slug },
@@ -28,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const movie = movies.find((m) => m.slug === params.slug);
+  const movie = galleryAlbums.find((m) => m.slug === params.slug);
 
   // ✅ handle invalid or empty media case safely
   if (!movie || !movie.media || movie.media.length === 0) {

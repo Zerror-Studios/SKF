@@ -9,6 +9,7 @@ import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import { news } from "@/helper/newsData";
 import GalleryList from "@/components/gallery/GalleryList";
 import SeoHeader from "@/components/seo/SeoHeader";
+import { galleryAlbums } from "@/helper/galleryData";
 
 const Home = ({ meta, movies, highlightsData, media }) => {
 
@@ -19,7 +20,7 @@ const Home = ({ meta, movies, highlightsData, media }) => {
       <UpcomingBanner />
       <DirectorsSection />
       <Highlights tag={"Blogs"} title={<>Fresh <span className="letter-u">Stories</span></>} data={highlightsData} />
-      <GalleryTitleSection subHeading={"GALLERY"} isPadding={true} titlehero={true} />
+      <GalleryTitleSection subHeading={"GALLERY"} isPadding={true} />
       <GalleryList data={media} ishome={true} />
       <AboutSection />
     </>
@@ -49,10 +50,9 @@ export async function getStaticProps() {
     .map(title => movies.find(movie => movie.title === title))
     .filter(Boolean);
   const highlightsData = news;
-  const media = movies.filter(
-    (film) =>
-      !film.category.toLowerCase().includes("upcoming") &&
-      film.title !== "Kisi Ka Bhai Kisi Ki Jaan"
+
+  const media = galleryAlbums.filter(
+    (album) => album.media && album.media.length > 0,
   );
   return {
     props: {

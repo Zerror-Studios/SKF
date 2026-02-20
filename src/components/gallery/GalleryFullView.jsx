@@ -19,7 +19,7 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
   const fullViewRef = useRef(null);
   const mediaRef = useRef(null);
   const activeItem = data?.[activeIndex];
-  const embedUrl = getYouTubeEmbedUrl(activeItem?.url);
+  const embedUrl = getYouTubeEmbedUrl(activeItem?.src);
 
   // === Open animation ===
   useEffect(() => {

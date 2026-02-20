@@ -1,39 +1,46 @@
 import React from "react";
-import CastSection from "@/components/movieDetails/CastSection";
-import HorizontalSlider from "@/components/common/HorizontalSlider/HorizontalSlider";
+
+import SeoHeader from "@/components/seo/SeoHeader";
 import MovieDetailsHero from "@/components/movieDetails/MovieDetailsHero";
 import SynopsisSection from "@/components/movieDetails/SynopsisSection";
-import HorizontalSwiper from "@/components/common/HorizontalSlider/HorizontalSwiper";
-import GalleryDetailList from "@/components/gallery/GalleryDetailList";
-import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
-import MovieList from "@/components/home/MovieList";
-import { movies } from "@/helper/moviesData";
-import SeoHeader from "@/components/seo/SeoHeader";
+import CastSection from "@/components/movieDetails/CastSection";
 
-const MovieDetails = ({ movie, latestMovies, trailerList }) => {
+import HorizontalSlider from "@/components/common/HorizontalSlider/HorizontalSlider";
+import HorizontalSwiper from "@/components/common/HorizontalSlider/HorizontalSwiper";
+
+import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
+import GalleryDetailList from "@/components/gallery/GalleryDetailList";
+
+import MovieList from "@/components/home/MovieList";
+
+import { movies } from "@/helper/moviesData";
+import { galleryAlbums } from "@/helper/galleryData";
+
+const MovieDetails = ({ movie, galleryBts, latestMovies, trailerList }) => {
+  if (!movie) return null;
+
   return (
     <>
-      <SeoHeader meta={movie?.meta} />
+      <SeoHeader meta={movie.meta} />
+
       <MovieDetailsHero data={movie} />
       <SynopsisSection data={movie} />
       <CastSection data={movie} />
-      <HorizontalSlider trailerList={trailerList} />
+
+      {trailerList.length > 0 && <HorizontalSlider trailerList={trailerList} />}
+
       <HorizontalSwiper data={movie} />
-      {movie?.media && movie?.media.length > 0 && (
+
+      {galleryBts?.media?.length > 0 && (
         <>
-          <GalleryTitleSection
-            data={movie}
-            isPadding={true}
-            subHeading={"BTS"}
-          />
-          <GalleryDetailList data={movie} />
+          <GalleryTitleSection data={galleryBts} subHeading="BTS" isPadding />
+          <GalleryDetailList data={galleryBts} />
         </>
       )}
-      <MovieList
-        movies={latestMovies}
-        subheading="Other Movies"
-        NotHero={true}
-      />
+
+      {latestMovies.length > 0 && (
+        <MovieList movies={latestMovies} subheading="Other Movies" NotHero />
+      )}
     </>
   );
 };
@@ -45,23 +52,37 @@ export async function getStaticPaths() {
     params: { slug: movie.slug },
   }));
 
-  return { paths, fallback: false };
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params }) {
   const movie = movies.find((m) => m.slug === params.slug) || null;
+  const galleryBts = galleryAlbums.find((g) => g.slug === params.slug) || null;
 
   const latestMovies = movies.filter((m) => m.slug !== params.slug).slice(0, 3);
+
   const trailerList = [
-    movie?.trailer
-      ? { title: movie?.title, url: movie.trailer, type: "trailer" }
-      : null,
-    movie?.teaser
-      ? { title: movie?.title, url: movie.teaser, type: "teaser" }
-      : null,
+    movie?.trailer && {
+      title: movie.title,
+      url: movie.trailer,
+      type: "trailer",
+    },
+    movie?.teaser && {
+      title: movie.title,
+      url: movie.teaser,
+      type: "teaser",
+    },
   ].filter(Boolean);
 
   return {
-    props: { movie, latestMovies, trailerList },
+    props: {
+      movie,
+      galleryBts,
+      latestMovies,
+      trailerList,
+    },
   };
 }

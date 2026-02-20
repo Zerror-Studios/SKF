@@ -7,26 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 const GalleryList = ({ data, ishome }) => {
   const galleryRef = useRef(null);
 
-  // Custom album order
-  const albumOrder = [
-    "Bajrangi Bhaijaan",
-    "Dabangg 3",
-    "Radhe: Your Most Wanted Bhai",
-    "Tubelight",
-    "Antim: The Final Truth",
-  ];
-
-  // Sort data according to album order
-  const sortedData = [...data]
-    .sort((a, b) => {
-      const indexA = albumOrder.indexOf(a.title);
-      const indexB = albumOrder.indexOf(b.title);
-      return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
-    })
-    .filter((item) => item.media && item.media.length > 0);
-
   // Slice to 8 cards if ishome
-  const displayData = ishome ? sortedData.slice(0, 8) : sortedData;
+  const displayData = ishome ? data?.slice(0, 8) : data;
 
   useEffect(() => {
     if (!galleryRef.current) return;

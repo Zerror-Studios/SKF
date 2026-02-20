@@ -1,14 +1,14 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { movies } from "@/helper/moviesData";
+import { galleryAlbums } from "@/helper/galleryData";
 import React from "react";
 
 const Gallery = ({ meta, media }) => {
   return (
     <>
       <SeoHeader meta={meta} />
-      <GalleryTitleSection subHeading={"GALLERY"} isPadding={true} />
+      <GalleryTitleSection subHeading={"GALLERY"} />
       <GalleryList data={media} />
     </>
   );
@@ -26,8 +26,9 @@ export async function getStaticProps() {
     author: "Salman Khan Films",
     robots: "index,follow",
   };
-  const media = movies.filter(
-    (film) => !film.category.toLowerCase().includes("upcoming"),
+
+  const media = galleryAlbums.filter(
+    (album) => album.media && album.media.length > 0,
   );
   return {
     props: {
