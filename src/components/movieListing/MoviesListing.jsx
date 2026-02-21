@@ -87,9 +87,9 @@ const MoviesListing = ({ data }) => {
         <h5 ref={tagRef} className="tag1 landing_text">
           Movies
         </h5>
-        <h3 ref={titleRef} className="heading landing_text">
+        <h1 ref={titleRef} className="heading landing_text">
           Blockbuster <span className="letter-u">Lineup</span>
-        </h3>
+        </h1>
         <div ref={filtersRef} id="filter_wrap">
           <Filters
             filters={["all", "released", "upcoming movie"]}

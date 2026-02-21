@@ -3,8 +3,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { Const } from "@/utils/Constant";
 import WebPageSchema from "./WebPageSchema";
-import NewsMediaOrganizationSchema from "./NewsMediaOrganizationSchema";
 import SiteNavigationSchema from "./SiteNavigationSchema";
+import OrganizationSchema from "./OrganizationSchema";
 
 const SeoHeader = ({ meta }) => {
   const router = useRouter();
@@ -87,28 +87,25 @@ const SeoHeader = ({ meta }) => {
         url={meta?.canonical ?? canonical}
       />
 
-      <NewsMediaOrganizationSchema
+       <OrganizationSchema
         name="Salman Khan Films"
-        clientLink={`${Const.ClientLink}/`}
-        logoUrl={`${Const.ClientLink}/favicon.png`}
+        clientLink="https://skf-ten.vercel.app"
+        logoUrl="https://skf-ten.vercel.app/logo.png"
         address={{
-          streetAddress:
-            "",
-          addressLocality: "",
-          addressRegion: "",
-          postalCode: "",
-          addressCountry: "IN",
+          streetAddress: "Andheri West",
+          addressLocality: "Mumbai",
+          addressRegion: "MH",
+          postalCode: "400053",
         }}
         contact={{
-          telephone: "",
-          contactType: "Customer Service",
+          telephone: "+91-XXXXXXXXXX",
+          contactType: "customer support",
           areaServed: "IN",
-          availableLanguage: "English",
+          availableLanguage: ["English", "Hindi"],
           hoursAvailable: {
             opens: "09:00",
             closes: "18:00",
           },
-          email: "social@skvonline.com",
         }}
         sameAs={[
           "https://x.com/skfilmsofficial",

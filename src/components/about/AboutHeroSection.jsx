@@ -88,9 +88,9 @@ const AboutHeroSection = () => {
           <h5 ref={tagRef} className="tag1 landing_text">
             About
           </h5>
-          <h2 ref={titleRef} className="heading landing_text">
+          <h1 ref={titleRef} className="heading landing_text">
             Bringing Stories to Life One Blockbuster at a Time
-          </h2>
+          </h1>
         </div>
         <div className="about_hero_info">
           <p ref={para1Ref} className="description landing_text">

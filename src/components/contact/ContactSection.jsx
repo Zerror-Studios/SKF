@@ -87,9 +87,9 @@ const ContactSection = () => {
     <div id="contact_section">
       <div id="contact-top">
         <div>
-          <h2 ref={heading1Ref} className="heading landing_text">
+          <h1 ref={heading1Ref} className="heading landing_text">
             Have an<span className="letter-u">enquiry</span>? Get in
-          </h2>
+          </h1>
           <h2
             ref={heading2Ref}
             className="heading middle_img_wrap landing_text"

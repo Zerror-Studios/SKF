@@ -65,7 +65,7 @@ const GalleryTitleSection = ({ data, subHeading, isHero = true, isPadding }) => 
       <h5 ref={tagRef} className="tag1 landing_text">
         {subHeading}
       </h5>
-      <h2 ref={titleRef} className="heading landing_text">
+      <h1 ref={titleRef} className="heading landing_text">
         {data?.title ? (
           data.title
         ) : (
@@ -73,7 +73,7 @@ const GalleryTitleSection = ({ data, subHeading, isHero = true, isPadding }) => 
           Inside The <span className="letter-u">Frame</span>
           </>
         )}
-      </h2>
+      </h1>
     </div>
   );
 };

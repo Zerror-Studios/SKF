@@ -68,9 +68,9 @@ const NewsHeroSection = ({ data }) => {
         <h5 ref={tagRef} className="tag1 landing_text">
         Blogs
       </h5>
-      <h4 ref={titleRef} className="heading landing_text">
+      <h1 ref={titleRef} className="heading landing_text">
         Fresh <span className="letter-u">Stories</span>
-      </h4>
+      </h1>
       </div>
 
       <div ref={posterRef} id="poster_wrap_news">
