@@ -119,4 +119,10 @@ aiming to deliver high-quality entertainment that continues to captivate audienc
             robots: "index,follow",
         }
     },
+    //     { slug: "bajrangi-bhaijaan-box-office-record",
+    //   title: "Bajrangi Bhaijaan Creates Box Office History",
+    //   description: "The film crosses major box office milestones worldwide.",
+    //   coverImage: "/images/news/bajrangi-news.webp",
+    //   publishedAt: "2015-07-18T10:00:00+05:30",
+    //   updatedAt: "2015-07-18T12:00:00+05:30"}
 ];
