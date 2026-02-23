@@ -22,6 +22,11 @@ export const galleryAlbums = [
             { type: "video", src: "https://www.youtube.com/watch?v=2-hTE4MhPuQ" },
             { type: "video", src: "https://www.youtube.com/watch?v=HanwrCgOJ_A" },
             { type: "video", src: "https://www.youtube.com/watch?v=YasKpC-Nag0" },
+            { type: "image", src: "/images/image1.jpeg" },
+            { type: "image", src: "/images/image2.jpeg" },
+            { type: "image", src: "/images/image3.jpeg" },
+            { type: "image", src: "/images/image4.jpeg" },
+            { type: "image", src: "/images/image5.jpeg" },
         ],
         meta: {
             title: "Bajrangi Bhaijaan | Salman Khan Films",

@@ -4,7 +4,6 @@ import { FiPlay } from "react-icons/fi";
 
 const getYouTubeThumbnail = (url) => {
   try {
-    // extract video ID from different possible YouTube URL formats
     const videoId = new URL(url).searchParams.get("v");
     if (videoId) return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
     const parts = url.split("/");
@@ -16,7 +15,8 @@ const getYouTubeThumbnail = (url) => {
 };
 
 const GalleryDetailCard = ({ index, item, cardClass, onClick }) => {
-  const thumbnailUrl = getYouTubeThumbnail(item.src);
+  const isImage = item.type === "image";
+  const thumbnailUrl = isImage ? item.src : getYouTubeThumbnail(item.src);
 
   return (
     <div className={cardClass} onClick={onClick}>
@@ -27,10 +27,14 @@ const GalleryDetailCard = ({ index, item, cardClass, onClick }) => {
               width={1000}
               height={1000}
               src={thumbnailUrl}
-              alt={`YouTube thumbnail ${index}`}
+              alt={isImage ? `Gallery image ${index}` : `YouTube thumbnail ${index}`}
               className="video_thumbnail"
             />
-            <span className="card_play_icon"><FiPlay /></span>
+            {!isImage && (
+              <span className="card_play_icon">
+                <FiPlay />
+              </span>
+            )}
           </>
         ) : (
           <div className="video_placeholder">No Thumbnail Available</div>

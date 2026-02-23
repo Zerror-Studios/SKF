@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GrClose, GrNext, GrPrevious } from "react-icons/gr";
 import gsap from "gsap";
+import Image from "next/image";
 
 const getYouTubeEmbedUrl = (url) => {
   try {
@@ -18,8 +19,10 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
   const [mediaKey, setMediaKey] = useState(0);
   const fullViewRef = useRef(null);
   const mediaRef = useRef(null);
+
   const activeItem = data?.[activeIndex];
-  const embedUrl = getYouTubeEmbedUrl(activeItem?.src);
+  const isVideo = activeItem?.type === "video";
+  const embedUrl = isVideo ? getYouTubeEmbedUrl(activeItem?.src) : null;
 
   // === Open animation ===
   useEffect(() => {
@@ -34,17 +37,15 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
 
   // === Close animation ===
   const closeFullView = () => {
-    const tl = gsap.timeline({
-      onComplete: () => {
-        onClose();
-        gsap.set(fullViewRef.current, { display: "none" });
-      },
-    });
-    tl.to(fullViewRef.current, {
+    gsap.to(fullViewRef.current, {
       opacity: 0,
       scale: 0.95,
       duration: 0.4,
       ease: "power2.inOut",
+      onComplete: () => {
+        onClose();
+        gsap.set(fullViewRef.current, { display: "none" });
+      },
     });
   };
 
@@ -84,16 +85,29 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
       </span>
 
       <div id="preview_container" key={mediaKey} ref={mediaRef}>
-        {embedUrl ? (
-          <iframe
-            src={embedUrl}
-            title={`YouTube video ${activeIndex}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+        {isVideo ? (
+          embedUrl ? (
+            <iframe
+              src={embedUrl}
+              title={`YouTube video ${activeIndex}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <p style={{ color: "#fff" }}>Video unavailable</p>
+          )
         ) : (
-          <p style={{ color: "#fff" }}>Video unavailable</p>
+          <Image
+            src={activeItem?.src}
+            alt={`Gallery image ${activeIndex}`}
+            fill
+            className="fullview_image"
+            style={{
+              objectFit:"contain"
+            }}
+
+          />
         )}
       </div>
 
