@@ -31,7 +31,7 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
     gsap.fromTo(
       fullViewRef.current,
       { opacity: 0, scale: 0.9 },
-      { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }
+      { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" },
     );
   }, []);
 
@@ -55,7 +55,7 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
     gsap.fromTo(
       mediaRef.current,
       { opacity: 0, y: 40, scale: 0.95 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power2.out" }
+      { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power2.out" },
     );
   };
 
@@ -99,14 +99,15 @@ const GalleryFullView = ({ data, activeIndex, setActiveIndex, onClose }) => {
           )
         ) : (
           <Image
+            width={1000}
+            height={1000}
             src={activeItem?.src}
             alt={`Gallery image ${activeIndex}`}
-            fill
             className="fullview_image"
             style={{
-              objectFit:"contain"
+              width: "100%",
+              objectFit: "contain",
             }}
-
           />
         )}
       </div>
