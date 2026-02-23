@@ -27,11 +27,33 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
- const moviesData = movies
-  .filter(
-    (film) => !film.category.toLowerCase().includes("upcoming")
-  )
-  .sort((a, b) => b.year - a.year);
+  const extraMovies = [
+    {
+      title: "Chillar Party",
+      year: 2011,
+      director: "Nitesh Tiwari, Vikas Bahl",
+      category: "released",
+    },
+    {
+      title: "Dr. Cabbie",
+      year: 2014,
+      director: "Jean-François Pouliot",
+      category: "released",
+    },
+    {
+      title: "Kaagaz",
+      year: 2021,
+      director: "Satish Kaushik",
+      category: "released",
+    },
+  ];
+
+  const moviesData = [...movies, ...extraMovies]
+    .filter(
+      (film) => !film.category.toLowerCase().includes("upcoming")
+    )
+    .sort((a, b) => b.year - a.year);
+
   return {
     props: {
       meta,

@@ -23,7 +23,7 @@ const FilmographySection = ({ movies }) => {
         if (!card) return;
 
         const elements = card.querySelectorAll(
-          ".heading, .description, .filmo_director h5"
+          ".heading, .description, .filmo_director h5",
         );
 
         elements.forEach((el) => {
@@ -65,8 +65,8 @@ const FilmographySection = ({ movies }) => {
             new Promise((resolve) => {
               img.addEventListener("load", resolve);
               img.addEventListener("error", resolve);
-            })
-        )
+            }),
+        ),
     );
 
     Promise.all([fontReady, imagesReady]).then(() => {
@@ -81,19 +81,15 @@ const FilmographySection = ({ movies }) => {
 
   return (
     <div id="filmography_section">
-     <div className="filmography_title">
-       <p className="tag1">Filmography</p>
-      <h2 ref={titleRef} className="heading">
-        Cinematic <span className="letter-u">Journey</span>
-      </h2>
-     </div>
+      <div className="filmography_title">
+        <p className="tag1">Filmography</p>
+        <h2 ref={titleRef} className="heading">
+          Cinematic <span className="letter-u">Journey</span>
+        </h2>
+      </div>
       <div id="filmography_cards_wrap">
-        {movies.map((film, index) => (
-          <Link
-            key={index}
-            href={`/movies/${film.slug}`}
-            className="filmography_card_link"
-          >
+        {movies.map((film, index) => {
+          const CardContent = (
             <div
               className="filmography_card"
               ref={(el) => (cardsRef.current[index] = el)}
@@ -109,10 +105,25 @@ const FilmographySection = ({ movies }) => {
                   <p className="description">{film.director}</p>
                 </div>
               </div>
-                <Button title="Read More" color="black" />
+
+              {film.slug && <Button title="Read More" color="black" />}
             </div>
-          </Link>
-        ))}
+          );
+
+          return film.slug ? (
+            <Link
+              key={index}
+              href={`/movies/${film.slug}`}
+              className="filmography_card_link"
+            >
+              {CardContent}
+            </Link>
+          ) : (
+            <div key={index} className="filmography_card_link">
+              {CardContent}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

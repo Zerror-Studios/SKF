@@ -56,7 +56,7 @@ export const movies = [
             { id: 7, name: "Shabana Azmi", image: "/images/moviedetails/cast/placeholder.png" },
         ]
         ,
-        produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
+        produced: "Salman Khan",
         director: "Namrata Rao",
         poster: "/images/movie/Angry-Young-Men.webp",
         backgroundVideo: "/videos/Angry Young Men.mp4",
@@ -86,13 +86,13 @@ export const movies = [
         title: "Bharat",
         cast: [
             { id: 1, name: "Salman Khan", image: "/images/moviedetails/cast/Dabang 3/Salman khan.png" },
-            { id: 2, name: "Katrina Kaif", image: "/images/moviedetails/cast/Dabang 3/Sonakshi Sinha.png" },
+            { id: 2, name: "Katrina Kaif", image: "/images/moviedetails/cast/placeholder.png" },
             { id: 3, name: "Disha Patani", image: "/images/moviedetails/cast/Radhe/DISHA PATANI.png" },
-            { id: 4, name: "Sunil Grover", image: "/images/moviedetails/cast/Dabang 3/Sudeepa.png" },
+            { id: 4, name: "Sunil Grover", image: "/images/moviedetails/cast/placeholder.png" },
             { id: 5, name: "Jackie Shroff", image: "/images/moviedetails/cast/Radhe/JACKIE SHROFF.png" },
         ]
         ,
-        produced: "Salman Khan, Arbaaz Khan, Nikhil Dwivedi",
+        produced: "Salman Khan, Atul Agnihotri, Alvira Khan Agnihotri, Bhushan Kumar, Krishan Kumar, Nikhil Namit",
         director: "Ali Abbas Zafar",
         poster: "/images/movie/Bharat.webp",
         backgroundVideo: "/videos/bharat.mp4",
@@ -218,7 +218,7 @@ export const movies = [
         ,
         produced: "Salman Khan",
         director: "Mahesh Manjrekar",
-        poster: "/posters/Antim.png",
+        poster: "/images/movie/Antim.webp",
         backgroundVideo: "/videos/ANTIM The Final Truth.mp4",
         category: "released",
         synopsis: `Rahulya is a penniless village boy with a dream of being Pune’s biggest don. His closest friend

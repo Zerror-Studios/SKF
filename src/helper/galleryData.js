@@ -126,7 +126,7 @@ export const galleryAlbums = [
         id: "6",
         slug: "antim-the-final-truth",
         title: "Antim: The Final Truth",
-        galleryCover: "/posters/Antim.png",
+        galleryCover: "/images/movie/Antim.webp",
 
         media: [
             { type: "video", src: "https://www.youtube.com/watch?v=7-E9jBVF2Ng&list=PLofFoQnZAD2GbZ7q_z4WGULuFzxxaoU08&index=6" },
@@ -273,12 +273,12 @@ export const galleryAlbums = [
         galleryCover: "/images/movie/Notebook.webp",
 
         media: [
-            {type:"video",src:"https://youtu.be/QctNjpNYOH8?si=cXG-VSFUG3W60AIt"},
-            {type:"video",src:"https://youtu.be/J7PFVcRzblA?si=f0qBopI-im6-Oi10"},
-            {type:"video",src:"https://youtu.be/ujKSOi1fL3E?si=ppIvXznwtOnxuFqu"},
-            {type:"video",src:"https://youtu.be/c9-RhRjYYVE?si=mM2T1hc16pvHXEm2"},
-            {type:"video",src:"https://youtu.be/JtUIu3JtG-w?si=FtiSODI1iHV3YSzS"},
-            {type:"video",src:"https://youtu.be/YY-oxGcSRyE?si=talF9aBkiWfX4gdJ"},
+            { type: "video", src: "https://youtu.be/QctNjpNYOH8?si=cXG-VSFUG3W60AIt" },
+            { type: "video", src: "https://youtu.be/J7PFVcRzblA?si=f0qBopI-im6-Oi10" },
+            { type: "video", src: "https://youtu.be/ujKSOi1fL3E?si=ppIvXznwtOnxuFqu" },
+            { type: "video", src: "https://youtu.be/c9-RhRjYYVE?si=mM2T1hc16pvHXEm2" },
+            { type: "video", src: "https://youtu.be/JtUIu3JtG-w?si=FtiSODI1iHV3YSzS" },
+            { type: "video", src: "https://youtu.be/YY-oxGcSRyE?si=talF9aBkiWfX4gdJ" },
         ],
         meta: {
             title: "Notebook | Salman Khan Films",

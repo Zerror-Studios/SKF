@@ -9,9 +9,9 @@ gsap.registerPlugin(SplitText, CustomEase);
 const AboutHeroSection = () => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
-  const para1Ref = useRef(null);
-  const para2Ref = useRef(null);
-  const para3Ref = useRef(null);
+  // const para1Ref = useRef(null);
+  // const para2Ref = useRef(null);
+  // const para3Ref = useRef(null);
   const posterRef = useRef(null);
   const officeRef = useRef(null); // new ref for office_label
   CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
@@ -19,7 +19,7 @@ const AboutHeroSection = () => {
   useEffect(() => {
     const splits = [];
     const tl = gsap.timeline();
-    const refs = [tagRef, titleRef, para1Ref, para2Ref, para3Ref];
+    const refs = [tagRef, titleRef];
 
     const runSplitAnimation = () => {
       refs.forEach((ref, index) => {
@@ -93,7 +93,7 @@ const AboutHeroSection = () => {
           </h1>
         </div>
         <div className="about_hero_info">
-          <p ref={para1Ref} className="description landing_text">
+          <p  className="description ">
             Salman Khan Films (SKF), founded by actor-producer Salman Khan in
             2011, is a leading Indian film production company based in Mumbai.
             Known for its compelling storytelling, wide audience appeal, and
@@ -101,14 +101,14 @@ const AboutHeroSection = () => {
             critically acclaimed titles that continue to perform strongly across
             digital platforms.
           </p>
-          <p ref={para2Ref} className="description landing_text">
+          <p  className="description ">
             Its filmography includes hits such as Bajrangi Bhaijaan (2015), Hero
             (2015), Bharat (2019), and Dabangg 3 (2019). Among these, Bajrangi
             Bhaijaan emerged as a landmark title, grossing over ₹969 crore
             (approximately $150 million) worldwide and securing its place as one
             of the highest-grossing Indian films of all time.
           </p>
-          <p ref={para3Ref} className="description landing_text">
+          <p  className="description ">
             SKF’s content blends star power with strong emotional narratives,
             making its films highly sought after for OTT syndication and
             streaming. With a growing focus on theatrical and direct-to-digital
