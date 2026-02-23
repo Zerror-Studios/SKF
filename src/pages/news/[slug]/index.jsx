@@ -7,7 +7,7 @@ import React from "react";
 const News = ({ newsData, highlightsData }) => {
   return (
     <>
-      <SeoHeader meta={newsData?.meta} />
+      <SeoHeader meta={newsData?.meta} news={newsData} />
       <NewsHeroSection data={newsData} />
       <Highlights tag={"More Highlights"} data={highlightsData} />
     </>

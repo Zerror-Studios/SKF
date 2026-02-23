@@ -5,12 +5,12 @@ import { galleryAlbums } from "@/helper/galleryData";
 import { movies } from "@/helper/moviesData";
 import React from "react";
 
-const GalleryDetails = ({ media }) => {
+const GalleryDetails = ({ media, aboutMovie }) => {
   return (
     <>
       <SeoHeader meta={media?.meta} />
       <GalleryTitleSection subHeading={"BTS"} data={media} />
-      <GalleryDetailList data={media} />
+      <GalleryDetailList data={media} aboutMovie={aboutMovie} />
     </>
   );
 };
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const movie = galleryAlbums.find((m) => m.slug === params.slug);
-
+  const aboutMovie = movies.find((m) => m.slug === params.slug);
   // ✅ handle invalid or empty media case safely
   if (!movie || !movie.media || movie.media.length === 0) {
     return {
@@ -41,6 +41,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       media: movie,
+      aboutMovie,
     },
   };
 }

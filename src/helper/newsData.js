@@ -2,6 +2,7 @@ export const news = [
     {
         slug: "sikander-creates-box-office-storm",
         date: "August 1, 2025",
+        publishedAt: "2026-02-23T10:00:00+05:30",
         title: "Sikander Creates Box Office Storm",
         description: "Sikander, starring Karthi and directed by Siva, has taken the box office by storm, raking in impressive numbers during its opening weekend. The film's gripping storyline and stellar performances have captivated audiences nationwide.",
         image: "/posters/Sikandar.png",
@@ -42,6 +43,7 @@ aiming to deliver high-quality entertainment that continues to captivate audienc
     {
         slug: "kisi-ka-bhai-kisi-ki-jaan-finds-new-audience-on-ott",
         date: "August 1, 2025",
+        publishedAt: "2026-02-23T10:00:00+05:30",
         title: "Kisi Ka Bhai Kisi Ki Jaan Finds New Audience on OTT",
         description: "Kisi Ka Bhai Kisi Ki Jaan, featuring Salman Khan, has found a new audience on OTT platforms. The film's blend of action and drama has resonated with viewers, leading to a surge in streaming numbers and positive reviews.",
         image: "/posters/kisi ka bhai.png",
@@ -82,6 +84,7 @@ aiming to deliver high-quality entertainment that continues to captivate audienc
     {
         slug: "kick-2-brings-back-devil-in-style",
         date: "August 1, 2025",
+        publishedAt: "2026-02-23T10:00:00+05:30",
         title: "Kick 2 Brings Back Devil in Style",
         description: "Kick 2, the much-anticipated sequel to the original Kick, has brought back the devil in style. With its high-octane action sequences and charismatic lead performance, the film has rekindled the excitement of fans and critics alike.",
         image: "/images/home/news1.png",
@@ -119,10 +122,5 @@ aiming to deliver high-quality entertainment that continues to captivate audienc
             robots: "index,follow",
         }
     },
-    //     { slug: "bajrangi-bhaijaan-box-office-record",
-    //   title: "Bajrangi Bhaijaan Creates Box Office History",
-    //   description: "The film crosses major box office milestones worldwide.",
-    //   coverImage: "/images/news/bajrangi-news.webp",
-    //   publishedAt: "2015-07-18T10:00:00+05:30",
-    //   updatedAt: "2015-07-18T12:00:00+05:30"}
+
 ];

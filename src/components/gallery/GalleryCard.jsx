@@ -20,7 +20,7 @@ const GalleryCard = ({ data }) => {
           </div>
         ))}
         <div className="card_details">
-          <h2 className="heading">{data?.title}</h2>
+          <h2 className="heading"></h2>
           <div className="arrow">
             <div className="arrow_circle">
               <GoArrowUpRight />

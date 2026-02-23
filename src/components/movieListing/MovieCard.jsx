@@ -36,6 +36,7 @@ const MovieCard = forwardRef(({ data }, ref) => {
           height={1000}
           src={data?.poster}
           alt={data?.title}
+          priority
         />
         {data?.category === "upcoming movie" && (
           <span className="ribbon">Upcoming</span>

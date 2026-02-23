@@ -5,8 +5,11 @@ import { Const } from "@/utils/Constant";
 import WebPageSchema from "./WebPageSchema";
 import SiteNavigationSchema from "./SiteNavigationSchema";
 import OrganizationSchema from "./OrganizationSchema";
+import { news } from "@/helper/newsData";
+import NewsArticleSchema from "./NewsArticleSchema";
+import MovieSchema from "./MovieSchema";
 
-const SeoHeader = ({ meta }) => {
+const SeoHeader = ({ meta, news, movie }) => {
   const router = useRouter();
   const canonical = `${Const.ClientLink}/${router.asPath?.slice(1)}`;
 
@@ -16,10 +19,7 @@ const SeoHeader = ({ meta }) => {
 
       <meta name="description" content={meta?.description ?? ""} />
       <meta name="keywords" content={meta?.keywords ?? ""} />
-      <meta
-        name="author"
-        content={meta?.author ?? "Salman Khan Films"}
-      />
+      <meta name="author" content={meta?.author ?? "Salman Khan Films"} />
       <meta
         name="robots"
         content={
@@ -79,7 +79,8 @@ const SeoHeader = ({ meta }) => {
         hreflang="en-in"
         href={meta?.canonical ?? canonical}
       />
-
+      {news && <NewsArticleSchema news={news} />}
+      {movie && <MovieSchema movie={movie} />}
       {/* Schema Markup */}
       <WebPageSchema
         name={meta?.title ?? ""}
@@ -87,7 +88,7 @@ const SeoHeader = ({ meta }) => {
         url={meta?.canonical ?? canonical}
       />
 
-       <OrganizationSchema
+      <OrganizationSchema
         name="Salman Khan Films"
         clientLink="https://skf-ten.vercel.app"
         logoUrl="https://skf-ten.vercel.app/logo.png"

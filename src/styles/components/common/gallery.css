@@ -43,11 +43,14 @@
 .image1 {
   top: 0;
   right: 0;
+  filter: brightness(0.3);
+
 }
 .image2 {
   top: 2%;
   right: 2%;
   transition: all ease 0.5s;
+  filter: brightness(0.6);
 }
 .image3 {
   top: 4%;

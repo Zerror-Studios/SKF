@@ -21,7 +21,7 @@ const MovieDetails = ({ movie, galleryBts, latestMovies, trailerList }) => {
 
   return (
     <>
-      <SeoHeader meta={movie.meta} />
+      <SeoHeader meta={movie.meta} movie={movie} />
 
       <MovieDetailsHero data={movie} />
       <SynopsisSection data={movie} />

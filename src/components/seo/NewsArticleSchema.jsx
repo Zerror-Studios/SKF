@@ -1,23 +1,21 @@
 import React from "react";
 
-const NewsArticleSchema = ({ article }) => {
-  if (!article) return null;
+const NewsArticleSchema = ({ news }) => {
+  if (!news) return null;
 
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    "@id": `https://skf-ten.vercel.app/news/${article.slug}#news`,
+    "@id": `https://skf-ten.vercel.app/news/${news.slug}#news`,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://skf-ten.vercel.app/news/${article.slug}`,
+      "@id": `https://skf-ten.vercel.app/news/${news.slug}`,
     },
-    headline: article.title,
-    description: article.description,
-    image: [
-      `https://skf-ten.vercel.app${article.coverImage}`,
-    ],
-    datePublished: article.publishedAt,
-    dateModified: article.updatedAt || article.publishedAt,
+    headline: news.title,
+    description: news.description,
+    image: [`https://skf-ten.vercel.app${news.image}`],
+    datePublished: news.publishedAt,
+    dateModified: news.updatedAt || news.publishedAt,
     author: {
       "@type": "Organization",
       name: "Salman Khan Films",

@@ -88,13 +88,13 @@ const ContactSection = () => {
       <div id="contact-top">
         <div>
           <h1 ref={heading1Ref} className="heading landing_text">
-            Have an<span className="letter-u">enquiry</span>? Get in
+            Have an<span className="letter-u" style={{paddingRight:"2px"}}>enquiry?</span> 
           </h1>
           <h2
             ref={heading2Ref}
             className="heading middle_img_wrap landing_text"
           >
-            touch with us.
+            Get in touch with us.
           </h2>
         </div>
         <div>
