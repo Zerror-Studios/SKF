@@ -32,21 +32,35 @@ const Footer = () => {
         <div id="footer_top_right">
           <div className="footer_links">
             <h5>menu</h5>
-            {[{ link: "/", name: "home" }, ...menus].map(({ link, name }) => {
-              const isActive =
-                typeof pathname === "string" &&
-                (link === "/" ? pathname === link : pathname.startsWith(link));
+            {[{ link: "/", name: "home" }, ...menus].map(
+              ({ link, name, external }) => {
+                const isActive =
+                  typeof pathname === "string" &&
+                  (link === "/"
+                    ? pathname === link
+                    : pathname.startsWith(link));
 
-              return (
-                <Link
-                  key={name}
-                  href={link}
-                  className={isActive ? "active" : ""}
-                >
-                  {name}
-                </Link>
-              );
-            })}
+                return external ? (
+                  <a
+                    key={name}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={isActive ? "active" : ""}
+                  >
+                    {name}
+                  </a>
+                ) : (
+                  <Link
+                    key={name}
+                    href={link}
+                    className={isActive ? "active" : ""}
+                  >
+                    {name}
+                  </Link>
+                );
+              },
+            )}
           </div>
           <div className="footer_links">
             <h5>Socials</h5>

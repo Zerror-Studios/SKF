@@ -24,7 +24,9 @@ const GalleryCard = ({ slug, title, cover }) => {
           </div>
         </div>
       </div>
-      <p className="tag" style={{marginTop:"1rem"}}>{title}</p>
+      <div className="movie_dets" style={{marginTop:"1rem",color:"#000"}}>
+        <span>{title}</span>
+      </div>
     </Link>
   );
 };

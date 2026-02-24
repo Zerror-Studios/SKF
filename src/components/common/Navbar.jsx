@@ -27,7 +27,7 @@ const Navbar = () => {
         stagger: { amount: 0.1 },
         duration: 0.3,
         ease: "power2.out",
-      }
+      },
     );
   };
 
@@ -69,18 +69,18 @@ const Navbar = () => {
           borderBottom: "1px solid #d8d8d8",
         }
       : isDarkRoute
-      ? {
-          transform: pathname === "/" ? "translateY(-110%)" : "none",
-          background: scrolled || menu ? "#fffef1" : "transparent", // 👈 menu open → white bg
-          borderBottom: "1px solid",
-          borderColor: scrolled || menu ? "#d8d8d8" : "transparent", // 👈 menu open → border visible
-          transition: "background 0.3s ease, border-color 0.3s ease",
-        }
-      : {
-          transform: "none",
-          background: "#fffef1",
-          borderBottom: "1px solid #d8d8d8",
-        };
+        ? {
+            transform: pathname === "/" ? "translateY(-110%)" : "none",
+            background: scrolled || menu ? "#fffef1" : "transparent", // 👈 menu open → white bg
+            borderBottom: "1px solid",
+            borderColor: scrolled || menu ? "#d8d8d8" : "transparent", // 👈 menu open → border visible
+            transition: "background 0.3s ease, border-color 0.3s ease",
+          }
+        : {
+            transform: "none",
+            background: "#fffef1",
+            borderBottom: "1px solid #d8d8d8",
+          };
 
   return (
     <nav ref={navRef} id="navbar" style={navStyle}>
@@ -95,37 +95,48 @@ const Navbar = () => {
               pathname === "/contact"
                 ? "invert(0)"
                 : isDarkRoute && !scrolled && !menu
-                ? "invert(1)" // 👈 dark mode only when not scrolled & menu closed
-                : "invert(0)",
+                  ? "invert(1)" // 👈 dark mode only when not scrolled & menu closed
+                  : "invert(0)",
             transition: "filter 0.6s ease",
           }}
         />
       </Link>
 
       <div className="nav_links">
-        {menus.map(({ link, name }) => {
+        {menus.map(({ link, name, external }) => {
           const isActive =
             link === "/"
               ? router.asPath === link
               : router.asPath.startsWith(link);
 
-          return (
-            <Link
-              key={name}
-              href={link}
-              className={`nav_item ${name} ${isActive ? "active" : ""} ${
-                isDarkRoute && !scrolled ? "dark" : ""
-              }`}
-              onMouseEnter={() => handleHover(name)}
-              style={{
-                color: isContact
-                  ? "#1D1D1D"
-                  : isDarkRoute && !scrolled
+          const commonProps = {
+            className: `nav_item ${name} ${isActive ? "active" : ""} ${
+              isDarkRoute && !scrolled ? "dark" : ""
+            }`,
+            onMouseEnter: () => handleHover(name),
+            style: {
+              color: isContact
+                ? "#1D1D1D"
+                : isDarkRoute && !scrolled
                   ? "#fff"
                   : "#1D1D1D",
-                transition: isDarkRoute ? "color 0.6s ease" : "none",
-              }}
+              transition: isDarkRoute ? "color 0.6s ease" : "none",
+            },
+          };
+
+          return external ? (
+            <a
+              key={name}
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              {...commonProps}
             >
+              <span className="title1">{splitLetters(name)}</span>
+              <span className="title2">{splitLetters(name)}</span>
+            </a>
+          ) : (
+            <Link key={name} href={link} {...commonProps}>
               <span className="title1">{splitLetters(name)}</span>
               <span className="title2">{splitLetters(name)}</span>
             </Link>
@@ -139,8 +150,8 @@ const Navbar = () => {
           isContact && isMobile
             ? ""
             : isDarkRoute && !scrolled && !menu // 👈 added !menu check
-            ? "dark-menu"
-            : ""
+              ? "dark-menu"
+              : ""
         }`}
         onClick={() => setMenu((prev) => !prev)}
       >

@@ -23,7 +23,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           transform: "translateY(-50%)",
           duration: 0.2,
         },
-        "a"
+        "a",
       )
       .to(
         ".line2m",
@@ -32,7 +32,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           transform: "translateY(-50%)",
           duration: 0.2,
         },
-        "a"
+        "a",
       )
       .to(
         ".line1m",
@@ -40,7 +40,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           rotate: 45,
           duration: 0.2,
         },
-        "b"
+        "b",
       )
       .to(
         ".line2m",
@@ -48,7 +48,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           rotate: -45,
           duration: 0.2,
         },
-        "b"
+        "b",
       )
       .to(
         ".line3m",
@@ -57,7 +57,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           duration: 0.2,
           delay: -0.1,
         },
-        "b"
+        "b",
       )
       .to(
         "#navigation",
@@ -66,7 +66,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           duration: 0.6,
           ease: "ease-secondary",
         },
-        "a"
+        "a",
       )
       .fromTo(
         ".menu-links a",
@@ -82,7 +82,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           y: 0,
           ease: "ease-secondary",
         },
-        "s"
+        "s",
       )
       .fromTo(
         ".menu_social_icon svg",
@@ -98,7 +98,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           y: 0,
           ease: "ease-secondary",
         },
-        "s"
+        "s",
       )
       .fromTo(
         ".menu_contact p",
@@ -113,7 +113,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           y: 0,
           ease: "ease-secondary",
         },
-        "s"
+        "s",
       )
       .fromTo(
         ".menu_contact a",
@@ -128,7 +128,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           y: 0,
           ease: "ease-secondary",
         },
-        "s"
+        "s",
       );
   }, []);
 
@@ -146,16 +146,29 @@ const NavigationMenu = ({ menu, setMenu }) => {
   return (
     <div id="navigation">
       <div className="menu-links">
-        {menus.map(({ link, name }) => (
-          <Link
-            key={name}
-            href={link}
-            className={`${name}`}
-            onClick={() => setMenu(false)}
-          >
-            {name}
-          </Link>
-        ))}
+        {menus.map(({ link, name, external }) =>
+          external ? (
+            <a
+              key={name}
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${name}`}
+              onClick={() => setMenu(false)}
+            >
+              {name}
+            </a>
+          ) : (
+            <Link
+              key={name}
+              href={link}
+              className={`${name}`}
+              onClick={() => setMenu(false)}
+            >
+              {name}
+            </Link>
+          ),
+        )}
       </div>
       <div className="meun_social">
         <div className="menu_contact">
