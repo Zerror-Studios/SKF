@@ -32,10 +32,7 @@ const NewsDetails = ({ newsData }) => {
           <div className="news_time_tab">
             <h5 className="tag">Share</h5>
 
-            <p
-              className="description share_btn"
-              onClick={handleCopy}
-            >
+            <p className="description share_btn" onClick={handleCopy}>
               <IoShareSocial />
               <span className="share_text">
                 {copied ? "Link copied" : "Copy link"}

@@ -3,15 +3,14 @@ import GalleryDetailCard from "./GalleryDetailCard";
 import GalleryFullView from "./GalleryFullView";
 import gsap from "gsap";
 import { useRouter } from "next/router";
-import Button from "../common/Button";
 
-const GalleryDetailList = ({ data, aboutMovie }) => {
+const GalleryDetailList = ({ media }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const listRef = useRef(null);
   const router = useRouter();
 
   // ✅ Don't render anything if no media
-  if (!data?.media || data.media.length === 0) {
+  if (!media || media.length === 0) {
     return null;
   }
 
@@ -39,7 +38,7 @@ const GalleryDetailList = ({ data, aboutMovie }) => {
   return (
     <>
       <div id="gallery_detail_list" ref={listRef}>
-        {data?.media?.map((item, index) => (
+        {media?.map((item, index) => (
           <GalleryDetailCard
             key={index}
             index={index}
@@ -48,25 +47,11 @@ const GalleryDetailList = ({ data, aboutMovie }) => {
             onClick={() => openFullView(index)}
           />
         ))}
-        {aboutMovie && (
-          <div
-            style={{
-              width: "100%",
-              gridColumn: "1 / -1", 
-            }}
-          >
-            <Button
-              onClick={() => router.push(`/movies/${aboutMovie?.slug}`)}
-              title="Know More"
-              color="black"
-            />
-          </div>
-        )}
       </div>
 
       {activeIndex !== null && (
         <GalleryFullView
-          data={data.media}
+          data={media}
           activeIndex={activeIndex}
           onClose={closeFullView}
           setActiveIndex={setActiveIndex}

@@ -90,8 +90,8 @@ const SeoHeader = ({ meta, news, movie }) => {
 
       <OrganizationSchema
         name="Salman Khan Films"
-        clientLink="https://skf-ten.vercel.app"
-        logoUrl="https://skf-ten.vercel.app/logo.png"
+        clientLink="https://salmankhanfilms.com"
+        logoUrl="https://salmankhanfilms.com/logo.png"
         address={{
           streetAddress: "Andheri West",
           addressLocality: "Mumbai",

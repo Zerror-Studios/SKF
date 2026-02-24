@@ -2,18 +2,17 @@ import React, { useEffect, useRef } from "react";
 import GalleryCard from "./GalleryCard";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
+import Button from "../common/Button";
 gsap.registerPlugin(ScrollTrigger);
 
-const GalleryList = ({ data, ishome }) => {
+const GalleryList = ({ data, movieSlug, hasMoviePage }) => {
   const galleryRef = useRef(null);
-
-  // Slice to 8 cards if ishome
-  const displayData = ishome ? data?.slice(0, 8) : data;
 
   useEffect(() => {
     if (!galleryRef.current) return;
 
-    const cards = galleryRef.current.querySelectorAll(".gallery_card");
+    const cards = galleryRef.current.querySelectorAll(".gallery_wrap");
     gsap.set(cards, { y: 80, opacity: 0 });
 
     const playAnimation = () => {
@@ -46,13 +45,37 @@ const GalleryList = ({ data, ishome }) => {
     return () => {
       if (st) st.kill();
     };
-  }, [displayData]);
+  }, [data]);
 
   return (
     <div id="gallery_list" ref={galleryRef}>
-      {displayData.map((item) => (
-        <GalleryCard key={item.slug} data={item} />
-      ))}
+      {data.map((item) => {
+        const href = movieSlug
+          ? `/gallery/${movieSlug}/${item.slug}`
+          : `/gallery/${item.slug}`;
+
+        return (
+          <GalleryCard
+            key={item.slug}
+            slug={href}
+            title={item.title}
+            cover={item.cover}
+            data={item}
+          />
+        );
+      })}
+      {hasMoviePage && (
+        <div
+          style={{
+            width: "100%",
+            gridColumn: "1 / -1",
+          }}
+        >
+          <Link href={`/movies/${movieSlug}`}>
+            <Button title="Know More" color="black" />
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

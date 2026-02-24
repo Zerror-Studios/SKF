@@ -6,27 +6,27 @@ const NewsArticleSchema = ({ news }) => {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    "@id": `https://skf-ten.vercel.app/news/${news.slug}#news`,
+    "@id": `https://salmankhanfilms.com/news/${news.slug}#news`,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://skf-ten.vercel.app/news/${news.slug}`,
+      "@id": `https://salmankhanfilms.com/news/${news.slug}`,
     },
     headline: news.title,
     description: news.description,
-    image: [`https://skf-ten.vercel.app${news.image}`],
+    image: [`https://salmankhanfilms.com${news.image}`],
     datePublished: news.publishedAt,
     dateModified: news.updatedAt || news.publishedAt,
     author: {
       "@type": "Organization",
       name: "Salman Khan Films",
-      url: "https://skf-ten.vercel.app",
+      url: "https://salmankhanfilms.com",
     },
     publisher: {
       "@type": "Organization",
       name: "Salman Khan Films",
       logo: {
         "@type": "ImageObject",
-        url: "https://skf-ten.vercel.app/logo.png",
+        url: "https://salmankhanfilms.com/logo.png",
       },
     },
     articleSection: "Fresh Stories",

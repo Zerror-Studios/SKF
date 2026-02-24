@@ -6,10 +6,10 @@ const MovieSchema = ({ movie }) => {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Movie",
-    "@id": `https://skf-ten.vercel.app/movies/${movie.slug}#movie`,
+    "@id": `https://salmankhanfilms.com/movies/${movie.slug}#movie`,
     name: movie.title,
-    url: `https://skf-ten.vercel.app/movies/${movie.slug}`,
-    image: `https://skf-ten.vercel.app${movie.poster}`,
+    url: `https://salmankhanfilms.com/movies/${movie.slug}`,
+    image: `https://salmankhanfilms.com${movie.poster}`,
     description: movie.synopsis,
     datePublished: movie.year.toString(),
     inLanguage: "hi-IN",
@@ -23,7 +23,7 @@ const MovieSchema = ({ movie }) => {
     productionCompany: {
       "@type": "Organization",
       name: "Salman Khan Films",
-      url: "https://skf-ten.vercel.app",
+      url: "https://salmankhanfilms.com",
     },
 
     actor: movie.cast?.map((actor) => ({
@@ -36,7 +36,7 @@ const MovieSchema = ({ movie }) => {
           "@type": "VideoObject",
           name: `${movie.title} Official Trailer`,
           embedUrl: movie.trailer,
-          thumbnailUrl: `https://skf-ten.vercel.app${movie.poster}`,
+          thumbnailUrl: `https://salmankhanfilms.com${movie.poster}`,
         }
       : undefined,
   };

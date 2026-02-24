@@ -9,15 +9,24 @@ import HorizontalSlider from "@/components/common/HorizontalSlider/HorizontalSli
 import HorizontalSwiper from "@/components/common/HorizontalSlider/HorizontalSwiper";
 
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
-import GalleryDetailList from "@/components/gallery/GalleryDetailList";
+import GalleryList from "@/components/gallery/GalleryList";
 
 import MovieList from "@/components/home/MovieList";
 
 import { movies } from "@/helper/moviesData";
-import { galleryAlbums } from "@/helper/galleryData";
+import { galleryAlbums } from "@/helper/albumData";
 
-const MovieDetails = ({ movie, galleryBts, latestMovies, trailerList }) => {
+const MovieDetails = ({
+  movie,
+  latestMovies,
+  trailerList,
+  subAlbums,
+  movieTitle,
+  movieSlug,
+}) => {
   if (!movie) return null;
+
+  const hasGallery = subAlbums && subAlbums.length > 0;
 
   return (
     <>
@@ -31,10 +40,11 @@ const MovieDetails = ({ movie, galleryBts, latestMovies, trailerList }) => {
 
       <HorizontalSwiper data={movie} />
 
-      {galleryBts?.media?.length > 0 && (
+      {/* ✅ GALLERY SECTION (only if gallery exists) */}
+      {hasGallery && (
         <>
-          <GalleryTitleSection data={galleryBts} subHeading="BTS" isPadding />
-          <GalleryDetailList data={galleryBts} />
+          <GalleryTitleSection title={movieTitle} subHeading="GALLERY" isPadding={true} />
+          <GalleryList data={subAlbums} movieSlug={movieSlug} />
         </>
       )}
 
@@ -60,7 +70,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const movie = movies.find((m) => m.slug === params.slug) || null;
-  const galleryBts = galleryAlbums.find((g) => g.slug === params.slug) || null;
+
+  // ✅ Find gallery album ONLY if it exists
+  const movieGallery =
+    galleryAlbums.find((album) => album.slug === params.slug) || null;
 
   const latestMovies = movies.filter((m) => m.slug !== params.slug).slice(0, 3);
 
@@ -80,9 +93,11 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       movie,
-      galleryBts,
       latestMovies,
       trailerList,
+      subAlbums: movieGallery?.subAlbums || [],
+      movieTitle: movieGallery?.title || null,
+      movieSlug: movieGallery?.slug || null,
     },
   };
 }

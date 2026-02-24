@@ -1,20 +1,20 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { galleryAlbums } from "@/helper/galleryData";
+import { galleryAlbums } from "@/helper/albumData";
 import React from "react";
 
-const Gallery = ({ meta, media }) => {
+const Album = ({ meta, albums }) => {
   return (
     <>
       <SeoHeader meta={meta} />
       <GalleryTitleSection subHeading={"GALLERY"} />
-      <GalleryList data={media} />
+      <GalleryList data={albums} />
     </>
   );
 };
 
-export default Gallery;
+export default Album;
 
 export async function getStaticProps() {
   const meta = {
@@ -26,14 +26,13 @@ export async function getStaticProps() {
     author: "Salman Khan Films",
     robots: "index,follow",
   };
+  const albums = galleryAlbums;
 
-  const media = galleryAlbums.filter(
-    (album) => album.media && album.media.length > 0,
-  );
+
   return {
     props: {
       meta,
-      media,
+      albums
     },
   };
 }

@@ -3,19 +3,14 @@ import Link from "next/link";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 
-const GalleryCard = ({ data }) => {
+const GalleryCard = ({ slug, title, cover }) => {
   return (
-    <Link href={`/gallery/${data.slug}`}>
-      <div className="gallery_card cursor-pointer landing_text">
+    <Link href={slug} style={{textDecoration:"none"}} className="gallery_wrap landing_text">
+      <div className="gallery_card cursor-pointer ">
         {[1, 2, 3].map((num) => (
           <div key={num} className={`image${num} image`}>
-            {data?.galleryCover && (
-              <Image
-                width={1000}
-                height={1000}
-                src={data.galleryCover}
-                alt={data.title}
-              />
+            {cover && (
+              <Image width={1000} height={1000} src={cover} alt={title} />
             )}
           </div>
         ))}
@@ -29,6 +24,7 @@ const GalleryCard = ({ data }) => {
           </div>
         </div>
       </div>
+      <p className="tag" style={{marginTop:"1rem"}}>{title}</p>
     </Link>
   );
 };
