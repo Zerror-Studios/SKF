@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import CustomEase from "gsap/dist/CustomEase";
+import Breadcrumb from "./Breadcrumb";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -10,6 +11,7 @@ const GalleryTitleSection = ({
   subHeading,
   isHero = true,
   isPadding,
+  breadcrumbs,
 }) => {
   const tagRef = useRef(null);
   const titleRef = useRef(null);
@@ -67,6 +69,11 @@ const GalleryTitleSection = ({
 
   return (
     <div id="gallery_title" className={`${isPadding ? "not-hero" : ""}`}>
+      {breadcrumbs && (
+        <div className="page-container" style={{width:"100%",}}>
+          <Breadcrumb items={breadcrumbs} />
+        </div>
+      )}
       <h5 ref={tagRef} className="tag1 landing_text">
         {subHeading}
       </h5>

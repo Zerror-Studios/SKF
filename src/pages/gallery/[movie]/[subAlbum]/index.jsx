@@ -3,12 +3,28 @@ import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
 import { galleryAlbums } from "@/helper/albumData";
 
-const AlbumSubDetail = ({ albumTitle, subAlbumTitle, media, meta }) => {
-
+const AlbumSubDetail = ({
+  albumTitle,
+  subAlbumTitle,
+  media,
+  meta,
+  movieSlug,
+}) => {
+  const breadcrumbs = [
+    { label: "Home", href: "/" },
+    { label: "Gallery", href: "/gallery" },
+    { label: albumTitle, href: `/gallery/${movieSlug}` },
+    { label: subAlbumTitle },
+  ];
   return (
     <>
       <SeoHeader meta={meta} />
-      <GalleryTitleSection title={subAlbumTitle} subHeading={albumTitle} />
+      <GalleryTitleSection
+        title={subAlbumTitle}
+        subHeading={albumTitle}
+        breadcrumbs={breadcrumbs}
+      />
+
       <GalleryDetailList media={media} />
     </>
   );
@@ -54,6 +70,7 @@ export async function getStaticProps({ params }) {
       subAlbumTitle: subAlbum.title,
       media: subAlbum.media,
       meta,
+      movieSlug: movieData.slug,
     },
   };
 }
