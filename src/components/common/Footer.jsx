@@ -91,7 +91,7 @@ const Footer = () => {
           </h5>
         </div>
         <div id="footer_bottom_right">
-          <p>© 2025 Salman Khan Films. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Salman Khan Films. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
