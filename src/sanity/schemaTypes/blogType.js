@@ -1,17 +1,20 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const blogType = defineType({
-  name: 'blog',
-  title: 'Blog',
+  name: 'blogs',
+  title: 'Blogs',
   type: 'document',
 
   fields: [
-    // 🔹 Title
+    // 🔹 Blog Title
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value ? true : 'Blog title is required'
+        ),
     }),
 
     // 🔹 Slug
@@ -23,40 +26,59 @@ export const blogType = defineType({
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value?.current ? true : 'Slug is required'
+        ),
     }),
 
-    // 🔹Short Description
+    // 🗓️ Published Date
+    defineField({
+      name: 'publishedAt',
+      title: 'Published Date',
+      type: 'datetime',
+      description: 'Blog publish date (used for sorting & SEO)',
+      initialValue: () => new Date().toISOString(),
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value ? true : 'Published date is required'
+        ),
+    }),
+
+    // 🔹 Short Description
     defineField({
       name: 'description',
       title: 'Short Description',
       type: 'text',
       rows: 3,
-      validation: (Rule) => Rule.required(),
+      description: 'Brief summary of the blog (recommended: 20–30 words)',
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value ? true : 'Short description is required'
+        ),
     }),
 
-    // 🔹 Cover Image
+    // 🔹 Featured Image
     defineField({
       name: 'image',
       title: 'Featured Image',
       type: 'image',
-      options: {hotspot: true},
+      options: { hotspot: true },
       fields: [
         {
           name: 'alt',
           type: 'string',
           title: 'Alt text',
+          validation: (Rule) =>
+            Rule.custom((value) =>
+              value ? true : 'Alt text is required'
+            ),
         },
       ],
-      validation: (Rule) => Rule.required(),
-    }),
-
-    // 🔹 ISO Publish Date
-    defineField({
-      name: 'publishedAt',
-      title: 'Published At',
-      type: 'datetime',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value?.asset ? true : 'Featured image is required'
+        ),
     }),
 
     // 🔹 Reading Time
@@ -65,19 +87,25 @@ export const blogType = defineType({
       title: 'Reading Time',
       type: 'string',
       description: 'Example: 2 Minutes',
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value ? true : 'Reading time is required'
+        ),
     }),
 
-    // 🔹 Blog Content (array of paragraphs)
+    // 🔹 Blog Content (Multiple Paragraphs)
     defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [
-        {
-          type: 'text',
-        },
-      ],
-      validation: (Rule) => Rule.required(),
+      of: [{ type: 'text', rows: 4 }],
+      description: 'Write content in multiple paragraphs',
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value && value.length > 0
+            ? true
+            : 'Blog content is required'
+        ),
     }),
 
     // 🔹 SEO Meta
@@ -85,10 +113,44 @@ export const blogType = defineType({
       name: 'meta',
       title: 'SEO Meta',
       type: 'object',
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          value ? true : 'SEO meta information is required'
+        ),
       fields: [
-        {name: 'title', type: 'string', title: 'Meta Title'},
-        {name: 'description', type: 'text', title: 'Meta Description'},
-        {name: 'keywords', type: 'text', title: 'Keywords'},
+        defineField({
+          name: 'title',
+          title: 'Meta Title',
+          type: 'string',
+          description: 'Recommended: 50–60 characters',
+          validation: (Rule) =>
+            Rule.custom((value) =>
+              value ? true : 'Meta title is required'
+            ),
+        }),
+        defineField({
+          name: 'description',
+          title: 'Meta Description',
+          type: 'text',
+          rows: 3,
+          description: 'Recommended: 150–160 characters',
+          validation: (Rule) =>
+            Rule.custom((value) =>
+              value ? true : 'Meta description is required'
+            ),
+        }),
+        defineField({
+          name: 'keywords',
+          title: 'Meta Keywords',
+          type: 'text',
+          rows: 2,
+          description:
+            'Comma-separated keywords (recommended: 5–10 words). Example: Sikander movie, Karthi film, Siva director, Tamil cinema, movie review',
+          validation: (Rule) =>
+            Rule.custom((value) =>
+              value ? true : 'Meta keywords are required'
+            ),
+        }),
       ],
     }),
   ],
@@ -97,7 +159,6 @@ export const blogType = defineType({
     select: {
       title: 'title',
       media: 'image',
-      subtitle: 'date',
     },
   },
 })

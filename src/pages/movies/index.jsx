@@ -1,9 +1,11 @@
 import MoviesListing from "@/components/movieListing/MoviesListing";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { movies } from "@/helper/moviesData";
+import { client } from "@/sanity/lib/client";
 import React from "react";
 
 const Movies = ({ meta, movies }) => {
+  console.log(movies);
+
   return (
     <>
       <SeoHeader meta={meta} />
@@ -18,16 +20,31 @@ export async function getStaticProps() {
   const meta = {
     title: "Films & Productions | Salman Khan Films",
     description:
-      "Explore the complete list of films produced by Salman Khan Films, including feature films, production details, and release information.",
+      "Explore the complete list of films produced by Salman Khan Films, including released and upcoming titles.",
     keywords:
-      "Salman Khan Films movies, SKF filmography, Hindi films, Bollywood productions, Indian movies",
+      "Salman Khan Films movies, SKF filmography, Hindi films, Bollywood productions, upcoming movies",
     author: "Salman Khan Films",
     robots: "index,follow",
   };
+
+  // ✅ Fetch ALL movies (released + upcoming)
+  const movies = await client.fetch(`
+    *[_type == "movies"]
+    | order(orderRank asc){
+      title,
+      year,
+      category,
+      "slug": slug.current,
+      poster,
+      "backgroundVideo": backgroundVideo.asset->url
+    }
+  `);
+
   return {
     props: {
       meta,
       movies,
     },
+    revalidate: 60, // ISR
   };
 }

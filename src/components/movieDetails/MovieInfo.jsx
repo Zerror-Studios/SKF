@@ -13,10 +13,10 @@ const MovieInfo = ({ info, detailsRef }) => {
   const platformKey = firstPlatform?.platform?.toLowerCase().includes("netflix")
     ? "netflix"
     : firstPlatform?.platform?.toLowerCase().includes("prime")
-    ? "prime"
-    : firstPlatform?.platform?.toLowerCase().includes("zee")
-    ? "zee"
-    : null;
+      ? "prime"
+      : firstPlatform?.platform?.toLowerCase().includes("zee")
+        ? "zee"
+        : null;
 
   return (
     <>
@@ -25,15 +25,19 @@ const MovieInfo = ({ info, detailsRef }) => {
         className="movie_details_info"
         style={{ transform: "translateY(60%)", opacity: 0 }}
       >
-        <div className="movie_details_info_produce">
-          <p>Produced By</p>
-          <h4>{info?.produced}</h4>
-        </div>
+        {info?.produced && (
+          <div className="movie_details_info_produce">
+            <p>Produced By</p>
+            <h4>{info.produced}</h4>
+          </div>
+        )}
 
-        <div>
-          <p>Directed By</p>
-          <h4>{info?.director}</h4>
-        </div>
+        {info?.director && (
+          <div>
+            <p>Directed By</p>
+            <h4>{info.director}</h4>
+          </div>
+        )}
 
         <div>
           <p>Genre</p>

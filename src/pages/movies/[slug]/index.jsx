@@ -12,9 +12,7 @@ import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryList from "@/components/gallery/GalleryList";
 
 import MovieList from "@/components/home/MovieList";
-
-import { movies } from "@/helper/moviesData";
-import { galleryAlbums } from "@/helper/albumData";
+import { client } from "@/sanity/lib/client";
 
 const MovieDetails = ({
   movie,
@@ -25,7 +23,6 @@ const MovieDetails = ({
   movieSlug,
 }) => {
   if (!movie) return null;
-
   const hasGallery = subAlbums && subAlbums.length > 0;
 
   return (
@@ -43,7 +40,11 @@ const MovieDetails = ({
       {/* ✅ GALLERY SECTION (only if gallery exists) */}
       {hasGallery && (
         <>
-          <GalleryTitleSection title={movieTitle} subHeading="GALLERY" isPadding={true} />
+          <GalleryTitleSection
+            title={movieTitle}
+            subHeading="GALLERY"
+            isPadding={true}
+          />
           <GalleryList data={subAlbums} movieSlug={movieSlug} />
         </>
       )}
@@ -58,32 +59,87 @@ const MovieDetails = ({
 export default MovieDetails;
 
 export async function getStaticPaths() {
-  const paths = movies.map((movie) => ({
-    params: { slug: movie.slug },
+  const slugs = await client.fetch(`
+    *[
+      _type == "movies" &&
+      category == "released" &&
+      defined(slug.current)
+    ].slug.current
+  `);
+
+  const paths = slugs.map((slug) => ({
+    params: { slug },
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
 export async function getStaticProps({ params }) {
-  const movie = movies.find((m) => m.slug === params.slug) || null;
+  const { slug } = params;
 
-  // ✅ Find gallery album ONLY if it exists
-  const movieGallery =
-    galleryAlbums.find((album) => album.slug === params.slug) || null;
+  if (!slug) {
+    return { notFound: true };
+  }
 
-  const latestMovies = movies.filter((m) => m.slug !== params.slug).slice(0, 3);
+  const movie = await client.fetch(
+    `
+    *[
+      _type == "movies" &&
+      category == "released" &&
+      slug.current == $slug
+    ][0]{
+      title,
+      year,
+      category,
+      director,
+      produced,
+      synopsis,
+      poster,
+      cast,
+      watchNow,
+      trailer,
+      teaser,
+      meta,
+      "backgroundVideo": backgroundVideo.asset->url,
+      "slug": slug.current
+    }
+    `,
+    { slug },
+  );
+
+  if (!movie) {
+    return { notFound: true };
+  }
+
+  // other movies (also exclude null slugs)
+  const latestMovies = await client.fetch(
+    `
+    *[
+      _type == "movies" &&
+      category == "released" &&
+      defined(slug.current) &&
+      slug.current != $slug
+    ]
+    | order(year desc)[0...3]{
+      title,
+      year,
+      poster,
+      "slug": slug.current
+    }
+    `,
+    { slug },
+  );
 
   const trailerList = [
-    movie?.trailer && {
+    movie.trailer && {
       title: movie.title,
       url: movie.trailer,
       type: "trailer",
     },
-    movie?.teaser && {
+    movie.teaser && {
       title: movie.title,
       url: movie.teaser,
       type: "teaser",
@@ -95,9 +151,10 @@ export async function getStaticProps({ params }) {
       movie,
       latestMovies,
       trailerList,
-      subAlbums: movieGallery?.subAlbums || [],
-      movieTitle: movieGallery?.title || null,
-      movieSlug: movieGallery?.slug || null,
+      subAlbums: [],
+      movieTitle: movie.title,
+      movieSlug: movie.slug,
     },
+    revalidate: 60,
   };
 }

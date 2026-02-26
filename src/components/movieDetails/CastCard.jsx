@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 const CastCard = ({ data }) => {
   return (
@@ -11,7 +12,7 @@ const CastCard = ({ data }) => {
         <Image
           width={1000}
           height={1000}
-          src={data?.image}
+          src={urlFor(data?.image).url()}
           alt={data?.name}
           priority
         />

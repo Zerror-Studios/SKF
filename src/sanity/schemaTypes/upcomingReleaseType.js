@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const upcomingReleaseType = defineType({
   name: 'upcomingRelease',
@@ -6,11 +6,11 @@ export const upcomingReleaseType = defineType({
   type: 'document',
 
   fields: [
+    // 🎬 Movie Title
     defineField({
-      name: 'title',
-      title: 'Release Title',
+      name: 'movieTitle',
+      title: 'Movie Title',
       type: 'string',
-      initialValue: 'Upcoming Release',
       validation: (Rule) => Rule.required(),
     }),
 
@@ -20,7 +20,6 @@ export const upcomingReleaseType = defineType({
       title: 'Desktop Banner',
       type: 'image',
       options: { hotspot: true },
-      description: 'Upload wide banner for desktop view',
       fields: [
         {
           name: 'alt',
@@ -28,17 +27,21 @@ export const upcomingReleaseType = defineType({
           title: 'Alt text',
         },
       ],
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (!value || !value.asset) {
+            return 'Desktop banner is required'
+          }
+          return true
+        }),
     }),
 
-    // 📱 Mobile Banner (OPTIONAL)
+    // 📱 Mobile Banner (Optional)
     defineField({
       name: 'mobileBanner',
       title: 'Mobile Banner (Optional)',
       type: 'image',
       options: { hotspot: true },
-      description:
-        'Optional: Upload vertical banner for mobile devices. If not provided, desktop banner will be used.',
       fields: [
         {
           name: 'alt',
@@ -51,7 +54,7 @@ export const upcomingReleaseType = defineType({
 
   preview: {
     select: {
-      title: 'title',
+      title: 'movieTitle',
       media: 'desktopBanner',
     },
   },
