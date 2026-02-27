@@ -8,7 +8,7 @@ export const structure = (S, context) =>
       S.documentTypeListItem("upcomingRelease").title("Upcoming Releases"),
 
       // Blogs
-      S.documentTypeListItem("blogs").title("Blogs"),
+      S.documentTypeListItem("blog").title("Blogs"),
 
       // Movies (orderable)
       orderableDocumentListDeskItem({
@@ -17,16 +17,8 @@ export const structure = (S, context) =>
         S,
         context,
       }),
+      S.documentTypeListItem("filmography").title("Filmography"),
 
-      // ✅ Filmography — SINGLE DOCUMENT
-      S.listItem()
-        .title("Filmography")
-        .id("filmography")
-        .child(
-          S.document()
-            .schemaType("filmography")
-            .documentId("filmography")
-        ),
 
       S.divider(),
 
@@ -34,7 +26,7 @@ export const structure = (S, context) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
-          !["upcomingRelease", "blogs", "movies", "filmography"].includes(
+          !["upcomingRelease", "blog", "movies","filmography"].includes(
             item.getId()
           )
       ),

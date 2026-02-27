@@ -76,7 +76,7 @@ const SeoHeader = ({ meta, news, movie }) => {
       {/* Hreflang */}
       <link
         rel="alternate"
-        hreflang="en-in"
+        hreflang="en"
         href={meta?.canonical ?? canonical}
       />
       {news && <NewsArticleSchema news={news} />}

@@ -176,17 +176,17 @@ const NavigationMenu = ({ menu, setMenu }) => {
           <Link href="/">salmankhanflims@gmail.com</Link>
         </div>
         <div className="menu_social_icon">
-          <Link href="https://x.com/skfilmsofficial?s=21" target="_blank">
+          <Link href="https://x.com/skfilmsofficial" target="_blank">
             <FaXTwitter />
           </Link>
           <Link
-            href="https://www.instagram.com/skfilmsofficial?igsh=MmU0MXh5M28xZHlw"
+            href="https://www.instagram.com/skfilmsofficial"
             target="_blank"
           >
             <FaInstagram />
           </Link>
           <Link
-            href="https://youtube.com/@salmankhanfilms?si=t5TS1bnfuDtDWRpR"
+            href="https://youtube.com/@salmankhanfilms"
             target="_blank"
           >
             <AiOutlineYoutube />

@@ -12,7 +12,6 @@ import { galleryAlbums } from "@/helper/albumData";
 import { client } from "@/sanity/lib/client";
 
 const Home = ({ meta, movies, highlightsData, albums, upcomingRelease }) => {
-console.log(movies);
 
   return (
     <>

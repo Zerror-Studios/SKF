@@ -65,17 +65,17 @@ const Footer = () => {
           <div className="footer_links">
             <h5>Socials</h5>
             <div className="footer_social">
-              <Link href="https://x.com/skfilmsofficial?s=21" target="_blank">
+              <Link href="https://x.com/skfilmsofficial" target="_blank">
                 <FaXTwitter /> <span>Twitter</span>
               </Link>
               <Link
-                href="https://www.instagram.com/skfilmsofficial?igsh=MmU0MXh5M28xZHlw"
+                href="https://www.instagram.com/skfilmsofficial"
                 target="_blank"
               >
                 <FaInstagram /> <span>Instagram</span>
               </Link>
               <Link
-                href="https://youtube.com/@salmankhanfilms?si=t5TS1bnfuDtDWRpR"
+                href="https://www.youtube.com/@SalmanKhanFilmsMusic"
                 target="_blank"
               >
                 <AiOutlineYoutube /> <span>Youtube</span>

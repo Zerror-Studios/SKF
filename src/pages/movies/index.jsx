@@ -4,7 +4,6 @@ import { client } from "@/sanity/lib/client";
 import React from "react";
 
 const Movies = ({ meta, movies }) => {
-  console.log(movies);
 
   return (
     <>

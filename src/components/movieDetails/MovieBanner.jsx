@@ -12,7 +12,7 @@ const MovieBanner = ({ trailer, title, poster, bannerRef, setShowVideo }) => {
       <Image width={1000} height={1000} src={poster} alt="image" priority />
       {trailer && (
         <div className="movie_banner_overlay">
-          <h2 className="heading">{title}</h2>
+          <h1 className="heading">{title}</h1>
           <PlaySvg setShowVideo={setShowVideo} />
         </div>
       )}

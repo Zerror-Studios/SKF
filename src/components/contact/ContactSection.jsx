@@ -88,7 +88,10 @@ const ContactSection = () => {
       <div id="contact-top">
         <div>
           <h1 ref={heading1Ref} className="heading landing_text">
-            Have an<span className="letter-u" style={{paddingRight:"2px"}}>enquiry?</span> 
+            Have an
+            <span className="letter-u" style={{ paddingRight: "2px" }}>
+              enquiry?
+            </span>
           </h1>
           <h2
             ref={heading2Ref}
@@ -117,21 +120,21 @@ const ContactSection = () => {
         <div className="contact_social" ref={iconsRef}>
           <Link
             className="landing_text"
-            href="https://x.com/skfilmsofficial?s=21"
+            href="https://x.com/skfilmsofficial"
             target="_blank"
           >
             <FaXTwitter />
           </Link>
           <Link
             className="landing_text"
-            href="https://www.instagram.com/skfilmsofficial?igsh=MmU0MXh5M28xZHlw"
+            href="https://www.instagram.com/skfilmsofficial"
             target="_blank"
           >
             <FaInstagram />
           </Link>
           <Link
             className="landing_text"
-            href="https://youtube.com/@salmankhanfilms?si=t5TS1bnfuDtDWRpR"
+            href="https://youtube.com/@salmankhanfilms"
             target="_blank"
           >
             <AiOutlineYoutube />

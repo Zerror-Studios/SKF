@@ -28,10 +28,13 @@
   display: flex;
   align-items: flex-end;
 }
-.movie_banner_overlay h2 {
+.movie_banner_overlay h1 {
   color: #fcfcfc;
   font-size: 3.75rem;
   text-transform: capitalize;
+  position: relative;
+  z-index: 999;
+  opacity: 1 !important;
 }
 .movie_banner_overlay svg {
   position: absolute;
@@ -228,7 +231,7 @@
   .movie_banner {
     height: 45vh;
   }
-  .movie_banner_overlay h2 {
+  .movie_banner_overlay h1 {
     font-size: 2.5rem;
   }
   .movie_details_info {
@@ -294,7 +297,7 @@
   .movie_banner {
     height: 85vh;
   }
-  .movie_banner_overlay h2 {
+  .movie_banner_overlay h1 {
     font-size: 2.5rem;
   }
   .movie_details_info {
@@ -361,7 +364,7 @@
   .movie_banner {
     height: 85vh;
   }
-  .movie_banner_overlay h2 {
+  .movie_banner_overlay h1 {
     font-size: 2.5rem;
   }
   .movie_details_info {

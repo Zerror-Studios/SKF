@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 
 export const blogType = defineType({
-  name: 'blogs',
+  name: 'blog',
   title: 'Blogs',
   type: 'document',
 
