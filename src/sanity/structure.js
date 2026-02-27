@@ -18,7 +18,13 @@ export const structure = (S, context) =>
         context,
       }),
       S.documentTypeListItem("filmography").title("Filmography"),
-
+      // Gallery (orderable)
+      orderableDocumentListDeskItem({
+        type: "galleryAlbum",
+        title: "Gallery Albums",
+        S,
+        context,
+      }),
 
       S.divider(),
 
@@ -26,7 +32,7 @@ export const structure = (S, context) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
-          !["upcomingRelease", "blog", "movies","filmography"].includes(
+          !["upcomingRelease", "blog", "movies", "filmography", "galleryAlbum"].includes(
             item.getId()
           )
       ),

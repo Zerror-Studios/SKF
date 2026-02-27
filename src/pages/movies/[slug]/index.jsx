@@ -146,12 +146,35 @@ export async function getStaticProps({ params }) {
     },
   ].filter(Boolean);
 
+  // ✅ Fetch gallery subAlbums for this movie (slug match)
+  const galleryData = await client.fetch(
+    `
+  *[_type == "galleryAlbum" && slug.current == $slug][0]{
+    subAlbums[]{
+      title,
+       "slug": slug.current,
+      "cover": cover.asset->url,
+      media[]{
+        type,
+        "src": select(
+          type == "image" => image.asset->url,
+          type == "video" => videoUrl
+        )
+      }
+    }
+  }
+  `,
+    { slug },
+  );
+
+  const subAlbums = galleryData?.subAlbums || [];
+
   return {
     props: {
       movie,
       latestMovies,
       trailerList,
-      subAlbums: [],
+      subAlbums,
       movieTitle: movie.title,
       movieSlug: movie.slug,
     },

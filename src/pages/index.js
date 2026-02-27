@@ -7,8 +7,6 @@ import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryList from "@/components/gallery/GalleryList";
 import SeoHeader from "@/components/seo/SeoHeader";
-
-import { galleryAlbums } from "@/helper/albumData";
 import { client } from "@/sanity/lib/client";
 
 const Home = ({ meta, movies, highlightsData, albums, upcomingRelease }) => {
@@ -81,12 +79,33 @@ export async function getStaticProps() {
     }
   `);
 
+  const albums = await client.fetch(`
+  *[_type == "galleryAlbum"] | order(orderRank asc){
+  title,
+   "slug": slug.current,
+  "cover": cover.asset->url,
+
+  subAlbums[]{
+    title,
+     "slug": slug.current,
+    "cover": cover.asset->url,
+
+    media[]{
+      type,
+      "src": select(
+        type == "image" => image.asset->url,
+        type == "video" => videoUrl
+      )
+    }
+  }
+}`);
+
   return {
     props: {
       meta,
-      movies: latestMovies,        
-      highlightsData: blogs,       
-      albums: galleryAlbums,
+      movies: latestMovies,
+      highlightsData: blogs,
+      albums,
       upcomingRelease,
     },
     revalidate: 60,

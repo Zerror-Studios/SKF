@@ -1,8 +1,7 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { galleryAlbums } from "@/helper/albumData";
-import { movies } from "@/helper/moviesData";
+import { client } from "@/sanity/lib/client";
 
 const AlbumDetail = ({
   meta,
@@ -26,25 +25,65 @@ const AlbumDetail = ({
 
 export default AlbumDetail;
 
+/* -------------------- STATIC PATHS -------------------- */
 export async function getStaticPaths() {
-  const paths = galleryAlbums.map((movie) => ({
-    params: { movie: movie.slug },
+  const albums = await client.fetch(`
+    *[_type == "galleryAlbum"]{
+      "slug": slug.current
+    }
+  `);
+
+  const paths = albums.map((album) => ({
+    params: { movie: album.slug },
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
+/* -------------------- STATIC PROPS -------------------- */
 export async function getStaticProps({ params }) {
-  const movieData = galleryAlbums.find((movie) => movie.slug === params.movie);
+  const slug = params.movie;
+
+  // 1️⃣ Fetch gallery album
+  const movieData = await client.fetch(
+    `
+    *[_type == "galleryAlbum" && slug.current == $slug][0]{
+      title,
+      "slug": slug.current,
+
+      subAlbums[]{
+        title,
+       "slug": slug.current,
+        "cover": cover.asset->url,
+
+        media[]{
+          type,
+          "src": select(
+            type == "image" => image.asset->url,
+            type == "video" => videoUrl
+          )
+        }
+      }
+    }
+    `,
+    { slug },
+  );
 
   if (!movieData) {
     return { notFound: true };
   }
-  // check if this movie exists in movies list
-  const hasMoviePage = movies.some((m) => m.slug === params.movie);
+
+  // 2️⃣ Check if movie exists in movie schema
+  const movieExists = await client.fetch(
+    `
+  count(*[_type == "movies" && slug.current == $slug]) > 0
+  `,
+    { slug },
+  );
+  const hasMoviePage = movieExists;
 
   const meta = {
     title: `${movieData.title} | Media Gallery | Salman Khan Films`,
@@ -62,5 +101,6 @@ export async function getStaticProps({ params }) {
       movieSlug: movieData.slug,
       hasMoviePage,
     },
+    revalidate: 60,
   };
 }
