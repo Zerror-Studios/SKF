@@ -80,7 +80,7 @@ export async function getStaticProps() {
   `);
 
   const albums = await client.fetch(`
-  *[_type == "galleryAlbum"] | order(orderRank asc){
+  *[_type == "galleryAlbum"] | order(orderRank desc){
   title,
    "slug": slug.current,
   "cover": cover.asset->url,

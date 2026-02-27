@@ -29,7 +29,7 @@ export async function getStaticProps() {
   // ✅ Fetch ALL movies (released + upcoming)
   const movies = await client.fetch(`
     *[_type == "movies"]
-    | order(orderRank asc){
+    | order(orderRank desc){
       title,
       year,
       category,

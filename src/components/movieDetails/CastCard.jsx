@@ -12,7 +12,7 @@ const CastCard = ({ data }) => {
         <Image
           width={1000}
           height={1000}
-          src={urlFor(data?.image).url()}
+          src={data?.image ? urlFor(data.image).url() : '/images/moviedetails/cast/placeholder.png' }
           alt={data?.name}
           priority
         />
