@@ -1,21 +1,9 @@
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { galleryAlbums } from "@/helper/albumData";
+import { client } from "@/sanity/lib/client";
 
-const AlbumSubDetail = ({
-  albumTitle,
-  subAlbumTitle,
-  media,
-  meta,
-  movieSlug,
-}) => {
-  const breadcrumbs = [
-    { label: "Home", href: "/" },
-    { label: "Gallery", href: "/gallery" },
-    { label: albumTitle, href: `/gallery/${movieSlug}` },
-    { label: subAlbumTitle },
-  ];
+const AlbumSubDetail = ({ albumTitle, subAlbumTitle, media, meta }) => {
   return (
     <>
       <SeoHeader meta={meta} />
@@ -32,45 +20,78 @@ const AlbumSubDetail = ({
 
 export default AlbumSubDetail;
 
+/* -------------------- STATIC PATHS -------------------- */
 export async function getStaticPaths() {
-  const paths = galleryAlbums.flatMap((album) =>
+  const albums = await client.fetch(`
+    *[_type == "galleryAlbum"]{
+      "albumSlug": slug.current,
+      "subAlbums": subAlbums[]{
+        "subSlug": slug.current
+      }
+    }
+  `);
+
+  const paths = albums.flatMap((album) =>
     (album.subAlbums || []).map((sub) => ({
       params: {
-        movie: album.slug,
-        subAlbum: sub.slug,
+        movie: album.albumSlug,
+        subAlbum: sub.subSlug,
       },
     })),
   );
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking", // use "blocking" if content grows
   };
 }
+
+/* -------------------- STATIC PROPS -------------------- */
 export async function getStaticProps({ params }) {
-  const movieData = galleryAlbums.find((a) => a.slug === params.movie);
+  const { movie, subAlbum } = params;
 
-  if (!movieData) return { notFound: true };
+  const data = await client.fetch(
+    `
+    *[_type == "galleryAlbum" && slug.current == $albumSlug][0]{
+      title,
+      subAlbums[slug.current == $subSlug][0]{
+        title,
+        media[]{
+          type,
+          "src": select(
+            type == "image" => image.asset->url,
+            type == "video" => videoUrl
+          )
+        }
+      }
+    }
+    `,
+    {
+      albumSlug: movie,
+      subSlug: subAlbum,
+    },
+  );
 
-  const subAlbum = movieData.subAlbums.find((s) => s.slug === params.subAlbum);
-
-  if (!subAlbum) return { notFound: true };
+  if (!data || !data.subAlbums) {
+    return { notFound: true };
+  }
 
   const meta = {
-    title: `${movieData.title} | ${subAlbum.title} | Salman Khan Films`,
-    description: `Official ${subAlbum.title.toLowerCase()} from ${movieData.title}. Watch trailers, songs, and exclusive visuals from Salman Khan Films.`,
-    keywords: `${movieData.title}, ${subAlbum.title}, Salman Khan Films gallery`,
+    title: `${data.title} | ${data.subAlbums.title} | Salman Khan Films`,
+    description: `Official ${data.subAlbums.title.toLowerCase()} from ${data.title}. Watch trailers, songs, and exclusive visuals from Salman Khan Films.`,
+    keywords: `${data.title}, ${data.subAlbums.title}, Salman Khan Films gallery`,
     author: "Salman Khan Films",
     robots: "index,follow",
   };
 
   return {
     props: {
-      albumTitle: movieData.title,
-      subAlbumTitle: subAlbum.title,
-      media: subAlbum.media,
+      albumTitle: data.title,
+      subAlbumTitle: data.subAlbums.title,
+      media: data.subAlbums.media,
       meta,
       movieSlug: movieData.slug,
     },
+    revalidate: 60,
   };
 }

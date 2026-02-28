@@ -202,7 +202,6 @@ export const galleryAlbums = [
                     { type: "video", src: "https://www.youtube.com/watch?v=O926knS3XEU" },
                     { type: "video", src: "https://www.youtube.com/watch?v=DAcgSUyLj90" },
                     { type: "video", src: "https://www.youtube.com/watch?v=4YkvseTzuXk" },
-                    { type: "video", src: "https://www.youtube.com/watch?v=4YkvseTzuXk" },
                     { type: "video", src: "https://www.youtube.com/watch?v=aMy_uOJu2_c" },
                     { type: "video", src: "https://www.youtube.com/watch?v=hx-hjh3BQuw" },
                     { type: "video", src: "https://www.youtube.com/watch?v=V1BQj4nb_I4" },

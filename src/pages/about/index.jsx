@@ -1,8 +1,7 @@
 import AboutHeroSection from "@/components/about/AboutHeroSection";
 import FilmographySection from "@/components/about/FilmographySection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { movies } from "@/helper/moviesData";
-import React from "react";
+import { client } from "@/sanity/lib/client";
 
 const About = ({ meta, moviesData }) => {
   return (
@@ -27,37 +26,38 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  const extraMovies = [
-    {
-      title: "Chillar Party",
-      year: 2011,
-      director: "Nitesh Tiwari, Vikas Bahl",
-      category: "released",
-    },
-    {
-      title: "Dr. Cabbie",
-      year: 2014,
-      director: "Jean-François Pouliot",
-      category: "released",
-    },
-    {
-      title: "Kaagaz",
-      year: 2021,
-      director: "Satish Kaushik",
-      category: "released",
-    },
-  ];
+  // 1️⃣ Fetch released movies
+  const moviesFromSanity = await client.fetch(`
+  *[_type == "movies" && category == "released"]{
+    title,
+    year,
+    director,
+    "slug": slug.current
+  }
+`);
 
-  const moviesData = [...movies, ...extraMovies]
-    .filter(
-      (film) => !film.category.toLowerCase().includes("upcoming")
-    )
-    .sort((a, b) => b.year - a.year);
+  // 2️⃣ Fetch filmography
+  const filmographyFromSanity = await client.fetch(`
+  *[_type == "filmography"]{
+    title,
+    year,
+    director
+  }
+`);
 
+  // 3️⃣ Normalize + merge
+  const moviesData = [
+    ...moviesFromSanity,
+    ...filmographyFromSanity.map((film) => ({
+      ...film,
+      slug: null,
+    })),
+  ].sort((a, b) => b.year - a.year);
   return {
     props: {
       meta,
       moviesData,
     },
+    revalidate: 60, // optional ISR
   };
 }

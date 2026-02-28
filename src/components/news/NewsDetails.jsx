@@ -1,3 +1,4 @@
+import { formatDate } from "@/utils/formatDate";
 import React, { useState } from "react";
 import { IoShareSocial } from "react-icons/io5";
 import { LuClock12 } from "react-icons/lu";
@@ -18,7 +19,7 @@ const NewsDetails = ({ newsData }) => {
   return (
     <div className="news_info_section">
       <div className="news_title_wrap">
-        <p className="news_data">{newsData?.date}</p>
+        <p className="news_data">{formatDate(newsData?.publishedAt) || ""}</p>
         <h4 className="heading">{newsData?.title}</h4>
 
         <div className="news_time">

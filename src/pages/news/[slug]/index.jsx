@@ -2,6 +2,7 @@ import Highlights from "@/components/home/Highlights";
 import NewsHeroSection from "@/components/news/NewsHeroSection";
 import SeoHeader from "@/components/seo/SeoHeader";
 import { news } from "@/helper/newsData";
+import { client } from "@/sanity/lib/client";
 import React from "react";
 
 const News = ({ newsData, highlightsData }) => {
@@ -17,24 +18,64 @@ const News = ({ newsData, highlightsData }) => {
 export default News;
 
 export async function getStaticPaths() {
-  const paths = news.map((item) => ({
-    params: { slug: item.slug },
+  const slugs = await client.fetch(`
+    *[_type == "blog"].slug.current
+  `);
+
+  const paths = slugs.map((slug) => ({
+    params: { slug },
   }));
 
   return {
     paths,
-    fallback: true,
+    fallback: "blocking", //  important
   };
 }
 
 export async function getStaticProps({ params }) {
-  const newsData = news.find((item) => item.slug === params.slug);
-  const highlightsData = news;
+  const { slug } = params;
+
+  //  Current blog
+  const newsData = await client.fetch(
+    `
+    *[_type == "blog" && slug.current == $slug][0]{
+      "slug": slug.current,
+      publishedAt,
+      title,
+      description,
+      readingTime,
+      content,
+      image,
+      meta
+    }
+  `,
+    { slug },
+  );
+
+  if (!newsData) {
+    return { notFound: true };
+  }
+
+  //  Other blogs (exclude current)
+  const highlightsData = await client.fetch(
+    `
+    *[_type == "blog" && slug.current != $slug]
+    | order(publishedAt desc){
+      "slug": slug.current,
+      publishedAt,
+      title,
+      description,
+      image
+    }
+  `,
+    { slug },
+  );
 
   return {
     props: {
       newsData,
       highlightsData,
     },
+    revalidate: 60,
   };
 }

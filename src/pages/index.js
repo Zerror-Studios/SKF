@@ -3,23 +3,25 @@ import DirectorsSection from "@/components/home/DirectorsSection";
 import HeroSection from "@/components/home/HeroSection";
 import Highlights from "@/components/home/Highlights";
 import React from "react";
-import { movies } from "@/helper/moviesData";
 import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
-import { news } from "@/helper/newsData";
 import GalleryList from "@/components/gallery/GalleryList";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { galleryAlbums } from "@/helper/albumData";
+import { client } from "@/sanity/lib/client";
 
-const Home = ({ meta, movies, highlightsData, albums }) => {
+const Home = ({ meta, highlightsData, albums, upcomingRelease, homeTopMovie }) => {
 
   return (
     <>
       <SeoHeader meta={meta} />
-      <HeroSection movies={movies} />
-      <UpcomingBanner />
+      <HeroSection movies={homeTopMovie} />
+      <UpcomingBanner data={upcomingRelease} />
       <DirectorsSection />
-      <Highlights tag={"Blogs"} title={<>Fresh <span className="letter-u">Stories</span></>} data={highlightsData} />
+      <Highlights
+        tag={"Blogs"}
+        title={<>Fresh <span className="letter-u">Stories</span></>}
+        data={highlightsData}
+      />
       <GalleryTitleSection subHeading={"GALLERY"} isPadding={true} />
       <GalleryList data={albums} />
       <AboutSection />
@@ -40,25 +42,68 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  const orderedTitles = [
-    "Bajrangi Bhaijaan",
-    "Dabangg 3",
-    "Bharat",
-  ];
 
-  const latestMovies = orderedTitles
-    .map(title => movies.find(movie => movie.title === title))
-    .filter(Boolean);
-  const highlightsData = news;
-  const albums = galleryAlbums;
+  const homeTopMovie = await client.fetch(`
+  *[_type == "homeTopMovie"]
+  | order(orderRank asc)[0...3]{
+    "title": movie->title,
+    "year": movie->year,
+    "poster": movie->poster,
+    "category": movie->category,
+    "slug": movie->slug.current,
+    "backgroundVideo": movie->backgroundVideo.asset->url
+  }
+`);
 
+  // 🎞 Upcoming banner
+  const upcomingRelease = await client.fetch(`
+    *[_type == "upcomingRelease"] | order(_createdAt desc)[0]{
+      movieTitle,
+      desktopBanner,
+      mobileBanner
+    }
+  `);
+
+  // 📰 Blogs for highlights
+  const blogs = await client.fetch(`
+    *[_type == "blog"] | order(publishedAt desc){
+      "slug": slug.current,
+      publishedAt,
+      title,
+      description,
+      image
+    }
+  `);
+
+  const albums = await client.fetch(`
+  *[_type == "galleryAlbum"] | order(orderRank asc){
+  title,
+   "slug": slug.current,
+  "cover": cover.asset->url,
+
+  subAlbums[]{
+    title,
+     "slug": slug.current,
+    "cover": cover.asset->url,
+
+    media[]{
+      type,
+      "src": select(
+        type == "image" => image.asset->url,
+        type == "video" => videoUrl
+      )
+    }
+  }
+}`);
 
   return {
     props: {
       meta,
-      movies: latestMovies,
-      highlightsData,
-      albums
+      homeTopMovie,
+      highlightsData: blogs,
+      albums,
+      upcomingRelease,
     },
+    revalidate: 60,
   };
 }

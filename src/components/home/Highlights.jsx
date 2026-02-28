@@ -1,23 +1,21 @@
-import React, { useRef, useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Button from "../common/Button";
+import { urlFor } from "@/sanity/lib/image";
+import { formatDate } from "@/utils/formatDate";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const Highlights = ({ tag, title, data = [] }) => {
+const Highlights = ({ tag, title, data = [], isHero = false }) => {
   const lastIndex = useMemo(() => data.length - 1, [data.length]);
 
   return (
-    <section id="highlight_section">
+    <section id="highlight_section" className={`${isHero ? "isHero" : ""}`}>
       {tag && <h5 className="tag1">{tag}</h5>}
       {title && <h2>{title}</h2>}
 
       <div id="highlights_container">
         {data.map((item, index) => {
-          const { slug, date, title, description, image } = item || {};
+          const { slug, publishedAt, title, description, image } = item || {};
           return (
             <Link
               href={`/news/${slug}`}
@@ -26,7 +24,7 @@ const Highlights = ({ tag, title, data = [] }) => {
             >
               <div className="highlight_info">
                 <div className="highlight_info_dets">
-                  <p>{date}</p>
+                  <p>{formatDate(publishedAt) || ""}</p>
                   <h4>{title}</h4>
                   <p className="description">{description}</p>
                 </div>
@@ -39,8 +37,8 @@ const Highlights = ({ tag, title, data = [] }) => {
                     priority
                     width={1000}
                     height={1000}
-                    src={image}
-                    alt={title}
+                    src={urlFor(image).url()}
+                    alt={image?.alt || title}
                   />
                 )}
               </div>
@@ -51,9 +49,13 @@ const Highlights = ({ tag, title, data = [] }) => {
         })}
       </div>
 
-      <div className="btn_container">
-        <Button color="black" title="View More" />
-      </div>
+      {!isHero && (
+        <div className="btn_container">
+          <Link href="/news">
+            <Button color="black" title="View More" />
+          </Link>
+        </div>
+      )}
     </section>
   );
 };

@@ -1,7 +1,7 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { galleryAlbums } from "@/helper/albumData";
+import { client } from "@/sanity/lib/client";
 import React from "react";
 
 const Album = ({ meta, albums }) => {
@@ -26,13 +26,33 @@ export async function getStaticProps() {
     author: "Salman Khan Films",
     robots: "index,follow",
   };
-  const albums = galleryAlbums;
 
+  const albums = await client.fetch(`
+  *[_type == "galleryAlbum"] | order(orderRank asc){
+  title,
+   "slug": slug.current,
+  "cover": cover.asset->url,
+
+  subAlbums[]{
+    title,
+     "slug": slug.current,
+    "cover": cover.asset->url,
+
+    media[]{
+      type,
+      "src": select(
+        type == "image" => image.asset->url,
+        type == "video" => videoUrl
+      )
+    }
+  }
+}`);
 
   return {
     props: {
       meta,
-      albums
+      albums,
     },
+    revalidate: 60, // ISR
   };
 }

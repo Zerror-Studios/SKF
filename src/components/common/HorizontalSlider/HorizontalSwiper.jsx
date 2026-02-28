@@ -25,6 +25,8 @@ const HorizontalSwiper = ({ data }) => {
       : null,
   ].filter(Boolean);
 
+  if (trailerList.length === 0) return null;
+
   return (
     <>
       <div id="trailer_section">
@@ -72,7 +74,7 @@ const HorizontalSwiper = ({ data }) => {
                 width={1000}
                 height={1000}
                 src={`https://img.youtube.com/vi/${extractId(
-                  item.url
+                  item.url,
                 )}/hqdefault.jpg`}
                 alt={`trailer-${index + 1}`}
               />

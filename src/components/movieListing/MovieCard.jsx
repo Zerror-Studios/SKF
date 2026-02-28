@@ -1,3 +1,4 @@
+import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import React, { forwardRef, useState, useEffect, useRef } from "react";
@@ -15,30 +16,55 @@ const MovieCard = forwardRef(({ data }, ref) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const videoUrl = data?.backgroundVideo;
+  const posterUrl = data?.poster ? urlFor(data.poster).url() : "";
+
+  const CardWrapper = ({ children }) => {
+    if (data?.category === "released" && data?.slug) {
+      return (
+        <Link
+          href={`/movies/${data?.slug}`}
+          className="movie_card"
+          ref={ref}
+        >
+          {children}
+        </Link>
+      );
+    }
+
+    return (
+      <div className="movie_card upcoming" ref={ref}>
+        {children}
+      </div>
+    );
+  };
+
   return (
-    <Link href={`/movies/${data?.slug}`} className={`movie_card ${data?.category === "upcoming movie" ? "upcoming":"" }`} ref={ref}>
+    <CardWrapper>
       <div className="movie_img">
-        {/* 🔹 Video for non-mobile */}
-        {!isMobile && data?.backgroundVideo && (
+        {/* 🎞 Background video (desktop only) */}
+        {!isMobile && videoUrl && (
           <video
             ref={videoRef}
-            src={data.backgroundVideo}
+            src={videoUrl}
             muted
             autoPlay
-            playsInline
             loop
+            playsInline
+            poster={posterUrl}
           />
         )}
 
-        {/* 🔹 Poster */}
+        {/* 🖼 Poster fallback */}
         <Image
           width={1000}
           height={1000}
-          src={data?.poster}
+          src={posterUrl}
           alt={data?.title}
           priority
         />
-        {data?.category === "upcoming movie" && (
+
+        {data?.category === "upcoming" && (
           <span className="ribbon">Upcoming</span>
         )}
       </div>
@@ -47,7 +73,7 @@ const MovieCard = forwardRef(({ data }, ref) => {
         <span>{data?.title}</span>
         <span>{data?.year}</span>
       </div>
-    </Link>
+    </CardWrapper>
   );
 });
 

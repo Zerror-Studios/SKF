@@ -5,6 +5,7 @@ import CustomEase from "gsap/dist/CustomEase";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useGSAP } from "@gsap/react";
+import { urlFor } from "@/sanity/lib/image";
 
 gsap.registerPlugin(CustomEase);
 
@@ -45,7 +46,7 @@ const NewsHeroSection = ({ data }) => {
           y: 0,
           duration: 0.7,
         },
-        "-=0.4"
+        "-=0.4",
       );
 
       tl.to(
@@ -55,7 +56,7 @@ const NewsHeroSection = ({ data }) => {
 
           duration: 1,
         },
-        "-=0.3"
+        "-=0.3",
       );
 
       return () => tl.kill();
@@ -66,11 +67,11 @@ const NewsHeroSection = ({ data }) => {
     <div id="news_hero_section">
       <div className="news_hero_title">
         <h5 ref={tagRef} className="tag1 landing_text">
-        Blogs
-      </h5>
-      <h1 ref={titleRef} className="heading landing_text">
-        Fresh <span className="letter-u">Stories</span>
-      </h1>
+          Blogs
+        </h5>
+        <h1 ref={titleRef} className="heading landing_text">
+          Fresh <span className="letter-u">Stories</span>
+        </h1>
       </div>
 
       <div ref={posterRef} id="poster_wrap_news">
@@ -78,8 +79,8 @@ const NewsHeroSection = ({ data }) => {
           <Image
             width={1000}
             height={1000}
-            src={data?.image}
-            alt={data?.title}
+            src={urlFor(data?.image).url()}
+            alt={data?.image?.alt}
             priority
           />
         </div>

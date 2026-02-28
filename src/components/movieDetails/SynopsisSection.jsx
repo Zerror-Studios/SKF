@@ -2,6 +2,8 @@ import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 import React, { useRef } from "react";
 
 const SynopsisSection = ({ data }) => {
+  if (!data?.synopsis) return null;
+
   const titleRef = useRef(null);
   const paraRef1 = useRef(null);
 
