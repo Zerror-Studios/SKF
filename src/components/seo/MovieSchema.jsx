@@ -1,3 +1,4 @@
+import { Const } from "@/utils/Constant";
 import React from "react";
 
 const MovieSchema = ({ movie }) => {
@@ -6,10 +7,10 @@ const MovieSchema = ({ movie }) => {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Movie",
-    "@id": `https://salmankhanfilms.com/movies/${movie.slug}#movie`,
+    "@id": `${Const.ClientLink}/movies/${movie.slug}#movie`,
     name: movie.title,
-    url: `https://salmankhanfilms.com/movies/${movie.slug}`,
-    image: `https://salmankhanfilms.com${movie.poster}`,
+    url: `${Const.ClientLink}/movies/${movie.slug}`,
+    image: `${Const.ClientLink}${movie.poster}`,
     description: movie.synopsis,
     datePublished: movie.year.toString(),
     inLanguage: "hi-IN",
@@ -23,7 +24,7 @@ const MovieSchema = ({ movie }) => {
     productionCompany: {
       "@type": "Organization",
       name: "Salman Khan Films",
-      url: "https://salmankhanfilms.com",
+      url: Const.ClientLink,
     },
 
     actor: movie.cast?.map((actor) => ({
@@ -36,7 +37,7 @@ const MovieSchema = ({ movie }) => {
           "@type": "VideoObject",
           name: `${movie.title} Official Trailer`,
           embedUrl: movie.trailer,
-          thumbnailUrl: `https://salmankhanfilms.com${movie.poster}`,
+          thumbnailUrl: `${Const.ClientLink}${movie.poster}`,
         }
       : undefined,
   };

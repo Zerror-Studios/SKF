@@ -1,3 +1,4 @@
+import { Const } from "@/utils/Constant";
 import React from "react";
 
 const NewsArticleSchema = ({ news }) => {
@@ -6,27 +7,27 @@ const NewsArticleSchema = ({ news }) => {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    "@id": `https://salmankhanfilms.com/news/${news.slug}#news`,
+    "@id": `${Const.ClientLink}/news/${news.slug}#news`,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://salmankhanfilms.com/news/${news.slug}`,
+      "@id": `${Const.ClientLink}/news/${news.slug}`,
     },
     headline: news.title,
     description: news.description,
-    image: [`https://salmankhanfilms.com${news.image}`],
+    image: [`${Const.ClientLink}${news.image}`],
     datePublished: news.publishedAt,
     dateModified: news.updatedAt || news.publishedAt,
     author: {
       "@type": "Organization",
       name: "Salman Khan Films",
-      url: "https://salmankhanfilms.com",
+      url: Const.ClientLink,
     },
     publisher: {
       "@type": "Organization",
       name: "Salman Khan Films",
       logo: {
         "@type": "ImageObject",
-        url: "https://salmankhanfilms.com/logo.png",
+        url: `${Const.ClientLink}/logo.png`,
       },
     },
     articleSection: "Fresh Stories",
