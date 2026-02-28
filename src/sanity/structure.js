@@ -4,6 +4,13 @@ export const structure = (S, context) =>
   S.list()
     .title("Dashboard")
     .items([
+
+      orderableDocumentListDeskItem({
+        type: "homeTopMovie",
+        title: "Home – Top 3 Movies",
+        S,
+        context,
+      }),
       // Upcoming Releases
       S.documentTypeListItem("upcomingRelease").title("Upcoming Releases"),
 
@@ -32,7 +39,7 @@ export const structure = (S, context) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
-          !["upcomingRelease", "blog", "movies", "filmography", "galleryAlbum"].includes(
+          !["homeTopMovie", "upcomingRelease", "blog", "movies", "filmography", "galleryAlbum"].includes(
             item.getId()
           )
       ),

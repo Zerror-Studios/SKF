@@ -28,7 +28,7 @@ export async function getStaticProps() {
   };
 
   const albums = await client.fetch(`
-  *[_type == "galleryAlbum"] | order(orderRank desc){
+  *[_type == "galleryAlbum"] | order(orderRank asc){
   title,
    "slug": slug.current,
   "cover": cover.asset->url,

@@ -9,12 +9,12 @@ import GalleryList from "@/components/gallery/GalleryList";
 import SeoHeader from "@/components/seo/SeoHeader";
 import { client } from "@/sanity/lib/client";
 
-const Home = ({ meta, movies, highlightsData, albums, upcomingRelease }) => {
+const Home = ({ meta, highlightsData, albums, upcomingRelease, homeTopMovie }) => {
 
   return (
     <>
       <SeoHeader meta={meta} />
-      <HeroSection movies={movies} />
+      <HeroSection movies={homeTopMovie} />
       <UpcomingBanner data={upcomingRelease} />
       <DirectorsSection />
       <Highlights
@@ -42,22 +42,18 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  // 🎬 Latest movies (Sanity)
-  const latestMovies = await client.fetch(`
-    *[
-      _type == "movies" &&
-      category == "released" &&
-      defined(slug.current)
-    ]
-    | order(orderRank asc)[0...3]{
-      title,
-      year,
-      poster,
-      category,
-      "slug": slug.current,
-      "backgroundVideo": backgroundVideo.asset->url
-    }
-  `);
+
+  const homeTopMovie = await client.fetch(`
+  *[_type == "homeTopMovie"]
+  | order(orderRank asc)[0...3]{
+    "title": movie->title,
+    "year": movie->year,
+    "poster": movie->poster,
+    "category": movie->category,
+    "slug": movie->slug.current,
+    "backgroundVideo": movie->backgroundVideo.asset->url
+  }
+`);
 
   // 🎞 Upcoming banner
   const upcomingRelease = await client.fetch(`
@@ -80,7 +76,7 @@ export async function getStaticProps() {
   `);
 
   const albums = await client.fetch(`
-  *[_type == "galleryAlbum"] | order(orderRank desc){
+  *[_type == "galleryAlbum"] | order(orderRank asc){
   title,
    "slug": slug.current,
   "cover": cover.asset->url,
@@ -103,7 +99,7 @@ export async function getStaticProps() {
   return {
     props: {
       meta,
-      movies: latestMovies,
+      homeTopMovie,
       highlightsData: blogs,
       albums,
       upcomingRelease,

@@ -4,7 +4,8 @@ import { blogType } from './blogType'
 import { movieType } from './movieType'
 import { filmographyType } from './filmographyType'
 import { galleryAlbumType } from './galleryAlbumType'
+import { homeTopMovieType } from './homeTopMovieType'
 
 export const schema = {
-  types: [blockContentType, upcomingReleaseType, blogType, movieType, filmographyType, galleryAlbumType],
+  types: [blockContentType,homeTopMovieType, upcomingReleaseType, blogType, movieType, filmographyType, galleryAlbumType],
 }
