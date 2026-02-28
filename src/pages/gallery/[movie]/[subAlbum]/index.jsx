@@ -10,7 +10,6 @@ const AlbumSubDetail = ({ albumTitle, subAlbumTitle, media, meta }) => {
       <GalleryTitleSection
         title={subAlbumTitle}
         subHeading={albumTitle}
-        breadcrumbs={breadcrumbs}
       />
 
       <GalleryDetailList media={media} />
@@ -90,7 +89,6 @@ export async function getStaticProps({ params }) {
       subAlbumTitle: data.subAlbums.title,
       media: data.subAlbums.media,
       meta,
-      movieSlug: movieData.slug,
     },
     revalidate: 60,
   };

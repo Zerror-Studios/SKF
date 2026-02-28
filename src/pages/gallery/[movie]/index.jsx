@@ -10,15 +10,10 @@ const AlbumDetail = ({
   movieSlug,
   hasMoviePage,
 }) => {
-   const breadcrumbs = [
-    { label: "Home", href: "/" },
-    { label: "Gallery", href: "/gallery" },
-    { label: movieTitle },
-  ];
   return (
     <>
       <SeoHeader meta={meta} />
-      <GalleryTitleSection title={movieTitle} subHeading="GALLERY" breadcrumbs={breadcrumbs} />
+      <GalleryTitleSection title={movieTitle} subHeading="GALLERY" />
       <GalleryList
         data={subAlbums}
         movieSlug={movieSlug}
