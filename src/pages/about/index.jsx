@@ -3,6 +3,7 @@ import FilmographySection from "@/components/about/FilmographySection";
 import SeoHeader from "@/components/seo/SeoHeader";
 import { client } from "@/sanity/lib/client";
 
+/* -------------------- PAGE -------------------- */
 const About = ({ meta, moviesData }) => {
   return (
     <>
@@ -15,49 +16,70 @@ const About = ({ meta, moviesData }) => {
 
 export default About;
 
+/* -------------------- STATIC PROPS -------------------- */
 export async function getStaticProps() {
-  const meta = {
-    title: "About Us – Film Production House | Salman Khan Films",
-    description:
-      "Salman Khan Films is a Mumbai-based film production company established to create impactful cinema through strong storytelling and high production standards.",
-    keywords:
-      "About Salman Khan Films, SKF company profile, Bollywood film studio, Indian production house",
-    author: "Salman Khan Films",
-    robots: "index,follow",
-  };
+  try {
+    const meta = {
+      title: "About Us – Film Production House | Salman Khan Films",
+      description:
+        "Salman Khan Films is a Mumbai-based film production company established to create impactful cinema through strong storytelling and high production standards.",
+      keywords:
+        "About Salman Khan Films, SKF company profile, Bollywood film studio, Indian production house",
+      author: "Salman Khan Films",
+      robots: "index,follow",
+    };
 
-  // 1️⃣ Fetch released movies
-  const moviesFromSanity = await client.fetch(`
-  *[_type == "movies" && category == "released"]{
-    title,
-    year,
-    director,
-    "slug": slug.current
+    // 1️⃣ Fetch released movies (safe)
+    const moviesFromSanity =
+      (await client.fetch(`
+        *[_type == "movies" && category == "released"]{
+          title,
+          year,
+          director,
+          "slug": slug.current
+        }
+      `)) || [];
+
+    // 2️⃣ Fetch filmography (safe)
+    const filmographyFromSanity =
+      (await client.fetch(`
+        *[_type == "filmography"]{
+          title,
+          year,
+          director
+        }
+      `)) || [];
+
+    // 3️⃣ Normalize + merge safely
+    const moviesData = [
+      ...moviesFromSanity,
+      ...filmographyFromSanity.map((film) => ({
+        ...film,
+        slug: null,
+      })),
+    ]
+      // 🛡️ remove items without year
+      .filter(item => typeof item.year === "number")
+      // 🛡️ safe numeric sort
+      .sort((a, b) => b.year - a.year);
+
+    return {
+      props: {
+        meta,
+        moviesData,
+      },
+      revalidate: 60,
+    };
+  } catch (err) {
+    console.error("About page build error:", err);
+
+    return {
+      props: {
+        meta: {
+          title: "About Salman Khan Films",
+        },
+        moviesData: [],
+      },
+    };
   }
-`);
-
-  // 2️⃣ Fetch filmography
-  const filmographyFromSanity = await client.fetch(`
-  *[_type == "filmography"]{
-    title,
-    year,
-    director
-  }
-`);
-
-  // 3️⃣ Normalize + merge
-  const moviesData = [
-    ...moviesFromSanity,
-    ...filmographyFromSanity.map((film) => ({
-      ...film,
-      slug: null,
-    })),
-  ].sort((a, b) => b.year - a.year);
-  return {
-    props: {
-      meta,
-      moviesData,
-    },
-    revalidate: 60, // optional ISR
-  };
 }
