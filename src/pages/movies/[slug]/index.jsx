@@ -127,6 +127,8 @@ export async function getStaticProps({ params }) {
       title,
       year,
       poster,
+      category,
+      "backgroundVideo": backgroundVideo.asset->url,
       "slug": slug.current
     }
     `,
