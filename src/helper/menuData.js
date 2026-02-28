@@ -5,4 +5,5 @@ export const menus = [
   { link: "/gallery", name: "gallery" },
   { link: "https://www.youtube.com/@SalmanKhanFilmsMusic", name: "Music",  external: true, },
   { link: "/contact", name: "contact" },
+  
 ];
