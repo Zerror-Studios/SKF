@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutPoster = () => {
+const AboutPoster = ({ banner, alt }) => {
   const bgRef = useRef(null);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const AboutPoster = () => {
               end: "bottom -50%",
               scrub: true,
             },
-          }
+          },
         );
 
         // Refresh ScrollTrigger after images in the section load
@@ -50,7 +50,7 @@ const AboutPoster = () => {
 
         return () => {
           images.forEach((img) =>
-            img.removeEventListener("load", handleImageLoad)
+            img.removeEventListener("load", handleImageLoad),
           );
           tl.scrollTrigger?.kill();
         };
@@ -72,8 +72,8 @@ const AboutPoster = () => {
         ref={bgRef}
         width={1000}
         height={1000}
-        src="/images/about/About Us.jpeg"
-        alt="about-banner"
+        src={banner}
+        alt={alt}
         priority
       />
     </div>

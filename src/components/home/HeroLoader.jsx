@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { GoMute, GoUnmute } from "react-icons/go";
 
-const HeroLoader = () => {
+const HeroLoader = ({ heroVideo }) => {
   const loaderRef = useRef(null);
   const landingVideoRef = useRef(null);
   const playBtnRef = useRef(null);
@@ -158,9 +158,17 @@ const HeroLoader = () => {
         </span>
       </h2>
       <div id="landing_video" ref={landingVideoRef}>
-        <video playsInline autoPlay muted loop preload="auto">
-          <source src="/SKF Website.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+        <video
+          playsInline
+          autoPlay
+          muted
+          loop
+          preload="auto"
+          aria-label={heroVideo?.videoAlt}
+        >
+          <source src={heroVideo?.videoUrl} type="video/mp4" />
+          {heroVideo?.videoAlt ||
+            "Your browser does not support the video tag."}
         </video>
 
         <span ref={playBtnRef} id="play_btn">

@@ -5,30 +5,56 @@ export const structure = (S, context) =>
     .title("Dashboard")
     .items([
 
+      S.listItem()
+        .title("Home Page – Hero Section Video")
+        .id("heroSection")
+        .child(
+          S.document()
+            .schemaType("heroSection")
+            .documentId("heroSection") // 👈 fixed ID (singleton)
+        ),
       orderableDocumentListDeskItem({
         type: "homeTopMovie",
-        title: "Home – Top 3 Movies",
+        title: "Home Page – Top 3 Movies",
         S,
         context,
       }),
       // Upcoming Releases
-      S.documentTypeListItem("upcomingRelease").title("Upcoming Releases"),
+      S.listItem()
+        .title("Home Page – Upcoming Movie Banner")
+        .id("upcomingRelease")
+        .child(
+          S.document()
+            .schemaType("upcomingRelease")
+            .documentId("upcomingRelease") // 🔒 fixed ID
+        ),
+      S.documentTypeListItem("homeDirectorSpotlight").title("Home Page – Director Spotlight"),
 
       // Blogs
-      S.documentTypeListItem("blog").title("Blogs"),
+      S.documentTypeListItem("blog").title("Manage Blogs"),
 
       // Movies (orderable)
       orderableDocumentListDeskItem({
         type: "movies",
-        title: "Movies",
+        title: "Manage Movies",
         S,
         context,
       }),
-      S.documentTypeListItem("filmography").title("Filmography"),
+      // ℹ️ ABOUT PAGE (NEW)
+      S.listItem()
+        .title("About Page – Hero Section")
+        .id("aboutHeroSection")
+        .child(
+          S.document()
+            .schemaType("aboutHeroSection")
+            .documentId("aboutHeroSection") // 🔒 singleton
+        ),
+
+      S.documentTypeListItem("filmography").title("Manage Filmography"),
       // Gallery (orderable)
       orderableDocumentListDeskItem({
         type: "galleryAlbum",
-        title: "Gallery Albums",
+        title: "Manage Gallery",
         S,
         context,
       }),
@@ -39,7 +65,7 @@ export const structure = (S, context) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
-          !["homeTopMovie", "upcomingRelease", "blog", "movies", "filmography", "galleryAlbum"].includes(
+          !["heroSection", "homeTopMovie", "homeDirectorSpotlight", "upcomingRelease", "aboutHeroSection", "blog", "movies", "filmography", "galleryAlbum"].includes(
             item.getId()
           )
       ),

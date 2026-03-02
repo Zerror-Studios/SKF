@@ -1,6 +1,6 @@
 import Highlights from "@/components/home/Highlights";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { client } from "@/sanity/lib/client";
+import { getAllBlogs } from "@/lib/queries";
 import React from "react";
 
 const News = ({ meta, blogs }) => {
@@ -24,33 +24,23 @@ const News = ({ meta, blogs }) => {
 export default News;
 
 export async function getStaticProps() {
- const meta = {
-  title: "Latest News & Blogs | Salman Khan Films",
-  description:
-    "Read the latest news, blogs, announcements, and updates from Salman Khan Films. Stay informed about new releases, film projects, and behind-the-scenes stories.",
-  keywords:
-    "Salman Khan Films news, SKF blogs, Bollywood film news, Salman Khan updates, Hindi cinema news",
-  author: "Salman Khan Films",
-  robots: "index,follow",
-};
-  //  all blogs (exclude current)
-  const blogs = await client.fetch(
-    `
-      *[_type == "blog"]
-      | order(publishedAt desc){
-        "slug": slug.current,
-        publishedAt,
-        title,
-        description,
-        image
-      }
-    `,
-  );
+  const meta = {
+    title: "Latest News & Blogs | Salman Khan Films",
+    description:
+      "Read the latest news, blogs, announcements, and updates from Salman Khan Films. Stay informed about new releases, film projects, and behind-the-scenes stories.",
+    keywords:
+      "Salman Khan Films news, SKF blogs, Bollywood film news, Salman Khan updates, Hindi cinema news",
+    author: "Salman Khan Films",
+    robots: "index,follow",
+  };
+
+  const blogs = await getAllBlogs();
 
   return {
     props: {
       meta,
       blogs,
     },
+    revalidate: 60,
   };
 }

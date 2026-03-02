@@ -4,11 +4,11 @@ import SeoHeader from "@/components/seo/SeoHeader";
 import { client } from "@/sanity/lib/client";
 
 /* -------------------- PAGE -------------------- */
-const About = ({ meta, moviesData }) => {
+const About = ({ meta,aboutHeroSection, moviesData }) => {
   return (
     <>
       <SeoHeader meta={meta} />
-      <AboutHeroSection />
+        <AboutHeroSection data={aboutHeroSection} />
       <FilmographySection movies={moviesData} />
     </>
   );
@@ -28,6 +28,19 @@ export async function getStaticProps() {
       author: "Salman Khan Films",
       robots: "index,follow",
     };
+
+    // 🔹 About Hero Section (singleton)
+    const aboutHeroSection =
+      (await client.fetch(`
+    *[_type == "aboutHeroSection" && _id == "aboutHeroSection"][0]{
+      title,
+      description,
+      headOffice,
+      totalMovies,
+      "banner": banner.asset->url,
+      bannerAlt
+    }
+  `)) || null;
 
     // 1️⃣ Fetch released movies (safe)
     const moviesFromSanity =
@@ -59,7 +72,7 @@ export async function getStaticProps() {
       })),
     ]
       // 🛡️ remove items without year
-      .filter(item => typeof item.year === "number")
+      .filter((item) => typeof item.year === "number")
       // 🛡️ safe numeric sort
       .sort((a, b) => b.year - a.year);
 
@@ -67,6 +80,7 @@ export async function getStaticProps() {
       props: {
         meta,
         moviesData,
+        aboutHeroSection,
       },
       revalidate: 60,
     };

@@ -6,7 +6,9 @@ import CustomEase from "gsap/dist/CustomEase";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-const AboutHeroSection = () => {
+const AboutHeroSection = ({ data }) => {
+  console.log(data);
+
   const tagRef = useRef(null);
   const titleRef = useRef(null);
   // const para1Ref = useRef(null);
@@ -45,7 +47,7 @@ const AboutHeroSection = () => {
             ease: "ease-secondary",
             stagger: { amount: 0.2 },
           },
-          index === 0 ? 0 : "-=1.5"
+          index === 0 ? 0 : "-=1.5",
         );
       });
 
@@ -54,7 +56,7 @@ const AboutHeroSection = () => {
           officeRef.current,
           { y: 20, opacity: 0 },
           { opacity: 1, y: 0, duration: 1.2, ease: "ease-secondary" },
-          "-=1.5"
+          "-=1.5",
         );
       }
 
@@ -66,7 +68,7 @@ const AboutHeroSection = () => {
             duration: 2,
             ease: "ease-secondary",
           },
-          "-=2"
+          "-=2",
         );
       }
     };
@@ -89,48 +91,30 @@ const AboutHeroSection = () => {
             About
           </h5>
           <h1 ref={titleRef} className="heading landing_text">
-            Bringing Stories to Life One Blockbuster at a Time
+            {data?.title}
           </h1>
         </div>
         <div className="about_hero_info">
-          <p  className="description ">
-            Salman Khan Films (SKF), founded by actor-producer Salman Khan in
-            2011, is a leading Indian film production company based in Mumbai.
-            Known for its compelling storytelling, wide audience appeal, and
-            high production values, SKF has delivered several blockbuster and
-            critically acclaimed titles that continue to perform strongly across
-            digital platforms.
-          </p>
-          <p  className="description ">
-            Its filmography includes hits such as Bajrangi Bhaijaan (2015), Hero
-            (2015), Bharat (2019), and Dabangg 3 (2019). Among these, Bajrangi
-            Bhaijaan emerged as a landmark title, grossing over ₹969 crore
-            (approximately $150 million) worldwide and securing its place as one
-            of the highest-grossing Indian films of all time.
-          </p>
-          <p  className="description ">
-            SKF’s content blends star power with strong emotional narratives,
-            making its films highly sought after for OTT syndication and
-            streaming. With a growing focus on theatrical and direct-to-digital
-            releases, SKF continues to play a significant role in shaping modern
-            Hindi cinema while consistently delivering engaging, family-friendly
-            entertainment that resonates with audiences across demographics and
-            geographies
-          </p>
+          {data?.description &&
+            data.description.map((p, i) => (
+              <p key={i} className="description">
+                {p}
+              </p>
+            ))}
           <div ref={officeRef} className="office_label landing_text">
             <div>
               <h5 className="tag">Head Office</h5>
-              <h2 className="heading">Mumbai</h2>
+              <h2 className="heading">{data?.headOffice}</h2>
             </div>
             <div>
               <h5 className="tag">Total Movies</h5>
-              <h2 className="heading">10+</h2>
+              <h2 className="heading">{data?.totalMovies}+</h2>
             </div>
           </div>
         </div>
       </div>
       <div ref={posterRef} id="poster_wrap_about">
-        <AboutPoster />
+        <AboutPoster banner={data?.banner} alt={data?.bannerAlt} />
       </div>
     </div>
   );

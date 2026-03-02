@@ -1,10 +1,9 @@
 import MoviesListing from "@/components/movieListing/MoviesListing";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { client } from "@/sanity/lib/client";
+import { getAllMovies } from "@/lib/queries";
 import React from "react";
 
 const Movies = ({ meta, movies }) => {
-
   return (
     <>
       <SeoHeader meta={meta} />
@@ -26,24 +25,13 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  // ✅ Fetch ALL movies (released + upcoming)
-  const movies = await client.fetch(`
-    *[_type == "movies"]
-    | order(orderRank asc){
-      title,
-      year,
-      category,
-      "slug": slug.current,
-      poster,
-      "backgroundVideo": backgroundVideo.asset->url
-    }
-  `);
+  const movies = await getAllMovies();
 
   return {
     props: {
       meta,
       movies,
     },
-    revalidate: 60, // ISR
+    revalidate: 60,
   };
 }

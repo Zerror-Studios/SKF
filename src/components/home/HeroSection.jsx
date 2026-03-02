@@ -6,13 +6,13 @@ import MovieList from "./MovieList";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroSection = ({ movies }) => {
+const HeroSection = ({heroVideo, movies }) => {
   const heroRef = useRef(null);
 
 
   return (
     <div id="hero_section_container" ref={heroRef}>
-      <HeroLoader />
+      <HeroLoader heroVideo={heroVideo} />
       <MovieList movies={movies} subheading={"Movies"}/>
     </div>
   );

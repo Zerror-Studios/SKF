@@ -7,16 +7,16 @@ import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryList from "@/components/gallery/GalleryList";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { client } from "@/sanity/lib/client";
+import { getBlogs, getDirectorSpotlight, getGalleryAlbums, getHeroSection, getHomeTopMovies, getUpcomingRelease } from "@/lib/queries";
 
-const Home = ({ meta, highlightsData, albums, upcomingRelease, homeTopMovie }) => {
+const Home = ({ meta, heroSection, directorSpotlight, highlightsData, albums, upcomingRelease, homeTopMovie }) => {
 
   return (
     <>
       <SeoHeader meta={meta} />
-      <HeroSection movies={homeTopMovie} />
+      <HeroSection heroVideo={heroSection} movies={homeTopMovie} />
       <UpcomingBanner data={upcomingRelease} />
-      <DirectorsSection />
+      <DirectorsSection directorSpotlight={directorSpotlight} />
       <Highlights
         tag={"Blogs"}
         title={<>Fresh <span className="letter-u">Stories</span></>}
@@ -42,68 +42,32 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-
-  const homeTopMovie = await client.fetch(`
-  *[_type == "homeTopMovie"]
-  | order(orderRank asc)[0...3]{
-    "title": movie->title,
-    "year": movie->year,
-    "poster": movie->poster,
-    "category": movie->category,
-    "slug": movie->slug.current,
-    "backgroundVideo": movie->backgroundVideo.asset->url
-  }
-`);
-
-  // 🎞 Upcoming banner
-  const upcomingRelease = await client.fetch(`
-    *[_type == "upcomingRelease"] | order(_createdAt desc)[0]{
-      movieTitle,
-      desktopBanner,
-      mobileBanner
-    }
-  `);
-
-  // 📰 Blogs for highlights
-  const blogs = await client.fetch(`
-    *[_type == "blog"] | order(publishedAt desc){
-      "slug": slug.current,
-      publishedAt,
-      title,
-      description,
-      image
-    }
-  `);
-
-  const albums = await client.fetch(`
-  *[_type == "galleryAlbum"] | order(orderRank asc){
-  title,
-   "slug": slug.current,
-  "cover": cover.asset->url,
-
-  subAlbums[]{
-    title,
-     "slug": slug.current,
-    "cover": cover.asset->url,
-
-    media[]{
-      type,
-      "src": select(
-        type == "image" => image.asset->url,
-        type == "video" => videoUrl
-      )
-    }
-  }
-}`);
+  const [
+    heroSection,
+    homeTopMovie,
+    upcomingRelease,
+    directorSpotlight,
+    blogs,
+    albums,
+  ] = await Promise.all([
+    getHeroSection(),
+    getHomeTopMovies(),
+    getUpcomingRelease(),
+    getDirectorSpotlight(),
+    getBlogs(),
+    getGalleryAlbums(),
+  ]);
 
   return {
     props: {
       meta,
+      heroSection,
       homeTopMovie,
+      directorSpotlight,
       highlightsData: blogs,
       albums,
       upcomingRelease,
     },
-    revalidate: 60,
+    revalidate: 10,
   };
 }
