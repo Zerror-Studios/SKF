@@ -38,11 +38,12 @@ const MovieInfo = ({ info, detailsRef }) => {
             <h4>{info.director}</h4>
           </div>
         )}
-
-        <div>
-          <p>Genre</p>
-          <h4>Action | Thriller</h4>
-        </div>
+        {info?.director && (
+          <div>
+            <p>Genre</p>
+            <h4>{info.genre}</h4>
+          </div>
+        )}
 
         {platformKey && (
           <div className="netflix">

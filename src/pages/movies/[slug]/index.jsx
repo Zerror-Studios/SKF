@@ -24,6 +24,7 @@ const MovieDetails = ({
 }) => {
   if (!movie) return null;
   const hasGallery = subAlbums && subAlbums.length > 0;
+  console.log(movie);
 
   return (
     <>
@@ -61,8 +62,7 @@ export default MovieDetails;
 export async function getStaticPaths() {
   const slugs = await client.fetch(`
     *[
-      _type == "movies" &&
-      category == "released" &&
+      _type == "movies"  &&
       defined(slug.current)
     ].slug.current
   `);
@@ -88,7 +88,6 @@ export async function getStaticProps({ params }) {
     `
     *[
       _type == "movies" &&
-      category == "released" &&
       slug.current == $slug
     ][0]{
       title,
@@ -98,6 +97,7 @@ export async function getStaticProps({ params }) {
       produced,
       synopsis,
       poster,
+      genre,
       cast,
       watchNow,
       trailer,

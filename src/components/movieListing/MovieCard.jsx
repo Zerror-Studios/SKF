@@ -19,28 +19,12 @@ const MovieCard = forwardRef(({ data }, ref) => {
   const videoUrl = data?.backgroundVideo;
   const posterUrl = data?.poster ? urlFor(data.poster).url() : "";
 
-  const CardWrapper = ({ children }) => {
-    if (data?.category === "released" && data?.slug) {
-      return (
-        <Link
-          href={`/movies/${data?.slug}`}
-          className="movie_card"
-          ref={ref}
-        >
-          {children}
-        </Link>
-      );
-    }
-
-    return (
-      <div className="movie_card upcoming" ref={ref}>
-        {children}
-      </div>
-    );
-  };
-
   return (
-    <CardWrapper>
+    <Link
+      href={data?.slug ? `/movies/${data.slug}` : "#"}
+      className="movie_card"
+      ref={ref}
+    >
       <div className="movie_img">
         {/* 🎞 Background video (desktop only) */}
         {!isMobile && videoUrl && (
@@ -55,7 +39,7 @@ const MovieCard = forwardRef(({ data }, ref) => {
           />
         )}
 
-        {/* 🖼 Poster fallback */}
+        {/* 🖼 Poster */}
         <Image
           width={1000}
           height={1000}
@@ -73,7 +57,7 @@ const MovieCard = forwardRef(({ data }, ref) => {
         <span>{data?.title}</span>
         <span>{data?.year}</span>
       </div>
-    </CardWrapper>
+    </Link>
   );
 });
 

@@ -6,13 +6,12 @@ export const movieType = defineType({
     title: "Movies",
     type: "document",
 
-    // 👇 enables ordering
     orderings: [orderRankOrdering],
 
     fields: [
-        // 👇 required for drag sorting
-        orderRankField({ type: 'movies' }),
-        // 🎬 Movie Title (ALWAYS)
+        orderRankField({ type: "movies" }),
+
+        // 🎬 Title (REQUIRED)
         defineField({
             name: "title",
             title: "Movie Title",
@@ -20,7 +19,7 @@ export const movieType = defineType({
             validation: Rule => Rule.required(),
         }),
 
-        // 📅 Release Year (ALWAYS)
+        // 📅 Year (REQUIRED)
         defineField({
             name: "year",
             title: "Release Year",
@@ -28,7 +27,7 @@ export const movieType = defineType({
             validation: Rule => Rule.required(),
         }),
 
-        // 🏷 Category (ALWAYS)
+        // 🏷 Category (optional but useful)
         defineField({
             name: "category",
             title: "Category",
@@ -41,10 +40,9 @@ export const movieType = defineType({
                 ],
                 layout: "radio",
             },
-            validation: Rule => Rule.required(),
         }),
 
-        // 🖼 Poster (ALWAYS)
+        // 🖼 Poster (REQUIRED)
         defineField({
             name: "poster",
             title: "Poster",
@@ -53,166 +51,110 @@ export const movieType = defineType({
             validation: Rule => Rule.required(),
         }),
 
-        // 🎞 Background Video (Upcoming + Released)
+        // 🎞 Background Video (REQUIRED)
         defineField({
             name: "backgroundVideo",
             title: "Background Video",
             type: "file",
-            options: {
-                accept: "video/*",
-            },
-            // 👇 show for both categories
-            hidden: ({ document }) => !document?.category,
-            validation: Rule =>
-                Rule.custom((value, ctx) => {
-                    if (!ctx.document?.category) return true;
-
-                    // required only for upcoming
-                    if (ctx.document.category === "upcoming" && !value?.asset) {
-                        return "Background video is required for upcoming movies";
-                    }
-
-                    // optional for released
-                    return true;
-                }),
+            options: { accept: "video/*" },
+            validation: Rule => Rule.required(),
         }),
 
-        // 🔗 Slug (RELEASED ONLY)
+        // 🔗 Slug (REQUIRED)
         defineField({
             name: "slug",
             title: "Slug",
             type: "slug",
             options: { source: "title" },
-            hidden: ({ document }) => document?.category === "upcoming",
-            validation: Rule =>
-                Rule.custom((value, ctx) =>
-                    ctx.document?.category === "released" && !value?.current
-                        ? "Slug is required for released movies"
-                        : true
-                ),
+            validation: Rule => Rule.required(),
         }),
 
-        // 🎬 Director (RELEASED ONLY)
+        // 🎬 Director (REQUIRED)
         defineField({
             name: "director",
             title: "Director",
             type: "string",
-            hidden: ({ document }) => document?.category === "upcoming",
-            validation: Rule =>
-                Rule.custom((value, ctx) =>
-                    ctx.document?.category === "released" && !value
-                        ? "Director is required"
-                        : true
-                ),
+            validation: Rule => Rule.required(),
         }),
 
-        // 🎞 Produced By (RELEASED ONLY)
+        // 🎞 Produced By (REQUIRED)
         defineField({
             name: "produced",
             title: "Produced By",
             type: "string",
-            hidden: ({ document }) => document?.category === "upcoming",
-            validation: Rule =>
-                Rule.custom((value, ctx) =>
-                    ctx.document?.category === "released" && !value
-                        ? "Producer is required"
-                        : true
-                ),
+            validation: Rule => Rule.required(),
         }),
 
-        // 📝 Synopsis (RELEASED ONLY)
+        // 🎭 Genre (REQUIRED) ✅ NEW FIELD
+        defineField({
+            name: "genre",
+            title: "Genre",
+            type: "string",
+            description: "Example: Action | Thriller",
+        }),
+
+        // 📝 Synopsis (OPTIONAL)
         defineField({
             name: "synopsis",
             title: "Synopsis",
             type: "text",
             rows: 4,
-            hidden: ({ document }) => document?.category === "upcoming",
-            validation: Rule =>
-                Rule.custom((value, ctx) =>
-                    ctx.document?.category === "released" && !value
-                        ? "Synopsis is required"
-                        : true
-                ),
         }),
 
-        // 🎥 Teaser (RELEASED ONLY – optional, YouTube only)
+        // 🎥 Teaser (OPTIONAL – YouTube only)
         defineField({
             name: "teaser",
             title: "Teaser URL",
             type: "url",
-            description: "Optional. YouTube URL only",
-            hidden: ({ document }) => document?.category === "upcoming",
             validation: Rule =>
-                Rule.custom((value, ctx) => {
-                    // optional → allow empty
+                Rule.custom(value => {
                     if (!value) return true;
-
-                    const isYouTube =
-                        value.includes("youtube.com") || value.includes("youtu.be");
-
-                    return isYouTube ? true : "Only YouTube URLs are allowed";
+                    return value.includes("youtube.com") || value.includes("youtu.be")
+                        ? true
+                        : "Only YouTube URLs allowed";
                 }),
         }),
 
-        // 🎬 Trailer (RELEASED ONLY – optional, YouTube only)
+        // 🎬 Trailer (OPTIONAL – YouTube only)
         defineField({
             name: "trailer",
             title: "Trailer URL",
             type: "url",
-            description: "Optional. YouTube URL only",
-            hidden: ({ document }) => document?.category === "upcoming",
             validation: Rule =>
-                Rule.custom((value, ctx) => {
-                    // optional → allow empty
+                Rule.custom(value => {
                     if (!value) return true;
-
-                    const isYouTube =
-                        value.includes("youtube.com") || value.includes("youtu.be");
-
-                    return isYouTube ? true : "Only YouTube URLs are allowed";
+                    return value.includes("youtube.com") || value.includes("youtu.be")
+                        ? true
+                        : "Only YouTube URLs allowed";
                 }),
         }),
 
-        // 🎭 Cast & Crew (RELEASED ONLY)
+        // 🎭 Cast & Crew (OPTIONAL)
         defineField({
             name: "cast",
             title: "Cast & Crew",
             type: "array",
-            hidden: ({ document }) => document?.category === "upcoming",
             of: [
                 {
                     type: "object",
                     fields: [
-                        { name: "name", type: "string", title: "Name" },
-                        {
-                            name: "image",
-                            type: "image",
-                            title: "Image",
-                            options: { hotspot: true },
-                        },
+                        { name: "name", title: "Name", type: "string" },
+                        { name: "image", title: "Image", type: "image", options: { hotspot: true } },
                     ],
                 },
             ],
-            validation: Rule =>
-                Rule.custom((value, ctx) =>
-                    ctx.document?.category === "released" &&
-                        (!value || value.length === 0)
-                        ? "At least one cast member is required"
-                        : true
-                ),
         }),
 
-        // ▶ Watch Now (RELEASED ONLY)
+        // ▶ Watch Now (OPTIONAL)
         defineField({
             name: "watchNow",
             title: "Watch Now",
             type: "array",
-            hidden: ({ document }) => document?.category === "upcoming",
             of: [
                 {
                     type: "object",
                     fields: [
-                        defineField({
+                        {
                             name: "platform",
                             title: "Platform",
                             type: "string",
@@ -222,62 +164,24 @@ export const movieType = defineType({
                                     { title: "Prime Video", value: "prime" },
                                     { title: "Zee", value: "zee" },
                                 ],
-                                layout: "radio", // optional, cleaner UX
+                                layout: "radio",
                             },
-                        }),
-                        defineField({
-                            name: "url",
-                            title: "URL",
-                            type: "url",
-                        }),
+                        },
+                        { name: "url", title: "URL", type: "url" },
                     ],
                 },
             ],
-            validation: Rule =>
-                Rule.custom((value, ctx) =>
-                    ctx.document?.category === "released" &&
-                        (!value || value.length === 0)
-                        ? "At least one watch platform is required"
-                        : true
-                ),
         }),
 
-        // 🔍 SEO Meta (RELEASED ONLY – compact)
+        // 🔍 SEO Meta (OPTIONAL)
         defineField({
             name: "meta",
             title: "SEO Meta",
             type: "object",
-            hidden: ({ document }) => document?.category === "upcoming",
-            validation: Rule =>
-                Rule.custom((value, ctx) =>
-                    ctx.document?.category === "released" && !value
-                        ? "SEO meta is required"
-                        : true
-                ),
             fields: [
-                defineField({
-                    name: "title",
-                    title: "Meta Title",
-                    type: "string",
-                    description: "50–60 characters",
-                    validation: Rule => Rule.required(),
-                }),
-                defineField({
-                    name: "description",
-                    title: "Meta Description",
-                    type: "text",
-                    rows: 2, // 👈 small
-                    description: "150–160 characters",
-                    validation: Rule => Rule.required(),
-                }),
-                defineField({
-                    name: "keywords",
-                    title: "Meta Keywords",
-                    type: "text",
-                    rows: 1, // 👈 very compact
-                    description: "Comma-separated keywords",
-                    validation: Rule => Rule.required(),
-                }),
+                { name: "title", title: "Meta Title", type: "string" },
+                { name: "description", title: "Meta Description", type: "text", rows: 2 },
+                { name: "keywords", title: "Meta Keywords", type: "text", rows: 1 },
             ],
         }),
     ],
