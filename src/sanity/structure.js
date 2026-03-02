@@ -30,16 +30,6 @@ export const structure = (S, context) =>
         ),
       S.documentTypeListItem("homeDirectorSpotlight").title("Home Page – Director Spotlight"),
 
-      // Blogs
-      S.documentTypeListItem("blog").title("Manage Blogs"),
-
-      // Movies (orderable)
-      orderableDocumentListDeskItem({
-        type: "movies",
-        title: "Manage Movies",
-        S,
-        context,
-      }),
       // ℹ️ ABOUT PAGE (NEW)
       S.listItem()
         .title("About Page – Hero Section")
@@ -50,7 +40,19 @@ export const structure = (S, context) =>
             .documentId("aboutHeroSection") // 🔒 singleton
         ),
 
-      S.documentTypeListItem("filmography").title("Manage Filmography"),
+      S.documentTypeListItem("filmography").title("About Page – Filmography"),
+
+      // Movies (orderable)
+      orderableDocumentListDeskItem({
+        type: "movies",
+        title: "Manage Movies",
+        S,
+        context,
+      }),
+      
+      // Blogs
+      S.documentTypeListItem("blog").title("Manage Blogs"),
+
       // Gallery (orderable)
       orderableDocumentListDeskItem({
         type: "galleryAlbum",
