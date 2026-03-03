@@ -63,6 +63,7 @@ export const blogType = defineType({
       name: 'image',
       title: 'Featured Image',
       type: 'image',
+      description: "Max file size 500KB",
       options: { hotspot: true },
       fields: [
         {
