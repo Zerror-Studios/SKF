@@ -47,7 +47,7 @@ export const movieType = defineType({
             name: "poster",
             title: "Poster",
             type: "image",
-            description: "Max file size 500KB",
+            description: "Recommended banner size: approx. 1920 × 1080 px. Max file size: 500KB.",
             options: { hotspot: true },
             validation: Rule => Rule.required(),
         }),

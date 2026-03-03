@@ -50,7 +50,7 @@ export const aboutHeroSectionType = defineType({
       name: "banner",
       title: "Hero Banner",
       type: "image",
-      description: "Recommended 1920×1080 (max 500KB)",
+      description: "Recommended banner size: approx. 1920 × 814 px. Max file size: 500KB.",
       options: { hotspot: true },
       validation: (Rule) => Rule.required(),
     }),

@@ -63,7 +63,7 @@ export const blogType = defineType({
       name: 'image',
       title: 'Featured Image',
       type: 'image',
-      description: "Max file size 500KB",
+      description: "Recommended banner size: approx. 1920 × 1080 px. Max file size: 500KB.",
       options: { hotspot: true },
       fields: [
         {

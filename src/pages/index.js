@@ -35,7 +35,7 @@ export async function getStaticProps() {
   const meta = {
     title: "Salman Khan Films | Official Production House",
     description:
-      "Salman Khan Films is an Indian film production company focused on producing high-quality Hindi cinema, delivering commercially successful and critically acclaimed motion pictures.",
+      "Salman Khan Films (SKF) is a Mumbai-based film production and distribution company founded in 2011 by Salman Khan, known for blockbuster films like Bajrangi Bhaijaan, Bharat, and Dabangg 3, delivering high-entertainment commercial cinema.",
     keywords:
       "Salman Khan Films, SKF, Bollywood production house, Hindi film production, Indian cinema, film studio India",
     author: "Salman Khan Films",

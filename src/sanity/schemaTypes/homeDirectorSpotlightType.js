@@ -39,7 +39,7 @@ export const homeDirectorSpotlightType = defineType({
       name: "image",
       title: "Director Image",
       type: "image",
-      description: "Max file size 500KB",
+      description: "Recommended image size: approx. 284 × 330 px. Max file size: 500KB.",
       options: { hotspot: true },
       validation: (Rule) =>
         Rule.required().error("Director image is required"),

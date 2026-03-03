@@ -5,9 +5,9 @@ const MovieInfo = ({ info, detailsRef }) => {
   const firstPlatform = info?.watchNow?.[0];
 
   const platformImages = {
-    netflix: "/images/moviedetails/netflix.png",
-    prime: "/images/moviedetails/prime.png",
-    zee: "/images/moviedetails/zee.png",
+    netflix: "/images/netflix.png",
+    prime: "/images/prime.png",
+    zee: "/images/zee.png",
   };
 
   const platformKey = firstPlatform?.platform?.toLowerCase().includes("netflix")

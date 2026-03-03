@@ -22,7 +22,7 @@ export const upcomingReleaseType = defineType({
       name: "desktopBanner",
       title: "Desktop Banner",
       type: "image",
-      description: "Max file size 500KB",
+      description: "Recommended banner size: approx. 1280 × 640 px. Max file size: 500KB.",
       options: { hotspot: true },
       fields: [
         {
@@ -45,7 +45,7 @@ export const upcomingReleaseType = defineType({
       name: "mobileBanner",
       title: "Mobile Banner (Optional)",
       type: "image",
-      description: "Max file size 500KB",
+      description: "Recommended banner size: approx. 900 × 1100 px. Max file size: 500KB.",
       options: { hotspot: true },
       fields: [
         {

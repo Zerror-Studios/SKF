@@ -59,8 +59,8 @@ const AboutSection = () => {
       <Image
         width={1000}
         height={1000}
-        src="/images/home/about-poster.webp"
-        alt="image"
+        src="/images/about-poster.webp"
+        alt="Salman Khan Films"
         ref={bgRef}
       />
       <div id="about_section_over">

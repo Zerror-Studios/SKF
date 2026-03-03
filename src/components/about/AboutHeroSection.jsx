@@ -7,7 +7,6 @@ import CustomEase from "gsap/dist/CustomEase";
 gsap.registerPlugin(SplitText, CustomEase);
 
 const AboutHeroSection = ({ data }) => {
-  console.log(data);
 
   const tagRef = useRef(null);
   const titleRef = useRef(null);
