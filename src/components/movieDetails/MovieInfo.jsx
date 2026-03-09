@@ -8,65 +8,72 @@ const MovieInfo = ({ info, detailsRef }) => {
     netflix: "/images/netflix.png",
     prime: "/images/prime.png",
     zee: "/images/zee.png",
+    hotstar: "/images/hotstar.webp",
+    youtube: "/images/youtube.webp",
   };
 
-  const platformKey = firstPlatform?.platform?.toLowerCase().includes("netflix")
+  const platformName = firstPlatform?.platform?.toLowerCase() || "";
+
+  const platformKey = platformName.includes("netflix")
     ? "netflix"
-    : firstPlatform?.platform?.toLowerCase().includes("prime")
+    : platformName.includes("prime")
       ? "prime"
-      : firstPlatform?.platform?.toLowerCase().includes("zee")
+      : platformName.includes("zee")
         ? "zee"
-        : null;
+        : platformName.includes("hotstar") || platformName.includes("disney")
+          ? "hotstar"
+          : platformName.includes("youtube")
+            ? "youtube"
+            : null;
 
   return (
-    <>
-      <div
-        ref={detailsRef}
-        className="movie_details_info"
-        style={{ transform: "translateY(60%)", opacity: 0 }}
-      >
-        {info?.produced && (
-          <div className="movie_details_info_produce">
-            <p>Produced By</p>
-            <h4>{info.produced}</h4>
-          </div>
-        )}
+    <div
+      ref={detailsRef}
+      className="movie_details_info"
+      style={{ transform: "translateY(60%)", opacity: 0 }}
+    >
+      {info?.produced && (
+        <div className="movie_details_info_produce">
+          <p>Produced By</p>
+          <h4>{info.produced}</h4>
+        </div>
+      )}
 
-        {info?.director && (
-          <div>
-            <p>Directed By</p>
-            <h4>{info.director}</h4>
-          </div>
-        )}
-        {info?.director && (
-          <div>
-            <p>Genre</p>
-            <h4>{info.genre}</h4>
-          </div>
-        )}
+      {info?.director && (
+        <div>
+          <p>Directed By</p>
+          <h4>{info.director}</h4>
+        </div>
+      )}
 
-        {platformKey && (
-          <div className="netflix">
-            <p>Watch now</p>
+      {info?.genre && (
+        <div>
+          <p>Genre</p>
+          <h4>{info.genre}</h4>
+        </div>
+      )}
 
-            <div className="watch-now">
-              <a
-                href={firstPlatform.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  width={1000}
-                  height={1000}
-                  src={platformImages[platformKey]}
-                  alt={firstPlatform.platform}
-                />
-              </a>
-            </div>
+      {platformKey && (
+        <div className="netflix">
+          <p>Watch now</p>
+
+          <div className="watch-now">
+            <a
+              href={firstPlatform.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                width={1000}
+                height={1000}
+                src={platformImages[platformKey]}
+                alt={firstPlatform.platform}
+              />
+            </a>
           </div>
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   );
 };
 

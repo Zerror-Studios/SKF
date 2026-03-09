@@ -165,6 +165,8 @@ export const movieType = defineType({
                                     { title: "Netflix", value: "netflix" },
                                     { title: "Prime Video", value: "prime" },
                                     { title: "Zee", value: "zee" },
+                                    { title: "YouTube", value: "youtube" },
+                                    { title: "Hotstar", value: "hotstar" },
                                 ],
                                 layout: "radio",
                             },

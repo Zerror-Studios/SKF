@@ -74,6 +74,6 @@ export async function getStaticProps() {
       upcomingRelease,
       homeAbout
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 }
