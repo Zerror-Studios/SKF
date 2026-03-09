@@ -24,6 +24,7 @@ const MovieDetails = ({
 }) => {
   if (!movie) return null;
   const hasGallery = subAlbums && subAlbums.length > 0;
+  
 
   return (
     <>
@@ -42,6 +43,7 @@ const MovieDetails = ({
         <>
           <GalleryTitleSection
             title={movieTitle}
+            isH2={true}
             subHeading="GALLERY"
             isPadding={true}
           />

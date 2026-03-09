@@ -3,6 +3,7 @@ import PlaySvg from "./PlaySvg";
 import Image from "next/image";
 
 const MovieBanner = ({ trailer, title, poster, bannerRef, setShowVideo }) => {
+
   return (
     <div
       ref={bannerRef}
@@ -10,12 +11,10 @@ const MovieBanner = ({ trailer, title, poster, bannerRef, setShowVideo }) => {
       style={{ transform: "translateY(25%)" }}
     >
       <Image width={1000} height={1000} src={poster} alt="image" priority />
-      {trailer && (
-        <div className="movie_banner_overlay">
-          <h1 className="heading">{title}</h1>
-          <PlaySvg setShowVideo={setShowVideo} />
-        </div>
-      )}
+      <div className="movie_banner_overlay">
+        <h1 className="heading">{title}</h1>
+        {trailer && <PlaySvg setShowVideo={setShowVideo} />}
+      </div>
     </div>
   );
 };

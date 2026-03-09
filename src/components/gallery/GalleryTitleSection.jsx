@@ -7,6 +7,7 @@ gsap.registerPlugin(SplitText, CustomEase);
 
 const GalleryTitleSection = ({
   title,
+  isH2 = false,
   subHeading,
   isHero = true,
   isPadding,
@@ -70,15 +71,28 @@ const GalleryTitleSection = ({
       <h5 ref={tagRef} className="tag1 landing_text">
         {subHeading}
       </h5>
-      <h1 ref={titleRef} className="heading landing_text">
-        {title ? (
-          title
-        ) : (
-          <>
-            Inside The <span className="letter-u">Frame</span>
-          </>
-        )}
-      </h1>
+
+      {isH2 ? (
+        <h2 ref={titleRef} className="heading landing_text">
+          {title ? (
+            title
+          ) : (
+            <>
+              Inside The <span className="letter-u">Frame</span>
+            </>
+          )}
+        </h2>
+      ) : (
+        <h1 ref={titleRef} className="heading landing_text">
+          {title ? (
+            title
+          ) : (
+            <>
+              Inside The <span className="letter-u">Frame</span>
+            </>
+          )}
+        </h1>
+      )}
     </div>
   );
 };
