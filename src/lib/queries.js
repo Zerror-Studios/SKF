@@ -66,17 +66,7 @@ export async function getHomeAbout() {
   return client.fetch(query);
 }
 
-//  Blogs
-export const getBlogs = () =>
-  client.fetch(`
-    *[_type == "blog"] | order(publishedAt desc){
-      "slug": slug.current,
-      publishedAt,
-      title,
-      description,
-      image
-    }
-  `);
+
 
 //  Gallery Albums
 export const getGalleryAlbums = () =>
@@ -102,82 +92,8 @@ export const getGalleryAlbums = () =>
     }
   `);
 
-// 🎬 Movies Listing (All movies)
-export const getAllMovies = () =>
-  client.fetch(`
-    *[_type == "movies"]
-    | order(orderRank asc){
-      title,
-      year,
-      category,
-      "slug": slug.current,
-      poster,
-      "backgroundVideo": backgroundVideo.asset->url
-    }
-  `);
-
-// 📰 Blogs (All)
-export const getAllBlogs = () =>
-  client.fetch(`
-    *[_type == "blog"]
-    | order(publishedAt desc){
-      "slug": slug.current,
-      publishedAt,
-      title,
-      description,
-      image
-    }
-  `);
 
 
-// 🧾 Blog slugs (for getStaticPaths)
-export const getBlogSlugs = () =>
-  client.fetch(`
-    *[_type == "blog"].slug.current
-  `);
 
-// 📰 Single blog by slug
-export const getBlogBySlug = (slug) =>
-  client.fetch(
-    `
-    *[_type == "blog" && slug.current == $slug][0]{
-      "slug": slug.current,
-      publishedAt,
-      title,
-      description,
-      readingTime,
-      content,
-      image,
-      meta
-    }
-  `,
-    { slug }
-  );
 
-// ✨ Other blogs (exclude current)
-export const getOtherBlogs = (slug) =>
-  client.fetch(
-    `
-    *[_type == "blog" && slug.current != $slug]
-    | order(publishedAt desc){
-      "slug": slug.current,
-      publishedAt,
-      title,
-      description,
-      image
-    }
-  `,
-    { slug }
-  );
 
-// Contact Info 
-  export async function getContact() {
-  const query = `*[_type == "contact" && _id == "contact"][0]{
-    email,
-    twitter,
-    instagram,
-    youtube
-  }`;
-
-  return client.fetch(query);
-}

@@ -1,15 +1,15 @@
+import React from "react";
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getContact } from "@/lib/queries";
-import { client } from "@/sanity/lib/client";
-import React from "react";
+import { getGalleryAlbums } from "@/lib/gallery";
+import { getContact } from "@/lib/contact";
 
 const Album = ({ meta, albums }) => {
   return (
     <>
       <SeoHeader meta={meta} />
-      <GalleryTitleSection subHeading={"GALLERY"} />
+      <GalleryTitleSection subHeading="GALLERY" />
       <GalleryList data={albums} />
     </>
   );
@@ -28,27 +28,10 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  const albums = await client.fetch(`
-  *[_type == "galleryAlbum"] | order(orderRank asc){
-  title,
-   "slug": slug.current,
-  "cover": cover.asset->url,
-
-  subAlbums[]{
-    title,
-     "slug": slug.current,
-    "cover": cover.asset->url,
-
-    media[]{
-      type,
-      "src": select(
-        type == "image" => image.asset->url,
-        type == "video" => videoUrl
-      )
-    }
-  }
-}`);
-  const contact = await getContact();
+  const [albums, contact] = await Promise.all([
+    getGalleryAlbums(),
+    getContact(),
+  ]);
 
   return {
     props: {
@@ -56,6 +39,6 @@ export async function getStaticProps() {
       albums,
       contact,
     },
-    revalidate: 60, // ISR
+    revalidate: 60,
   };
 }

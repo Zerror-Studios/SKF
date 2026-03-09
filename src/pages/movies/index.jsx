@@ -1,7 +1,9 @@
+import React from "react";
 import MoviesListing from "@/components/movieListing/MoviesListing";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getAllMovies, getContact } from "@/lib/queries";
-import React from "react";
+import { getContact } from "@/lib/contact";
+import { getAllMovies } from "@/lib/movies";
+
 
 const Movies = ({ meta, movies }) => {
   return (
@@ -14,6 +16,7 @@ const Movies = ({ meta, movies }) => {
 
 export default Movies;
 
+
 export async function getStaticProps() {
   const meta = {
     title: "Films & Productions | Salman Khan Films",
@@ -25,8 +28,7 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  const movies = await getAllMovies();
-  const contact = await getContact();
+  const [movies, contact] = await Promise.all([getAllMovies(), getContact()]);
 
   return {
     props: {

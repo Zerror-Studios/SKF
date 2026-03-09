@@ -1,10 +1,9 @@
 import ContactSection from "@/components/contact/ContactSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getContact } from "@/lib/queries";
+import { getContact } from "@/lib/contact";
 import React from "react";
 
 const Contact = ({ meta, contact }) => {
-  
   return (
     <>
       <SeoHeader meta={meta} />
@@ -26,7 +25,7 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  const contact = await getContact();
+  const [contact] = await Promise.all([getContact()]);
 
   return {
     props: {

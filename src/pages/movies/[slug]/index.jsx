@@ -4,16 +4,18 @@ import SeoHeader from "@/components/seo/SeoHeader";
 import MovieDetailsHero from "@/components/movieDetails/MovieDetailsHero";
 import SynopsisSection from "@/components/movieDetails/SynopsisSection";
 import CastSection from "@/components/movieDetails/CastSection";
-
 import HorizontalSlider from "@/components/common/HorizontalSlider/HorizontalSlider";
 import HorizontalSwiper from "@/components/common/HorizontalSlider/HorizontalSwiper";
-
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryList from "@/components/gallery/GalleryList";
-
 import MovieList from "@/components/home/MovieList";
-import { client } from "@/sanity/lib/client";
-import { getContact } from "@/lib/queries";
+import {
+  getLatestMovies,
+  getMovieBySlug,
+  getMovieGallery,
+  getMovieSlugs,
+} from "@/lib/movieDetails";
+import { getContact } from "@/lib/contact";
 
 const MovieDetails = ({
   movie,
@@ -25,21 +27,15 @@ const MovieDetails = ({
 }) => {
   if (!movie) return null;
   const hasGallery = subAlbums && subAlbums.length > 0;
-  
 
   return (
     <>
       <SeoHeader meta={movie.meta} movie={movie} />
-
       <MovieDetailsHero data={movie} />
       <SynopsisSection data={movie} />
       <CastSection data={movie} />
-
       {trailerList.length > 0 && <HorizontalSlider trailerList={trailerList} />}
-
       <HorizontalSwiper data={movie} />
-
-      {/* ✅ GALLERY SECTION (only if gallery exists) */}
       {hasGallery && (
         <>
           <GalleryTitleSection
@@ -51,7 +47,6 @@ const MovieDetails = ({
           <GalleryList data={subAlbums} movieSlug={movieSlug} />
         </>
       )}
-
       {latestMovies.length > 0 && (
         <MovieList movies={latestMovies} subheading="Other Movies" NotHero />
       )}
@@ -62,12 +57,7 @@ const MovieDetails = ({
 export default MovieDetails;
 
 export async function getStaticPaths() {
-  const slugs = await client.fetch(`
-    *[
-      _type == "movies"  &&
-      defined(slug.current)
-    ].slug.current
-  `);
+  const slugs = await getMovieSlugs();
 
   const paths = slugs.map((slug) => ({
     params: { slug },
@@ -86,56 +76,16 @@ export async function getStaticProps({ params }) {
     return { notFound: true };
   }
 
-  const movie = await client.fetch(
-    `
-    *[
-      _type == "movies" &&
-      slug.current == $slug
-    ][0]{
-      title,
-      year,
-      category,
-      director,
-      produced,
-      synopsis,
-      poster,
-      genre,
-      cast,
-      watchNow,
-      trailer,
-      teaser,
-      meta,
-      "backgroundVideo": backgroundVideo.asset->url,
-      "slug": slug.current
-    }
-    `,
-    { slug },
-  );
+  const [movie, latestMovies, galleryData, contact] = await Promise.all([
+    getMovieBySlug(slug),
+    getLatestMovies(slug),
+    getMovieGallery(slug),
+    getContact(),
+  ]);
 
   if (!movie) {
     return { notFound: true };
   }
-
-  // other movies (also exclude null slugs)
-  const latestMovies = await client.fetch(
-    `
-    *[
-      _type == "movies" &&
-      category == "released" &&
-      defined(slug.current) &&
-      slug.current != $slug
-    ]
-    | order(year desc)[0...3]{
-      title,
-      year,
-      poster,
-      category,
-      "backgroundVideo": backgroundVideo.asset->url,
-      "slug": slug.current
-    }
-    `,
-    { slug },
-  );
 
   const trailerList = [
     movie.trailer && {
@@ -150,29 +100,7 @@ export async function getStaticProps({ params }) {
     },
   ].filter(Boolean);
 
-  // ✅ Fetch gallery subAlbums for this movie (slug match)
-  const galleryData = await client.fetch(
-    `
-  *[_type == "galleryAlbum" && slug.current == $slug][0]{
-    subAlbums[]{
-      title,
-       "slug": slug.current,
-      "cover": cover.asset->url,
-      media[]{
-        type,
-        "src": select(
-          type == "image" => image.asset->url,
-          type == "video" => videoUrl
-        )
-      }
-    }
-  }
-  `,
-    { slug },
-  );
-
   const subAlbums = galleryData?.subAlbums || [];
-    const contact = await getContact();
 
   return {
     props: {
@@ -182,7 +110,7 @@ export async function getStaticProps({ params }) {
       subAlbums,
       movieTitle: movie.title,
       movieSlug: movie.slug,
-      contact
+      contact,
     },
     revalidate: 60,
   };

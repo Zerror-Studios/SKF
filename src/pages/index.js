@@ -7,7 +7,9 @@ import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryList from "@/components/gallery/GalleryList";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getBlogs, getContact, getDirectorSpotlight, getGalleryAlbums, getHeroSection, getHomeAbout, getHomeTopMovies, getUpcomingRelease } from "@/lib/queries";
+import { getDirectorSpotlight, getGalleryAlbums, getHeroSection, getHomeAbout, getHomeTopMovies, getUpcomingRelease } from "@/lib/queries";
+import { getAllBlogs } from "@/lib/blog";
+import { getContact } from "@/lib/contact";
 
 const Home = ({ meta, heroSection, directorSpotlight, homeAbout, highlightsData, albums, upcomingRelease, homeTopMovie }) => {
 
@@ -57,11 +59,10 @@ export async function getStaticProps() {
     getHomeTopMovies(),
     getUpcomingRelease(),
     getDirectorSpotlight(),
-    getBlogs(),
+    getAllBlogs(),
     getGalleryAlbums(),
     getHomeAbout(),
     getContact()
-
   ]);
 
 

@@ -1,17 +1,11 @@
 import Highlights from "@/components/home/Highlights";
 import NewsHeroSection from "@/components/news/NewsHeroSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import {
-  getBlogBySlug,
-  getBlogSlugs,
-  getContact,
-  getOtherBlogs,
-} from "@/lib/queries";
+import { getBlogBySlug, getBlogSlugs, getOtherBlogs } from "@/lib/blog";
+import { getContact } from "@/lib/contact";
 import React from "react";
 
 const News = ({ newsData, highlightsData }) => {
-  console.log(newsData);
-
   return (
     <>
       <SeoHeader meta={newsData?.meta} news={newsData} />
@@ -41,14 +35,14 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  const newsData = await getBlogBySlug(slug);
-
+  const [newsData, highlightsData, contact] = await Promise.all([
+    getBlogBySlug(slug),
+    getOtherBlogs(slug),
+    getContact(),
+  ]);
   if (!newsData) {
     return { notFound: true };
   }
-
-  const highlightsData = await getOtherBlogs(slug);
-  const contact = await getContact();
 
   return {
     props: {

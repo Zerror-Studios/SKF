@@ -1,10 +1,13 @@
 import AboutHeroSection from "@/components/about/AboutHeroSection";
 import FilmographySection from "@/components/about/FilmographySection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getContact } from "@/lib/queries";
-import { client } from "@/sanity/lib/client";
+import {
+  getAboutHeroSection,
+  getFilmography,
+  getReleasedMovies,
+} from "@/lib/about";
+import { getContact } from "@/lib/contact";
 
-/* -------------------- PAGE -------------------- */
 const About = ({ meta, aboutHeroSection, moviesData }) => {
   return (
     <>
@@ -17,86 +20,47 @@ const About = ({ meta, aboutHeroSection, moviesData }) => {
 
 export default About;
 
-/* -------------------- STATIC PROPS -------------------- */
+
 export async function getStaticProps() {
-  try {
-    const meta = {
-      title: "About Us – Film Production House | Salman Khan Films",
-      description:
-        "Salman Khan Films is a Mumbai-based film production company established to create impactful cinema through strong storytelling and high production standards.",
-      keywords:
-        "About Salman Khan Films, SKF company profile, Bollywood film studio, Indian production house",
-      author: "Salman Khan Films",
-      robots: "index,follow",
-    };
+  const meta = {
+    title: "About Us – Film Production House | Salman Khan Films",
+    description:
+      "Salman Khan Films is a Mumbai-based film production company established to create impactful cinema through strong storytelling and high production standards.",
+    keywords:
+      "About Salman Khan Films, SKF company profile, Bollywood film studio, Indian production house",
+    author: "Salman Khan Films",
+    robots: "index,follow",
+  };
 
-    // 🔹 About Hero Section (singleton)
-    const aboutHeroSection =
-      (await client.fetch(`
-    *[_type == "aboutHeroSection" && _id == "aboutHeroSection"][0]{
-      title,
-      description,
-      headOffice,
-      totalMovies,
-      "banner": banner.asset->url,
-      bannerAlt
-    }
-  `)) || null;
+  const [
+    aboutHeroSection,
+    moviesFromSanity,
+    filmographyFromSanity,
+    contact,
+  ] = await Promise.all([
+    getAboutHeroSection(),
+    getReleasedMovies(),
+    getFilmography(),
+    getContact(),
+  ]);
 
-    // 1️⃣ Fetch released movies (safe)
-    const moviesFromSanity =
-      (await client.fetch(`
-        *[_type == "movies" && category == "released"]{
-          title,
-          year,
-          director,
-          "slug": slug.current
-        }
-      `)) || [];
+  const moviesData = [
+    ...(moviesFromSanity || []),
+    ...(filmographyFromSanity || []).map((film) => ({
+      ...film,
+      slug: null,
+    })),
+  ]
+    .filter((item) => typeof item.year === "number")
+    .sort((a, b) => b.year - a.year);
 
-    // 2️⃣ Fetch filmography (safe)
-    const filmographyFromSanity =
-      (await client.fetch(`
-        *[_type == "filmography"]{
-          title,
-          year,
-          director
-        }
-      `)) || [];
-
-    // 3️⃣ Normalize + merge safely
-    const moviesData = [
-      ...moviesFromSanity,
-      ...filmographyFromSanity.map((film) => ({
-        ...film,
-        slug: null,
-      })),
-    ]
-      // 🛡️ remove items without year
-      .filter((item) => typeof item.year === "number")
-      // 🛡️ safe numeric sort
-      .sort((a, b) => b.year - a.year);
-    const contact = await getContact();
-
-    return {
-      props: {
-        meta,
-        moviesData,
-        aboutHeroSection,
-        contact,
-      },
-      revalidate: 60,
-    };
-  } catch (err) {
-    console.error("About page build error:", err);
-
-    return {
-      props: {
-        meta: {
-          title: "About Salman Khan Films",
-        },
-        moviesData: [],
-      },
-    };
-  }
+  return {
+    props: {
+      meta,
+      aboutHeroSection,
+      moviesData,
+      contact,
+    },
+    revalidate: 60,
+  };
 }

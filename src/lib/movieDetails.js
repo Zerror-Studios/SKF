@@ -1,0 +1,82 @@
+import { client } from "@/sanity/lib/client";
+
+export const getMovieBySlug = async (slug) => {
+  return client.fetch(
+    `
+    *[
+      _type == "movies" &&
+      slug.current == $slug
+    ][0]{
+      title,
+      year,
+      category,
+      director,
+      produced,
+      synopsis,
+      poster,
+      genre,
+      cast,
+      watchNow,
+      trailer,
+      teaser,
+      meta,
+      "backgroundVideo": backgroundVideo.asset->url,
+      "slug": slug.current
+    }
+  `,
+    { slug }
+  );
+};
+
+export const getLatestMovies = async (slug) => {
+  return client.fetch(
+    `
+    *[
+      _type == "movies" &&
+      category == "released" &&
+      defined(slug.current) &&
+      slug.current != $slug
+    ]
+    | order(year desc)[0...3]{
+      title,
+      year,
+      poster,
+      category,
+      "backgroundVideo": backgroundVideo.asset->url,
+      "slug": slug.current
+    }
+  `,
+    { slug }
+  );
+};
+
+export const getMovieSlugs = async () => {
+  return client.fetch(`
+    *[
+      _type == "movies" &&
+      defined(slug.current)
+    ].slug.current
+  `);
+};
+
+export const getMovieGallery = async (slug) => {
+  return client.fetch(
+    `
+    *[_type == "galleryAlbum" && slug.current == $slug][0]{
+      subAlbums[]{
+        title,
+        "slug": slug.current,
+        "cover": cover.asset->url,
+        media[]{
+          type,
+          "src": select(
+            type == "image" => image.asset->url,
+            type == "video" => videoUrl
+          )
+        }
+      }
+    }
+  `,
+    { slug }
+  );
+};

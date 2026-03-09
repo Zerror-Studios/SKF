@@ -1,15 +1,19 @@
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getContact } from "@/lib/queries";
-import { client } from "@/sanity/lib/client";
+import { getContact } from "@/lib/contact";
+import {
+  getGallerySubAlbumBySlug,
+  getGallerySubAlbumPaths,
+} from "@/lib/gallery";
+
+/* -------------------- PAGE COMPONENT -------------------- */
 
 const AlbumSubDetail = ({ albumTitle, subAlbumTitle, media, meta }) => {
   return (
     <>
       <SeoHeader meta={meta} />
       <GalleryTitleSection title={subAlbumTitle} subHeading={albumTitle} />
-
       <GalleryDetailList media={media} />
     </>
   );
@@ -18,15 +22,9 @@ const AlbumSubDetail = ({ albumTitle, subAlbumTitle, media, meta }) => {
 export default AlbumSubDetail;
 
 /* -------------------- STATIC PATHS -------------------- */
+
 export async function getStaticPaths() {
-  const albums = await client.fetch(`
-    *[_type == "galleryAlbum"]{
-      "albumSlug": slug.current,
-      "subAlbums": subAlbums[]{
-        "subSlug": slug.current
-      }
-    }
-  `);
+  const albums = await getGallerySubAlbumPaths();
 
   const paths = albums.flatMap((album) =>
     (album.subAlbums || []).map((sub) => ({
@@ -39,35 +37,19 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: "blocking", // use "blocking" if content grows
+    fallback: "blocking",
   };
 }
 
 /* -------------------- STATIC PROPS -------------------- */
+
 export async function getStaticProps({ params }) {
   const { movie, subAlbum } = params;
 
-  const data = await client.fetch(
-    `
-    *[_type == "galleryAlbum" && slug.current == $albumSlug][0]{
-      title,
-      subAlbums[slug.current == $subSlug][0]{
-        title,
-        media[]{
-          type,
-          "src": select(
-            type == "image" => image.asset->url,
-            type == "video" => videoUrl
-          )
-        }
-      }
-    }
-    `,
-    {
-      albumSlug: movie,
-      subSlug: subAlbum,
-    },
-  );
+  const [data, contact] = await Promise.all([
+    getGallerySubAlbumBySlug(movie, subAlbum),
+    getContact(),
+  ]);
 
   if (!data || !data.subAlbums) {
     return { notFound: true };
@@ -81,7 +63,6 @@ export async function getStaticProps({ params }) {
     robots: "index,follow",
   };
 
-  const contact = await getContact();
   return {
     props: {
       albumTitle: data.title,

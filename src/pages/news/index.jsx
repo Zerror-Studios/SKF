@@ -1,14 +1,16 @@
+import React from "react";
 import Highlights from "@/components/home/Highlights";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getAllBlogs, getContact } from "@/lib/queries";
-import React from "react";
+import { getAllBlogs } from "@/lib/blog";
+import { getContact } from "@/lib/contact";
 
 const News = ({ meta, blogs }) => {
   return (
     <>
       <SeoHeader meta={meta} />
+
       <Highlights
-        tag={"Blogs"}
+        tag="Blogs"
         title={
           <>
             Fresh <span className="letter-u">Stories</span>
@@ -23,6 +25,8 @@ const News = ({ meta, blogs }) => {
 
 export default News;
 
+/* -------------------- STATIC PROPS -------------------- */
+
 export async function getStaticProps() {
   const meta = {
     title: "Latest News & Blogs | Salman Khan Films",
@@ -34,8 +38,7 @@ export async function getStaticProps() {
     robots: "index,follow",
   };
 
-  const blogs = await getAllBlogs();
-  const contact = await getContact();
+  const [blogs, contact] = await Promise.all([getAllBlogs(), getContact()]);
 
   return {
     props: {

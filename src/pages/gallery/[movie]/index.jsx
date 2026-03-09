@@ -1,10 +1,12 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getContact } from "@/lib/queries";
-import { client } from "@/sanity/lib/client";
+import { getContact } from "@/lib/contact";
+import { checkMovieExists, getGalleryAlbumBySlug, getGalleryAlbumSlugs } from "@/lib/gallery";
+
 
 /* -------------------- PAGE COMPONENT -------------------- */
+
 const AlbumDetail = ({
   meta,
   subAlbums,
@@ -15,7 +17,9 @@ const AlbumDetail = ({
   return (
     <>
       <SeoHeader meta={meta} />
+
       <GalleryTitleSection title={movieTitle} subHeading="GALLERY" />
+
       <GalleryList
         data={subAlbums}
         movieSlug={movieSlug}
@@ -28,17 +32,14 @@ const AlbumDetail = ({
 export default AlbumDetail;
 
 /* -------------------- STATIC PATHS -------------------- */
+
 export async function getStaticPaths() {
   try {
-    const albums = await client.fetch(`
-      *[_type == "galleryAlbum" && defined(slug.current)]{
-        "slug": slug.current
-      }
-    `);
+    const albums = await getGalleryAlbumSlugs();
 
     const paths = albums
-      .filter(album => album?.slug)
-      .map(album => ({
+      .filter((album) => album?.slug)
+      .map((album) => ({
         params: { movie: album.slug },
       }));
 
@@ -57,69 +58,41 @@ export async function getStaticPaths() {
 }
 
 /* -------------------- STATIC PROPS -------------------- */
+
 export async function getStaticProps({ params }) {
-  try {
-    const slug = params?.movie;
+  const slug = params?.movie;
 
-    if (!slug) {
-      return { notFound: true };
-    }
-
-    // 1️⃣ Fetch gallery album
-    const movieData = await client.fetch(
-      `
-      *[_type == "galleryAlbum" && slug.current == $slug][0]{
-        title,
-        "slug": slug.current,
-        subAlbums[]{
-          title,
-          "slug": slug.current,
-          "cover": cover.asset->url,
-          media[]{
-            type,
-            "src": select(
-              type == "image" => image.asset->url,
-              type == "video" => videoUrl
-            )
-          }
-        }
-      }
-      `,
-      { slug }
-    );
-
-    if (!movieData) {
-      return { notFound: true };
-    }
-
-    // 2️⃣ Check if movie exists
-    const hasMoviePage = await client.fetch(
-      `count(*[_type == "movies" && slug.current == $slug]) > 0`,
-      { slug }
-    );
-
-    const meta = {
-      title: `${movieData.title} | Media Gallery | Salman Khan Films`,
-      description: `Official media gallery of ${movieData.title} featuring trailers, songs, images, and behind-the-scenes visuals.`,
-      keywords: `${movieData.title}, Salman Khan Films gallery`,
-      author: "Salman Khan Films",
-      robots: "index,follow",
-    };
-    const contact = await getContact();
-
-    return {
-      props: {
-        meta,
-        subAlbums: movieData.subAlbums || [],
-        movieTitle: movieData.title,
-        movieSlug: movieData.slug,
-        hasMoviePage,
-        contact
-      },
-      revalidate: 60,
-    };
-  } catch (err) {
-    console.error("getStaticProps error:", err);
+  if (!slug) {
     return { notFound: true };
   }
+
+  const [movieData, hasMoviePage, contact] = await Promise.all([
+    getGalleryAlbumBySlug(slug),
+    checkMovieExists(slug),
+    getContact(),
+  ]);
+
+  if (!movieData) {
+    return { notFound: true };
+  }
+
+  const meta = {
+    title: `${movieData.title} | Media Gallery | Salman Khan Films`,
+    description: `Official media gallery of ${movieData.title} featuring trailers, songs, images, and behind-the-scenes visuals.`,
+    keywords: `${movieData.title}, Salman Khan Films gallery`,
+    author: "Salman Khan Films",
+    robots: "index,follow",
+  };
+
+  return {
+    props: {
+      meta,
+      subAlbums: movieData.subAlbums || [],
+      movieTitle: movieData.title,
+      movieSlug: movieData.slug,
+      hasMoviePage,
+      contact,
+    },
+    revalidate: 60,
+  };
 }
