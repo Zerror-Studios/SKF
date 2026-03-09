@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <SmoothScroller />
-      <Layout>
+      <Layout {...pageProps}>
         <Component {...pageProps} />
       </Layout>
     </>

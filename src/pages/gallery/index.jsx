@@ -1,6 +1,7 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
+import { getContact } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 import React from "react";
 
@@ -47,11 +48,13 @@ export async function getStaticProps() {
     }
   }
 }`);
+  const contact = await getContact();
 
   return {
     props: {
       meta,
       albums,
+      contact,
     },
     revalidate: 60, // ISR
   };

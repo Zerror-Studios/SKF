@@ -6,7 +6,7 @@ import { FaInstagram } from "react-icons/fa";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 
-const Footer = () => {
+const Footer = ({ contact }) => {
   const pathname = usePathname();
   const [showFooter, setShowFooter] = useState(true);
 
@@ -65,21 +65,23 @@ const Footer = () => {
           <div className="footer_links">
             <h5>Socials</h5>
             <div className="footer_social">
-              <Link href="https://x.com/skfilmsofficial" target="_blank">
-                <FaXTwitter /> <span>Twitter</span>
-              </Link>
-              <Link
-                href="https://www.instagram.com/skfilmsofficial"
-                target="_blank"
-              >
-                <FaInstagram /> <span>Instagram</span>
-              </Link>
-              <Link
-                href="https://www.youtube.com/@SalmanKhanFilmsMusic"
-                target="_blank"
-              >
-                <AiOutlineYoutube /> <span>Youtube</span>
-              </Link>
+              {contact?.twitter && (
+                <Link href={contact.twitter} target="_blank">
+                  <FaXTwitter /> <span>Twitter</span>
+                </Link>
+              )}
+
+              {contact?.instagram && (
+                <Link href={contact.instagram} target="_blank">
+                  <FaInstagram /> <span>Instagram</span>
+                </Link>
+              )}
+
+              {contact?.youtube && (
+                <Link href={contact.youtube} target="_blank">
+                  <AiOutlineYoutube /> <span>Youtube</span>
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -91,7 +93,10 @@ const Footer = () => {
           </h5>
         </div>
         <div id="footer_bottom_right">
-          <p>&copy; {new Date().getFullYear()} Salman Khan Films. All Rights Reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Salman Khan Films. All Rights
+            Reserved.
+          </p>
         </div>
       </div>
     </footer>

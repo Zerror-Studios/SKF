@@ -1,6 +1,6 @@
 import Highlights from "@/components/home/Highlights";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getAllBlogs } from "@/lib/queries";
+import { getAllBlogs, getContact } from "@/lib/queries";
 import React from "react";
 
 const News = ({ meta, blogs }) => {
@@ -35,11 +35,13 @@ export async function getStaticProps() {
   };
 
   const blogs = await getAllBlogs();
+  const contact = await getContact();
 
   return {
     props: {
       meta,
       blogs,
+      contact,
     },
     revalidate: 60,
   };

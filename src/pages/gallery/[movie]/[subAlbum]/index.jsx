@@ -1,16 +1,14 @@
 import GalleryDetailList from "@/components/gallery/GalleryDetailList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
+import { getContact } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 
 const AlbumSubDetail = ({ albumTitle, subAlbumTitle, media, meta }) => {
   return (
     <>
       <SeoHeader meta={meta} />
-      <GalleryTitleSection
-        title={subAlbumTitle}
-        subHeading={albumTitle}
-      />
+      <GalleryTitleSection title={subAlbumTitle} subHeading={albumTitle} />
 
       <GalleryDetailList media={media} />
     </>
@@ -83,12 +81,14 @@ export async function getStaticProps({ params }) {
     robots: "index,follow",
   };
 
+  const contact = await getContact();
   return {
     props: {
       albumTitle: data.title,
       subAlbumTitle: data.subAlbums.title,
       media: data.subAlbums.media,
       meta,
+      contact,
     },
     revalidate: 60,
   };

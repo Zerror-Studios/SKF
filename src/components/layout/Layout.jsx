@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Navbar from "../common/Navbar";
 import Footer from "../common/Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, contact }) => {
   const router = useRouter();
   const isStudioRoute = router.pathname.startsWith("/studio");
 
@@ -16,9 +16,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {!isStudioRoute && <Navbar />}
+      {!isStudioRoute && <Navbar contact={contact} />}
       {children}
-      {!isStudioRoute && <Footer />}
+      {!isStudioRoute && <Footer contact={contact} />}
     </>
   );
 };

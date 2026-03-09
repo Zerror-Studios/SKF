@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import NavigationMenu from "./NavigationMenu";
 import { useRouter } from "next/router";
 
-const Navbar = () => {
+const Navbar = ({contact}) => {
   const navRef = useRef(null);
   const pathname = usePathname();
   const router = useRouter();
@@ -160,7 +160,7 @@ const Navbar = () => {
         <span className="line2m linem"></span>
       </div>
 
-      <NavigationMenu menu={menu} setMenu={setMenu} />
+      <NavigationMenu menu={menu} setMenu={setMenu} contact={contact} />
     </nav>
   );
 };

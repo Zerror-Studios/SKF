@@ -1,19 +1,21 @@
 import ContactSection from "@/components/contact/ContactSection";
 import SeoHeader from "@/components/seo/SeoHeader";
+import { getContact } from "@/lib/queries";
 import React from "react";
 
-const Contact = ({ meta }) => {
+const Contact = ({ meta, contact }) => {
+  
   return (
     <>
       <SeoHeader meta={meta} />
-      <ContactSection />
+      <ContactSection data={contact} />
     </>
   );
 };
 
 export default Contact;
 
-export async function getStaticProps(params) {
+export async function getStaticProps() {
   const meta = {
     title: "Contact Us | Salman Khan Films",
     description:
@@ -24,9 +26,13 @@ export async function getStaticProps(params) {
     robots: "index,follow",
   };
 
+  const contact = await getContact();
+
   return {
     props: {
       meta,
+      contact,
     },
+    revalidate: 60,
   };
 }

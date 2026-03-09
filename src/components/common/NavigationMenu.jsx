@@ -9,7 +9,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 gsap.registerPlugin(CustomEase);
 
-const NavigationMenu = ({ menu, setMenu }) => {
+const NavigationMenu = ({ menu, setMenu, contact }) => {
   const menuTL = useRef();
   CustomEase.create("ease-secondary", "0.16, 1, 0.35, 1");
 
@@ -173,21 +173,24 @@ const NavigationMenu = ({ menu, setMenu }) => {
       <div className="meun_social">
         <div className="menu_contact">
           <p>contact us</p>
-          <a href="mailto:social@skvonline.com">social@skvonline.com</a>
+          <a href={`mailto:${contact?.email}`}>{contact?.email}</a>
         </div>
         <div className="menu_social_icon">
-          <Link href="https://x.com/skfilmsofficial" target="_blank">
-            <FaXTwitter />
-          </Link>
-          <Link
-            href="https://www.instagram.com/skfilmsofficial"
-            target="_blank"
-          >
-            <FaInstagram />
-          </Link>
-          <Link href="https://youtube.com/@salmankhanfilms" target="_blank">
-            <AiOutlineYoutube />
-          </Link>
+          {contact?.twitter && (
+            <Link href={contact?.twitter} target="_blank">
+              <FaXTwitter />
+            </Link>
+          )}
+          {contact?.instagram && (
+            <Link href={contact?.instagram} target="_blank">
+              <FaInstagram />
+            </Link>
+          )}
+          {contact?.youtube && (
+            <Link href={contact?.youtube} target="_blank">
+              <AiOutlineYoutube />
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -58,7 +58,7 @@ export const structure = (S, context) =>
         S,
         context,
       }),
-      
+
       // Blogs
       S.documentTypeListItem("blog").title("Manage Blogs"),
 
@@ -69,6 +69,15 @@ export const structure = (S, context) =>
         S,
         context,
       }),
+      // ℹ️ Contact Info
+      S.listItem()
+        .title("Manage Contact")
+        .id("contact")
+        .child(
+          S.document()
+            .schemaType("contact")
+            .documentId("contact") // 🔒 singleton
+        ),
 
       S.divider(),
 
@@ -76,7 +85,7 @@ export const structure = (S, context) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
-          !["heroSection", "homeTopMovie", "homeDirectorSpotlight","homeAbout", "upcomingRelease", "aboutHeroSection", "blog", "movies", "filmography", "galleryAlbum"].includes(
+          !["heroSection", "homeTopMovie", "homeDirectorSpotlight", "homeAbout", "upcomingRelease", "aboutHeroSection", "blog", "movies", "filmography", "galleryAlbum", "contact"].includes(
             item.getId()
           )
       ),

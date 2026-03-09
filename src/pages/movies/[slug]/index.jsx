@@ -13,6 +13,7 @@ import GalleryList from "@/components/gallery/GalleryList";
 
 import MovieList from "@/components/home/MovieList";
 import { client } from "@/sanity/lib/client";
+import { getContact } from "@/lib/queries";
 
 const MovieDetails = ({
   movie,
@@ -171,6 +172,7 @@ export async function getStaticProps({ params }) {
   );
 
   const subAlbums = galleryData?.subAlbums || [];
+    const contact = await getContact();
 
   return {
     props: {
@@ -180,6 +182,7 @@ export async function getStaticProps({ params }) {
       subAlbums,
       movieTitle: movie.title,
       movieSlug: movie.slug,
+      contact
     },
     revalidate: 60,
   };

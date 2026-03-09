@@ -10,7 +10,7 @@ import { useRef, useEffect } from "react";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-const ContactSection = () => {
+const ContactSection = ({ data }) => {
   const heading1Ref = useRef(null);
   const heading2Ref = useRef(null);
   const emailTagRef = useRef(null);
@@ -107,9 +107,9 @@ const ContactSection = () => {
           <a
             ref={emailRef}
             className="description landing_text"
-            href="mailto:social@skvonline.com"
+            href={`mailto:${data?.email}`}
           >
-            social@skvonline.com
+            {data?.email}
           </a>
         </div>
       </div>
@@ -118,27 +118,25 @@ const ContactSection = () => {
           Follow us on social media:
         </p>
         <div className="contact_social" ref={iconsRef}>
-          <Link
-            className="landing_text"
-            href="https://x.com/skfilmsofficial"
-            target="_blank"
-          >
-            <FaXTwitter />
-          </Link>
-          <Link
-            className="landing_text"
-            href="https://www.instagram.com/skfilmsofficial"
-            target="_blank"
-          >
-            <FaInstagram />
-          </Link>
-          <Link
-            className="landing_text"
-            href="https://youtube.com/@salmankhanfilms"
-            target="_blank"
-          >
-            <AiOutlineYoutube />
-          </Link>
+          {data?.twitter && (
+            <Link className="landing_text" href={data.twitter} target="_blank">
+              <FaXTwitter />
+            </Link>
+          )}
+          {data?.instagram && (
+            <Link
+              className="landing_text"
+              href={data?.instagram}
+              target="_blank"
+            >
+              <FaInstagram />
+            </Link>
+          )}
+          {data?.youtube && (
+            <Link className="landing_text" href={data?.youtube} target="_blank">
+              <AiOutlineYoutube />
+            </Link>
+          )}
         </div>
       </div>
     </div>

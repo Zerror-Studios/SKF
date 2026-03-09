@@ -1,6 +1,6 @@
 import MoviesListing from "@/components/movieListing/MoviesListing";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getAllMovies } from "@/lib/queries";
+import { getAllMovies, getContact } from "@/lib/queries";
 import React from "react";
 
 const Movies = ({ meta, movies }) => {
@@ -26,11 +26,13 @@ export async function getStaticProps() {
   };
 
   const movies = await getAllMovies();
+  const contact = await getContact();
 
   return {
     props: {
       meta,
       movies,
+      contact,
     },
     revalidate: 60,
   };

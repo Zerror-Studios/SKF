@@ -1,14 +1,15 @@
 import AboutHeroSection from "@/components/about/AboutHeroSection";
 import FilmographySection from "@/components/about/FilmographySection";
 import SeoHeader from "@/components/seo/SeoHeader";
+import { getContact } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 
 /* -------------------- PAGE -------------------- */
-const About = ({ meta,aboutHeroSection, moviesData }) => {
+const About = ({ meta, aboutHeroSection, moviesData }) => {
   return (
     <>
       <SeoHeader meta={meta} />
-        <AboutHeroSection data={aboutHeroSection} />
+      <AboutHeroSection data={aboutHeroSection} />
       <FilmographySection movies={moviesData} />
     </>
   );
@@ -75,12 +76,14 @@ export async function getStaticProps() {
       .filter((item) => typeof item.year === "number")
       // 🛡️ safe numeric sort
       .sort((a, b) => b.year - a.year);
+    const contact = await getContact();
 
     return {
       props: {
         meta,
         moviesData,
         aboutHeroSection,
+        contact,
       },
       revalidate: 60,
     };

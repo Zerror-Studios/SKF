@@ -9,7 +9,8 @@ import { heroSectionType } from './heroSectionType'
 import { homeDirectorSpotlightType } from './homeDirectorSpotlightType'
 import { aboutHeroSectionType } from './aboutHeroSectionType'
 import { homeAboutType } from './homeAboutType'
+import { contactType } from './contactType'
 
 export const schema = {
-  types: [blockContentType, heroSectionType, homeDirectorSpotlightType, homeTopMovieType, upcomingReleaseType, homeAboutType, aboutHeroSectionType, blogType, movieType, filmographyType, galleryAlbumType],
+  types: [blockContentType, heroSectionType, homeDirectorSpotlightType, homeTopMovieType, upcomingReleaseType, homeAboutType, aboutHeroSectionType, blogType, movieType, filmographyType, galleryAlbumType, contactType],
 }

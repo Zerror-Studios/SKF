@@ -1,6 +1,7 @@
 import GalleryList from "@/components/gallery/GalleryList";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import SeoHeader from "@/components/seo/SeoHeader";
+import { getContact } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 
 /* -------------------- PAGE COMPONENT -------------------- */
@@ -104,6 +105,7 @@ export async function getStaticProps({ params }) {
       author: "Salman Khan Films",
       robots: "index,follow",
     };
+    const contact = await getContact();
 
     return {
       props: {
@@ -112,6 +114,7 @@ export async function getStaticProps({ params }) {
         movieTitle: movieData.title,
         movieSlug: movieData.slug,
         hasMoviePage,
+        contact
       },
       revalidate: 60,
     };
