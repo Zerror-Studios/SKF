@@ -1,5 +1,6 @@
 import { client } from "@/sanity/lib/client";
 
+
 export const getMovieBySlug = async (slug) => {
   return client.fetch(
     `
@@ -13,20 +14,26 @@ export const getMovieBySlug = async (slug) => {
       director,
       produced,
       synopsis,
-      poster,
       genre,
-      cast,
       watchNow,
       trailer,
       teaser,
       meta,
       "backgroundVideo": backgroundVideo.asset->url,
-      "slug": slug.current
+      "poster": poster.asset->url,
+      "slug": slug.current,
+
+      cast[]{
+        name,
+        "image": image.asset->url
+      }
     }
   `,
     { slug }
   );
 };
+
+
 
 export const getLatestMovies = async (slug) => {
   return client.fetch(
@@ -40,7 +47,7 @@ export const getLatestMovies = async (slug) => {
     | order(year desc)[0...3]{
       title,
       year,
-      poster,
+      "poster": poster.asset->url,
       category,
       "backgroundVideo": backgroundVideo.asset->url,
       "slug": slug.current

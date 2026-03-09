@@ -1,7 +1,6 @@
 // components/home/upcoming/UpcomingBanner.jsx
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 
 const UpcomingBanner = ({ data }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -29,7 +28,7 @@ const UpcomingBanner = ({ data }) => {
       </div>
 
       <Image
-        src={urlFor(bannerImage).url()}
+        src={bannerImage?.url}
         alt={bannerImage?.alt || data.movieTitle}
         width={1600}
         height={800}

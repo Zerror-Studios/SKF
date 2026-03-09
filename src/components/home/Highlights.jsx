@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../common/Button";
-import { urlFor } from "@/sanity/lib/image";
 import { formatDate } from "@/utils/formatDate";
 
 const Highlights = ({ tag, title, data = [], isHero = false }) => {
@@ -37,7 +36,7 @@ const Highlights = ({ tag, title, data = [], isHero = false }) => {
                     priority
                     width={1000}
                     height={1000}
-                    src={urlFor(image).url()}
+                    src={image}
                     alt={image?.alt || title}
                   />
                 )}

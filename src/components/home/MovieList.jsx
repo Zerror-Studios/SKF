@@ -33,7 +33,7 @@ const MovieList = ({ movies, subheading, NotHero }) => {
             toggleActions: "play none none none",
           },
           delay: index * 0.1,
-        }
+        },
       );
     });
   }, [movies]);

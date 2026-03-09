@@ -16,7 +16,7 @@ export const getHomeTopMovies = () =>
     | order(orderRank asc)[0...3]{
       "title": movie->title,
       "year": movie->year,
-      "poster": movie->poster,
+      "poster": movie->poster.asset->url,
       "category": movie->category,
       "slug": movie->slug.current,
       "backgroundVideo": movie->backgroundVideo.asset->url
@@ -28,17 +28,13 @@ export const getUpcomingRelease = () =>
   client.fetch(`
     *[_type == "upcomingRelease" && _id == "upcomingRelease"][0]{
       movieTitle,
-      desktopBanner{
-        asset->{
-          url
-        },
-        alt
+      "desktopBanner": {
+        "url": desktopBanner.asset->url,
+        "alt": desktopBanner.alt
       },
-      mobileBanner{
-        asset->{
-          url
-        },
-        alt
+      "mobileBanner": {
+        "url": mobileBanner.asset->url,
+        "alt": mobileBanner.alt
       }
     }
   `);

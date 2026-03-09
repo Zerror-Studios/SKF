@@ -6,6 +6,8 @@ import { getAllMovies } from "@/lib/movies";
 
 
 const Movies = ({ meta, movies }) => {
+  console.log(movies);
+  
   return (
     <>
       <SeoHeader meta={meta} />

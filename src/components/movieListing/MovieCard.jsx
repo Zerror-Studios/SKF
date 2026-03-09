@@ -1,4 +1,3 @@
-import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import React, { forwardRef, useState, useEffect, useRef } from "react";
@@ -17,7 +16,7 @@ const MovieCard = forwardRef(({ data }, ref) => {
   }, []);
 
   const videoUrl = data?.backgroundVideo;
-  const posterUrl = data?.poster ? urlFor(data.poster).url() : "";
+  const posterUrl = data?.poster ? data.poster : "";
 
   return (
     <Link

@@ -4,7 +4,6 @@ import { useGSAP } from "@gsap/react";
 import MovieBanner from "./MovieBanner";
 import MovieInfo from "./MovieInfo";
 import TrailerFullView from "../common/HorizontalSlider/TrailerFullView";
-import { urlFor } from "@/sanity/lib/image";
 
 const MovieDetailsHero = ({ data }) => {
   const sectionRef = useRef(null);
@@ -58,7 +57,7 @@ const MovieDetailsHero = ({ data }) => {
         <div id="movie_details_wrapper" ref={sectionRef}>
           <MovieBanner
             title={data?.title}
-            poster={urlFor(data?.poster).url()}
+            poster={data?.poster}
             trailer={data?.trailer}
             bannerRef={bannerRef}
             setShowVideo={openTrailer}
@@ -67,13 +66,12 @@ const MovieDetailsHero = ({ data }) => {
         </div>
       </div>
 
-      {data?.trailer &&
-        activeTrailer && (
-          <TrailerFullView
-            item={activeTrailer}
-            onClose={() => setActiveTrailer(null)}
-          />
-        )}
+      {data?.trailer && activeTrailer && (
+        <TrailerFullView
+          item={activeTrailer}
+          onClose={() => setActiveTrailer(null)}
+        />
+      )}
     </>
   );
 };

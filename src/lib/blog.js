@@ -9,7 +9,7 @@ export const getAllBlogs = () =>
       publishedAt,
       title,
       description,
-      image
+       "image": image.asset->url,
     }
   `);
 
@@ -33,7 +33,7 @@ export const getBlogBySlug = (slug) =>
         description,
         readingTime,
         content,
-        image,
+        "image": image.asset->url,
         meta
       }
     `,
@@ -51,7 +51,7 @@ export const getOtherBlogs = (slug) =>
       publishedAt,
       title,
       description,
-      image
+       "image": image.asset->url,
     }
   `,
     { slug }

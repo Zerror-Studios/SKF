@@ -4,8 +4,6 @@ import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useGSAP } from "@gsap/react";
-import { urlFor } from "@/sanity/lib/image";
 
 gsap.registerPlugin(CustomEase);
 
@@ -79,7 +77,7 @@ const NewsHeroSection = ({ data }) => {
           <Image
             width={1000}
             height={1000}
-            src={urlFor(data?.image).url()}
+            src={data?.image}
             alt={data?.image?.alt}
             priority
           />
