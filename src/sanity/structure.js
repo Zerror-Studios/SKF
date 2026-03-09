@@ -29,6 +29,15 @@ export const structure = (S, context) =>
             .documentId("upcomingRelease") // 🔒 fixed ID
         ),
       S.documentTypeListItem("homeDirectorSpotlight").title("Home Page – Director Spotlight"),
+      // home about section
+      S.listItem()
+        .title("Home Page – About Section")
+        .id("homeAbout")
+        .child(
+          S.document()
+            .schemaType("homeAbout")
+            .documentId("homeAbout") // 🔒 fixed ID
+        ),
 
       // ℹ️ ABOUT PAGE (NEW)
       S.listItem()
@@ -67,7 +76,7 @@ export const structure = (S, context) =>
       ...S.documentTypeListItems().filter(
         (item) =>
           item.getId() &&
-          !["heroSection", "homeTopMovie", "homeDirectorSpotlight", "upcomingRelease", "aboutHeroSection", "blog", "movies", "filmography", "galleryAlbum"].includes(
+          !["heroSection", "homeTopMovie", "homeDirectorSpotlight","homeAbout", "upcomingRelease", "aboutHeroSection", "blog", "movies", "filmography", "galleryAlbum"].includes(
             item.getId()
           )
       ),

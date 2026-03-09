@@ -2,7 +2,7 @@ import { client } from "@/sanity/lib/client";
 
 //  Hero Section
 export const getHeroSection = () =>
-    client.fetch(`
+  client.fetch(`
     *[_type == "heroSection"][0]{
       "videoUrl": video.asset->url,
       videoAlt
@@ -11,7 +11,7 @@ export const getHeroSection = () =>
 
 //  Home Top Movies
 export const getHomeTopMovies = () =>
-    client.fetch(`
+  client.fetch(`
     *[_type == "homeTopMovie"]
     | order(orderRank asc)[0...3]{
       "title": movie->title,
@@ -45,7 +45,7 @@ export const getUpcomingRelease = () =>
 
 //  Director Spotlight 
 export const getDirectorSpotlight = () =>
-    client.fetch(`
+  client.fetch(`
     *[_type == "homeDirectorSpotlight"] | order(_createdAt asc){
       name,
       directorOf,
@@ -53,10 +53,22 @@ export const getDirectorSpotlight = () =>
       "image": image.asset->url
     }
   `);
+// Home About Page 
+
+
+export async function getHomeAbout() {
+  const query = `*[_type == "homeAbout" && _id == "homeAbout"][0]{
+    title,
+    description,
+    "backgroundImage": backgroundImage.asset->url
+  }`;
+
+  return client.fetch(query);
+}
 
 //  Blogs
 export const getBlogs = () =>
-    client.fetch(`
+  client.fetch(`
     *[_type == "blog"] | order(publishedAt desc){
       "slug": slug.current,
       publishedAt,
@@ -68,7 +80,7 @@ export const getBlogs = () =>
 
 //  Gallery Albums
 export const getGalleryAlbums = () =>
-    client.fetch(`
+  client.fetch(`
     *[_type == "galleryAlbum"] | order(orderRank asc){
       title,
       "slug": slug.current,
@@ -92,7 +104,7 @@ export const getGalleryAlbums = () =>
 
 // 🎬 Movies Listing (All movies)
 export const getAllMovies = () =>
-    client.fetch(`
+  client.fetch(`
     *[_type == "movies"]
     | order(orderRank asc){
       title,
@@ -106,7 +118,7 @@ export const getAllMovies = () =>
 
 // 📰 Blogs (All)
 export const getAllBlogs = () =>
-    client.fetch(`
+  client.fetch(`
     *[_type == "blog"]
     | order(publishedAt desc){
       "slug": slug.current,
@@ -120,14 +132,14 @@ export const getAllBlogs = () =>
 
 // 🧾 Blog slugs (for getStaticPaths)
 export const getBlogSlugs = () =>
-    client.fetch(`
+  client.fetch(`
     *[_type == "blog"].slug.current
   `);
 
 // 📰 Single blog by slug
 export const getBlogBySlug = (slug) =>
-    client.fetch(
-        `
+  client.fetch(
+    `
     *[_type == "blog" && slug.current == $slug][0]{
       "slug": slug.current,
       publishedAt,
@@ -139,13 +151,13 @@ export const getBlogBySlug = (slug) =>
       meta
     }
   `,
-        { slug }
-    );
+    { slug }
+  );
 
 // ✨ Other blogs (exclude current)
 export const getOtherBlogs = (slug) =>
-    client.fetch(
-        `
+  client.fetch(
+    `
     *[_type == "blog" && slug.current != $slug]
     | order(publishedAt desc){
       "slug": slug.current,
@@ -155,5 +167,5 @@ export const getOtherBlogs = (slug) =>
       image
     }
   `,
-        { slug }
-    );
+    { slug }
+  );

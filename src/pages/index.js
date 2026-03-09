@@ -7,9 +7,10 @@ import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
 import GalleryList from "@/components/gallery/GalleryList";
 import SeoHeader from "@/components/seo/SeoHeader";
-import { getBlogs, getDirectorSpotlight, getGalleryAlbums, getHeroSection, getHomeTopMovies, getUpcomingRelease } from "@/lib/queries";
+import { getBlogs, getDirectorSpotlight, getGalleryAlbums, getHeroSection, getHomeAbout, getHomeTopMovies, getUpcomingRelease } from "@/lib/queries";
 
-const Home = ({ meta, heroSection, directorSpotlight, highlightsData, albums, upcomingRelease, homeTopMovie }) => {
+const Home = ({ meta, heroSection, directorSpotlight, homeAbout, highlightsData, albums, upcomingRelease, homeTopMovie }) => {
+
 
   return (
     <>
@@ -24,7 +25,7 @@ const Home = ({ meta, heroSection, directorSpotlight, highlightsData, albums, up
       />
       <GalleryTitleSection subHeading={"GALLERY"} isPadding={true} />
       <GalleryList data={albums} />
-      <AboutSection />
+      <AboutSection data={homeAbout} />
     </>
   );
 };
@@ -49,6 +50,7 @@ export async function getStaticProps() {
     directorSpotlight,
     blogs,
     albums,
+    homeAbout
   ] = await Promise.all([
     getHeroSection(),
     getHomeTopMovies(),
@@ -56,7 +58,10 @@ export async function getStaticProps() {
     getDirectorSpotlight(),
     getBlogs(),
     getGalleryAlbums(),
+    getHomeAbout()
+
   ]);
+
 
   return {
     props: {
@@ -67,6 +72,7 @@ export async function getStaticProps() {
       highlightsData: blogs,
       albums,
       upcomingRelease,
+      homeAbout
     },
     revalidate: 10,
   };

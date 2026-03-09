@@ -173,7 +173,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
       <div className="meun_social">
         <div className="menu_contact">
           <p>contact us</p>
-          <Link href="/">salmankhanflims@gmail.com</Link>
+          <a href="mailto:social@skvonline.com">social@skvonline.com</a>
         </div>
         <div className="menu_social_icon">
           <Link href="https://x.com/skfilmsofficial" target="_blank">
@@ -185,10 +185,7 @@ const NavigationMenu = ({ menu, setMenu }) => {
           >
             <FaInstagram />
           </Link>
-          <Link
-            href="https://youtube.com/@salmankhanfilms"
-            target="_blank"
-          >
+          <Link href="https://youtube.com/@salmankhanfilms" target="_blank">
             <AiOutlineYoutube />
           </Link>
         </div>

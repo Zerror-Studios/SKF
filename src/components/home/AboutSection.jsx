@@ -7,9 +7,10 @@ import { useRouter } from "next/router";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutSection = () => {
+const AboutSection = ({ data }) => {
   const bgRef = useRef(null);
-  const router = useRouter()
+  const router = useRouter();
+  const words = data?.title?.split(" ") || [];
 
   useEffect(() => {
     if (!bgRef.current) return;
@@ -26,7 +27,7 @@ const AboutSection = () => {
           end: "bottom+=100 top",
           scrub: true,
         },
-      }
+      },
     );
 
     // Refresh ScrollTrigger after images in the section load
@@ -59,30 +60,29 @@ const AboutSection = () => {
       <Image
         width={1000}
         height={1000}
-        src="/images/about-poster.webp"
-        alt="Salman Khan Films"
+        src={data?.backgroundImage}
+        alt={data?.title}
         ref={bgRef}
       />
       <div id="about_section_over">
         <div id="about_section_title">
           <h2 className="heading">
-            Bringing <span className="letter-u">Stories</span>
+            {words[0]}
+            {words[1] && <span className="letter-u"> {words[1]} </span>}
+            {words.slice(2).join(" ")}
           </h2>
-          <h2 className="heading">to Life</h2>
         </div>
         <div id="about_section_info">
-          <p className="description">
-            Founded in 2011 by Salman Khan, Salman Khan Films (SKF) is a
-            Mumbai-based production house behind blockbusters like Bajrangi
-            Bhaijaan, Race 3, and Antim. Known for powerful storytelling, grand
-            entertainment.
-          </p>
-          <p className="description">
-            The company is known not only for bringing grand cinematic
-            experiences to the audience but also for supporting fresh talent and
-            innovative storytelling.
-          </p>
-          <Button color="white" title="Show More" onClick={()=>router.push("/about")} />
+          {data?.description?.map((para, index) => (
+            <p key={index} className="description">
+              {para}
+            </p>
+          ))}
+          <Button
+            color="white"
+            title="Show More"
+            onClick={() => router.push("/about")}
+          />
         </div>
       </div>
     </section>
