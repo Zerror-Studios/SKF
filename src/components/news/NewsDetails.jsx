@@ -1,4 +1,5 @@
 import { formatDate } from "@/utils/formatDate";
+import { PortableText } from "next-sanity";
 import React, { useState } from "react";
 import { IoShareSocial } from "react-icons/io5";
 import { LuClock12 } from "react-icons/lu";
@@ -14,6 +15,26 @@ const NewsDetails = ({ newsData }) => {
     } catch (err) {
       console.error("Failed to copy link");
     }
+  };
+  const portableTextComponents = {
+    block: {
+      normal: ({ children }) => <p className="description">{children}</p>,
+    },
+    marks: {
+      link: ({ children, value }) => (
+        <a
+          href={value?.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="news_link"
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          {children}
+        </a>
+      ),
+    },
   };
 
   return (
@@ -44,11 +65,15 @@ const NewsDetails = ({ newsData }) => {
       </div>
 
       <div className="news_detail_wrap">
-        {newsData?.content?.map((p, i) => (
+        {/* {newsData?.content?.map((p, i) => (
           <p key={i} className="description">
             {p}
           </p>
-        ))}
+        ))} */}
+        <PortableText
+          value={newsData?.content}
+          components={portableTextComponents}
+        />
       </div>
     </div>
   );

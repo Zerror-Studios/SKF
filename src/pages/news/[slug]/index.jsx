@@ -5,6 +5,8 @@ import { getBlogBySlug, getBlogSlugs, getOtherBlogs } from "@/lib/queries";
 import React from "react";
 
 const News = ({ newsData, highlightsData }) => {
+  console.log(newsData);
+  
   return (
     <>
       <SeoHeader meta={newsData?.meta} news={newsData} />
@@ -47,6 +49,6 @@ export async function getStaticProps({ params }) {
       newsData,
       highlightsData,
     },
-    revalidate: 60,
+    revalidate: 10,
   };
 }

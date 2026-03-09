@@ -96,16 +96,38 @@ export const blogType = defineType({
 
     // 🔹 Blog Content (Multiple Paragraphs)
     defineField({
-      name: 'content',
-      title: 'Content',
-      type: 'array',
-      of: [{ type: 'text', rows: 4 }],
-      description: 'Write content in multiple paragraphs',
+      name: "content",
+      title: "Content",
+      type: "array",
+      description: "Blog content with bold, italic and hyperlink support",
+      of: [
+        {
+          type: "block",
+          marks: {
+            decorators: [
+              { title: "Bold", value: "strong" },
+              { title: "Italic", value: "em" },
+            ],
+            annotations: [
+              {
+                name: "link",
+                type: "object",
+                title: "Hyperlink",
+                fields: [
+                  {
+                    name: "href",
+                    type: "url",
+                    title: "URL",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
       validation: (Rule) =>
         Rule.custom((value) =>
-          value && value.length > 0
-            ? true
-            : 'Blog content is required'
+          value && value.length > 0 ? true : "Blog content is required"
         ),
     }),
 
@@ -163,3 +185,4 @@ export const blogType = defineType({
     },
   },
 })
+
