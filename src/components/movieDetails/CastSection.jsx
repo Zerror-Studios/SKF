@@ -5,7 +5,6 @@ import "swiper/css";
 
 const CastSection = ({ data }) => {
   if (!data?.cast || data.cast.length === 0) return null;
-  console.log(data);
 
   return (
     <section id="cast_section">
