@@ -40,12 +40,11 @@ const MovieCard = forwardRef(({ data }, ref) => {
 
         {/* 🖼 Poster */}
         <Image
-          width={1000}
-          height={1000}
           src={posterUrl}
           alt={data?.title}
+          width={700}
+          height={394}
           sizes="(max-width:768px) 100vw, 665px"
-          style={{ width: "100%", height: "auto" }}
         />
 
         {data?.category === "upcoming" && (
