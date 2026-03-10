@@ -33,6 +33,7 @@ const UpcomingBanner = ({ data }) => {
         width={1600}
         height={800}
         priority
+        sizes="(max-width: 768px) 100vw, 665px"
       />
     </div>
   );
