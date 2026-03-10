@@ -60,7 +60,9 @@
 }
 #play_btn {
   transform-origin: center;
-  transition: scale 0.3s ease, opacity 0.3s ease;
+  transition:
+    scale 0.3s ease,
+    opacity 0.3s ease;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -103,7 +105,7 @@
   justify-content: center;
   overflow: hidden;
 }
-#movie_carousel_section.not-ishero{
+#movie_carousel_section.not-ishero {
   height: auto;
   padding: 3.5rem;
 }
@@ -184,18 +186,19 @@
   padding: 3.5rem 0;
 }
 
-#highlight_section.isHero{
+#highlight_section.isHero {
   padding-top: 9rem;
 }
 
-
-#highlight_section h2 {
+#highlight_section h2,
+#highlight_section h1 {
   font-family: var(--primary-font);
   font-size: 3.75rem;
   font-weight: 400;
   line-height: 1.2;
 }
 
+#highlight_section > h1,
 #highlight_section > h2,
 #highlight_section > h5 {
   text-align: center;
@@ -372,10 +375,12 @@
     display: none;
   }
 
+  #highlight_section h1,
   #highlight_section h2 {
     font-size: 1.9rem;
     line-height: 1.2;
   }
+  #highlight_section > h1,
   #highlight_section > h2,
   #highlight_section > h5 {
     margin-left: 1rem;
@@ -389,7 +394,9 @@
     background-color: #fffef1;
   }
 
-  #highlight_section h2 {
+  #highlight_section h1 ,
+  #highlight_section h2 
+  {
     font-size: 1.9rem;
   }
   #highlights_container {
@@ -520,6 +527,7 @@
     font-size: 1.9rem;
     line-height: 1.2;
   }
+  #highlight_section > h1,
   #highlight_section > h2,
   #highlight_section > h5 {
     margin-left: 1rem;
@@ -533,7 +541,9 @@
     background-color: #fffef1;
   }
 
-  #highlight_section h2 {
+  #highlight_section h1 ,
+  #highlight_section h2 
+  {
     font-size: 1.9rem;
   }
   #highlights_container {
@@ -595,10 +605,13 @@
     margin-top: 2rem;
   }
 
-  #highlight_section h2 {
+  #highlight_section h1 ,
+  #highlight_section h2
+   {
     font-size: 1.9rem;
     line-height: 1.2;
   }
+  #highlight_section > h1,
   #highlight_section > h2,
   #highlight_section > h5 {
     margin-left: 1rem;
@@ -765,7 +778,6 @@
     height: 300px;
   }
 
-  
   #about_section_over {
     padding: 3.5em;
   }

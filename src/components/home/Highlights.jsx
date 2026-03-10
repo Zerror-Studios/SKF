@@ -4,13 +4,15 @@ import Link from "next/link";
 import Button from "../common/Button";
 import { formatDate } from "@/utils/formatDate";
 
-const Highlights = ({ tag, title, data = [], isHero = false }) => {
+        
+const Highlights = ({ tag, title, data = [], isHero = false,  ish1 = false }) => {
   const lastIndex = useMemo(() => data.length - 1, [data.length]);
 
   return (
     <section id="highlight_section" className={`${isHero ? "isHero" : ""}`}>
       {tag && <h5 className="tag1">{tag}</h5>}
-      {title && <h2>{title}</h2>}
+      
+      {title && (ish1 ? <h1>{title}</h1> : <h2>{title}</h2>)}
 
       <div id="highlights_container">
         {data.map((item, index) => {

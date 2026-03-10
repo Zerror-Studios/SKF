@@ -167,10 +167,14 @@
   .director_card_right {
     right: 0;
   }
-  #highlight_section > h2, #highlight_section > h5 {
+  #highlight_section > h1,
+  #highlight_section > h2,
+   #highlight_section > h5 {
     margin-left: 1rem !important;
 }
-#highlight_section h2{
+#highlight_section h1,
+#highlight_section h2
+{
   font-size: 3rem !important;
 }
 .about_text_content {

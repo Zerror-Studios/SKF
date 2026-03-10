@@ -16,6 +16,7 @@ const News = ({ meta, blogs }) => {
             Fresh <span className="letter-u">Stories</span>
           </>
         }
+        ish1={true}
         data={blogs}
         isHero={true}
       />
