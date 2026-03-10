@@ -33,11 +33,11 @@ const Highlights = ({ tag, title, data = [], isHero = false }) => {
               <div className="highlight_img">
                 {image && (
                   <Image
-                    priority
-                    width={1000}
-                    height={1000}
                     src={image}
                     alt={image?.alt || title}
+                    width={1280}
+                    height={720}
+                    sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 665px"
                   />
                 )}
               </div>
