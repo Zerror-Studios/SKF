@@ -114,7 +114,9 @@ const HeroLoader = ({ heroVideo }) => {
         duration: 0.6,
       });
     };
-    window.addEventListener("mousemove", moveBtn);
+    if (window.innerWidth > 768) {
+      window.addEventListener("mousemove", moveBtn);
+    }
 
     // Toggle mute/unmute
     const toggleMute = () => {
@@ -158,14 +160,7 @@ const HeroLoader = ({ heroVideo }) => {
         </span>
       </h2>
       <div id="landing_video" ref={landingVideoRef}>
-        <video
-          playsInline
-          autoPlay
-          muted
-          loop
-          preload="auto"
-          aria-label={heroVideo?.videoAlt}
-        >
+        <video playsInline autoPlay muted loop preload="metadata">
           <source src={heroVideo?.videoUrl} type="video/mp4" />
           {heroVideo?.videoAlt ||
             "Your browser does not support the video tag."}

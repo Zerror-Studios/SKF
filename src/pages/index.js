@@ -1,15 +1,16 @@
 import AboutSection from "@/components/home/AboutSection";
-import DirectorsSection from "@/components/home/DirectorsSection";
 import HeroSection from "@/components/home/HeroSection";
-import Highlights from "@/components/home/Highlights";
 import React from "react";
 import UpcomingBanner from "@/components/home/upcoming/UpcomingBanner";
 import GalleryTitleSection from "@/components/gallery/GalleryTitleSection";
-import GalleryList from "@/components/gallery/GalleryList";
 import SeoHeader from "@/components/seo/SeoHeader";
 import { getDirectorSpotlight, getGalleryAlbums, getHeroSection, getHomeAbout, getHomeTopMovies, getUpcomingRelease } from "@/lib/queries";
 import { getAllBlogs } from "@/lib/blog";
 import { getContact } from "@/lib/contact";
+import dynamic from "next/dynamic";
+const DirectorsSection = dynamic(() => import("@/components/home/DirectorsSection"));
+const Highlights = dynamic(() => import("@/components/home/Highlights"));
+const GalleryList = dynamic(() => import("@/components/gallery/GalleryList"));
 
 const Home = ({ meta, heroSection, directorSpotlight, homeAbout, highlightsData, albums, upcomingRelease, homeTopMovie }) => {
 
