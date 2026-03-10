@@ -16,7 +16,7 @@ const MovieCard = forwardRef(({ data }, ref) => {
   }, []);
 
   const videoUrl = data?.backgroundVideo;
-  const posterUrl = data?.poster ? data.poster : "";
+  const posterUrl = `${data?.poster}?w=700&fit=max&auto=format&q=80`;
 
   return (
     <Link
@@ -39,14 +39,14 @@ const MovieCard = forwardRef(({ data }, ref) => {
         )}
 
         {/* 🖼 Poster */}
+
         <Image
           src={posterUrl}
           alt={data?.title}
-          width={700}
-          height={394}
+          width={665}
+          height={374}
           sizes="(max-width:768px) 100vw, 665px"
         />
-
         {data?.category === "upcoming" && (
           <span className="ribbon">Upcoming</span>
         )}
