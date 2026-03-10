@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: BebasNeue;
   src: url(/fonts/BebasNeue-Regular.woff2);
   font-display: swap;
@@ -22,7 +22,7 @@
   font-family: playfaiItalic;
   src: url(/fonts/playfair-display.italic.woff2);
   font-display: swap;
-}
+} */
 
 :root {
   --primary-font: "BebasNeue", "Arial Narrow", Arial, sans-serif;
