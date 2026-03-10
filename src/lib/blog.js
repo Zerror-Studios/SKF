@@ -23,23 +23,28 @@ export const getBlogSlugs = () =>
 
 
 // 📰 Single blog by slug
-export const getBlogBySlug = (slug) =>
+// 📰 Single blog by slug
+export const getBlogBySlug = (slug, preview = false) =>
   client.fetch(
     `
-      *[_type == "blog" && slug.current == $slug][0]{
-        "slug": slug.current,
-        publishedAt,
-        title,
-        description,
-        readingTime,
-        content,
-        "image": image.asset->url,
-        meta
-      }
+    *[_type == "blog" && slug.current == $slug][0]{
+      "slug": slug.current,
+      publishedAt,
+      title,
+      description,
+      readingTime,
+      content,
+      "image": image.asset->url,
+      meta
+    }
     `,
-    { slug }
+    { slug },
+    preview
+      ? { perspective: "previewDrafts", useCdn: false }
+      : { perspective: "published", useCdn: true }
   );
 
+// ✨ Other blogs (exclude current)
 
 // ✨ Other blogs (exclude current)
 export const getOtherBlogs = (slug) =>
@@ -56,3 +61,5 @@ export const getOtherBlogs = (slug) =>
   `,
     { slug }
   );
+
+

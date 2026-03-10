@@ -69,7 +69,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, preview = false }) {
   const { slug } = params;
 
   if (!slug) {
@@ -77,16 +77,15 @@ export async function getStaticProps({ params }) {
   }
 
   const [movie, latestMovies, galleryData, contact] = await Promise.all([
-    getMovieBySlug(slug),
+    getMovieBySlug(slug, preview),
     getLatestMovies(slug),
     getMovieGallery(slug),
     getContact(),
   ]);
 
-  if (!movie) {
+  if (!movie && !preview) {
     return { notFound: true };
   }
-
   const trailerList = [
     movie.trailer && {
       title: movie.title,

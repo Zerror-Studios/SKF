@@ -1,7 +1,7 @@
 import { client } from "@/sanity/lib/client";
 
 
-export const getMovieBySlug = async (slug) => {
+export const getMovieBySlug = async (slug, preview = false) => {
   return client.fetch(
     `
     *[
@@ -28,8 +28,12 @@ export const getMovieBySlug = async (slug) => {
         "image": image.asset->url
       }
     }
-  `,
-    { slug }
+    `,
+    { slug },
+    {
+      perspective: preview ? "previewDrafts" : "published",
+      useCdn: false
+    }
   );
 };
 

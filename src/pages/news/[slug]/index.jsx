@@ -30,25 +30,24 @@ export async function getStaticPaths() {
     fallback: "blocking",
   };
 }
-
-// 🔁 Static props
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, preview = false }) {
   const { slug } = params;
 
   const [newsData, highlightsData, contact] = await Promise.all([
-    getBlogBySlug(slug),
+    getBlogBySlug(slug, preview),
     getOtherBlogs(slug),
     getContact(),
   ]);
-  if (!newsData) {
-    return { notFound: true };
-  }
 
+if (!newsData && !preview) {
+  return { notFound: true };
+}
   return {
     props: {
       newsData,
       highlightsData,
       contact,
+      preview,
     },
     revalidate: 60,
   };

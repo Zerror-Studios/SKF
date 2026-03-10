@@ -7,4 +7,5 @@
 export const apiVersion = '2026-02-25'
 export const dataset = "production";
 export const projectId = "2tn8b3dn";
+export const apiToken = 'skoafOFxkPbSKh2MwE0rwIJ5r8UrfYMjOZ5oz0lBBDuRBmGoWTeJuvompEf6UOPnoDnwjuvAt9nlWpSTa8oMCLK1HVs5u67Ha6QoH3w54f1NX72BuLygglJVEBRdZOCMsAgJ1gGkXJHdx3ansWOVRH6xGpOZdmiOxkGAbgmhP7oguhhAPfGn';
 
