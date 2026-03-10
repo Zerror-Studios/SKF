@@ -42,7 +42,7 @@ const MovieCard = forwardRef(({ data }, ref) => {
 
         <Image
           src={posterUrl}
-          alt={data?.title}
+          alt={`${data?.title} movie poster`}
           width={665}
           height={374}
           sizes="(max-width:768px) 100vw, 665px"

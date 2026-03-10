@@ -177,17 +177,31 @@ const NavigationMenu = ({ menu, setMenu, contact }) => {
         </div>
         <div className="menu_social_icon">
           {contact?.twitter && (
-            <Link href={contact?.twitter} target="_blank">
+            <Link
+              href={contact?.twitter}
+              target="_blank"
+              aria-label="Salman Khan Films on X (Twitter)"
+            >
               <FaXTwitter />
             </Link>
           )}
+
           {contact?.instagram && (
-            <Link href={contact?.instagram} target="_blank">
+            <Link
+              href={contact?.instagram}
+              target="_blank"
+              aria-label="Salman Khan Films on Instagram"
+            >
               <FaInstagram />
             </Link>
           )}
+
           {contact?.youtube && (
-            <Link href={contact?.youtube} target="_blank">
+            <Link
+              href={contact?.youtube}
+              target="_blank"
+              aria-label="Salman Khan Films on YouTube"
+            >
               <AiOutlineYoutube />
             </Link>
           )}
