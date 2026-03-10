@@ -4,6 +4,21 @@ const nextConfig = {
   images: {
     domains: ["img.youtube.com", "www.youtube.com", "cdn.sanity.io"],
   },
+
+  async headers() {
+    return [
+      {
+        source: "/fonts/:all*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
+
   async redirects() {
     return [
       {
@@ -11,11 +26,11 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'salmankhanfilms.com', // Your non-www domain
+            value: 'salmankhanfilms.com',
           },
         ],
-        destination: 'https://www.salmankhanfilms.com/:path*', // Your www domain
-        permanent: true, // Use permanent: true for a 301 redirect
+        destination: 'https://www.salmankhanfilms.com/:path*',
+        permanent: true,
       },
     ];
   },
