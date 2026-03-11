@@ -71,6 +71,7 @@ const GalleryList = ({ data, movieSlug, hasMoviePage, title }) => {
             gridColumn: "1 / -1",
             textAlign:"center"
           }}
+          className="gallery-link"
         >
           <Link className="tag" href={`/movies/${movieSlug}`}>
             Learn More about {title || ''} movie

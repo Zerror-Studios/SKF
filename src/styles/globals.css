@@ -159,6 +159,9 @@ body {
 
 /* Extra small (Phones) */
 @media (max-width: 480px) {
+  .gallery-link .tag{
+    font-size: 1.1rem;
+  }
   .tag {
     margin-bottom: 0.5rem;
     font-size: 1.8rem;
