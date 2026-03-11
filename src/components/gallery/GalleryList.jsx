@@ -6,7 +6,7 @@ import Link from "next/link";
 import Button from "../common/Button";
 gsap.registerPlugin(ScrollTrigger);
 
-const GalleryList = ({ data, movieSlug, hasMoviePage }) => {
+const GalleryList = ({ data, movieSlug, hasMoviePage, title }) => {
   const galleryRef = useRef(null);
 
   useEffect(() => {
@@ -69,10 +69,11 @@ const GalleryList = ({ data, movieSlug, hasMoviePage }) => {
           style={{
             width: "100%",
             gridColumn: "1 / -1",
+            textAlign:"center"
           }}
         >
-          <Link href={`/movies/${movieSlug}`}>
-            <Button title="Know More" color="black" />
+          <Link className="tag" href={`/movies/${movieSlug}`}>
+            Learn More about {title || ''} movie
           </Link>
         </div>
       )}

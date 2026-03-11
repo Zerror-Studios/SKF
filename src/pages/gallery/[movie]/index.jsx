@@ -24,6 +24,7 @@ const AlbumDetail = ({
         data={subAlbums}
         movieSlug={movieSlug}
         hasMoviePage={hasMoviePage}
+        title={movieTitle}
       />
     </>
   );
