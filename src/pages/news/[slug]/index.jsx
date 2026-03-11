@@ -39,9 +39,14 @@ export async function getStaticProps({ params, preview = false }) {
     getContact(),
   ]);
 
-if (!newsData && !preview) {
-  return { notFound: true };
-}
+  if (!newsData && !preview) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
       newsData,
