@@ -6,9 +6,9 @@
   flex-direction: column;
   align-items: center;
 }
-  #gallery_title.not-hero {
-    padding-top: 3.5rem !important;
-  }
+#gallery_title.not-hero {
+  padding-top: 3.5rem !important;
+}
 
 #gallery_list {
   display: grid;
@@ -21,7 +21,7 @@
 .gallery_card {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;   /* YouTube video ratio */
+  aspect-ratio: 16 / 9; /* YouTube video ratio */
 }
 .image,
 .card_details {
@@ -43,7 +43,6 @@
   top: 0;
   right: 0;
   filter: brightness(0.3) blur(1.2px);
-
 }
 .image2 {
   top: 2%;
@@ -242,6 +241,15 @@
 
 /* Extra small (Phones) */
 @media (max-width: 480px) {
+  .gallery_card .image2,
+  .gallery_card .image3 {
+    top: 0 !important;
+    right: 0 !important;
+  }
+  .gallery_card:hover img {
+  scale: 1 !important;
+}
+
   #gallery_title {
     padding: 7rem 1rem 1rem;
   }
@@ -272,10 +280,18 @@
   .gallery_detail_card {
     margin-bottom: 1rem;
   }
-
+  .card_details {
+    padding: 0rem;
+    top: 0%;
+    right: 0%;
+    padding-bottom: 1rem;
+  }
+  .arrow {
+    scale: 0.8;
+  }
   .image {
-    width: 96%;
-    height: 96%;
+    width: 100%;
+    height: 100%;
   }
   .image1 {
     top: 0;
