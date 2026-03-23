@@ -143,7 +143,7 @@
   background-size: 1px 1px;
   transition: background-size 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.movie_card:hover .movie_img {
+.movie_card.has-video:hover .movie_img {
   background-size: calc(12 / 14.4 * 1rem) calc(12 / 14.4 * 1rem);
 }
 .ribbon {
@@ -226,7 +226,7 @@
     height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.movie_card:hover img {
+.movie_card.has-video:hover img {
   width: calc(100% - 14.4px * 2);
   height: calc(100% - 14.4px * 2);
 
@@ -275,7 +275,7 @@
     display: none;
   }
 
-  .movie_card:hover img {
+  .movie_card.has-video:hover img {
     width: 100%;
     height: 100%;
     opacity: 1;
@@ -308,7 +308,7 @@
     display: none;
   }
 
-  .movie_card:hover img {
+  .movie_card.has-video:hover img {
     width: 100%;
     height: 100%;
     opacity: 1;
@@ -341,7 +341,7 @@
     display: none;
   }
 
-  .movie_card:hover img {
+  .movie_card.has-video:hover img {
     width: 100%;
     height: 100%;
     opacity: 1;

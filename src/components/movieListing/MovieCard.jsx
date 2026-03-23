@@ -18,15 +18,18 @@ const MovieCard = forwardRef(({ data }, ref) => {
   const videoUrl = data?.backgroundVideo;
   const posterUrl = `${data?.poster}?w=700&fit=max&auto=format&q=80`;
 
+  const hasVideo = !isMobile && videoUrl;
+
   return (
-    <Link
-      href={data?.slug ? `/movies/${data.slug}` : "#"}
-      className="movie_card"
-      ref={ref}
-    >
+  
+      <Link
+  href={data?.slug ? `/movies/${data.slug}` : "#"}
+  className={`movie_card ${hasVideo ? "has-video" : ""}`}
+  ref={ref}
+>
       <div className="movie_img">
         {/* 🎞 Background video (desktop only) */}
-        {!isMobile && videoUrl && (
+        {hasVideo && (
           <video
             ref={videoRef}
             src={videoUrl}

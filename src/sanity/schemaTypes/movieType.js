@@ -59,7 +59,6 @@ export const movieType = defineType({
             type: "file",
             description: "Max file size 2mb (1-2 second video)",
             options: { accept: "video/*" },
-            validation: Rule => Rule.required(),
         }),
 
         // 🔗 Slug (REQUIRED)
