@@ -14,7 +14,7 @@ const NewsArticleSchema = ({ news }) => {
     },
     headline: news.title,
     description: news.description,
-    image: [`${Const.ClientLink}${news.image}`],
+    image: [`${news.image}`],
     datePublished: news.publishedAt,
     dateModified: news.updatedAt || news.publishedAt,
     author: {
