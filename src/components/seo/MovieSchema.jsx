@@ -38,6 +38,8 @@ const MovieSchema = ({ movie }) => {
           name: `${movie.title} Official Trailer`,
           embedUrl: movie.trailer,
           thumbnailUrl: `${movie.poster}`,
+          description: movie.synopsis,
+          uploadDate: movie._createdAt,
         }
       : undefined,
   };

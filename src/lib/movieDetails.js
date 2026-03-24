@@ -19,6 +19,8 @@ export const getMovieBySlug = async (slug, preview = false) => {
       trailer,
       teaser,
       meta,
+      _createdAt,
+      _updatedAt,
       "backgroundVideo": backgroundVideo.asset->url,
       "poster": poster.asset->url,
       "slug": slug.current,

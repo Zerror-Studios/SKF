@@ -27,6 +27,8 @@ const MovieDetails = ({
 }) => {
   if (!movie) return null;
   const hasGallery = subAlbums && subAlbums.length > 0;
+  console.log(movie);
+  
 
   return (
     <>
