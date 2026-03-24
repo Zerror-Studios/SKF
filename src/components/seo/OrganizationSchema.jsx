@@ -24,6 +24,7 @@ const OrganizationSchema = ({
           addressLocality: address.addressLocality,
           addressRegion: address.addressRegion,
           postalCode: address.postalCode,
+          addressCountry: address.addressCountry,
         }
       : undefined,
     contactPoint: contact
