@@ -10,7 +10,7 @@ const MovieSchema = ({ movie }) => {
     "@id": `${Const.ClientLink}/movies/${movie.slug}#movie`,
     name: movie.title,
     url: `${Const.ClientLink}/movies/${movie.slug}`,
-    image: `${Const.ClientLink}${movie.poster}`,
+    image: `${movie.poster}`,
     description: movie.synopsis,
     datePublished: movie.year.toString(),
     inLanguage: "hi-IN",
@@ -37,7 +37,7 @@ const MovieSchema = ({ movie }) => {
           "@type": "VideoObject",
           name: `${movie.title} Official Trailer`,
           embedUrl: movie.trailer,
-          thumbnailUrl: `${Const.ClientLink}${movie.poster}`,
+          thumbnailUrl: `${movie.poster}`,
         }
       : undefined,
   };
