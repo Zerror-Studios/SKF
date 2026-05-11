@@ -73,7 +73,7 @@ export async function getStaticProps() {
       heroSection,
       homeTopMovie,
       directorSpotlight,
-      highlightsData: blogs,
+      highlightsData: blogs.slice(0, 4),
       albums,
       upcomingRelease,
       homeAbout,

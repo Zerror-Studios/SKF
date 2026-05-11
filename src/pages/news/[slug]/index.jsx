@@ -50,7 +50,7 @@ export async function getStaticProps({ params, preview = false }) {
   return {
     props: {
       newsData,
-      highlightsData,
+      highlightsData : highlightsData.slice(0, 3),
       contact,
       preview,
     },
